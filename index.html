@@ -1,4 +1,3 @@
-<!-- LAST UPDATE: 24 Octoঈber 2026 (Bangladesh time, UTC+06:00) — DASH smooth ABR update -->
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -9,8 +8,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.16.2/dist/controls.css">
-<meta name="description" content="SPORTYNOVA — premium live sports and TV streaming hub.">
-<title>SPORTYNOVA 1.0 — Live TV</title>
+<meta name="description" content="Rs Streem — premium live sports and TV streaming hub.">
+<title>Rs Streem — Live TV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -22,11 +21,10 @@
 .playersticky{flex:0 0 auto;position:relative;z-index:2;background:var(--bg);padding-bottom:8px}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 2px 9px}.sectionhead h2{font-size:15px;margin:0;font-weight:700}.livepill{font-size:10px;font-weight:800;letter-spacing:.5px;color:#fff;background:var(--red);padding:6px 9px;border-radius:7px;white-space:nowrap}.contactbox{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;min-width:0}.contacttext{font-size:9px;line-height:1.25;color:#aebbd0;text-align:right;max-width:120px}.contactlink{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:10px;font-weight:800;color:#fff;padding:7px 9px;border-radius:7px;white-space:nowrap;border:1px solid #2b3850;background:#182133}.contactlink.telegram{background:#168bc3;border-color:#168bc3}.contactlink.whatsapp{background:#168b55;border-color:#168b55}.searchhint{font-size:11px;color:#9aa7bd;margin:0 2px 8px}.playercard{background:#0d111c;border:1px solid #242d40;border-radius:16px;overflow:hidden}.screen{position:relative;background:#03050a;aspect-ratio:16/9;display:grid;place-items:center;overflow:hidden}.screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#020307}.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:radial-gradient(ellipse at center,#182237 0,#080a12 72%);z-index:1}.tvicon{font-size:34px}.empty strong{font-size:14px;margin-top:9px}.empty span{font-size:11px;color:#8793aa;margin-top:5px}.playerfoot{padding:8px 11px;border-top:1px solid #1c2536;display:flex;align-items:center;justify-content:space-between;gap:8px}.noticebar{height:34px;margin-top:7px;display:flex;align-items:center;gap:9px;overflow:hidden;border:1px solid #26364b;border-radius:9px;background:linear-gradient(90deg,#111b2a,#0b1220);white-space:nowrap}.notice-label{height:100%;display:flex;align-items:center;flex:0 0 auto;padding:0 10px;background:linear-gradient(120deg,#13c9e9,#0879b5);color:#04131b;font-size:10px;font-weight:900;letter-spacing:.5px}.notice-window{position:relative;flex:1;min-width:0;overflow:hidden;height:100%;display:flex;align-items:center}.notice-text{display:inline-block;flex:0 0 auto;padding-left:0;font-size:11px;font-weight:600;color:#eaf7ff;animation:noticeMove 32s linear infinite}@keyframes noticeMove{from{transform:translateX(100%)}to{transform:translateX(-100%)}}.noticebar:hover .notice-text{animation-play-state:paused}.nowtitle{font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nowmeta{font-size:10px;color:var(--muted);margin-top:3px}.playeractions{display:flex;gap:6px;flex:0 0 auto}.btn{border:1px solid #2b3850;background:#182133;color:#eaf5ff;padding:8px 10px;border-radius:9px;font-size:10px;font-weight:700;cursor:pointer}
 .channelarea{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 0 20px;scrollbar-width:thin;scrollbar-color:#344057 transparent}.channelarea .sectionhead{margin:8px 2px 9px;padding:11px 12px;background:linear-gradient(100deg,#111b2a,#0d111c);border:1px solid #243149;border-radius:12px}.section-count{font-size:10px;color:#8190a7;white-space:nowrap}.channelrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.channelrow.sportsrow{grid-template-columns:repeat(2,minmax(0,1fr))}.channelrow.sportsrow .channel{min-height:118px;padding:12px 6px}.channelrow.sportsrow .chlogo{height:48px;margin-bottom:9px}.channelrow.sportsrow .chlogo img{max-width:100%;height:46px}.channel{cursor:pointer;min-width:0;border:1px solid #252e42;background:linear-gradient(150deg,#171d2b,#0e121c);border-radius:15px;padding:10px 4px;text-align:center;color:#fff;min-height:105px}.channel.active{border-color:var(--cyan);box-shadow:0 0 0 1px #18d6f344,0 0 18px #18d6f31b;background:#10212c}.chlogo{height:34px;display:grid;place-items:center;margin-bottom:7px;font-size:18px;font-weight:900}.chlogo img{display:block;width:100%;max-width:76px;height:34px;object-fit:contain;border-radius:5px}.chlogo .logo-fallback{font-size:18px;line-height:1}.chlogo.red{color:#ff334d}.chlogo.blue{color:#39bdf7}.chlogo.gold{color:#f9ca52}.chlogo.purple{color:#d6a3ff}.chlogo.green{color:#40e0a0}.chname{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chcat{font-size:9px;color:#7f8ba1;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sportsrow{grid-template-columns:repeat(2,minmax(0,1fr))!important}.sportsrow .channel{min-height:118px;padding:12px 6px}.sportsrow .chlogo{height:48px;margin-bottom:9px}.sportsrow .chlogo img{max-width:100%;height:46px}.category-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:minmax(34px,auto);gap:7px;padding:2px 1px 10px;margin:0 0 8px;overflow:visible}.category-tab{min-width:0;width:100%;border:1px solid #2a354a;background:#121927;color:#b8c4d8;border-radius:12px;padding:8px 3px;font-size:10px;font-weight:700;line-height:1.2;white-space:normal;overflow-wrap:anywhere;cursor:pointer}.category-tab.active{background:linear-gradient(120deg,#12bfe3,#0878b6);border-color:#18d6f3;color:#04131b;box-shadow:0 0 12px #18d6f322}.footer{text-align:center;color:#657187;font-size:10px;padding:18px 0 10px}
 .modal{display:none;position:fixed;inset:0;background:#000b;z-index:30;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.modalbox{width:min(480px,100%);background:#111725;border:1px solid #34405a;border-radius:16px;padding:17px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modalhead h3{font-size:15px;margin:0}.xbtn{background:#252e40;border:0;color:#fff;border-radius:8px;padding:7px 10px}.fieldlabel{display:block;font-size:11px;color:#9eabc0;margin:11px 0 6px}.field{width:100%;border:1px solid #303b50;background:#090e18;color:white;border-radius:9px;padding:11px;font-size:12px;outline:none}.hint{font-size:10px;color:#7d8ba1;line-height:1.6;margin-top:10px}.modalbuttons{display:flex;gap:8px;margin-top:13px}.modalbuttons .btn{flex:1}.primary{background:linear-gradient(120deg,#12bfe3,#0878b6);border:0;color:#03121b}
-
 .serverchoices{display:grid;gap:9px}.serverchoice{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:1px solid #2d3a52;background:linear-gradient(120deg,#182438,#101725);color:#f4f7ff;padding:13px;border-radius:11px;text-align:left;cursor:pointer}.serverchoice:disabled{opacity:.48;cursor:not-allowed}.serverchoice strong{font-size:12px}.serverchoice span{font-size:10px;color:#8d9bb1}.serverchoice.ready{border-color:#18a9c5}
 @media(max-width:420px){.contactbox{gap:4px}.contacttext{font-size:8px;max-width:76px}.contactlink{font-size:9px;padding:6px 7px}.sectionhead h2{font-size:13px}.category-tabs{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.category-tab{font-size:9px;padding:8px 2px;border-radius:10px}.wrap{padding:9px 9px 0}.topbar{padding:9px}.brandicon{width:33px;height:33px;flex-basis:33px}.tagline{font-size:8px;letter-spacing:.8px}.screen{aspect-ratio:16/9}.playerfoot{padding:7px 9px}.playeractions .btn{padding:7px 8px}.channelrow{gap:6px}.channel{padding:9px 3px;min-height:102px}.chlogo{height:30px;font-size:16px}.chlogo img{height:30px;max-width:68px}.chname{font-size:9px}.chcat{font-size:8px}.channelrow.sportsrow .channel{min-height:112px;padding:10px 5px}.channelrow.sportsrow .chlogo{height:42px}.channelrow.sportsrow .chlogo img{height:40px;max-width:100%}}
 
-/* SPORTYNOVA premium refresh */
+/* Rs Streem premium refresh */
 :root{--bg:#070912;--panel:#101624;--panel2:#151e2e;--line:#28354b;--cyan:#21d8f4;--red:#ff4264;--muted:#98a5bb;--text:#f5f8ff;--gold:#ffd166}
 body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),var(--bg)}
 .wrap{max-width:1180px;padding-left:12px;padding-right:12px}
@@ -56,7 +54,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 @media(max-width:420px){.wrap{padding-left:8px;padding-right:8px}.topbar{border-radius:18px}.playercard{border-radius:18px}.channel{border-radius:15px}.category-tab{min-width:72px;padding:9px 10px}.channelrow.sportsrow .chname{font-size:10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
 
-
 /* Premium player controls and connection states */
 .screen{isolation:isolate;min-height:190px}
 .playerLiveBadge{display:none;position:absolute;left:12px;top:12px;z-index:6;padding:6px 9px;border-radius:7px;background:#f23656;color:#fff;font-size:10px;font-weight:900;letter-spacing:.8px;box-shadow:0 0 20px #ff315744}
@@ -72,7 +69,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .playeractions{flex-wrap:wrap;justify-content:flex-end}.playeractions .btn{min-height:34px}
 .playercard:fullscreen{width:100%;height:100%;border:0;border-radius:0;background:#000;display:flex;flex-direction:column}.playercard:fullscreen .screen{flex:1;aspect-ratio:auto;min-height:0}.playercard:fullscreen .playerfoot{flex:0 0 auto}
 @media(max-width:420px){.playerfoot{align-items:flex-start;flex-wrap:wrap}.playerfoot>div:first-child{width:100%}.playeractions{width:100%;justify-content:flex-end}.playeractions .btn{flex:0 0 auto}.screenFullBtn{width:33px;height:31px}.playerLoading strong{font-size:13px}}
-
 
 /* Compact player info panel: keep all existing actions on one row on mobile. */
 .playerfoot{padding:7px 10px;min-height:0;gap:7px;align-items:center}
@@ -92,7 +88,7 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
  #qualitySelect{width:65px;max-width:65px!important;padding:5px 2px!important}
 }
 
-/* SPORTYNOVA requested update: branded wait screen, two-row categories, shorter live player */
+/* Rs Streem requested update: branded wait screen, two-row categories, shorter live player */
 .screen{aspect-ratio:16/7.8;min-height:145px;max-height:280px}
 @media(max-width:420px){.screen{aspect-ratio:16/8.2;min-height:135px;max-height:205px}}
 @media(min-width:700px){.screen{aspect-ratio:16/7.5;min-height:220px;max-height:440px}}
@@ -102,7 +98,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .playerLoading strong{font-size:clamp(15px,4vw,21px);font-weight:900;letter-spacing:.35px;color:#f5fbff;text-shadow:0 0 18px #21d8f455}
 .playerLoading span{font-size:12px;color:#b8c7dc}
 .playerLoading .loaderRing{width:32px;height:32px}
-/* The requested waiting overlay is shown only during stream startup/fallback. */
 
 /* Compact channel cards: reduce height only; keep existing features and layout */
 .channel{min-height:82px!important;padding:7px 4px!important}
@@ -152,7 +147,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
   .playersticky .screen{aspect-ratio:16/10 !important}
 }
 
-
 /* Final player-fit fix: keep every supported player aligned to the full responsive screen. */
 .playersticky .playercard{width:100%;min-width:0}
 .playersticky .screen{
@@ -163,14 +157,10 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .playersticky .screen>video{
   position:absolute!important;inset:0!important;display:block!important;
   width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;
-  max-width:none!important;max-height:none!important;object-fit:contain!important;
+  max-width:none!important;max-height:none!important;object-fit:var(--video-fit,cover)!important;
   object-position:center center!important;background:#000!important;margin:0!important;padding:0!important
 }
-
-
 @media(max-width:420px){.playersticky .screen{aspect-ratio:16/9!important;min-height:0!important;max-height:none!important}}
-
-
 
 /* Compact spacing + shorter notice bar update */
 .playersticky{padding-bottom:3px!important}
@@ -193,7 +183,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .sports-badge-row .sports-status{margin:0!important;flex:0 0 auto;white-space:nowrap}
 .sports-type{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:3px 7px;border:1px solid #65728a;border-radius:999px;background:#202a3b;color:#dbe7ff;font-size:9px;font-weight:900;letter-spacing:.35px;line-height:1.2;white-space:nowrap}
 .sports-type.is-football{border-color:#278c63;background:#123a2b;color:#8cf0bc}
-
 @media(max-width:420px){.channelrow.sportsrow .channel{min-height:0!important;height:auto!important;padding:4px 4px 5px!important;gap:0!important}.channelrow.sportsrow .chlogo{height:58px!important;margin:0 0 3px!important;padding:0!important}.channelrow.sportsrow .chlogo img{height:56px!important;max-height:56px!important;width:100%!important;max-width:100%!important;object-fit:contain!important}.sports-badge-row{gap:3px;margin:0 auto 3px!important}.sports-status{font-size:8px;padding:3px 6px;margin:0!important}.sports-type{font-size:8px;padding:3px 5px}.sports-badge-row{gap:3px!important;flex-wrap:nowrap!important}.channelrow.sportsrow .chname{margin:0!important;padding:0!important;line-height:1.2!important}}
 /* Final match-card spacing: logo starts near card top; team name sits close under status, without extra blank padding. */
 .channelrow.sportsrow .channel{min-height:0!important;height:auto!important;padding:5px 5px 6px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:0!important}
@@ -202,7 +191,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .channelrow.sportsrow .sports-status{margin:0 auto 4px!important;flex:0 0 auto!important}
 .channelrow.sportsrow .chname{margin:0!important;padding:0!important;flex:0 0 auto!important;line-height:1.2!important}
 @media(min-width:421px){.channelrow.sportsrow .chlogo{height:64px!important}.channelrow.sportsrow .chlogo img{height:62px!important;max-height:62px!important}}
-
 
 /* Replacement standalone-style video player controls */
 .playersticky .screen{position:relative!important}
@@ -230,7 +218,7 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 /* Landscape: use the full safe viewport and let video credits remain visible. */
 .playercard:fullscreen,.playercard:-webkit-full-screen{width:100vw!important;height:100vh!important;height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;box-sizing:border-box!important;padding-bottom:env(safe-area-inset-bottom,0px)!important}
 .playercard:fullscreen .screen,.playercard:-webkit-full-screen .screen{flex:1 1 auto!important;min-height:0!important;width:100%!important;aspect-ratio:auto!important}
-.playercard:fullscreen .screen video,.playercard:-webkit-full-screen .screen video{object-fit:contain!important}
+.playercard:fullscreen .screen video,.playercard:-webkit-full-screen .screen video{object-fit:var(--video-fit,cover)!important}
 .playercard.mobile-rotated{height:100vh!important;height:100dvh!important;max-height:100dvh!important;overflow:hidden!important;padding-bottom:env(safe-area-inset-bottom,0px)!important;box-sizing:border-box!important}
 .playercard.mobile-rotated .nova-controls{padding:24px 12px calc(10px + env(safe-area-inset-bottom,0px))!important}
 .playercard.controls-hidden .nova-controls{opacity:0!important;pointer-events:none!important}
@@ -242,16 +230,14 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .swipe-hud{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9;display:none;align-items:center;gap:9px;min-width:112px;justify-content:center;padding:12px 16px;border:1px solid #ffffff30;border-radius:14px;background:rgba(5,10,20,.86);color:#fff;font-size:13px;font-weight:800;pointer-events:none;backdrop-filter:blur(8px)}
 .swipe-hud.visible{display:flex}.swipe-hud .swipe-icon{font-size:20px}.swipe-hud .swipe-detail{display:flex;flex-direction:column;gap:4px}.swipe-hud .swipe-label{font-size:10px;color:#c9d6e8;font-weight:600}.swipe-hud .swipe-meter{height:3px;width:74px;border-radius:5px;background:#ffffff35;overflow:hidden}.swipe-hud .swipe-meter span{display:block;height:100%;width:50%;background:#21d8f4;border-radius:5px}
 
-
 .update-stamp{flex:0 0 auto;text-align:center;color:#9eacc2;font-size:10px;line-height:1.3;padding:0 4px 5px;letter-spacing:.15px}
 .center-play-pause{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff70;border-radius:50%;background:#07111dcc;color:#fff;font-size:24px;box-shadow:0 4px 24px #0008;backdrop-filter:blur(5px);cursor:pointer}
 .center-play-pause:active{transform:translate(-50%,-50%) scale(.94)}
 .center-play-pause.is-playing{opacity:0;transition:opacity .2s}
 .playersticky .screen{aspect-ratio:16/10!important;min-height:0!important}
-.playersticky .screen>video{object-fit:cover!important;object-position:center center!important}
-.playercard:fullscreen .screen>video,.playercard:-webkit-full-screen .screen>video,.playercard.mobile-rotated .screen>video{object-fit:contain!important}
+.playersticky .screen>video{object-fit:var(--video-fit,cover)!important;object-position:center center!important}
+.playercard:fullscreen .screen>video,.playercard:-webkit-full-screen .screen>video,.playercard.mobile-rotated .screen>video{object-fit:var(--video-fit,cover)!important}
 @media(max-width:420px){.update-stamp{font-size:9px;padding-bottom:4px}.center-play-pause{width:50px;height:50px;font-size:22px}}
-
 
 /* Automatic two-team identity badges for Live Sports match cards */
 .team-logos{display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,18px);width:100%;height:100%;min-height:58px;margin:0 auto 4px}
@@ -260,10 +246,6 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 .team-logo-fallback{display:grid;place-items:center;width:clamp(34px,10vw,52px);height:clamp(34px,10vw,52px);border-radius:50%;font-size:13px;font-weight:900;color:#eafaff;background:linear-gradient(135deg,#126b91,#162c49);border:1px solid #2dcdf0}
 .team-logo small{font-size:8px;color:#d9e8f6;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .team-vs{font-size:10px;font-weight:900;color:#1bd4f2;text-shadow:0 0 8px #1bd4f266}
-
-
-/* Server buttons are shown temporarily by the player tap handler, then hidden. */
-.playercard.sports-player-mode .sports-server-row{transition:opacity .18s ease,transform .18s ease,visibility .18s ease!important}
 </style>
 
 <style>
@@ -280,11 +262,9 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 }
 </style>
 
-
-
 <style>
 /* One consistent player UI for HLS and DASH. Never allow Shaka/native controls
-   to cover the SPORTYNOVA server strip or replace the custom controls. */
+   to cover the Rs Streem server strip or replace the custom controls. */
 .playersticky .screen .nova-controls{display:block!important;z-index:15!important;}
 .playersticky .screen #centerPlayPause{z-index:14!important;}
 .playersticky .screen video{z-index:1!important;}
@@ -316,8 +296,7 @@ body{background:radial-gradient(ellipse at 50% -20%,#14253b 0,transparent 45%),v
 }
 </style>
 
-
-<style id="sportynova-ui-polish">
+<style id="rsstreem-ui-polish">
 /* UI polish only — existing player, stream logic, IDs and controls are preserved. */
 :root{
   --ui-glass:rgba(15,22,36,.88);
@@ -502,7 +481,7 @@ body{
 .playercard.sports-player-mode .sports-server-row #inlineServerGroup::-webkit-scrollbar{display:none!important}
 .playercard.sports-player-mode .sports-server-row .inline-server-btn{height:29px!important;min-height:29px!important;padding:0 9px!important;border-radius:7px!important;flex:0 0 auto!important;font-size:10px!important;white-space:nowrap!important}
 .playercard.sports-player-mode .sports-server-row .inline-server-btn.active{background:linear-gradient(135deg,#12394a,#102638)!important;border-color:#21d8f4!important;color:#aaf5ff!important}
-.playercard.sports-player-mode .screen video{object-fit:contain!important}
+.playercard.sports-player-mode .screen video{object-fit:var(--video-fit,cover)!important}
 @media(max-width:600px){.playercard.sports-player-mode .sports-server-row{left:15%!important;right:18%!important;bottom:11px!important;height:32px!important;min-height:32px!important;max-height:32px!important;padding:0 3px!important;gap:3px!important}.playercard.sports-player-mode .sports-server-row .inline-server-btn{height:26px!important;min-height:26px!important;padding:0 7px!important;font-size:9px!important}}
 @media(orientation:landscape){.playercard.sports-player-mode:fullscreen .sports-server-row,.playercard.sports-player-mode:-webkit-full-screen .sports-server-row,.playercard.sports-player-mode.mobile-rotated .sports-server-row{left:14%!important;right:18%!important;bottom:13px!important;display:flex!important;z-index:100002!important}}
 </style>
@@ -560,7 +539,7 @@ body{
 <div class="wrap">
 <div class="update-stamp">শেষ আপডেট: ২৪ অক্টোবর ২০২৬ (বাংলাদেশ সময়)</div>
 <header class="topbar">
- <div class="brand"><div class="brandicon">▶</div><div><div class="brandname"><span>SPORTY</span><span class="nova">NOVA</span><span class="version">1.0</span></div><div class="tagline">WATCH LIVE · ANYTIME · ANYWHERE</div></div></div>
+ <div class="brand"><div class="brandicon">▶</div><div><div class="brandname"><span>Rs</span><span class="nova"> Streem</span></div><div class="tagline">WATCH LIVE · ANYTIME · ANYWHERE</div></div></div>
  <input id="search" class="search" placeholder="Search channels…" aria-label="Search channel">
 </header>
 <section class="playersticky">
@@ -569,7 +548,7 @@ body{
   <div class="screen" id="playerScreen">
    <video id="video" playsinline webkit-playsinline preload="auto" autoplay></video>
    <div class="swipe-hud" id="swipeHud" aria-live="polite"><span class="swipe-icon" id="swipeIcon">☀️</span><span class="swipe-detail"><span id="swipeValue">100%</span><span class="swipe-label" id="swipeLabel">Brightness</span><span class="swipe-meter"><span id="swipeMeterFill"></span></span></span></div>
-   <div class="empty" id="empty"><div class="tvicon">📺</div><strong>SPORTYNOVA LIVE TV</strong><span>নিচের তালিকা থেকে একটি চ্যানেল নির্বাচন করুন</span></div>
+   <div class="empty" id="empty"><div class="tvicon">📺</div><strong>Rs Streem LIVE TV</strong><span>নিচের তালিকা থেকে একটি চ্যানেল নির্বাচন করুন</span></div>
    <div class="playerLoading" id="playerLoading" role="status" aria-live="polite"><strong id="loadingTitle">অনুগ্রহপূর্বক ৭ থেকে ১০ সেকেন্ড অপেক্ষা করুন</strong><span id="loadingMessage">Please Wait 7 to 10 Seconds.<br>অপেক্ষা করার জন্য ধন্যবাদ</span><button class="btn retryOverlay" id="retryBtn" style="display:none">↻ আবার চেষ্টা করুন</button></div>
    <button class="center-play-pause" id="centerPlayPause" type="button" aria-label="ভিডিও চালান">▶</button>
    <div class="sports-server-row" id="sportsServerRow" aria-label="Live Sports servers"></div>
@@ -579,7 +558,7 @@ body{
      <button class="nova-control-btn" id="playPauseBtn" aria-label="Play/Pause">▶</button>
      <button class="nova-control-btn" id="muteBtn" aria-label="Mute">🔊</button>
      <span class="nova-control-spacer"></span>
-      <select class="btn" id="qualitySelect" aria-label="ভিডিও কোয়ালিটি" style="display:none;max-width:112px;padding:5px 4px"><option value="auto">Quality: Auto</option></select>
+      <select class="btn" id="qualitySelect" aria-label="ভিডিও কোয়ালিটি" style="display:none;max-width:112px;padding:5px 4px"><option value="auto">Quality: Auto</option></select>
      <span id="serverGroupHome" aria-hidden="true"></span><span class="inline-server-group" id="inlineServerGroup" aria-label="সার্ভার নির্বাচন"><span class="server-empty-label">Server list</span></span>
      <button class="nova-control-btn" id="pipBtn" aria-label="Picture in Picture">▣</button>
      <button class="nova-control-btn" id="fullscreenBtn" aria-label="Fullscreen">⛶</button>
@@ -588,8 +567,7 @@ body{
   </div>
   <div class="playerfoot"><div style="min-width:0;flex:1"><div class="nowtitle" id="nowTitle">একটি চ্যানেল নির্বাচন করুন</div><div class="nowmeta" id="nowMeta">HLS, MPEG-DASH ও দ্রুত Player</div></div><div class="playeractions"><button class="btn" id="customBtn">URL</button><button class="btn" id="stopBtn">■ STOP</button></div></div>
  </div>
- <div class="noticebar" role="status" aria-label="লাইভ নোটিশ"><div class="notice-label">📢 NOTICE</div><div class="notice-window"><span class="notice-text" id="noticeText">SPORTYNOVA PREMIUM — স্বাগতম! 🔴 লাইভ চ্যানেল দেখতে নিচের তালিকা থেকে নির্বাচন করুন। কোনো stream কাজ না করলে অন্য server চেষ্টা করুন। আপনাদের আরও ভালো অভিজ্ঞতার জন্য আমরা নিয়মিত আপডেট করছি। ❤️
-।</span></div></div>
+ <div class="noticebar" role="status" aria-label="লাইভ নোটিশ"><div class="notice-label">📢 NOTICE</div><div class="notice-window"><span class="notice-text" id="noticeText">Rs Streem — স্বাগতম! 🔴 লাইভ চ্যানেল দেখতে নিচের তালিকা থেকে নির্বাচন করুন। কোনো stream কাজ না করলে অন্য server চেষ্টা করুন। আপনাদের আরও ভালো অভিজ্ঞতার জন্য আমরা নিয়মিত আপডেট করছি। ❤️</span></div></div>
 </section>
 <main class="channelarea" id="channelArea">
  <div class="sectionhead"><h2>⚽ Live Sports</h2><span class="section-count" id="liveSportsCount">0 CHANNELS</span></div>
@@ -597,11 +575,10 @@ body{
  <div class="sectionhead"><h2>📺 Live TV Channels</h2><span class="section-count" id="channelCount">0 CHANNELS</span></div>
  <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Channel categories"></div>
  <div id="categorySections"></div>
- <div class="footer">© 2026 SPORTYNOVA 1.0 ·Thanks </div>
+ <div class="footer">© 2026 Rs Streem · Thanks</div>
 </main>
 </div>
 
-<div class="modal" id="adminModal" aria-hidden="true"><div class="modalbox adminbox"><div class="modalhead"><h3>🔐 SPORTYNOVA Admin</h3><button class="xbtn" id="adminClose" type="button">✕</button></div><div id="adminLoginView"><p class="hint">অ্যাডমিন প্যানেলে প্রবেশের পাসওয়ার্ড দিন।</p><label class="fieldlabel" for="adminPassword">Admin password</label><input class="field" id="adminPassword" type="password" autocomplete="current-password" placeholder="Admin password"><div class="modalbuttons"><button class="btn primary" id="adminLoginBtn" type="button">Login</button></div><p class="hint" id="adminLoginMessage" role="status"></p></div><div id="adminDashboard" hidden><div class="admin-stats"><div><small>মোট চ্যানেল</small><strong id="adminTotal">0</strong></div><div><small>অনলাইন</small><strong id="adminOnline">0</strong></div><div><small>অফলাইন</small><strong id="adminOffline">0</strong></div></div><div class="admin-toolbar"><input class="field" id="adminSearch" placeholder="চ্যানেল খুঁজুন…"><button class="btn" id="adminRefresh" type="button">↻ Refresh</button></div><div id="adminChannelList" class="admin-channel-list"></div><p class="hint" id="adminMessage" role="status"></p><button class="btn" id="adminLogout" type="button">Logout</button></div></div></div>
 <div class="modal" id="urlModal"><div class="modalbox"><div class="modalhead"><h3>Stream URL চালান</h3><button class="xbtn" data-close>✕</button></div><label class="fieldlabel" for="streamName">চ্যানেলের নাম</label><input class="field" id="streamName" placeholder="My Live Channel"><label class="fieldlabel" for="streamUrl">অনুমোদিত stream URL</label><input class="field" id="streamUrl" placeholder="https://example.com/live/manifest.mpd|drmScheme=clearkey&drmLicense=KID:KEY"><div class="hint">HLS (.m3u8), MPEG-DASH (.mpd), MP4/WebM এবং browser-supported direct media সাপোর্ট করে। লিংকটি কাজ করতে source server-এর CORS, access token, codec ও DRM অনুমতি ঠিক থাকতে হবে।</div><div class="modalbuttons"><button class="btn" data-close>বাতিল</button><button class="btn primary" id="playCustom">চালান</button></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.16.2/dist/shaka-player.ui.min.js"></script>
@@ -738,9 +715,9 @@ function render(list=channels){
  const items=searching?filtered:filtered.filter(ch=>categoryFor(ch)===selectedCategory);
  const head=document.createElement("div");head.className="sectionhead";
  const h=document.createElement("h2");h.textContent=searching?"🔎 Search Results":categoryInfo[selectedCategory].title;
- const tools=document.createElement("div");tools.className="channel-section-tools";const pill=document.createElement("span");pill.className="online-pill";pill.id="onlinePill";pill.innerHTML='<span class="online-dot"></span> ONLINE: 0/'+channels.filter(ch=>categoryFor(ch)===selectedCategory).length;const adminBtn=document.createElement("button");adminBtn.type="button";adminBtn.className="admin-open-btn";adminBtn.textContent="🔐 ADMIN";adminBtn.addEventListener("click",openAdminPanel);tools.append(pill,adminBtn);head.append(h,tools);root.appendChild(head);
+ const count=document.createElement("span");count.className="section-count";count.textContent=items.length+" CHANNELS";head.append(h,count);root.appendChild(head);
  const row=document.createElement("div");row.className="channelrow"+(!searching&&selectedCategory==="Sports"?" sportsrow":"");
- if(!items.length){const empty=document.createElement("div");empty.className="hint";empty.textContent=searching?"এই নামে কোনো চ্যানেল পাওয়া যায়নি।":"এই ক্যাটাগরিতে কোনো চ্যানেল পাওয়া যায়নি।";root.appendChild(empty)}
+ if(!items.length){const empty=document.createElement("div");empty.className="hint";empty.textContent=searching?"এই নামে কোনো চ্যানেল পাওয়া যায়নি।":"এই ক্যাটাগরিতে কোনো চ্যানেল পাওয়া যায়নি।";root.appendChild(empty)}
  items.forEach(ch=>makeChannelCard(ch,row,searching?categoryFor(ch):categoryInfo[selectedCategory].title.replace(/^[^ ]+\s/,""),false));
  if(items.length)root.appendChild(row);
 }
@@ -810,7 +787,7 @@ function setupShakaQualities(){
   });
   const active=tracks.find(t=>t.active);
   const options=[...byHeight.entries()].sort((a,b)=>b[0]-a[0])
-   .map(([height,t])=>({value:String(t.id),label:height+"p"+(active&&Number(active.height)===height?" ✓ চলছে":"")}));
+   .map(([height,t])=>({value:String(t.id),label:height+"p"+(active&&Number(active.height)===height?" ✓":"")}));
   showQualityOptions(options,"shaka");
   if(active){
    const sel=$("qualitySelect");
@@ -852,7 +829,7 @@ function stopEngines(){
   delete video.dataset.currentUrl;
   activeKey=null;
 }
-function showStatus(title,meta){$("nowTitle").textContent=title;$("nowMeta").textContent=meta;if(/playing/i.test(meta)){setLiveBadge(true);setPlayerLoading(false)}else{setLiveBadge(false);/* Never cover the video surface or inline server controls with an error overlay. */setPlayerLoading(false);}}
+function showStatus(title,meta){$("nowTitle").textContent=title;$("nowMeta").textContent=meta;if(/playing/i.test(meta)){setLiveBadge(true);setPlayerLoading(false)}else{setLiveBadge(false);setPlayerLoading(false);}}
 function parseStreamInput(raw, drmFromJson=null){
  const text=String(raw||"").trim();
  // Only the pipe-delimited suffix is player metadata. Preserve signed/query URLs intact.
@@ -869,7 +846,6 @@ function parseStreamInput(raw, drmFromJson=null){
 }
 function streamKind(url){
  // Detect the manifest extension from the URL path, ignoring query tokens and fragments.
- // Also accept common manifest hints when providers use extensionless URLs.
  const raw=String(url||"").split("|")[0].trim();
  let path="",query="";
  try{const u=new URL(raw,location.href);path=u.pathname.toLowerCase();query=(u.search+" "+u.hash).toLowerCase()}
@@ -888,15 +864,10 @@ function hideSportsServers(){
 }
 function showSportsServers(){
  if(!playerCard.classList.contains("sports-player-mode"))return;
- // Reveal the server buttons briefly; every tap restarts the four-second timer.
  playerCard.classList.add("servers-visible");
  if(serverPopupTimer)clearTimeout(serverPopupTimer);
- serverPopupTimer=setTimeout(()=>{
-   serverPopupTimer=null;
-   playerCard.classList.remove("servers-visible");
- },4000);
+ serverPopupTimer=setTimeout(hideSportsServers,4000);
 }
-// A tap on the video/player reveals the server strip for four seconds.
 $("playerScreen").addEventListener("pointerdown",e=>{
  if(!playerCard.classList.contains("sports-player-mode"))return;
  if(e.target.closest(".sports-server-row")){
@@ -905,8 +876,7 @@ $("playerScreen").addEventListener("pointerdown",e=>{
  }
  showSportsServers();
 },{passive:true});
-// Tapping a server starts playback and restarts the four-second auto-hide timer.
-sportsServerRow.addEventListener("click",(e)=>{showSportsServers(); if(e.target.closest(".inline-server-btn")){e.stopPropagation();}});
+sportsServerRow.addEventListener("click",()=>showSportsServers());
 function setPlayerMode(sportsMode){
  if(!sportsMode)hideSportsServers();
  playerCard.classList.toggle("sports-player-mode",!!sportsMode);
@@ -929,7 +899,6 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
  $("empty").style.display="none";
  setLiveBadge(false);
  hideQualitySelector();
- // Do not cover the video with a loading overlay; start the stream immediately.
  setPlayerLoading(false);
  video.dataset.currentUrl=rawUrl;
  if(currentServerChannel)setInlineServers(currentServerChannel);
@@ -944,10 +913,7 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
  const fail=(reason)=>{
    if(requestId!==playRequestId||settled)return;
    settled=true;clearStartupTimer();
-   console.warn("SPORTYNOVA playback error:",reason||"unknown");
-   // Live Sports: if playback has not started, automatically try the next
-   // available server after the 9-second startup window. Stop after each
-   // server has been tried once to prevent an endless switching loop.
+   console.warn("Rs Streem playback error:",reason||"unknown");
    if(sportsMode && currentServerChannel && isSportsChannel(currentServerChannel)){
      const streams=getChannelStreams(currentServerChannel);
      const currentUrl=String(rawUrl||"").trim();
@@ -957,7 +923,7 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
        const nextIndex=currentIndex<0?0:(currentIndex+1)%streams.length;
        if(String(streams[nextIndex]?.url||"").trim()!==currentUrl){
          window.__sportsAutoSwitchCount=attempts+1;
-         showStatus(name,"ভিডিও চালু হয়নি · পরের সার্ভারে স্বয়ংক্রিয়ভাবে চেষ্টা করা হচ্ছে…");
+         showStatus(name,"ভিডিও চালু হয়নি · পরের সার্ভারে স্বয়ংক্রিয়ভাবে চেষ্টা করা হচ্ছে…");
          playSelectedServer(nextIndex+1);
          return;
        }
@@ -971,12 +937,10 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
      playStream(backup,name,category,drm,remaining);
      return;
    }
-   // Keep the player surface and inline Server 1 / Server 2 controls visible on failure.
-   // Do not cover the player with the blocking error overlay; the user can switch servers directly.
    setLiveBadge(false);
    setPlayerLoading(false);
    $("nowTitle").textContent=name;
-   $("nowMeta").textContent="Stream চালু হয়নি · প্লেয়ারের Server 1 / Server 2 বাটন চাপুন";
+   $("nowMeta").textContent="Stream চালু হয়নি · প্লেয়ারের Server 1 / Server 2 বাটন চাপুন";
    setInlineServers(currentServerChannel || {name:name,url:rawUrl,category:category});
  };
  const success=(label)=>{
@@ -988,9 +952,6 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
  };
  video.onerror=()=>fail("media error");
  video.onplaying=()=>success(engine);
- // A single startup deadline reports a real failure; it does not start another player.
- // DASH/DRM manifests can take longer than a simple HLS playlist. Keep the
- // loading state alive long enough for legitimate slower connections to start.
  const startupLimit=kind==="mpd"?35000:(sportsMode?15000:(kind==="hls"?20000:15000));
  timer=setTimeout(()=>fail("startup timeout after "+Math.round(startupLimit/1000)+" seconds"),startupLimit);
 
@@ -1003,22 +964,14 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
      activeShaka=new shaka.Player(video);
      activeShaka.configure({
        streaming:{
-         // Smooth DASH playback: retain a larger buffer to absorb brief network dips.
-         bufferingGoal:20,rebufferingGoal:6,bufferBehind:45,lowLatencyMode:false,
-         retryParameters:{timeout:15000,stallTimeout:7000,connectionTimeout:10000,maxAttempts:4,baseDelay:350,backoffFactor:1.6}
+         bufferingGoal:2,rebufferingGoal:1,bufferBehind:15,lowLatencyMode:false,
+         retryParameters:{timeout:12000,stallTimeout:5000,connectionTimeout:8000,maxAttempts:3,baseDelay:300,backoffFactor:1.5}
        },
-       manifest:{retryParameters:{timeout:15000,maxAttempts:4,baseDelay:350,backoffFactor:1.6}},
-       drm:{retryParameters:{timeout:15000,maxAttempts:4,baseDelay:350,backoffFactor:1.6}},
-       abr:{
-         enabled:false,
-         defaultBandwidthEstimate:1800000,
-         bandwidthDowngradeTarget:0.90,
-         bandwidthUpgradeTarget:0.70,
-         switchInterval:15
-       }
+       manifest:{retryParameters:{timeout:12000,maxAttempts:3,baseDelay:300,backoffFactor:1.5}},
+       drm:{retryParameters:{timeout:12000,maxAttempts:3,baseDelay:300,backoffFactor:1.5}},
+       abr:{enabled:true,defaultBandwidthEstimate:350000,bandwidthDowngradeTarget:0.90,bandwidthUpgradeTarget:0.85}
      });
      activeShaka.addEventListener("error",evt=>fail("Shaka error "+(evt.detail?.code||"")));
-     // DASH variants may be discovered or updated after the manifest is loaded.
      activeShaka.addEventListener("trackschanged",()=>setupShakaQualities());
      activeShaka.addEventListener("adaptation",()=>setupShakaQualities());
      activeShaka.addEventListener("variantchanged",()=>setupShakaQualities());
@@ -1033,12 +986,10 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
        });
        screenEl.classList.add("shaka-ui-active");
      }else{
-       // Live TV continues to use the existing SPORTYNOVA controls.
        screenEl.classList.remove("shaka-ui-active");
      }
      const clearKeys={};
      if(parsed.scheme==="clearkey"&&parsed.license){
-       // Supports KID:KEY, with optional UUID dashes and whitespace.
        const p=String(parsed.license).split(":");
        if(p.length===2){
          const kid=p[0].trim().replace(/-/g,"").toLowerCase();
@@ -1051,26 +1002,36 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
      await activeShaka.load(url);
      if(requestId!==playRequestId)return;
 
-     // Start at the lowest available DASH quality, then enable adaptive quality
-     // 30 seconds after playback actually begins to give the stream time to settle.
-     const variants=activeShaka.getVariantTracks().filter(t=>t.height && t.type!=="audio");
-     if(variants.length){
-       const lowestHeight=Math.min(...variants.map(t=>Number(t.height)).filter(Boolean));
-       const lowest=variants.filter(t=>Number(t.height)===lowestHeight).sort((a,b)=>Number(a.bandwidth||0)-Number(b.bandwidth||0))[0];
-       if(lowest){try{activeShaka.selectVariantTrack(lowest,false);}catch(e){}}
+     let lowStartTrack=null;
+     try{
+       const available=activeShaka.getVariantTracks()
+         .filter(t=>t.height && t.type!=="audio" && t.allowedByApplication!==false && t.allowedByKeySystem!==false)
+         .sort((a,b)=>Number(a.bandwidth||0)-Number(b.bandwidth||0));
+       lowStartTrack=available[0]||null;
+       if(lowStartTrack){
+         activeShaka.configure({abr:{enabled:false}});
+         activeShaka.selectVariantTrack(lowStartTrack,true);
+       }
+     }catch(startQualityError){
+       console.warn("Could not force initial low DASH rendition",startQualityError);
      }
      setupShakaQualities();
-     let autoQualityTimerStarted=false;
-     const enableAutoAfterPlayback=()=>{
-       if(autoQualityTimerStarted)return;
-       autoQualityTimerStarted=true;
+
+     const syncDashQuality=()=>setupShakaQualities();
+     video.addEventListener("playing",function dashFirstPlay(){
+       video.removeEventListener("playing",dashFirstPlay);
+       if(requestId!==playRequestId||!activeShaka)return;
        setTimeout(()=>{
-         if(requestId!==playRequestId||!activeShaka||video.paused)return;
-         activeShaka.configure({abr:{enabled:true}});
-         setupShakaQualities();
-       },30000);
-     };
-     video.addEventListener("playing",enableAutoAfterPlayback);
+         if(requestId!==playRequestId||!activeShaka)return;
+         activeShaka.configure({abr:{
+           enabled:true,
+           defaultBandwidthEstimate:350000,
+           bandwidthDowngradeTarget:0.90,
+           bandwidthUpgradeTarget:0.85
+         }});
+         syncDashQuality();
+       },1200);
+     },{once:true});
      video.play().catch(()=>{});
    }else if(kind==="hls"&&window.Hls&&Hls.isSupported()){
      engine="HLS.js";
@@ -1080,38 +1041,21 @@ async function playStream(rawUrl,name="Live TV",category="LIVE TV",drm=null,fall
        manifestLoadingTimeOut:7000,manifestLoadingMaxRetry:2,manifestLoadingRetryDelay:200,
        levelLoadingTimeOut:7000,levelLoadingMaxRetry:2,levelLoadingRetryDelay:200,
        fragLoadingTimeOut:12000,fragLoadingMaxRetry:3,fragLoadingRetryDelay:250,
-       startLevel:0,capLevelToPlayerSize:true,abrEwmaDefaultEstimate:1800000,
+       startLevel:-1,capLevelToPlayerSize:true,abrEwmaDefaultEstimate:1800000,
        abrBandWidthFactor:0.9,abrBandWidthUpFactor:0.75
      });
      activeHls.on(Hls.Events.MEDIA_ATTACHED,()=>{
        if(requestId===playRequestId){activeHls.loadSource(url);}
      });
      activeHls.on(Hls.Events.MANIFEST_PARSED,()=>{
-       if(requestId!==playRequestId)return;
-       // Begin at the lowest HLS level. Switch to automatic adaptation after 30s of playback.
-       try{activeHls.currentLevel=0;}catch(e){}
-       setupHlsQualities();
-       let autoQualityTimerStarted=false;
-       const enableHlsAutoAfterPlayback=()=>{
-         if(autoQualityTimerStarted)return;
-         autoQualityTimerStarted=true;
-         setTimeout(()=>{
-           if(requestId!==playRequestId||!activeHls||video.paused)return;
-           activeHls.currentLevel=-1;
-           setupHlsQualities();
-         },30000);
-       };
-       video.addEventListener("playing",enableHlsAutoAfterPlayback);
-       video.play().catch(()=>{});
+       if(requestId===playRequestId){setupHlsQualities();video.play().catch(()=>{});}
      });
-     activeHls.on(Hls.Events.LEVEL_SWITCHED,()=>setupHlsQualities());
      activeHls.on(Hls.Events.ERROR,(event,data)=>{
        if(requestId!==playRequestId||!data.fatal)return;
        fail("HLS.js "+data.type);
      });
      activeHls.attachMedia(video);
    }else{
-     // Native playback for direct files, transport streams, and browsers with native HLS.
      engine=kind==="hls"?"Native HLS":"Native media";
      video.src=url;
      video.load();
@@ -1124,8 +1068,6 @@ let currentServerChannel=null,currentChannelStreams=[];
 function isSportsChannel(ch){return !!ch && (ch.section==="liveSports" || /live sports|sports/i.test(String(ch.category||"")));}
 function getChannelStreams(ch){
  let streams=Array.isArray(ch.streams)?ch.streams.filter(stream=>stream&&isServerShown(stream)&&String(stream.url||stream.src||"").trim()):[];
- // Keep every visible, usable stream from the match JSON; do not limit to four.
- // Legacy server fields remain supported when there is no streams array.
  if(!streams.length && !Array.isArray(ch.streams)){
   const maxLegacy=isSportsChannel(ch)?50:2;
   for(let i=1;i<=maxLegacy;i++){
@@ -1174,14 +1116,11 @@ function playSelectedServer(index){
  showStatus(currentServerChannel.name||"Live TV",(stream.name||("Server "+index))+" · Connecting…");
  playStream(url,currentServerChannel.name||"Live TV",(currentServerChannel.category||"LIVE TV")+" · "+(stream.name||("Server "+index)),stream.drm||currentServerChannel.drm||null,fallback);
 }
-// Keep player utility icons fixed while the server strip can be swiped horizontally.
 const serverStrip=$("inlineServerGroup");
 if(serverStrip){
  serverStrip.addEventListener("wheel",e=>{if(serverStrip.scrollWidth>serverStrip.clientWidth){e.preventDefault();serverStrip.scrollLeft+=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;}},{passive:false});
  serverStrip.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){serverStrip.scrollBy({left:100,behavior:"smooth"});e.preventDefault()}else if(e.key==="ArrowLeft"){serverStrip.scrollBy({left:-100,behavior:"smooth"});e.preventDefault()}});
 }
-// Fix: the URL button and channels without a stream both call openModal(),
-// but the function was missing, so clicking did nothing.
 function openModal(channelName=""){
  const modal=$("urlModal");
  if(!modal) return;
@@ -1200,65 +1139,11 @@ $("urlModal").addEventListener("click",e=>{if(e.target===$("urlModal"))$("urlMod
 document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".modal.open").forEach(m=>m.classList.remove("open"))});
 $("playCustom").onclick=()=>{const url=$("streamUrl").value.trim(),name=$("streamName").value.trim()||"Custom Live";if(!url){alert("Stream URL দিন");return}$("urlModal").classList.remove("open");playStream(url,name,"CUSTOM STREAM");};
 $("search").addEventListener("input",()=>render(channels));
-// Admin API must point to the separately deployed Cloudflare Worker; never put the admin password in this HTML.
-const ADMIN_API_BASE = ""; // Set to your admin/status Worker URL, e.g. https://your-admin-worker.workers.dev
-let adminPasswordInMemory="", adminRows=[];
-let onlineStatusMap={};
-function adminApiReady(){return /^https:\/\//i.test(ADMIN_API_BASE)}
-async function adminApi(path,options={}){
- if(!adminApiReady())throw new Error("Admin API সেটআপ করা হয়নি। README-তে Worker deploy-এর ধাপ দেখুন।");
- const headers={...(options.headers||{})};
- if(adminPasswordInMemory)headers["X-Admin-Password"]=adminPasswordInMemory;
- if(options.body)headers["Content-Type"]="application/json";
- const r=await fetch(ADMIN_API_BASE.replace(/\/$/,"")+path,{...options,headers,cache:"no-store"});
- const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||("HTTP "+r.status));return data;
-}
-function channelAdminId(ch){return String(ch.id||ch.channelId||String(ch.name||"channel").trim().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));}
-function allAdminRows(){return channels.map(ch=>({id:channelAdminId(ch),name:String(ch.name||"Unnamed"),url:String(ch.url||ch.streamUrl||""),category:categoryFor(ch),hidden:!isChannelShown(ch)}))}
-function updateOnlinePill(){
- const cat=selectedCategory;const group=channels.filter(ch=>categoryFor(ch)===cat);let on=0;
- group.forEach(ch=>{const row=adminRows.find(x=>x.name===ch.name)||ch;const st=onlineStatusMap[row.id]||onlineStatusMap[ch.name];if(st&&st.status==="online")on++;});
- const pill=document.getElementById("onlinePill");if(pill)pill.innerHTML='<span class="online-dot"></span> ONLINE: '+on+'/'+group.length;
-}
-async function refreshPublicStatus(){
- try{const d=await adminApi("/status");onlineStatusMap=d.statuses||{};}catch(e){console.warn("Status API unavailable:",e.message)}
- updateOnlinePill();
-}
-function openAdminPanel(){const m=$("adminModal");m.classList.add("open");m.setAttribute("aria-hidden","false");$("adminLoginView").hidden=false;$("adminDashboard").hidden=true;$("adminLoginMessage").textContent=adminApiReady()?"":"API সেটআপ বাকি: README অনুযায়ী Worker deploy করুন।";$("adminPassword").value="";}
-function closeAdminPanel(){ $("adminModal").classList.remove("open");$("adminModal").setAttribute("aria-hidden","true"); }
-async function adminLogin(){
- const pw=$("adminPassword").value;if(!pw){$("adminLoginMessage").textContent="পাসওয়ার্ড দিন।";return}
- adminPasswordInMemory=pw;$("adminLoginMessage").textContent="যাচাই করা হচ্ছে…";
- try{await adminApi("/admin/list");$("adminLoginView").hidden=true;$("adminDashboard").hidden=false;await loadAdminDashboard();}
- catch(e){adminPasswordInMemory="";$("adminLoginMessage").textContent=e.message;}
-}
-async function loadAdminDashboard(){
- $("adminMessage").textContent="স্ট্যাটাস লোড হচ্ছে…";
- try{const d=await adminApi("/admin/list");adminRows=Array.isArray(d.channels)?d.channels:[];onlineStatusMap=d.statuses||{};renderAdminRows();updateOnlinePill();$("adminMessage").textContent="স্ট্যাটাস Worker-এর সর্বশেষ পরীক্ষার ফল। স্বয়ংক্রিয় পরীক্ষা প্রতি ৫ মিনিটে চলে।";}
- catch(e){$("adminMessage").textContent=e.message;}
-}
-function renderAdminRows(){
- const q=$("adminSearch").value.trim().toLowerCase(),root=$("adminChannelList");root.innerHTML="";
- const rows=adminRows.filter(x=>(x.name+" "+x.category).toLowerCase().includes(q));
- const values=rows.map(x=>({row:x,status:onlineStatusMap[x.id]||onlineStatusMap[x.name]||{status:"unknown"}}));
- $("adminTotal").textContent=adminRows.length;$("adminOnline").textContent=adminRows.filter(x=>(onlineStatusMap[x.id]||onlineStatusMap[x.name]||{}).status==="online").length;$("adminOffline").textContent=adminRows.filter(x=>(onlineStatusMap[x.id]||onlineStatusMap[x.name]||{}).status!=="online").length;
- if(!values.length){root.innerHTML='<p class="hint">কোনো চ্যানেল পাওয়া যায়নি।</p>';return}
- values.forEach(({row,status})=>{const item=document.createElement("div");item.className="admin-channel-item";const info=document.createElement("div");const name=document.createElement("div");name.className="admin-channel-name";name.textContent=row.name+(row.hidden?" (Hidden)":"");const st=document.createElement("div");st.className="admin-channel-state "+(status.status==="online"?"online":status.status==="offline"?"offline":"");st.textContent=(status.status||"unknown").toUpperCase()+(status.checkedAt?" · "+new Date(status.checkedAt).toLocaleString():"");info.append(name,st);const actions=document.createElement("div");actions.className="admin-channel-actions";
- const toggle=document.createElement("button");toggle.className="btn";toggle.type="button";toggle.textContent=row.hidden?"Show":"Hide";toggle.onclick=async()=>{try{await adminApi("/admin/channel",{method:"POST",body:JSON.stringify({id:row.id,action:row.hidden?"show":"hide"})});await loadAdminDashboard();await loadConfig();}catch(e){$("adminMessage").textContent=e.message}};
- const edit=document.createElement("button");edit.className="btn";edit.type="button";edit.textContent="Edit URL";edit.onclick=async()=>{const url=prompt("নতুন stream URL দিন (খালি রাখলে বাতিল):",row.url||"");if(url===null||!url.trim())return;try{await adminApi("/admin/channel",{method:"POST",body:JSON.stringify({id:row.id,action:"url",url:url.trim()})});await loadAdminDashboard();await loadConfig();}catch(e){$("adminMessage").textContent=e.message}};
- actions.append(toggle,edit);item.append(info,actions);root.append(item);});
-}
-$("adminLoginBtn").addEventListener("click",adminLogin);$("adminPassword").addEventListener("keydown",e=>{if(e.key==="Enter")adminLogin()});$("adminClose").addEventListener("click",closeAdminPanel);$("adminModal").addEventListener("click",e=>{if(e.target===$("adminModal"))closeAdminPanel()});$("adminRefresh").addEventListener("click",loadAdminDashboard);$("adminSearch").addEventListener("input",renderAdminRows);$("adminLogout").addEventListener("click",()=>{adminPasswordInMemory="";closeAdminPanel()});
-
 async function loadConfig(){
  const files={Bangla:"./data/bangla.json",Indian:"./data/india.json",Sports:"./data/sports.json",News:"./data/news.json",Music:"./data/music.json",Entertainment:"./data/entertainment.json",Movie:"./data/movie.json",Cartoon:"./data/cartoon.json",Religion:"./data/religion.json",Documentary:"./data/documentary.json"};
  try{
-  const results=await Promise.all(Object.entries(files).map(async([category,path])=>{try{const r=await fetch(path,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();return (d.channels||d.liveTvChannels||[]).filter(c=>c&&c.name).map(c=>({...c,section:"tv",category:category}));}catch(e){console.warn("Could not load "+path,e);return [];}}));
+  const results=await Promise.all(Object.entries(files).map(async([category,path])=>{try{const r=await fetch(path,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const d=await r.json();return (d.channels||d.liveTvChannels||[]).filter(c=>c&&c.name&&isChannelShown(c)).map(c=>({...c,section:"tv",category:category}));}catch(e){console.warn("Could not load "+path,e);return [];}}));
   channels=results.flat();
-  // Apply server-side admin overrides (hide/show and URL changes) without changing the original JSON files.
-  try{const adminData=await adminApi("/status");onlineStatusMap=adminData.statuses||{};const overrides=adminData.overrides||{};channels=channels.map((ch,i)=>{const id=channelAdminId(ch),ov=overrides[id]||overrides[ch.name];return ov?{...ch,...(ov.url?{url:ov.url}:{}),Show:ov.hidden?"N":"Y",id}:({...ch,id});}).filter(isChannelShown);}catch(e){channels=channels.map(ch=>({...ch,id:channelAdminId(ch)})).filter(isChannelShown);}
-  // Each live match is maintained in its own JSON file under data/matches/.
-  // Example: data/matches/match-1.json contains { "match": { ... } }.
   const matchFiles=Array.from({length:10},(_,i)=>`./data/matches/match-${i+1}.json`);
   const matchResults=await Promise.all(matchFiles.map(async path=>{
    try{
@@ -1270,20 +1155,18 @@ async function loadConfig(){
    }catch(e){console.warn("Could not load match file "+path,e);return null;}
   }));
   liveSports=matchResults.filter(Boolean);
-  // Backward compatibility: if no individual match JSON files are available, try the previous combined file.
   if(!liveSports.length){
    for(const path of ["./data/live-sports.json","./live-sports.json"]){
     try{const r=await fetch(path,{cache:"no-store"});if(!r.ok)continue;const d=await r.json();const items=(d.liveSports||d.channels||[]);if(Array.isArray(items)){liveSports=items.filter(c=>c&&c.name&&isChannelShown(c)).map(c=>({...c,section:"liveSports",category:"Live Sports"}));if(liveSports.length)break;}}
     catch(e){console.warn("Could not load "+path,e)}
    }
   }
-  // Backward compatibility: use the old combined file only if the separate files are empty.
   if(!channels.length){const r=await fetch("./channels.json",{cache:"no-store"});if(r.ok){const d=await r.json();channels=(d.liveTvChannels||[]).filter(c=>c&&c.name&&isChannelShown(c)).map(c=>({...c,section:"tv"}));if(!liveSports.length)liveSports=(d.liveSports||[]).filter(c=>c&&c.name&&isChannelShown(c)).map(c=>({...c,section:"liveSports",category:"Live Sports"}));}}
  }catch(e){console.warn("Separate JSON load failed",e)}
- if(!liveSports.length)liveSports=defaults.liveSports.map(c=>({...c,section:"liveSports",category:"Live Sports"}));render();refreshPublicStatus();
+ if(!liveSports.length)liveSports=defaults.liveSports.map(c=>({...c,section:"liveSports",category:"Live Sports"}));render();
 }
 
-// Standalone-style player controls connected to the existing HLS/Shaka engine.
+// Rs Streem player controls connected to the existing HLS/Shaka engine.
 const playerCard=document.querySelector(".playersticky .playercard");
 const screenEl=$("playerScreen"),seekBar=$("seekBar");
 const formatClock=seconds=>{
@@ -1292,7 +1175,7 @@ const formatClock=seconds=>{
  return h?`${h}:${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`:`${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`;
 };
 $("playPauseBtn").addEventListener("click",()=>{if(video.paused)video.play().catch(()=>{});else video.pause()});
-const centerPlayPauseBtn = $("centerPlayPauseBtn");
+const centerPlayPauseBtn = $("centerPlayPause");
 if(centerPlayPauseBtn){
  centerPlayPauseBtn.addEventListener("click", e=>{
   e.stopPropagation();
@@ -1330,21 +1213,22 @@ seekBar.addEventListener("change",()=>{
 });
 
 function applyVideoFit(mode){
- // Smart Fill preserves the original aspect ratio; the screen uses a soft gradient backdrop
- // rather than stretching the picture or cropping its edges. Only Zoom intentionally crops.
- let fit="contain", transform="none";
- if(mode==="fill"){fit="contain";transform="none"}
+ // SW Player style zoom-to-fill: ভিডিও পুরো স্ক্রিন জুড়ে দেখাবে,
+ // শুধু বাড়তি কিনারা কাটবে, কিন্তু ছবি টানানো/চ্যাপ্টা হবে না।
+ let fit="cover", transform="none";
+ if(mode==="fill"){fit="cover";transform="none"}
  else if(mode==="cover"){fit="cover";transform="none"}
  else if(mode==="zoom"){fit="cover";transform="scale(1.12)"}
  else if(mode==="zoomout"){fit="contain";transform="scale(.88)"}
+ else if(mode==="contain"){fit="contain";transform="none"}
  video.style.setProperty("--video-fit",fit);
  video.style.setProperty("--video-transform",transform);
  video.style.setProperty("object-fit",fit,"important");
  video.style.setProperty("transform",transform,"important");
 }
-applyVideoFit("contain");
+applyVideoFit("fill");
 $("pipBtn").addEventListener("click",async()=>{
- try{if(document.pictureInPictureElement)await document.exitPictureInPicture();else if(document.pictureInPictureEnabled&&video.requestPictureInPicture)await video.requestPictureInPicture();else alert("এই ব্রাউজারে Picture-in-Picture সমর্থিত নয়।")}catch(e){console.warn("PiP unavailable",e)}
+ try{if(document.pictureInPictureElement)await document.exitPictureInPicture();else if(document.pictureInPictureEnabled&&video.requestPictureInPicture)await video.requestPictureInPicture();else alert("এই ব্রাউজারে Picture-in-Picture সমর্থিত নয়।")}catch(e){console.warn("PiP unavailable",e)}
 });
 async function enterPlayerFullscreen(){
  const mobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
@@ -1367,7 +1251,6 @@ screenEl.addEventListener("click",e=>{
  if(e.target.closest(".nova-controls,button,select,.playerLoading,.empty"))return;
  const now=Date.now();if(now-lastVideoTap<320){if(video.paused)video.play().catch(()=>{});else video.pause()}lastVideoTap=now;
 });
-// Automatically hide player controls 4 seconds after the last interaction in all orientations.
 let controlsHideTimer=null;
 function showPlayerControls(){
  playerCard.classList.remove("controls-hidden");
@@ -1380,7 +1263,6 @@ function showPlayerControls(){
 video.addEventListener("playing",showPlayerControls);
 video.addEventListener("pause",()=>{if(controlsHideTimer)clearTimeout(controlsHideTimer);playerCard.classList.remove("controls-hidden")});
 
-// Swipe gestures: vertical swipe on left = brightness, right = volume; horizontal = seek.
 (function installSwipeControls(){
  const hud=$("swipeHud"), icon=$("swipeIcon"), value=$("swipeValue"), label=$("swipeLabel"), fill=$("swipeMeterFill");
  if(!hud||!screenEl)return;
@@ -1405,7 +1287,6 @@ video.addEventListener("pause",()=>{if(controlsHideTimer)clearTimeout(controlsHi
  screenEl.addEventListener("touchstart",e=>{
   if(e.touches.length!==1||e.target.closest(".nova-controls,button,select,.playerLoading,.empty"))return;
   const t=e.touches[0],rect=screenEl.getBoundingClientRect();
-  // Ignore touches on the lower control strip.
   if(t.clientY>rect.bottom-Math.max(58,rect.height*.19))return;
   start={x:t.clientX,y:t.clientY,rect,at:Date.now()};gesture=null;startBrightness=brightness;startVolume=video.volume;startTime=video.currentTime;
  },{passive:true});
@@ -1436,17 +1317,15 @@ video.addEventListener("pause",()=>{if(controlsHideTimer)clearTimeout(controlsHi
  screenEl.addEventListener("touchcancel",endGesture,{passive:true});
 })();
 
-// Direct player URL support. The requested stream is used when no ?url= parameter exists.
+// Direct player URL support.
 const DEFAULT_STREAM="https://wiselp.wiseplayout.com/9X_Tashan/master.m3u8";
 const pageParams=new URLSearchParams(location.search);
 const requestedStream=pageParams.get("url");
-const requestedName=pageParams.get("name")||"SPORTYNOVA Live";
+const requestedName=pageParams.get("name")||"Rs Streem Live";
 if(requestedStream)playStream(requestedStream,requestedName,"DIRECT PLAYER");
 else playStream(DEFAULT_STREAM,"9X Tashan","DEFAULT STREAM");
 loadConfig();
-// Refresh match status and hide ended matches automatically.
 setInterval(()=>render(channels),30000);
-// Prevent pinch/double-tap zoom on touch browsers; normal vertical scrolling remains enabled.
 document.addEventListener("gesturestart", e => e.preventDefault(), {passive:false});
 document.addEventListener("gesturechange", e => e.preventDefault(), {passive:false});
 document.addEventListener("gestureend", e => e.preventDefault(), {passive:false});
@@ -1463,7 +1342,7 @@ document.addEventListener("touchend", e => {
   .playercard:fullscreen .screen video,
   .playercard:-webkit-full-screen .screen video,
   .playercard.mobile-rotated .screen video{
-    object-fit:var(--video-fit,contain)!important;
+    object-fit:var(--video-fit,cover)!important;
     transform:var(--video-transform,none)!important;
     object-position:center center!important;
     width:100%!important;height:100%!important;
@@ -1488,9 +1367,7 @@ document.addEventListener("touchend", e => {
 </style>
 
 <style>
-/* LAST UPDATE: 16 October 2026, 10:35 PM Bangladesh time.
-   Auto-hide the orange-marked channel information bar after 5 seconds.
-   Tap the video display to show it again. */
+/* Auto-hide the channel information bar after 5 seconds. Tap the video to show again. */
 .playersticky .playercard .playerfoot{
   transition:opacity .25s ease, transform .25s ease, max-height .25s ease, padding .25s ease;
   max-height:100px;
@@ -1506,11 +1383,10 @@ document.addEventListener("touchend", e => {
   border-top-width:0!important;
   pointer-events:none!important;
 }
-/* Fill the entire phone display when fullscreen is active. */
 .playercard:fullscreen .screen video,
 .playercard:-webkit-full-screen .screen video,
 .playercard.mobile-rotated .screen video{
-  object-fit:var(--video-fit, contain)!important;
+  object-fit:var(--video-fit, cover)!important;
   object-position:center center!important;
   transform:var(--video-transform, none)!important;
 }
@@ -1526,23 +1402,18 @@ document.addEventListener("touchend", e => {
   const screen = document.getElementById("playerScreen");
   if (!card || !screen) return;
   let hideInfoTimer = null;
-
   function showInfoBar() {
     card.classList.remove("info-bar-hidden");
     if (hideInfoTimer) clearTimeout(hideInfoTimer);
     hideInfoTimer = setTimeout(() => {
-      // Keep the info bar available while the URL/server modal is open.
       if (!document.querySelector(".modal.open")) card.classList.add("info-bar-hidden");
     }, 5000);
   }
-
-  // The player information bar is visible briefly when a channel starts.
   showInfoBar();
   screen.addEventListener("click", (event) => {
     if (event.target.closest(".nova-controls, button, select, .playerLoading, .empty")) return;
     showInfoBar();
   });
-  // Reveal the info bar after playback/channel changes, then hide after 5 seconds.
   const video = document.getElementById("video");
   if (video) {
     video.addEventListener("playing", showInfoBar);
@@ -1557,7 +1428,6 @@ document.addEventListener("touchend", e => {
       }, 5000);
     });
   });
-  // On screen interaction, reset the timer without interfering with player controls.
   ["pointermove", "touchstart", "keydown"].forEach(type => {
     card.addEventListener(type, event => {
       if (event.target.closest(".playerfoot, .nova-controls, button, select, input")) return;
@@ -1593,13 +1463,12 @@ document.addEventListener("touchend", e => {
 </script>
 
 <style>
-/* LAST UPDATE: 16 October 2026, 11:15 PM Bangladesh time. Fill mode shows the full frame without cropping. */
-.playercard:fullscreen .screen video,.playercard:-webkit-full-screen .screen video,.playercard.mobile-rotated .screen video{object-fit:var(--video-fit,contain)!important;transform:var(--video-transform,none)!important;object-position:center center!important}
+/* Fill mode shows the full frame without cropping (SW Player style zoom-to-fill). */
+.playercard:fullscreen .screen video,.playercard:-webkit-full-screen .screen video,.playercard.mobile-rotated .screen video{object-fit:var(--video-fit,cover)!important;transform:var(--video-transform,none)!important;object-position:center center!important}
 </style>
 
 <style>
-/* LAST UPDATE: 16 October 2026, 11:06 PM Bangladesh time.
-   Smart Fill: preserve the full picture without stretching or cropping; use a soft backdrop in unused space. */
+/* Smart Fill: preserve the full picture without stretching or cropping; use a soft backdrop in unused space. */
 .playersticky .screen,
 .playercard:fullscreen .screen,
 .playercard:-webkit-full-screen .screen,
@@ -1610,15 +1479,14 @@ document.addEventListener("touchend", e => {
 .playercard:fullscreen .screen>video,
 .playercard:-webkit-full-screen .screen>video,
 .playercard.mobile-rotated .screen>video{
-  object-fit:var(--video-fit,contain)!important;
+  object-fit:var(--video-fit,cover)!important;
   transform:var(--video-transform,none)!important;
   object-position:center center!important;
 }
 </style>
 
-
 <style>
-/* SPORTYNOVA Premium Dark + Cyan: transparent controls and 4-second auto-hide */
+/* Rs Streem Premium Dark + Cyan: transparent controls and 4-second auto-hide */
 :root{
   --bg:#070b13;
   --panel:#0d1420;
@@ -1677,8 +1545,7 @@ document.addEventListener("touchend", e => {
 }
 </style>
 <script>
-/* Auto-hide player controls after 4 seconds of inactivity.
-   Existing playback engines, buttons, IDs and server logic are not replaced. */
+/* Auto-hide player controls after 4 seconds of inactivity. */
 (() => {
   const screen = document.getElementById("playerScreen");
   const video = document.getElementById("video");
@@ -1712,10 +1579,8 @@ document.addEventListener("touchend", e => {
 })();
 </script>
 
-
 <style>
-/* SPORTYNOVA Channel Card Design 1 — Premium Glow.
-   CSS-only change: preserve channel rendering, data, player, IDs and playback logic. */
+/* Rs Streem Channel Card Design 1 — Premium Glow. CSS-only change. */
 .channelrow:not(.sportsrow) .channel,
 .channelrow.sportsrow .channel {
   position:relative;
@@ -1794,12 +1659,8 @@ document.addEventListener("touchend", e => {
 }
 </style>
 
-
-
-
-
-<style id="sportynova-requested-fixes">
-/* Live Sports: exactly two match cards side by side; additional matches wrap into rows below. */
+<style id="rsstreem-requested-fixes">
+/* Live Sports: exactly two match cards side by side. */
 #liveSportsChannels.channelrow.sportsrow{
   display:grid!important;
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
@@ -1809,7 +1670,6 @@ document.addEventListener("touchend", e => {
 #liveSportsChannels.channelrow.sportsrow>.channel{
   width:100%!important;min-width:0!important;max-width:100%!important;
 }
-/* Keep names and badges readable in the narrower two-column cards. */
 #liveSportsChannels .team-logo{max-width:42%;min-width:0}
 #liveSportsChannels .team-logo small{max-width:100%;font-size:clamp(7px,2.1vw,9px)}
 #liveSportsChannels .team-vs{font-size:clamp(9px,2.5vw,11px)}
@@ -1822,56 +1682,8 @@ document.addEventListener("touchend", e => {
   #liveSportsChannels .team-logo small{font-size:7px}
   #liveSportsChannels .chname{font-size:clamp(9px,2.6vw,11px)!important;white-space:normal!important;overflow-wrap:anywhere}
 }
-/* Low-quality-first playback; adaptive quality begins after 30 seconds, with the active resolution marked. */
 #playerScreen video{image-rendering:auto}
 </style>
 
 </body>
-</html>
-
-<style>
-/* Quality selector belongs to the video overlay and stays available in landscape/fullscreen.
-   It is shown when HLS (.m3u8) or MPEG-DASH (.mpd) quality levels are available. */
-#playerScreen #qualitySelect{width:auto!important;max-width:96px!important;min-width:72px;height:30px;padding:0 4px!important;background:#111a2b;color:#fff;border:1px solid #ffffff45;border-radius:8px;font-size:10px;flex:0 0 auto}
-#playerScreen .nova-control-row{position:relative;z-index:13}
-#playerLoading{pointer-events:none}
-#playerLoading.show{pointer-events:none}
-#playerScreen .playerLoading #retryBtn{pointer-events:auto}
-@media(max-width:420px){#playerScreen #qualitySelect{max-width:78px!important;min-width:62px;font-size:9px;height:28px}}
-</style>
-
-<style>
-#playerScreen #qualitySelect{width:auto!important;max-width:96px!important;min-width:72px;height:30px;padding:0 4px!important;background:#111a2b;color:#fff;border:1px solid #ffffff45;border-radius:8px;font-size:10px;flex:0 0 auto}
-#playerScreen .nova-control-row{position:relative;z-index:13}
-#playerLoading{pointer-events:none}
-#playerLoading.show{pointer-events:none}
-#playerScreen .playerLoading #retryBtn{pointer-events:auto}
-@media(max-width:420px){#playerScreen #qualitySelect{max-width:78px!important;min-width:62px;font-size:9px;height:28px}}
-</style>
-
-
-<style id="transparent-flag-images">
-/* Show supplied flag/logo image only; do not add a white tile behind it. */
-.chlogo img,.team-logo img{background:transparent!important;padding:0!important;box-shadow:none!important}
-.team-logo img{border-radius:0!important}
-</style>
-
-
-<style>
-/* Premium Dark + Cyan online status and secure admin panel */
-.channel-section-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.online-pill{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(34,211,238,.32);border-radius:999px;padding:6px 9px;background:rgba(34,211,238,.08);color:#8beeff;font-size:11px;font-weight:800;white-space:nowrap}
-.online-dot{width:7px;height:7px;border-radius:50%;background:#2ee58d;box-shadow:0 0 8px #2ee58d;display:inline-block}
-.admin-open-btn{border:1px solid rgba(34,211,238,.45)!important;background:linear-gradient(135deg,#12384a,#101827)!important;color:#bdf7ff!important;border-radius:10px;padding:7px 9px;font-size:11px;font-weight:800;white-space:nowrap}
-.adminbox{max-width:520px!important;max-height:85dvh;overflow:auto}
-.admin-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
-.admin-stats>div{background:#0b1320;border:1px solid #26354b;border-radius:12px;padding:12px 8px;text-align:center}
-.admin-stats small{display:block;color:#9aa8bb;font-size:11px}.admin-stats strong{display:block;color:#75efff;font-size:23px;margin-top:4px}
-.admin-toolbar{display:flex;gap:8px;margin:10px 0}.admin-toolbar .field{min-width:0;flex:1}
-.admin-channel-list{display:grid;gap:8px;max-height:42dvh;overflow:auto}
-.admin-channel-item{border:1px solid #28364b;background:#0c1421;border-radius:12px;padding:10px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
-.admin-channel-name{font-size:13px;font-weight:800;overflow-wrap:anywhere}.admin-channel-state{font-size:11px;margin-top:4px;color:#a6b3c6}.admin-channel-state.online{color:#43e79a}.admin-channel-state.offline{color:#ff7b91}
-.admin-channel-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.admin-channel-actions .btn{padding:6px 8px;font-size:10px}
-.admin-hidden-label{font-size:10px;color:#ffc46b;margin-left:5px}
-@media(max-width:420px){.sectionhead{gap:5px}.channel-section-tools{gap:4px}.online-pill{font-size:10px;padding:5px 7px}.admin-open-btn{font-size:10px;padding:6px 7px}.admin-channel-item{grid-template-columns:minmax(0,1fr)}.admin-channel-actions{justify-content:flex-start}}
-</style>
+ </html>
