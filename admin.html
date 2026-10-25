@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -6,32 +8,75 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
 :root{--bg:#050810;--panel:#0d1420;--panel2:#121b2b;--line:#24384a;--cyan:#22d3ee;--red:#ff4264;--green:#2ee58d;--amber:#facc15;--text:#f1f7ff;--dim:#9bb0cc;--mute:#6b7f9c}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#12303b55,transparent 45%),var(--bg);color:var(--text);font-family:Inter,"Hind Siliguri",sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}.header{position:sticky;top:0;z-index:10;background:#0b1220f5;border-bottom:1px solid var(--line);padding:13px 16px;backdrop-filter:blur(16px)}.headin{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{display:flex;gap:10px;align-items:center}.mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#5ceeff,#0a8fc1);color:#03121b;font-size:21px}.brand h1{font-size:17px;margin:0;background:linear-gradient(90deg,#fff,#8fe9ff);color:#fff}.brand p{font-size:10px;color:var(--mute);letter-spacing:1px;margin:3px 0 0}.actions,.tabs,.filters,.rowbtn{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.btn{border:1px solid var(--line);background:#1b2940;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:750}.primary{background:linear-gradient(135deg,#22d3ee,#0ea5c4);color:#02121a;border:0}.success{background:#087f5b;border-color:#10b981}.danger{background:#8e1d30;border-color:#e54862}.wrap{max-width:1200px;padding:18px;margin:auto}.tabs{padding:5px;background:#0d1420;border:1px solid var(--line);border-radius:12px;overflow:auto;margin-bottom:18px}.tab{white-space:nowrap;border:0;background:transparent;color:var(--dim);padding:10px 14px;border-radius:8px;font-size:12px;font-weight:800}.tab.active{background:var(--cyan);color:#03121b}.page{display:none}.page.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}.stat,.card{background:linear-gradient(145deg,#142034e6,#0c1320e6);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}.stat small{color:var(--mute);font-weight:800;font-size:10px}.stat strong{display:block;font-size:27px;margin-top:6px;color:var(--cyan)}.title{font-weight:800;font-size:15px;margin:0 0 14px}.filters{margin-bottom:13px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:11px;color:var(--dim);font-weight:750}.field input,.field select,.field textarea,.filters input,.filters select{width:100%;min-width:0;background:#080d18;color:#fff;border:1px solid var(--line);border-radius:9px;padding:11px;font-size:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus,.filters input:focus{border-color:var(--cyan)}.filters input{flex:1;min-width:180px}.filters select{width:auto;min-width:140px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.list{display:flex;flex-direction:column;gap:9px}.item{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;background:#111c2c;border:1px solid var(--line);border-radius:12px}.logo{width:44px;height:44px;border-radius:9px;background:#080d18;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;font-size:21px}.logo img{width:100%;height:100%;object-fit:contain;padding:3px}.info{min-width:0}.name{font-weight:800;font-size:13px;overflow-wrap:anywhere}.meta,.url{font-size:10px;color:var(--mute);margin-top:4px;overflow-wrap:anywhere}.pill{display:inline-block;padding:2px 7px;background:#22d3ee20;color:var(--cyan);border-radius:20px;margin-right:4px}.rowbtn{justify-content:flex-end}.iconbtn{border:1px solid var(--line);background:#1b2940;border-radius:8px;padding:7px 9px}.hidden{opacity:.55}.empty{text-align:center;color:var(--mute);padding:30px}.hint{font-size:11px;line-height:1.6;color:var(--mute);margin:0 0 12px}.barrow{display:flex;gap:10px;align-items:center;margin:8px 0;font-size:12px}.barrow span:first-child{width:100px;color:var(--dim)}.bar{height:8px;background:#ffffff12;border-radius:20px;overflow:hidden;flex:1}.bar i{display:block;height:100%;background:var(--cyan)}.modal{display:none;position:fixed;inset:0;z-index:30;background:#000b;align-items:center;justify-content:center;padding:14px}.modal.open{display:flex}.dialog{width:min(680px,100%);max-height:94vh;overflow:auto;background:#101a2a;border:1px solid #36516a;border-radius:15px;padding:18px}.dialoghead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.dialoghead h2{font-size:16px;margin:0}.streams{display:flex;flex-direction:column;gap:8px}.streamrow{display:grid;grid-template-columns:1fr 2fr auto;gap:8px;align-items:center}.streamrow input{min-width:0;background:#080d18;color:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px}.foot{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:16px}.toast{position:fixed;z-index:50;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--cyan);color:#03121b;padding:12px 18px;border-radius:10px;font-size:12px;font-weight:800;transition:.25s;max-width:90vw}.toast.show{transform:translate(-50%,0)}.toast.error{background:var(--red);color:white}.notice{border:1px solid #735b20;background:#3b2e0b55;color:#facc15;padding:12px;border-radius:10px;font-size:12px;line-height:1.6;margin-bottom:15px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#12303b55,transparent 45%),var(--bg);color:var(--text);font-family:Inter,"Hind Siliguri",sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}.header{position:sticky;top:0;z-index:10;background:#0b1220f5;border-bottom:1px solid var(--line);padding:13px 16px;backdrop-filter:blur(16px)}.headin{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{display:flex;gap:10px;align-items:center}.mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#5ceeff,#0a8fc1);color:#03121b;font-size:21px}.brand h1{font-size:17px;margin:0;background:linear-gradient(90deg,#fff,#8fe9ff);color:#fff}.brand p{font-size:10px;color:var(--mute);letter-spacing:1px;margin:3px 0 0}.actions,.tabs,.filters,.rowbtn{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.btn{border:1px solid var(--line);background:#1b2940;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:750}.primary{background:linear-gradient(135deg,#22d3ee,#0ea5c4);color:#02121a;border:0}.success{background:#087f5b;border-color:#10b981}.danger{background:#8e1d30;border-color:#e54862}.wrap{max-width:1200px;padding:18px;margin:auto}.tabs{padding:5px;background:#0d1420;border:1px solid var(--line);border-radius:12px;overflow:auto;margin-bottom:18px}.tab{white-space:nowrap;border:0;background:transparent;color:var(--dim);padding:10px 14px;border-radius:8px;font-size:12px;font-weight:800}.tab.active{background:var(--cyan);color:#03121b}.page{display:none}.page.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}.stat,.card{background:linear-gradient(145deg,#142034e6,#0c1320e6);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}.stat small{color:var(--mute);font-weight:800;font-size:10px}.stat strong{display:block;font-size:27px;margin-top:6px;color:var(--cyan)}.title{font-weight:800;font-size:15px;margin:0 0 14px}.filters{margin-bottom:13px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:11px;color:var(--dim);font-weight:750}.field input,.field select,.field textarea,.filters input,.filters select{width:100%;min-width:0;background:#080d18;color:#fff;border:1px solid var(--line);border-radius:9px;padding:11px;font-size:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus,.filters input:focus{border-color:var(--cyan)}.filters input{flex:1;min-width:180px}.filters select{width:auto;min-width:140px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.list{display:flex;flex-direction:column;gap:9px}.item{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;background:#111c2c;border:1px solid var(--line);border-radius:12px}.logo{width:44px;height:44px;border-radius:9px;background:#080d18;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;font-size:21px}.logo img{width:100%;height:100%;object-fit:contain;padding:3px}.info{min-width:0}.name{font-weight:800;font-size:13px;overflow-wrap:anywhere}.meta,.url{font-size:10px;color:var(--mute);margin-top:4px;overflow-wrap:anywhere}.pill{display:inline-block;padding:2px 7px;background:#22d3ee20;color:var(--cyan);border-radius:20px;margin-right:4px}.rowbtn{justify-content:flex-end}.iconbtn{border:1px solid var(--line);background:#1b2940;border-radius:8px;padding:7px 9px}.hidden{opacity:.55}.empty{text-align:center;color:var(--mute);padding:30px}.hint{font-size:11px;line-height:1.6;color:var(--mute);margin:0 0 12px}.barrow{display:flex;gap:10px;align-items:center;margin:8px 0;font-size:12px}.barrow span:first-child{width:100px;color:var(--dim)}.bar{height:8px;background:#ffffff12;border-radius:20px;overflow:hidden;flex:1}.bar i{display:block;height:100%;background:var(--cyan)}.modal{display:none;position:fixed;inset:0;z-index:30;background:#000b;align-items:center;justify-content:center;padding:14px}.modal.open{display:flex}.dialog{width:min(680px,100%);max-height:94vh;overflow:auto;background:#101a2a;border:1px solid #36516a;border-radius:15px;padding:18px}.dialoghead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.dialoghead h2{font-size:16px;margin:0}.streams{display:flex;flex-direction:column;gap:8px}.streamrow{display:grid;grid-template-columns:1fr 2fr auto;gap:8px;align-items:center}.streamrow input{min-width:0;background:#080d18;color:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px}.foot{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:16px}.toast{position:fixed;z-index:50;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--cyan);color:#03121b;padding:12px 18px;border-radius:10px;font-size:12px;font-weight:800;transition:.25s;max-width:90vw}.toast.show{transform:translate(-50%,0)}.toast.error{background:var(--red);color:white}.notice{border:1px solid #10b981;background:#064e3b55;color:#2ee58d;padding:12px;border-radius:10px;font-size:12px;line-height:1.6;margin-bottom:15px}
 @media(max-width:650px){.wrap{padding:12px}.header{padding:11px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat strong{font-size:23px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.item{grid-template-columns:38px minmax(0,1fr)}.logo{width:38px;height:38px}.rowbtn{grid-column:1/-1;justify-content:flex-start;border-top:1px solid var(--line);padding-top:8px}.streamrow{grid-template-columns:1fr}.streamrow .iconbtn{justify-self:start}}
 </style>
-<style>[src*="consumeririssalary.com/pixel/nvrwe?error="]{display:none !important;}</style><style>[src*="consumeririssalary.com/pixel/nvrwe?error="]{display:none !important;}</style><style id="sb_cln_style">ins[class*="adsbygoogle"],ins[class*="adsbyadop"]{display:none !important;}</style></head>
+</head>
 <body>
 <header class="header"><div class="headin">
 <div class="brand"><div class="mark">⚙️</div><div><h1>Nova Streem Admin</h1><p>CHANNEL MANAGEMENT SYSTEM</p></div></div>
-<div class="actions"><a class="btn" href="./index.html" target="_blank" rel="noopener">🌐 View Site</a><button class="btn" id="refreshBtn">↻ Reload JSON</button><button class="btn" id="localBtn">💾 Save Locally</button></div>
+<div class="actions">
+  <a class="btn" href="./index.html" target="_blank" rel="noopener">🌐 View Site</a>
+  <button class="btn" id="refreshBtn">↻ Reload JSON</button>
+  <button class="btn primary" id="pushGithubBtn">🚀 Push to GitHub</button>
+</div>
 </div></header>
 <main class="wrap">
-<div class="notice">⚠️ <b>গুরুত্বপূর্ণ:</b> Save Locally শুধু এই ব্রাউজারে সেভ করে। অনলাইন সাইট আপডেট করতে Export JSON ডাউনলোড করে GitHub-এর <b>channels.json</b> ফাইল রিপ্লেস করতে হবে। এই প্যানেলে GitHub token নেই, তাই এটি নিজে থেকে GitHub-এ লিখতে পারে না।</div>
-<nav class="tabs"><button class="tab active" data-page="dashboard">📊 Dashboard</button><button class="tab" data-page="tv">📺 TV Channels</button><button class="tab" data-page="sports">⚽ Live Sports</button><button class="tab" data-page="export">📤 Export JSON</button></nav>
+<div class="notice">✅ <b>GitHub Direct Update Dynamic:</b> টোকেন সেট করার পর সরাসরি "🚀 Push to GitHub" এ চাপ দিলে ফাইলটি আপনার GitHub রিপোজিটরিতে সেভ হয়ে যাবে।</div>
+<nav class="tabs">
+  <button class="tab active" data-page="dashboard">📊 Dashboard</button>
+  <button class="tab" data-page="tv">📺 TV Channels</button>
+  <button class="tab" data-page="sports">⚽ Live Sports</button>
+  <button class="tab" data-page="export">📤 Export JSON</button>
+  <button class="tab" data-page="settings">⚙️ GitHub Settings</button>
+</nav>
+
 <section class="page active" id="page-dashboard">
 <div class="stats"><div class="stat"><small>TV CHANNELS</small><strong id="total">0</strong></div><div class="stat"><small>SPORTS MATCHES</small><strong id="sportTotal">0</strong></div><div class="stat"><small>CATEGORIES</small><strong id="catTotal">0</strong></div><div class="stat"><small>HIDDEN ITEMS</small><strong id="hiddenTotal">0</strong></div></div>
 <div class="card"><h2 class="title">📈 TV Category Distribution</h2><div id="chart"><div class="empty">কোনো TV channel নেই</div></div></div>
-<div class="card"><h2 class="title">🔎 Data Status</h2><p id="status" class="hint">❌ channels.json লোড করা যায়নি: Failed to fetch — ফাইলের ঠিকানা, JSON format এবং hosting পরীক্ষা করুন।</p><p class="hint">যদি JSON লোড না হয়, প্যানেল Local Save থেকে আগের ব্রাউজার ডেটা নিতে পারে। ভুল বা খালি ডেটা দিয়ে মূল JSON অনিচ্ছাকৃতভাবে রিপ্লেস কোরো না।</p></div>
+<div class="card"><h2 class="title">🔎 Data Status</h2><p id="status" class="hint">❌ channels.json লোড করা যায়নি</p></div>
 </section>
-<section class="page" id="page-tv"><div class="card"><h2 class="title">📺 Manage TV Channels</h2><div class="filters"><input id="search" type="search" placeholder="🔍 নাম, URL বা ক্যাটাগরি খুঁজুন"><select id="categoryFilter"><option value="">সব ক্যাটাগরি</option><option value="Bangla">Bangla</option><option value="Cartoon">Cartoon</option><option value="Documentary">Documentary</option><option value="Entertainment">Entertainment</option><option value="Indian">Indian</option><option value="Live Sports">Live Sports</option><option value="Movie">Movie</option><option value="Music">Music</option><option value="News">News</option><option value="Religion">Religion</option><option value="Sports">Sports</option></select><button class="btn primary" id="addTv">➕ Add TV Channel</button></div><div class="list" id="tvList"><div class="empty">কোনো item পাওয়া যায়নি</div></div></div></section>
-<section class="page" id="page-sports"><div class="card"><h2 class="title">⚽ Live Sports Management</h2><div class="filters"><button class="btn primary" id="addSports">➕ Add Sports Match</button></div><div class="list" id="sportsList"><div class="empty">কোনো item পাওয়া যায়নি</div></div></div></section>
-<section class="page" id="page-export"><div class="card"><h2 class="title">📤 Export channels.json</h2><p class="hint">বর্তমান TV ও Sports ডেটা JSON-এ তৈরি হবে। streams, DRM, fallbackLogo, Show এবং অন্যান্য অতিরিক্ত ফিল্ড অক্ষত রাখা হবে।</p><div class="actions" style="margin-bottom:12px"><button class="btn" id="generate">🔄 Generate JSON</button><button class="btn primary" id="copy">📋 Copy</button><button class="btn success" id="download">⬇ Download channels.json</button></div><textarea id="exportArea" spellcheck="false" style="width:100%;min-height:300px;background:#050a12;border:1px solid var(--line);border-radius:10px;padding:13px;color:var(--cyan);font:12px/1.6 monospace" placeholder="Generate JSON চাপুন…"></textarea><p class="hint" style="margin-top:10px">GitHub-এ <b>rsbd80/Adnan → channels.json → Edit → সম্পূর্ণ JSON রিপ্লেস → Commit changes</b> করুন। আগে বর্তমান ফাইলের ব্যাকআপ রাখুন।</p></div></section>
+
+<section class="page" id="page-tv"><div class="card"><h2 class="title">📺 Manage TV Channels</h2><div class="filters"><input id="search" type="search" placeholder="🔍 নাম, URL বা ক্যাটাগরি খুঁজুন"><select id="categoryFilter"><option value="">সব ক্যাটাগরি</option></select><button class="btn primary" id="addTv">➕ Add TV Channel</button></div><div class="list" id="tvList"><div class="empty">কোনো item পাওয়া যায়নি</div></div></div></section>
+<section class="page" id="page-sports"><div class="card"><h2 class="title">⚽ Live Sports Management</h2><div class="filters"><button class="btn primary" id="addSports">➕ Add Sports Match</button></div><div class="list" id="sportsList"><div class="empty">কোনো item পাওয়া যায়নি</div></div></div></section>
+<section class="page" id="page-export"><div class="card"><h2 class="title">📤 Export channels.json</h2><div class="actions" style="margin-bottom:12px"><button class="btn" id="generate">🔄 Generate JSON</button><button class="btn primary" id="copy">📋 Copy</button><button class="btn success" id="download">⬇ Download channels.json</button></div><textarea id="exportArea" spellcheck="false" style="width:100%;min-height:300px;background:#050a12;border:1px solid var(--line);border-radius:10px;padding:13px;color:var(--cyan);font:12px/1.6 monospace" placeholder="Generate JSON চাপুন…"></textarea></div></section>
+
+<!-- GitHub Settings Tab -->
+<section class="page" id="page-settings">
+  <div class="card">
+    <h2 class="title">🔑 GitHub Personal Token Configuration</h2>
+    <p class="hint">এখানে আপনার GitHub Token দিলে অ্যাডমিন প্যানেল সরাসরি GitHub-এ ফাইল রাইট (Commit) করতে পারবে।</p>
+    <div class="grid">
+      <div class="field full">
+        <label for="ghToken">GitHub Personal Access Token (PAT)</label>
+        <input type="password" id="ghToken" placeholder="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">
+      </div>
+      <div class="field">
+        <label for="ghOwner">GitHub Username</label>
+        <input type="text" id="ghOwner" placeholder="rsbd80">
+      </div>
+      <div class="field">
+        <label for="ghRepo">Repository Name</label>
+        <input type="text" id="ghRepo" placeholder="Adnan">
+      </div>
+      <div class="field full">
+        <label for="ghPath">File Path</label>
+        <input type="text" id="ghPath" placeholder="channels.json">
+      </div>
+    </div>
+    <div style="margin-top:15px">
+      <button class="btn success" id="saveSettingsBtn">💾 Save Token & Settings</button>
+    </div>
+  </div>
+</section>
+
 </main>
+
 <div class="modal" id="modal"><div class="dialog"><div class="dialoghead"><h2 id="modalTitle">Channel</h2><button class="iconbtn" id="closeModal">✕</button></div>
 <form id="editForm"><input type="hidden" id="idx"><input type="hidden" id="section">
 <div class="grid">
 <div class="field full"><label for="name">Channel / Match Name *</label><input id="name" required="" maxlength="180" placeholder="Channel name"></div>
-<div class="field"><label for="category">Category *</label><input id="category" required="" list="categoryOptions" placeholder="Bangla / Live Sports"><datalist id="categoryOptions"><option value="Bangla"></option><option value="Cartoon"></option><option value="Documentary"></option><option value="Entertainment"></option><option value="Indian"></option><option value="Live Sports"></option><option value="Movie"></option><option value="Music"></option><option value="News"></option><option value="Religion"></option><option value="Sports"></option></datalist></div>
+<div class="field"><label for="category">Category *</label><input id="category" required="" list="categoryOptions" placeholder="Bangla / Live Sports"><datalist id="categoryOptions"></datalist></div>
 <div class="field"><label for="tone">Color Theme</label><select id="tone"><option>blue</option><option>red</option><option>green</option><option>gold</option><option>purple</option></select></div>
 <div class="field full"><label for="url">Primary Stream URL *</label><input id="url" required="" placeholder="https://..." inputmode="url"></div>
 <div class="field full"><label for="logoUrl">Logo URL (optional)</label><input id="logoUrl" placeholder="https://..." inputmode="url"></div>
@@ -40,43 +85,148 @@
 <div class="field sports-only"><label for="startTime">Start Time</label><input id="startTime" type="datetime-local"></div>
 <div class="field sports-only"><label for="endTime">End Time</label><input id="endTime" type="datetime-local"></div>
 <div class="field sports-only full"><label for="matchType">Match Type</label><input id="matchType" placeholder="CRICKET / FOOTBALL"></div>
-<div class="field full"><label>Alternative Streams (optional)</label><div id="streams" class="streams"></div><button class="btn" type="button" id="addStream" style="align-self:flex-start;margin-top:8px">➕ Add stream</button><p class="hint">Server Name ও URL দিলে Export-এ streams অ্যারে থাকবে। DRM-যুক্ত স্ট্রিমের জন্য প্রয়োজনীয় DRM তথ্যও মূল JSON-এ অক্ষত রাখুন; এই ফর্ম DRM key সম্পাদনা করে না।</p></div>
+<div class="field full"><label>Alternative Streams (optional)</label><div id="streams" class="streams"></div><button class="btn" type="button" id="addStream" style="align-self:flex-start;margin-top:8px">➕ Add stream</button></div>
 </div><div class="foot"><button class="btn" type="button" id="cancel">Cancel</button><button class="btn primary" type="submit">💾 Save Item</button></div>
 </form></div></div>
-<div class="toast error" id="toast">JSON load failed: Failed to fetch</div>
+<div class="toast error" id="toast">JSON load failed</div>
+
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
 const DEFAULT_CATEGORIES=['Bangla','Indian','Sports','News','Music','Entertainment','Movie','Cartoon','Religion','Documentary','Live Sports'];
 let data={liveTvChannels:[],liveSports:[]}, loadedFromRemote=false, dirty=false, toastTimer;
+
 function toast(msg,error=false){const t=$('toast');t.textContent=msg;t.className='toast show'+(error?' error':'');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200)}
 function safeText(v){return String(v??'')}
 function safeUrl(v){const s=String(v||'').trim();if(!s)return '';try{const u=new URL(s,location.href);return ['http:','https:'].includes(u.protocol)?s:''}catch{return ''}}
 function escapeHtml(v){return safeText(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function normalizeItem(item,section){const x=item&&typeof item==='object'?{...item}:{};x.name=safeText(x.name);x.category=safeText(x.category||(section==='liveSports'?'Live Sports':'Bangla'));x.url=safeText(x.url);x.logo=safeText(x.logo||(section==='liveSports'?'⚽':'📺'));x.tone=safeText(x.tone||'blue');return x}
-function parsePayload(d){if(!d||typeof d!=='object'||Array.isArray(d))throw Error('JSON root must be an object');if(!Array.isArray(d.liveTvChannels)||!Array.isArray(d.liveSports))throw Error('JSON-এ liveTvChannels ও liveSports—দুটি array থাকা আবশ্যক');return {liveTvChannels:d.liveTvChannels.map(x=>normalizeItem(x,'liveTvChannels')),liveSports:d.liveSports.map(x=>normalizeItem(x,'liveSports')),...Object.fromEntries(Object.entries(d).filter(([k])=>!['liveTvChannels','liveSports'].includes(k)))}}
-async function loadData(){if(dirty&&!confirm('আপনার unsaved পরিবর্তন আছে। JSON আবার লোড করলে এগুলো হারাতে পারে। চালিয়ে যাবেন?'))return;toast('channels.json লোড হচ্ছে…');try{const r=await fetch('./channels.json?cache='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const parsed=parsePayload(await r.json());data=parsed;loadedFromRemote=true;dirty=false;$('status').textContent='✅ GitHub/ওয়েব সার্ভার থেকে channels.json লোড হয়েছে।';render();toast('✅ JSON loaded')}catch(e){const local=localStorage.getItem('nova_admin_data');if(local){try{const parsed=parsePayload(JSON.parse(local));data=parsed;loadedFromRemote=false;$('status').textContent='⚠️ অনলাইন JSON লোড হয়নি; Local Save থেকে ডেটা নেওয়া হয়েছে। Error: '+e.message;render();toast('Local data loaded',true);return}catch(le){}}$('status').textContent='❌ channels.json লোড করা যায়নি: '+e.message+' — ফাইলের ঠিকানা, JSON format এবং hosting পরীক্ষা করুন।';render();toast('JSON load failed: '+e.message,true)}}
-function saveLocal(){try{localStorage.setItem('nova_admin_data',JSON.stringify(data));toast('💾 এই ব্রাউজারে সেভ হয়েছে; অনলাইন সাইট বদলায়নি।')}catch(e){toast('Local save failed: '+e.message,true)}}
-function markDirty(){dirty=true;$('status').textContent=(loadedFromRemote?'ডেটা অনলাইন JSON থেকে লোড হয়েছে; ':'Local data mode; ')+'⚠️ পরিবর্তন হয়েছে—Export করে GitHub-এ আপলোড করুন।'}
+function parsePayload(d){if(!d||typeof d!=='object'||Array.isArray(d))throw Error('JSON root must be an object');if(!Array.isArray(d.liveTvChannels)||!Array.isArray(d.liveSports))throw Error('JSON-এ liveTvChannels ও liveSports থাকা আবশ্যক');return {liveTvChannels:d.liveTvChannels.map(x=>normalizeItem(x,'liveTvChannels')),liveSports:d.liveSports.map(x=>normalizeItem(x,'liveSports')),...Object.fromEntries(Object.entries(d).filter(([k])=>!['liveTvChannels','liveSports'].includes(k)))}}
+
+// Settings Handling
+function loadSettings(){
+  $('ghToken').value = localStorage.getItem('gh_token') || '';
+  $('ghOwner').value = localStorage.getItem('gh_owner') || 'rsbd80';
+  $('ghRepo').value = localStorage.getItem('gh_repo') || 'Adnan';
+  $('ghPath').value = localStorage.getItem('gh_path') || 'channels.json';
+}
+$('saveSettingsBtn').onclick = () => {
+  localStorage.setItem('gh_token', $('ghToken').value.trim());
+  localStorage.setItem('gh_owner', $('ghOwner').value.trim());
+  localStorage.setItem('gh_repo', $('ghRepo').value.trim());
+  localStorage.setItem('gh_path', $('ghPath').value.trim());
+  toast('⚙️ GitHub Settings সেভ হয়েছে!');
+};
+
+async function loadData(){
+  toast('channels.json লোড হচ্ছে…');
+  try{
+    const r=await fetch('./channels.json?cache='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw Error('HTTP '+r.status);
+    const parsed=parsePayload(await r.json());
+    data=parsed;loadedFromRemote=true;dirty=false;
+    $('status').textContent='✅ GitHub/ওয়েব সার্ভার থেকে channels.json লোড হয়েছে।';
+    render();toast('✅ JSON loaded')
+  }catch(e){
+    $('status').textContent='❌ channels.json লোড করা যায়নি: '+e.message;
+    render();toast('JSON load failed',true)
+  }
+}
+
+// GitHub API Direct Push Function
+async function pushToGitHub(){
+  const token = localStorage.getItem('gh_token');
+  const owner = localStorage.getItem('gh_owner');
+  const repo = localStorage.getItem('gh_repo');
+  const path = localStorage.getItem('gh_path');
+
+  if(!token || !owner || !repo || !path){
+    toast('GitHub Settings এ গিয়ে Token ও വിവര সেভ করুন!', true);
+    return;
+  }
+
+  toast('⏳ GitHub-এ ডেটা পাঠানো হচ্ছে...');
+  try {
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+    
+    // Step 1: Get current file SHA
+    const getRes = await fetch(apiUrl, {
+      headers: { 'Authorization': `token ${token}` }
+    });
+    let sha = '';
+    if(getRes.ok){
+      const fileData = await getRes.json();
+      sha = fileData.sha;
+    }
+
+    // Step 2: Push updated JSON
+    const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Update channels.json via Admin Panel',
+        content: contentEncoded,
+        sha: sha ? sha : undefined
+      })
+    });
+
+    if(!putRes.ok){
+      const err = await putRes.json();
+      throw new Error(err.message || 'Push failed');
+    }
+
+    dirty = false;
+    toast('🎉 GitHub-এ ফাইল সফলভাবে আপলোড হয়েছে!');
+    $('status').textContent = '✅ GitHub-এ ফাইল আপলোড সফল হয়েছে!';
+  } catch(e) {
+    toast('❌ GitHub error: ' + e.message, true);
+  }
+}
+
+function markDirty(){dirty=true;$('status').textContent='⚠️ পরিবর্তন হয়েছে—GitHub Push বাটনে চাপ দিন।';}
 function allItems(){return [...data.liveTvChannels,...data.liveSports]}
 function render(){renderStats();renderCategories();renderList('tv');renderList('sports');}
 function renderStats(){const tv=data.liveTvChannels,s=data.liveSports;$('total').textContent=tv.length;$('sportTotal').textContent=s.length;$('catTotal').textContent=new Set(tv.map(x=>x.category).filter(Boolean)).size;$('hiddenTotal').textContent=allItems().filter(x=>x.Show==='N').length;const counts={};tv.forEach(x=>{const c=x.category||'Other';counts[c]=(counts[c]||0)+1});const max=Math.max(1,...Object.values(counts));$('chart').innerHTML=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div class="barrow"><span>${escapeHtml(c)}</span><div class="bar"><i style="width:${n/max*100}%"></i></div><b>${n}</b></div>`).join('')||'<div class="empty">কোনো TV channel নেই</div>'}
 function renderCategories(){const values=[...new Set([...DEFAULT_CATEGORIES,...data.liveTvChannels.map(x=>x.category).filter(Boolean)])].sort();const selected=$('categoryFilter').value;$('categoryFilter').innerHTML='<option value="">সব ক্যাটাগরি</option>'+values.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');$('categoryFilter').value=values.includes(selected)?selected:'';$('categoryOptions').innerHTML=values.map(c=>`<option value="${escapeHtml(c)}"></option>`).join('')}
-function renderList(which){const isTv=which==='tv',arr=isTv?data.liveTvChannels:data.liveSports,box=$(isTv?'tvList':'sportsList'),q=isTv?$('search').value.trim().toLowerCase():'',cat=isTv?$('categoryFilter').value:'';const rows=arr.map((item,index)=>({item,index})).filter(({item})=>(!q||[item.name,item.url,item.category].some(v=>safeText(v).toLowerCase().includes(q)))&&(!cat||item.category===cat));if(!rows.length){box.innerHTML='<div class="empty">কোনো item পাওয়া যায়নি</div>';return}box.innerHTML=rows.map(({item,index})=>{const hidden=item.Show==='N',logoUrl=safeUrl(item.logoUrl);return `<article class="item ${hidden?'hidden':''}"><div class="logo">${logoUrl?`<img src="${escapeHtml(logoUrl)}" alt="" loading="lazy" onerror="this.remove()">`:escapeHtml(item.logo|| (isTv?'📺':'⚽'))}</div><div class="info"><div class="name">${escapeHtml(item.name||'(নাম নেই)')} ${hidden?'(Hidden)':''}</div><div class="meta"><span class="pill">${escapeHtml(item.category||(isTv?'Other':'Live Sports'))}</span>${hidden?'<span style="color:#ff7187">Hidden</span>':''}${item.startTime?'<span>⏰ '+escapeHtml(new Date(item.startTime).toLocaleString())+'</span>':''}<span>${Array.isArray(item.streams)?item.streams.length+' alternate stream(s)':''}</span></div><div class="url">${escapeHtml(item.url||'Primary URL নেই')}</div></div><div class="rowbtn"><button class="iconbtn" data-action="hide" data-index="${index}" data-kind="${which}" title="Hide/Show">${hidden?'👁️':'🚫'}</button><button class="iconbtn" data-action="edit" data-index="${index}" data-kind="${which}" title="Edit">✏️</button><button class="iconbtn" data-action="delete" data-index="${index}" data-kind="${which}" title="Delete">🗑️</button></div></article>`}).join('')}
+function renderList(which){const isTv=which==='tv',arr=isTv?data.liveTvChannels:data.liveSports,box=$(isTv?'tvList':'sportsList'),q=isTv?$('search').value.trim().toLowerCase():'',cat=isTv?$('categoryFilter').value:'';const rows=arr.map((item,index)=>({item,index})).filter(({item})=>(!q||[item.name,item.url,item.category].some(v=>safeText(v).toLowerCase().includes(q)))&&(!cat||item.category===cat));if(!rows.length){box.innerHTML='<div class="empty">কোনো item পাওয়া যায়নি</div>';return}box.innerHTML=rows.map(({item,index})=>{const hidden=item.Show==='N',logoUrl=safeUrl(item.logoUrl);return `<article class="item ${hidden?'hidden':''}"><div class="logo">${logoUrl?`<img src="${escapeHtml(logoUrl)}" alt="" loading="lazy" onerror="this.remove()">`:escapeHtml(item.logo|| (isTv?'📺':'⚽'))}</div><div class="info"><div class="name">${escapeHtml(item.name||'(নাম নেই)')} ${hidden?'(Hidden)':''}</div><div class="meta"><span class="pill">${escapeHtml(item.category||(isTv?'Other':'Live Sports'))}</span>${hidden?'<span style="color:#ff7187">Hidden</span>':''}</div><div class="url">${escapeHtml(item.url||'Primary URL নেই')}</div></div><div class="rowbtn"><button class="iconbtn" data-action="hide" data-index="${index}" data-kind="${which}" title="Hide/Show">${hidden?'👁️':'🚫'}</button><button class="iconbtn" data-action="edit" data-index="${index}" data-kind="${which}" title="Edit">✏️</button><button class="iconbtn" data-action="delete" data-index="${index}" data-kind="${which}" title="Delete">🗑️</button></div></article>`}).join('')}
 function datetimeLocal(v){if(!v)return '';const d=new Date(v);if(Number.isNaN(d.getTime()))return '';return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,16)}
-function addStreamRow(name='',url=''){const row=document.createElement('div');row.className='streamrow';const n=document.createElement('input');n.placeholder='Server name';n.value=name;n.className='stream-name';n.maxLength=100;const u=document.createElement('input');u.placeholder='https://stream-url';u.value=url;u.className='stream-url';u.inputMode='url';const b=document.createElement('button');b.type='button';b.className='iconbtn';b.textContent='✕';b.title='Remove stream';b.onclick=()=>row.remove();row.append(n,u,b);$('streams').append(row)}
-function openEditor(kind,index=-1){const isTv=kind==='tv',arr=isTv?data.liveTvChannels:data.liveSports,item=index<0?{}:arr[index];if(!item&&index>=0)return; $('editForm').dataset.kind=kind;$('idx').value=index;$('section').value=kind;$('modalTitle').textContent=(index<0?'➕ Add ':'✏️ Edit ')+(isTv?'TV Channel':'Sports Match');$('name').value=item.name||'';$('category').value=item.category||(isTv?'Bangla':'Live Sports');$('tone').value=item.tone||'blue';$('url').value=item.url||'';$('logoUrl').value=item.logoUrl||'';$('logo').value=item.logo||(isTv?'📺':'⚽');$('visibility').value=item.Show==='N'?'N':'Y';$('startTime').value=datetimeLocal(item.startTime);$('endTime').value=datetimeLocal(item.endTime);$('matchType').value=item.matchType||'';document.querySelectorAll('.sports-only').forEach(el=>el.style.display=isTv?'none':'flex');$('streams').replaceChildren();(Array.isArray(item.streams)?item.streams:[]).forEach(s=>addStreamRow(s.name||'',s.url||''));$('modal').classList.add('open')}
-function saveEditor(e){e.preventDefault();const kind=$('section').value,isTv=kind==='tv',index=Number($('idx').value),arr=isTv?data.liveTvChannels:data.liveSports;const name=$('name').value.trim(),url=$('url').value.trim(),logoUrl=$('logoUrl').value.trim();if(!name||!url){toast('নাম ও Primary Stream URL আবশ্যক',true);return}if(!safeUrl(url)){toast('Stream URL অবশ্যই http:// অথবা https:// হতে হবে',true);return}if(logoUrl&&!safeUrl(logoUrl)){toast('Logo URL অবশ্যই http:// অথবা https:// হতে হবে',true);return}const old=index<0?{}:arr[index];const item={...old,name,category:$('category').value.trim()||(isTv?'Bangla':'Live Sports'),url,logoUrl,logo:$('logo').value.trim()||(isTv?'📺':'⚽'),tone:$('tone').value,Show:$('visibility').value};const streams=[...document.querySelectorAll('.streamrow')].map(row=>({name:row.querySelector('.stream-name').value.trim(),url:row.querySelector('.stream-url').value.trim()})).filter(s=>s.name||s.url);if(streams.length){if(streams.some(s=>s.url&&!safeUrl(s.url))){toast('Alternative stream URL-এ http:// অথবা https:// দিন',true);return}item.streams=streams.map(s=>({...s,...(old.streams?.find(o=>o.name===s.name&&o.url===s.url)?.drm?{drm:old.streams.find(o=>o.name===s.name&&o.url===s.url).drm}:{})}))}else if(Array.isArray(old.streams)){delete item.streams}
-if(!isTv){if($('startTime').value)item.startTime=new Date($('startTime').value).toISOString();else delete item.startTime;if($('endTime').value)item.endTime=new Date($('endTime').value).toISOString();else delete item.endTime;item.matchType=$('matchType').value.trim().toUpperCase()}if(index<0)arr.unshift(item);else arr[index]=item;markDirty();render();$('modal').classList.remove('open');toast('✅ পরিবর্তন সেভ হয়েছে—Export করতে হবে')}
-function deleteItem(kind,index){if(!confirm('এই item মুছে ফেলতে চান?'))return; (kind==='tv'?data.liveTvChannels:data.liveSports).splice(index,1);markDirty();render();toast('Item deleted')}
-function toggleItem(kind,index){const item=(kind==='tv'?data.liveTvChannels:data.liveSports)[index];item.Show=item.Show==='N'?'Y':'N';markDirty();render();toast(item.Show==='N'?'চ্যানেল Hidden হয়েছে':'চ্যানেল Visible হয়েছে')}
-function makeExport(){const out={...data,liveTvChannels:data.liveTvChannels,liveSports:data.liveSports};$('exportArea').value=JSON.stringify(out,null,2);toast('JSON তৈরি হয়েছে')}
-function downloadExport(){if(!$('exportArea').value.trim())makeExport();const blob=new Blob([$('exportArea').value],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='channels.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-async function copyExport(){if(!$('exportArea').value.trim())makeExport();try{await navigator.clipboard.writeText($('exportArea').value);toast('JSON copied')}catch{ $('exportArea').focus();$('exportArea').select();toast('Auto copy blocked; text selected—Copy করুন',true)}}
+function addStreamRow(name='',url=''){const row=document.createElement('div');row.className='streamrow';const n=document.createElement('input');n.placeholder='Server name';n.value=name;n.className='stream-name';const u=document.createElement('input');u.placeholder='https://stream-url';u.value=url;u.className='stream-url';const b=document.createElement('button');b.type='button';b.className='iconbtn';b.textContent='✕';b.onclick=()=>row.remove();row.append(n,u,b);$('streams').append(row)}
+
+function openEditor(kind,index=-1){const isTv=kind==='tv',arr=isTv?data.liveTvChannels:data.liveSports,item=index<0?{}:arr[index];if(!item&&index>=0)return;$('editForm').dataset.kind=kind;$('idx').value=index;$('section').value=kind;$('modalTitle').textContent=(index<0?'➕ Add ':'✏️ Edit ')+(isTv?'TV Channel':'Sports Match');$('name').value=item.name||'';$('category').value=item.category||(isTv?'Bangla':'Live Sports');$('tone').value=item.tone||'blue';$('url').value=item.url||'';$('logoUrl').value=item.logoUrl||'';$('logo').value=item.logo||(isTv?'📺':'⚽');$('visibility').value=item.Show==='N'?'N':'Y';$('startTime').value=datetimeLocal(item.startTime);$('endTime').value=datetimeLocal(item.endTime);$('matchType').value=item.matchType||'';document.querySelectorAll('.sports-only').forEach(el=>el.style.display=isTv?'none':'flex');$('streams').replaceChildren();(Array.isArray(item.streams)?item.streams:[]).forEach(s=>addStreamRow(s.name||'',s.url||''));$('modal').classList.add('open')}
+function saveEditor(e){e.preventDefault();const kind=$('section').value,isTv=kind==='tv',index=Number($('idx').value),arr=isTv?data.liveTvChannels:data.liveSports;const name=$('name').value.trim(),url=$('url').value.trim(),logoUrl=$('logoUrl').value.trim();if(!name||!url){toast('নাম ও Primary Stream URL আবশ্যক',true);return}const old=index<0?{}:arr[index];const item={...old,name,category:$('category').value.trim()||(isTv?'Bangla':'Live Sports'),url,logoUrl,logo:$('logo').value.trim()||(isTv?'📺':'⚽'),tone:$('tone').value,Show:$('visibility').value};const streams=[...document.querySelectorAll('.streamrow')].map(row=>({name:row.querySelector('.stream-name').value.trim(),url:row.querySelector('.stream-url').value.trim()})).filter(s=>s.name||s.url);if(streams.length){item.streams=streams}else if(Array.isArray(old.streams)){delete item.streams}
+if(!isTv){if($('startTime').value)item.startTime=new Date($('startTime').value).toISOString();else delete item.startTime;if($('endTime').value)item.endTime=new Date($('endTime').value).toISOString();else delete item.endTime;item.matchType=$('matchType').value.trim().toUpperCase()}if(index<0)arr.unshift(item);else arr[index]=item;markDirty();render();$('modal').classList.remove('open');toast('✅ পরিবর্তন সেভ হয়েছে')}
+
+function deleteItem(kind,index){if(!confirm('মুছে ফেলতে চান?'))return;(kind==='tv'?data.liveTvChannels:data.liveSports).splice(index,1);markDirty();render();toast('Item deleted')}
+function toggleItem(kind,index){const item=(kind==='tv'?data.liveTvChannels:data.liveSports)[index];item.Show=item.Show==='N'?'Y':'N';markDirty();render();toast(item.Show==='N'?'Hidden':'Visible')}
+
+function makeExport(){$('exportArea').value=JSON.stringify(data,null,2);toast('JSON তৈরি হয়েছে')}
+function downloadExport(){if(!$('exportArea').value.trim())makeExport();const blob=new Blob([$('exportArea').value],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='channels.json';document.body.append(a);a.click();a.remove()}
+async function copyExport(){if(!$('exportArea').value.trim())makeExport();try{await navigator.clipboard.writeText($('exportArea').value);toast('JSON copied')}catch{toast('Copy blocked',true)}}
+
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+b.dataset.page))}));
-$('refreshBtn').onclick=loadData;$('localBtn').onclick=saveLocal;$('addTv').onclick=()=>openEditor('tv');$('addSports').onclick=()=>openEditor('sports');$('closeModal').onclick=$('cancel').onclick=()=>$('modal').classList.remove('open');$('addStream').onclick=()=>addStreamRow();$('editForm').addEventListener('submit',saveEditor);$('generate').onclick=makeExport;$('download').onclick=downloadExport;$('copy').onclick=copyExport;$('search').addEventListener('input',()=>renderList('tv'));$('categoryFilter').addEventListener('change',()=>renderList('tv'));$('tvList').addEventListener('click',e=>handleListClick(e,'tv'));$('sportsList').addEventListener('click',e=>handleListClick(e,'sports'));
+$('refreshBtn').onclick=loadData;
+$('pushGithubBtn').onclick=pushToGitHub;
+$('addTv').onclick=()=>openEditor('tv');
+$('addSports').onclick=()=>openEditor('sports');
+$('closeModal').onclick=$('cancel').onclick=()=>$('modal').classList.remove('open');
+$('addStream').onclick=()=>addStreamRow();
+$('editForm').addEventListener('submit',saveEditor);
+$('generate').onclick=makeExport;
+$('download').onclick=downloadExport;
+$('copy').onclick=copyExport;
+$('search').addEventListener('input',()=>renderList('tv'));
+$('categoryFilter').addEventListener('change',()=>renderList('tv'));
+$('tvList').addEventListener('click',e=>handleListClick(e,'tv'));
+$('sportsList').addEventListener('click',e=>handleListClick(e,'sports'));
+
 function handleListClick(e,kind){const b=e.target.closest('button[data-action]');if(!b)return;const i=Number(b.dataset.index);if(b.dataset.action==='edit')openEditor(kind,i);if(b.dataset.action==='hide')toggleItem(kind,i);if(b.dataset.action==='delete')deleteItem(kind,i)}
-$('modal').addEventListener('click',e=>{if(e.target===$('modal'))$('modal').classList.remove('open')});
-window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});loadData();
+
+loadSettings();
+loadData();
 </script>
 </body>
+</html>
