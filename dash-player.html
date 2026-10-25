@@ -1,78 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#050811">
-<title>Rs Streem — HLS Player</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070912">
+<title>SPORTYNOVA DASH Player</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:#fff;font-family:Arial,"Noto Sans Bengali",sans-serif}
-#app{position:fixed;inset:0;background:#000;display:flex;flex-direction:column}
-#screen{position:relative;flex:1;min-height:0;background:#000;display:grid;place-items:center}
-video{width:100%;height:100%;object-fit:contain;background:#000}
-#controls{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:34px 10px 10px;background:linear-gradient(0deg,#000e,transparent);display:flex;align-items:center;gap:7px}
-button{background:#111d2d;color:#fff;border:1px solid #ffffff45;border-radius:8px;min-height:34px;padding:6px 10px;font-weight:700;font-size:12px;white-space:nowrap}
-button.active{border-color:#21d8f4;background:#123347;color:#b8f7ff}
-#servers{display:flex;gap:5px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
-#servers::-webkit-scrollbar{display:none}
-#status{position:absolute;left:10px;top:10px;z-index:4;padding:6px 9px;background:#111b;border-radius:8px;font-size:11px;color:#dcecff;max-width:75%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#title{position:absolute;left:10px;top:43px;z-index:4;font-size:12px;color:#a9bad1;max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#message{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:#dcecff;background:#050811;font-size:14px;line-height:1.6}
-#message[hidden]{display:none}
-@media(max-width:420px){#controls{gap:4px;padding:28px 5px 7px}button{font-size:10px;padding:5px 7px;min-height:30px}#title{font-size:11px}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#000;color:#f5f8ff;font-family:Arial,sans-serif}
+body{display:flex;flex-direction:column}.head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#101624;border-bottom:1px solid #28354b}
+.title{font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.status{font-size:11px;color:#21d8f4;white-space:nowrap}
+video{width:100%;height:calc(100% - 48px);flex:1;min-height:0;object-fit:contain;background:#000}
+.message{margin:12px;padding:10px;background:#151e2e;border:1px solid #28354b;border-radius:8px;font-size:12px;line-height:1.5;display:none;white-space:pre-wrap}
+.message.show{display:block}
 </style>
 </head>
 <body>
-<div id="app">
- <div id="screen">
-  <video id="video" playsinline webkit-playsinline autoplay preload="auto"></video>
-  <div id="status">HLS player ready</div><div id="title"></div>
-  <div id="message">HLS / m3u8 stream সংযোগ করা হচ্ছে…</div>
-  <div id="controls">
-   <button id="play" aria-label="Play/Pause">▶</button>
-   <button id="mute" aria-label="Mute">🔊</button>
-   <div id="servers"></div>
-   <button id="full" aria-label="Fullscreen">⛶</button>
-  </div>
- </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+<header class="head"><div class="title" id="title">SPORTYNOVA DASH Player</div><div class="status" id="status">লোড হচ্ছে…</div></header>
+<video id="video" controls autoplay playsinline></video><div class="message" id="message"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.8/shaka-player.compiled.js"></script>
 <script>
-(()=>{
- const params=new URLSearchParams(location.search),video=document.getElementById("video");
- const status=document.getElementById("status"),message=document.getElementById("message");
- const title=document.getElementById("title"),servers=document.getElementById("servers");
- const streams=[{name:"Server 1",url:params.get("url")||""},{name:"Server 2",url:params.get("server2")||""}].filter(x=>x.url);
- let hls=null,current=0;
- title.textContent=params.get("name")||"Rs Streem HLS Player";
- function stop(){if(hls){hls.destroy();hls=null}video.pause();video.removeAttribute("src");video.load()}
- function playServer(i){
-  if(!streams[i])return;current=i;stop();message.hidden=false;message.textContent="ভিডিও সংযোগ করা হচ্ছে…";status.textContent=streams[i].name+" · Connecting";
-  [...servers.children].forEach((b,j)=>b.classList.toggle("active",j===i));
-  const url=streams[i].url.trim();
-  if(window.Hls&&Hls.isSupported()){
-   hls=new Hls({enableWorker:true,lowLatencyMode:true,maxBufferLength:6,maxMaxBufferLength:10,manifestLoadingMaxRetry:1,levelLoadingMaxRetry:1});
-   hls.on(Hls.Events.MEDIA_ATTACHED,()=>hls.loadSource(url));
-   hls.on(Hls.Events.MANIFEST_PARSED,()=>video.play().catch(()=>{status.textContent="Play চাপুন"}));
-   hls.on(Hls.Events.ERROR,(_,data)=>{if(data.fatal){status.textContent="Stream error · অন্য Server চেষ্টা করুন";message.hidden=false;message.textContent="এই stream চালু হয়নি। অন্য server থাকলে নির্বাচন করুন।"}});
-   hls.attachMedia(video);
-  }else if(video.canPlayType("application/vnd.apple.mpegurl")){
-   video.src=url;video.play().catch(()=>status.textContent="Play চাপুন");
-  }else{
-   status.textContent="এই browser-এ HLS support নেই";
-   message.textContent="এই browser-এ HLS.js চালাতে JavaScript/CDN এবং stream CORS access দরকার।";
-  }
+(async()=>{
+ const q=new URLSearchParams(location.search);
+ const raw=q.get('url')||'';
+ const name=q.get('name')||'Live TV';
+ const title=document.getElementById('title'), status=document.getElementById('status');
+ const video=document.getElementById('video'), message=document.getElementById('message');
+ title.textContent=name;
+ function show(msg){status.textContent='সমস্যা';message.textContent=msg;message.classList.add('show')}
+ function hexToBase64(hex){
+   const bytes=new Uint8Array(hex.match(/.{1,2}/g).map(x=>parseInt(x,16)));
+   let binary=''; bytes.forEach(b=>binary+=String.fromCharCode(b));
+   return btoa(binary).replace(/\\+/g,'-').replace(/\\//g,'_').replace(/=+$/,'');
  }
- streams.forEach((s,i)=>{const b=document.createElement("button");b.textContent=s.name;b.onclick=()=>playServer(i);servers.appendChild(b)});
- document.getElementById("play").onclick=()=>{if(video.paused)video.play().catch(()=>{});else video.pause()};
- document.getElementById("mute").onclick=()=>{video.muted=!video.muted;document.getElementById("mute").textContent=video.muted?"🔇":"🔊"};
- document.getElementById("full").onclick=()=>{const screen=document.getElementById("screen");if(document.fullscreenElement)document.exitFullscreen?.();else screen.requestFullscreen?.()};
- video.addEventListener("playing",()=>{status.textContent=(streams[current]?.name||"HLS")+" · Playing";message.hidden=true});
- video.addEventListener("waiting",()=>{status.textContent="Buffering…"});
- video.addEventListener("error",()=>{if(video.error){status.textContent="Playback error";message.hidden=false;message.textContent="ভিডিও চালানো যায়নি। URL, CORS অথবা stream access পরীক্ষা করুন।"}});
- if(streams.length)playServer(0);else{message.textContent="HLS URL পাওয়া যায়নি। Rs Streem থেকে একটি m3u8 channel নির্বাচন করুন।";status.textContent="No stream URL"}
+ if(!raw){show('Stream URL পাওয়া যায়নি। মূল সাইট থেকে একটি চ্যানেল নির্বাচন করুন।');return}
+ // URL format: manifest.mpd|drmScheme=clearkey&drmLicense=KID:KEY
+ const split=raw.split('|');
+ const manifestUrl=split.shift().trim();
+ const drmText=split.join('|');
+ const params=new URLSearchParams(drmText.replace(/^&/,''));
+ try{
+   if(!window.shaka){show('Shaka Player লোড হয়নি। ইন্টারনেট/CDN সংযোগ পরীক্ষা করুন।');return}
+   shaka.polyfill.installAll();
+   if(!shaka.Player.isBrowserSupported()){show('এই ব্রাউজারে DASH playback সমর্থিত নয়। অন্য আধুনিক ব্রাউজারে চেষ্টা করুন।');return}
+   const player=new shaka.Player();
+   await player.attach(video);
+   player.addEventListener('error',e=>{
+     const d=e.detail||{};
+     show('DASH চালানো যায়নি। Error code: '+(d.code||'unknown')+
+       '\\nসম্ভাব্য কারণ: ভুল/মেয়াদোত্তীর্ণ URL, CORS, DRM বা ব্রাউজার-সাপোর্ট।');
+   });
+   player.addEventListener('buffering',e=>status.textContent=e.buffering?'Buffering…':'DASH Ready');
+   const scheme=(params.get('drmScheme')||'').toLowerCase();
+   const license=(params.get('drmLicense')||'').trim();
+   if(scheme==='clearkey' && license){
+     const sep=license.indexOf(':');
+     if(sep>0){
+       const kidHex=license.slice(0,sep).replace(/[^0-9a-f]/gi,'').toLowerCase();
+       const keyHex=license.slice(sep+1).replace(/[^0-9a-f]/gi,'').toLowerCase();
+       if(kidHex.length===32 && keyHex.length===32){
+         // Shaka ClearKey configuration expects base64url KID/key values.
+         const kid=hexToBase64(kidHex), key=hexToBase64(keyHex);
+         player.configure({drm:{clearKeys:{[kid]:key}}});
+       }else{
+         show('ClearKey KID/KEY ফরম্যাট সঠিক নয়। KID এবং KEY প্রতিটি ৩২টি hexadecimal অক্ষরের হতে হবে।');
+         return;
+       }
+     }else{
+       show('drmLicense ফরম্যাট হওয়া উচিত KID:KEY।');
+       return;
+     }
+   }
+   await player.load(manifestUrl);
+   status.textContent='DASH Ready';
+   try{await video.play()}catch(_){status.textContent='▶ Play চাপুন'}
+ }catch(e){
+   show('DASH চালানো যায়নি।\\n'+(e&&e.message?e.message:'অজানা ত্রুটি')+
+     '\\nStream URL, CORS এবং DRM তথ্য পরীক্ষা করুন।');
+ }
+ video.addEventListener('playing',()=>status.textContent='LIVE');
+ video.addEventListener('waiting',()=>status.textContent='Buffering…');
 })();
 </script>
-</body>
-</html>
+</body></html>
