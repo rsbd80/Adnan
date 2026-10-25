@@ -27,13 +27,13 @@
 
 <section class="page active" id="page-sports">
 <div class="stats"><div class="stat"><small>TOTAL MATCHES</small><strong id="sportTotal">0</strong></div><div class="stat"><small>VISIBLE</small><strong id="visibleTotal">0</strong></div><div class="stat"><small>HIDDEN</small><strong id="hiddenTotal">0</strong></div></div>
-<div class="card"><h2 class="title">⚽ Live Sports Management</h2><div class="filters"><button class="btn primary" id="addSports">➕ Add Match File</button></div><div class="list" id="sportsList"><div class="empty">কোনো ম্যাচ পাওয়া যায়নি</div></div></div>
+<div class="card"><h2 class="title">⚽ Live Sports Management</h2><div class="filters"></div><div class="list" id="sportsList"><div class="empty">কোনো ম্যাচ পাওয়া যায়নি</div></div></div>
 </section>
 
 <section class="page" id="page-settings">
   <div class="card">
     <h2 class="title">🔑 GitHub Personal Token Configuration</h2>
-    <p class="hint">সঠিক টোকেন এবং ফোল্ডার পাথ দিন (যেমন: ফোল্ডার যদি শুধু matches হয় তবে matches লিখুন)।</p>
+    <p class="hint">সঠিক টোকেন এবং ফোল্ডার পাথ দিন।</p>
     <div class="grid">
       <div class="field full"><label>GitHub Personal Access Token (PAT)</label><input type="password" id="ghToken" placeholder="ghp_xxx"></div>
       <div class="field"><label>GitHub Username</label><input type="text" id="ghOwner" value="rsbd80"></div>
@@ -48,10 +48,10 @@
 <div class="modal" id="modal"><div class="dialog"><div class="dialoghead"><h2 id="modalTitle">Match Edit</h2><button class="iconbtn" id="closeModal">✕</button></div>
 <form id="editForm"><input type="hidden" id="fileName">
 <div class="grid">
-<div class="field full"><label>Match Name *</label><input id="name" required="" placeholder="Team A vs Team B"></div>
+<div class="field full"><label>Match Name *</label><input id="name" required placeholder="Team A vs Team B"></div>
 <div class="field"><label>Category</label><input id="category" value="Live Sports"></div>
 <div class="field"><label>Visibility (Show)</label><select id="visibility"><option value="Y">Visible (Y)</option><option value="N">Hidden (N)</option></select></div>
-<div class="field full"><label>Stream URL *</label><input id="url" required="" placeholder="https://..."></div>
+<div class="field full"><label>Stream URL *</label><input id="url" required placeholder="https://..."></div>
 <div class="field full"><label>Logo URL</label><input id="logoUrl" placeholder="https://..."></div>
 </div>
 <div class="foot"><button class="btn" type="button" id="cancel">Cancel</button><button class="btn primary" type="submit">💾 Save & Push to GitHub</button></div>
@@ -63,27 +63,37 @@
 const $=id=>document.getElementById(id);
 let matchesData=[];
 
-function toast(msg,error=false){const t=$('toast');t.textContent=msg;t.className='toast show'+(error?' error':'');setTimeout(()=>t.classList.remove('show'),3200)}
+function toast(msg,error=false){
+  const t=$('toast');
+  if(!t)return;
+  t.textContent=msg;
+  t.className='toast show'+(error?' error':'');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
 
 function loadSettings(){
-  $('ghToken').value = localStorage.getItem('gh_token') || '';
-  $('ghOwner').value = localStorage.getItem('gh_owner') || 'rsbd80';
-  $('ghRepo').value = localStorage.getItem('gh_repo') || 'Adnan';
-  $('ghPath').value = localStorage.getItem('gh_path') || 'data/matches';
+  if($('ghToken')) $('ghToken').value = localStorage.getItem('gh_token') || '';
+  if($('ghOwner')) $('ghOwner').value = localStorage.getItem('gh_owner') || 'rsbd80';
+  if($('ghRepo')) $('ghRepo').value = localStorage.getItem('gh_repo') || 'Adnan';
+  if($('ghPath')) $('ghPath').value = localStorage.getItem('gh_path') || 'data/matches';
 }
-$('saveSettingsBtn').onclick = () => {
-  localStorage.setItem('gh_token', $('ghToken').value.trim());
-  localStorage.setItem('gh_owner', $('ghOwner').value.trim());
-  localStorage.setItem('gh_repo', $('ghRepo').value.trim());
-  localStorage.setItem('gh_path', $('ghPath').value.trim());
-  toast('⚙️ Settings Saved!');
-};
+
+const saveSettingsBtn = $('saveSettingsBtn');
+if(saveSettingsBtn){
+  saveSettingsBtn.onclick = () => {
+    localStorage.setItem('gh_token', $('ghToken') ? $('ghToken').value.trim() : '');
+    localStorage.setItem('gh_owner', $('ghOwner') ? $('ghOwner').value.trim() : 'rsbd80');
+    localStorage.setItem('gh_repo', $('ghRepo') ? $('ghRepo').value.trim() : 'Adnan');
+    localStorage.setItem('gh_path', $('ghPath') ? $('ghPath').value.trim() : 'data/matches');
+    toast('⚙️ Settings Saved!');
+  };
+}
 
 async function loadMatchesFromGitHub() {
   toast('⏳ ম্যাচ ফাইলগুলো লোড হচ্ছে...');
-  const owner = $('ghOwner').value || 'rsbd80';
-  const repo = $('ghRepo').value || 'Adnan';
-  const path = $('ghPath').value || 'data/matches';
+  const owner = $('ghOwner') ? $('ghOwner').value || 'rsbd80' : 'rsbd80';
+  const repo = $('ghRepo') ? $('ghRepo').value || 'Adnan' : 'Adnan';
+  const path = $('ghPath') ? $('ghPath').value || 'data/matches' : 'data/matches';
   const token = localStorage.getItem('gh_token');
   
   try {
@@ -91,23 +101,31 @@ async function loadMatchesFromGitHub() {
     if(token) headers['Authorization'] = `token ${token}`;
 
     const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, { headers });
-    const data = await res.json();
-    
-    if(!res.ok) {
-      throw Error(data.message || 'GitHub API Error: ' + res.status);
+    let data;
+    try {
+      data = await res.json();
+    } catch(err) {
+      data = null;
     }
     
-    if(!Array.isArray(data)) {
-      throw Error('নির্ধারিত পাথটি কোনো ফোল্ডার নয় বা ফাইল পাওয়া যায়নি।');
+    if(!res.ok || !Array.isArray(data)) {
+      matchesData = [];
+      render();
+      toast('❌ ফোল্ডার পাওয়া যায়নি বা টোকেন ভুল আছে।', true);
+      return;
     }
     
     matchesData = [];
     for(let file of data) {
-      if(file.name.endsWith('.json')) {
-        const fileRes = await fetch(file.download_url + '?t=' + Date.now());
-        if(fileRes.ok) {
-          const content = await fileRes.json();
-          matchesData.push({ fileName: file.name, sha: file.sha, content });
+      if(file && file.name && file.name.endsWith('.json')) {
+        try {
+          const fileRes = await fetch(file.download_url + '?t=' + Date.now());
+          if(fileRes.ok) {
+            const content = await fileRes.json();
+            matchesData.push({ fileName: file.name, sha: file.sha, content });
+          }
+        } catch(innerErr) {
+          // Ignore individual file fetch errors
         }
       }
     }
@@ -119,18 +137,20 @@ async function loadMatchesFromGitHub() {
 }
 
 function render(){
-  $('sportTotal').textContent = matchesData.length;
-  $('visibleTotal').textContent = matchesData.filter(m=>m.content.Show !== 'N').length;
-  $('hiddenTotal').textContent = matchesData.filter(m=>m.content.Show === 'N').length;
+  if($('sportTotal')) $('sportTotal').textContent = matchesData.length;
+  if($('visibleTotal')) $('visibleTotal').textContent = matchesData.filter(m=>m.content && m.content.Show !== 'N').length;
+  if($('hiddenTotal')) $('hiddenTotal').textContent = matchesData.filter(m=>m.content && m.content.Show === 'N').length;
   
   const list = $('sportsList');
+  if(!list) return;
+  
   if(!matchesData.length){
-    list.innerHTML = '<div class="empty">কোনো ম্যাচ ফাইল পাওয়া যায়নি</div>';
+    list.innerHTML = '<div class="empty">কোনো ম্যাচ পাওয়া যায়নি</div>';
     return;
   }
   
   list.innerHTML = matchesData.map((m, idx)=>{
-    const c = m.content;
+    const c = m.content || {};
     const hidden = c.Show === 'N';
     return `<article class="item ${hidden?'hidden':''}">
       <div class="logo"><img src="${c.logoUrl || ''}" onerror="this.src=''"></div>
@@ -140,75 +160,96 @@ function render(){
         <div class="url">${c.url || 'URL নেই'}</div>
       </div>
       <div class="rowbtn">
-        <button class="iconbtn" onclick="openEditor(${idx})">✏️</button>
+        <button class="iconbtn" type="button" onclick="window.openEditor(${idx})">✏️</button>
       </div>
     </article>`;
   }).join('');
 }
 
-function openEditor(idx){
+window.openEditor = function(idx){
   const m = matchesData[idx];
-  $('fileName').value = m.fileName;
-  $('name').value = m.content.name || '';
-  $('category').value = m.content.category || 'Live Sports';
-  $('visibility').value = m.content.Show === 'N' ? 'N' : 'Y';
-  $('url').value = m.content.url || '';
-  $('logoUrl').value = m.content.logoUrl || '';
-  $('modal').classList.add('open');
-}
-
-$('editForm').onsubmit = async (e) => {
-  e.preventDefault();
-  const fileName = $('fileName').value;
-  const token = localStorage.getItem('gh_token');
-  const owner = $('ghOwner').value;
-  const repo = $('ghRepo').value;
-  const path = $('ghPath').value;
-
-  if(!token){
-    toast('আগে Settings থেকে GitHub Token দিন!', true);
-    return;
-  }
-
-  const matchObj = matchesData.find(m => m.fileName === fileName);
-  if(!matchObj) return;
-
-  matchObj.content.name = $('name').value.trim();
-  matchObj.content.category = $('category').value.trim();
-  matchObj.content.Show = $('visibility').value;
-  matchObj.content.url = $('url').value.trim();
-  matchObj.content.logoUrl = $('logoUrl').value.trim();
-
-  toast('⏳ GitHub-এ সেভ হচ্ছে...');
-  try {
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${fileName}`;
-    const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(matchObj.content, null, 2))));
-    
-    const putRes = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: `Update ${fileName} via Admin Panel`,
-        content: contentEncoded,
-        sha: matchObj.sha
-      })
-    });
-
-    if(!putRes.ok) throw Error('Failed to update file on GitHub');
-    
-    const resJson = await putRes.json();
-    matchObj.sha = resJson.content.sha;
-    
-    toast('🎉 গিটহাবে সফলভাবে সেভ হয়েছে!');
-    $('modal').classList.remove('open');
-    render();
-  } catch(e) {
-    toast('❌ সেভ করতে ব্যর্থ: ' + e.message, true);
-  }
+  if(!m) return;
+  if($('fileName')) $('fileName').value = m.fileName;
+  if($('name')) $('name').value = m.content.name || '';
+  if($('category')) $('category').value = m.content.category || 'Live Sports';
+  if($('visibility')) $('visibility').value = m.content.Show === 'N' ? 'N' : 'Y';
+  if($('url')) $('url').value = m.content.url || '';
+  if($('logoUrl')) $('logoUrl').value = m.content.logoUrl || '';
+  if($('modal')) $('modal').classList.add('open');
 };
 
-$('refreshBtn').onclick = loadMatchesFromGitHub;
-$('closeModal').onclick = $('cancel').onclick = () => $('modal').classList.remove('open');
+const editForm = $('editForm');
+if(editForm){
+  editForm.onsubmit = async (e) => {
+    e.preventDefault();
+    const fileName = $('fileName') ? $('fileName').value : '';
+    const token = localStorage.getItem('gh_token');
+    const owner = $('ghOwner') ? $('ghOwner').value : 'rsbd80';
+    const repo = $('ghRepo') ? $('ghRepo').value : 'Adnan';
+    const path = $('ghPath') ? $('ghPath').value : 'data/matches';
+
+    if(!token){
+      toast('আগে Settings থেকে GitHub Token দিন!', true);
+      return;
+    }
+
+    const matchObj = matchesData.find(m => m.fileName === fileName);
+    if(!matchObj) return;
+
+    matchObj.content.name = $('name') ? $('name').value.trim() : '';
+    matchObj.content.category = $('category') ? $('category').value.trim() : 'Live Sports';
+    matchObj.content.Show = $('visibility') ? $('visibility').value : 'Y';
+    matchObj.content.url = $('url') ? $('url').value.trim() : '';
+    matchObj.content.logoUrl = $('logoUrl') ? $('logoUrl').value.trim() : '';
+
+    toast('⏳ GitHub-এ সেভ হচ্ছে...');
+    try {
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${fileName}`;
+      const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(matchObj.content, null, 2))));
+      
+      const putRes = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: `Update ${fileName} via Admin Panel`,
+          content: contentEncoded,
+          sha: matchObj.sha
+        })
+      });
+
+      let resJson;
+      try {
+        resJson = await putRes.json();
+      } catch(err) {
+        resJson = {};
+      }
+
+      if(!putRes.ok) throw Error(resJson.message || 'Failed to update file on GitHub');
+      
+      if(resJson.content && resJson.content.sha) {
+        matchObj.sha = resJson.content.sha;
+      }
+      
+      toast('🎉 গিটহাবে সফলভাবে সেভ হয়েছে!');
+      if($('modal')) $('modal').classList.remove('open');
+      render();
+    } catch(e) {
+      toast('❌ সেভ করতে ব্যর্থ: ' + e.message, true);
+    }
+  };
+}
+
+// Tab switching
+document.querySelectorAll('.tab').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
+    document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+b.dataset.page));
+  });
+});
+
+if($('refreshBtn')) $('refreshBtn').onclick = loadMatchesFromGitHub;
+if($('closeModal')) $('closeModal').onclick = () => { if($('modal')) $('modal').classList.remove('open'); };
+if($('cancel')) $('netCancel') || ($('cancel').onclick = () => { if($('modal')) $('modal').classList.remove('open'); });
 
 loadSettings();
 loadMatchesFromGitHub();
