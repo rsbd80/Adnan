@@ -19,7 +19,7 @@
 </div>
 </div></header>
 <main class="wrap">
-<div class="notice">✅ <b>GitHub Matches Sync:</b> আপনার গিটহাবের <b>data/matches/</b> ফোল্ডার থেকে সরাসরি ম্যাচ ডেটা লোড হচ্ছে।</div>
+<div class="notice">✅ <b>GitHub Matches Sync:</b> আপনার গিটহাবের ফোল্ডার থেকে সরাসরি ম্যাচ ডেটা লোড হচ্ছে।</div>
 <nav class="tabs">
   <button class="tab active" data-page="sports">⚽ Live Sports Matches</button>
   <button class="tab" data-page="settings">⚙️ GitHub Settings</button>
@@ -33,7 +33,7 @@
 <section class="page" id="page-settings">
   <div class="card">
     <h2 class="title">🔑 GitHub Personal Token Configuration</h2>
-    <p class="hint">ফাইলগুলো সরাসরি গিটহাবম এ সেভ করার জন্য টোকেন দিন।</p>
+    <p class="hint">সঠিক টোকেন এবং ফোল্ডার পাথ দিন (যেমন: ফোল্ডার যদি শুধু matches হয় তবে matches লিখুন)।</p>
     <div class="grid">
       <div class="field full"><label>GitHub Personal Access Token (PAT)</label><input type="password" id="ghToken" placeholder="ghp_xxx"></div>
       <div class="field"><label>GitHub Username</label><input type="text" id="ghOwner" value="rsbd80"></div>
@@ -84,14 +84,25 @@ async function loadMatchesFromGitHub() {
   const owner = $('ghOwner').value || 'rsbd80';
   const repo = $('ghRepo').value || 'Adnan';
   const path = $('ghPath').value || 'data/matches';
+  const token = localStorage.getItem('gh_token');
   
   try {
-    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
-    if(!res.ok) throw Error('GitHub API Error: ' + res.status);
-    const files = await res.json();
+    const headers = {};
+    if(token) headers['Authorization'] = `token ${token}`;
+
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, { headers });
+    const data = await res.json();
+    
+    if(!res.ok) {
+      throw Error(data.message || 'GitHub API Error: ' + res.status);
+    }
+    
+    if(!Array.isArray(data)) {
+      throw Error('নির্ধারিত পাথটি কোনো ফোল্ডার নয় বা ফাইল পাওয়া যায়নি।');
+    }
     
     matchesData = [];
-    for(let file of files) {
+    for(let file of data) {
       if(file.name.endsWith('.json')) {
         const fileRes = await fetch(file.download_url + '?t=' + Date.now());
         if(fileRes.ok) {
@@ -151,7 +162,7 @@ $('editForm').onsubmit = async (e) => {
   const fileName = $('fileName').value;
   const token = localStorage.getItem('gh_token');
   const owner = $('ghOwner').value;
-  const repo = localStorage.getItem('gh_repo');
+  const repo = $('ghRepo').value;
   const path = $('ghPath').value;
 
   if(!token){
