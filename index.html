@@ -555,7 +555,7 @@ body{
 </head>
 <body>
 <div class="wrap">
-<div class="update-stamp">শেষ আপডেট: ২৪ অক্টোবর ২০২৬ (বাংলাদেশ সময়)</div>
+<div class="update-stamp">শেষ আপডেট: ২ নভেম্বর ২০২৬ (বাংলাদেশ সময়)</div>
 <header class="topbar">
  <div class="brand"><div class="brandicon">▶</div><div><div class="brandname"><span>SPORTY</span><span class="nova">NOVA</span><span class="version">1.0</span></div><div class="tagline">WATCH LIVE · ANYTIME · ANYWHERE</div></div></div>
  <input id="search" class="search" placeholder="Search channels…" aria-label="Search channel">
@@ -1304,45 +1304,76 @@ async function loadSportsMatches(){
   return true;
  });
 }
+// একই চ্যানেল একাধিক category JSON-এ থাকলে এক কার্ড দেখায়;
+// আলাদা stream URL থাকলে সেগুলো একই চ্যানেলের server list-এ যোগ করে।
+function dedupeTvChannels(items){
+ const unique=new Map();
+ const cleanName=value=>String(value||"").normalize("NFKC").toLowerCase()
+  .replace(/[\\u200B-\\u200D\\uFEFF]/g,"")
+  .replace(/[^\\p{L}\\p{N}]+/gu," ").trim();
+ items.forEach(channel=>{
+  if(!channel||!channel.name||!isChannelShown(channel))return;
+  const key=cleanName(channel.name);
+  if(!key)return;
+  const existing=unique.get(key);
+  if(!existing){
+   unique.set(key,{...channel,section:"tv",streams:getChannelStreams(channel)});
+   return;
+  }
+  const merged=[...getChannelStreams(existing),...getChannelStreams(channel)];
+  const seenUrls=new Set();
+  existing.streams=merged.filter(stream=>{
+   const url=String(stream.url||stream.src||"").trim();
+   if(!url||seenUrls.has(url))return false;
+   seenUrls.add(url);
+   return true;
+  });
+  if(!existing.url&&existing.streams.length)existing.url=existing.streams[0].url;
+ });
+ return Array.from(unique.values());
+}
+
+let configLoadPromise=null;
 async function loadConfig(){
- const files={Bangla:"./data/bangla.json",Indian:"./data/india.json",Sports:"./data/sports.json",News:"./data/news.json",Music:"./data/music.json",Entertainment:"./data/entertainment.json",Movie:"./data/movie.json",Cartoon:"./data/cartoon.json",Religion:"./data/religion.json",Documentary:"./data/documentary.json"};
- try{
+ if(configLoadPromise)return configLoadPromise;
+ configLoadPromise=(async()=>{
+  const files={Bangla:"./data/bangla.json",Indian:"./data/india.json",Sports:"./data/sports.json",News:"./data/news.json",Music:"./data/music.json",Entertainment:"./data/entertainment.json",Movie:"./data/movie.json",Cartoon:"./data/cartoon.json",Religion:"./data/religion.json",Documentary:"./data/documentary.json"};
   const results=await Promise.all(Object.entries(files).map(async([category,path])=>{
    try{
-    const r=await fetch(path,{cache:"no-store"});
-    if(!r.ok)throw new Error("HTTP "+r.status);
-    const d=await r.json();
-    return (d.channels||d.liveTvChannels||[])
-     .filter(c=>c&&c.name&&isChannelShown(c))
-     .map(c=>({...c,section:"tv",category:category}));
-   }catch(e){
-    console.warn("Could not load "+path,e);
+    const response=await fetch(path,{cache:"no-store"});
+    if(!response.ok)throw new Error("HTTP "+response.status);
+    const data=await response.json();
+    const list=Array.isArray(data)?data:(data.channels||data.liveTvChannels||[]);
+    if(!Array.isArray(list))throw new Error("Invalid channel JSON format");
+    return list.filter(channel=>channel&&channel.name&&isChannelShown(channel))
+     .map(channel=>({...channel,section:"tv",category}));
+   }catch(error){
+    console.warn("SPORTYNOVA: could not load "+path,error);
     return [];
    }
   }));
-  channels=results.flat();
 
-  // Live Sports is loaded ONLY from data/matches/*.json.
-  liveSports=await loadSportsMatches();
+  let loadedChannels=dedupeTvChannels(results.flat());
 
-  // Keep the existing combined channels.json fallback for Live TV only.
-  if(!channels.length){
+  // Legacy combined JSON is used only if all category files are empty/unavailable.
+  if(!loadedChannels.length){
    try{
-    const r=await fetch("./channels.json",{cache:"no-store"});
-    if(r.ok){
-     const d=await r.json();
-     channels=(d.liveTvChannels||[])
-      .filter(c=>c&&c.name&&isChannelShown(c))
-      .map(c=>({...c,section:"tv"}));
+    const response=await fetch("./channels.json",{cache:"no-store"});
+    if(response.ok){
+     const data=await response.json();
+     const list=Array.isArray(data)?data:(data.liveTvChannels||data.channels||[]);
+     if(Array.isArray(list))loadedChannels=dedupeTvChannels(list.map(channel=>({...channel,section:"tv"})));
     }
-   }catch(e){console.warn("Could not load channels.json",e)}
+   }catch(error){console.warn("SPORTYNOVA: could not load fallback channels.json",error)}
   }
- }catch(e){
-  console.warn("Separate JSON load failed",e);
- }
- // Do not add placeholder sports cards: show the real count from match JSON files.
- render();
- console.log("SPORTYNOVA loaded:",channels.length,"TV channels,",liveSports.length,"sports matches");
+
+  // Replace the arrays once, after every source has finished loading.
+  channels=loadedChannels;
+  liveSports=await loadSportsMatches();
+  render();
+  console.info("SPORTYNOVA loaded:",channels.length,"unique TV channels,",liveSports.length,"unique sports matches");
+ })();
+ return configLoadPromise;
 }
 
 // Standalone-style player controls connected to the existing HLS/Shaka engine.
