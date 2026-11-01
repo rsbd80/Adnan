@@ -670,16 +670,22 @@ function makeChannelCard(ch,root,categoryLabel,isLiveEvent=false){
  const logoBox=document.createElement("div");logoBox.className="chlogo "+String(ch.tone||"blue").replace(/[^a-z0-9_-]/gi,"");
  const name=document.createElement("div");name.className="chname";name.textContent=String(ch.name||"Unnamed channel");
  if(isLiveEvent){
-  // Country/club names are resolved automatically for known country teams; unknown teams get initials.
-  const teams=splitMatchTeams(ch.name||"");
+  // Use the exact team logo URLs supplied by the match JSON.
+  const info=ch.eventInfo||{};
+  const teams=[
+   {name:String(info.teamA||splitMatchTeams(ch.name||"")[0]||"Team A"),logo:String(info.teamAFlag||"")},
+   {name:String(info.teamB||splitMatchTeams(ch.name||"")[1]||"Team B"),logo:String(info.teamBFlag||"")}
+  ];
   logoBox.classList.add("team-logos");logoBox.textContent="";
   teams.forEach((team,index)=>{
    if(index===1){const vs=document.createElement("span");vs.className="team-vs";vs.textContent="VS";logoBox.appendChild(vs)}
    const wrap=document.createElement("div");wrap.className="team-logo";
-   const code=teamFlagCode(team);
-   if(code){const img=document.createElement("img");img.src=`https://flagcdn.com/w80/${code}.png`;img.alt=team+" flag";img.loading="lazy";img.referrerPolicy="no-referrer";img.onerror=()=>{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team);img.replaceWith(f)};wrap.appendChild(img)}
-   else {const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team);wrap.appendChild(f)}
-   const label=document.createElement("small");label.textContent=team;wrap.appendChild(label);logoBox.appendChild(wrap);
+   if(/^https?:\/\//i.test(team.logo)){
+    const img=document.createElement("img");img.src=team.logo;img.alt=team.name+" logo";img.loading="lazy";img.referrerPolicy="no-referrer";
+    img.onerror=()=>{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team.name);img.replaceWith(f)};
+    wrap.appendChild(img);
+   }else{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team.name);wrap.appendChild(f)}
+   const label=document.createElement("small");label.textContent=team.name;wrap.appendChild(label);logoBox.appendChild(wrap);
   });
  }else{
   const logoValue=String(ch.logoUrl||ch.logo||"▶").trim();
@@ -716,7 +722,7 @@ function render(list=channels){
  const now=Date.now();
  const liveEvents=liveSports.filter(ch=>{
   const end=Date.parse(ch.endTime||"");
-  if(Number.isFinite(end)&&now>=end)return false;
+  if(Number.isFinite(end)&&Date.now()>=end)return false;
   return !query||(String(ch.name||"")+" "+String(ch.category||"")).toLowerCase().includes(query);
  });
  liveEvents.forEach(ch=>makeChannelCard(ch,sportsRoot,"Live Sports",true));
@@ -1247,19 +1253,32 @@ function normalizeSportsMatch(item){
  return normalized;
 }
 async function loadSportsMatches(){
- const paths=[
-  "./data/matches/New.json",
-  "./data/matches/match-1.json",
-  "./data/matches/match-2.json",
-  "./data/matches/match-3.json",
-  "./data/matches/match-4.json",
-  "./data/matches/match-5.json",
-  "./data/matches/match-6.json",
-  "./data/matches/match-7.json"
- ];
- const results=await Promise.all(paths.map(async path=>{
+ // GitHub directory listing makes newly-created match-*.json files load automatically.
+ const apiUrl="https://api.github.com/repos/rsbd80/Adnan/contents/data/matches?ref=main";
+ let files=[];
+ try{
+  const listingResponse=await fetch(apiUrl,{cache:"no-store",headers:{"Accept":"application/vnd.github+json"}});
+  if(!listingResponse.ok)throw new Error("GitHub API HTTP "+listingResponse.status);
+  const listing=await listingResponse.json();
+  if(!Array.isArray(listing))throw new Error("Unexpected GitHub directory response");
+  files=listing
+   .filter(file=>file&&file.type==="file"&&/\.json$/i.test(file.name))
+   .sort((a,b)=>{
+    if(a.name.toLowerCase()==="new.json")return -1;
+    if(b.name.toLowerCase()==="new.json")return 1;
+    const na=Number((a.name.match(/match-(\d+)/i)||[])[1]||999999);
+    const nb=Number((b.name.match(/match-(\d+)/i)||[])[1]||999999);
+    return na-nb||a.name.localeCompare(b.name);
+   });
+ }catch(error){
+  console.warn("Could not discover match JSON files from GitHub; using known files.",error);
+  files=["New.json","match-1.json","match-2.json","match-3.json","match-4.json","match-5.json","match-6.json","match-7.json"]
+   .map(name=>({name,download_url:"https://raw.githubusercontent.com/rsbd80/Adnan/main/data/matches/"+name}));
+ }
+ const results=await Promise.all(files.map(async file=>{
   try{
-   const response=await fetch(path,{cache:"no-store"});
+   const url=file.download_url||("https://raw.githubusercontent.com/rsbd80/Adnan/main/data/matches/"+encodeURIComponent(file.name));
+   const response=await fetch(url,{cache:"no-store"});
    if(!response.ok)throw new Error("HTTP "+response.status);
    const data=await response.json();
    let items=[];
@@ -1270,13 +1289,15 @@ async function loadSportsMatches(){
    else if(data.event_name||data.name)items=[data];
    return items.map(normalizeSportsMatch).filter(Boolean).filter(isChannelShown);
   }catch(error){
-   console.warn("Could not load sports file:",path,error);
+   console.warn("Could not load sports file:",file.name,error);
    return [];
   }
  }));
- // Preserve file order and avoid duplicate match IDs/names across JSON files.
  const seen=new Set();
+ const now=Date.now();
  return results.flat().filter(match=>{
+  const end=Date.parse(match.endTime||"");
+  if(Number.isFinite(end)&&now>=end)return false;
   const id=String(match.id||match.match_id||match.event_id||match.name).trim().toLowerCase();
   if(seen.has(id))return false;
   seen.add(id);
@@ -1895,4 +1916,4 @@ document.addEventListener("touchend", e => {
 /* Show supplied flag/logo image only; do not add a white tile behind it. */
 .chlogo img,.team-logo img{background:transparent!important;padding:0!important;box-shadow:none!important}
 .team-logo img{border-radius:0!important}
- </style>
+</style>
