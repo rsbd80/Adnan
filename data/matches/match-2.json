@@ -1,13 +1,19 @@
 {
   "match": {
+    "id": 2,
     "name": "India Vs New Zealand",
     "category": "Live Sports",
-    "logo": "⚽",
+    "logo": "🏏",
     "logoUrl": "https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Tottenham%20FC%20Vs%20Arsenal.jpg",
-    "fallbackLogo": "⚽",
+    "fallbackLogo": "🏏",
     "tone": "gold",
-    "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/tdijwiga2k/out/v1/f5fde318678f4f7583bf27b7231bde1f/cenc.mpd",
     "section": "liveSports",
+    "matchType": "CRICKET",
+    "startTime": "2026-11-04T20:00:00+06:00",
+    "endTime": "2026-11-04T23:00:00+06:00",
+    "status": "auto",
+    "enabled": true,
+    "show": "yes",
     "streams": [
       {
         "name": "TNT4UK SPORTS FHD",
@@ -18,17 +24,6 @@
         },
         "show": "yes"
       }
-    ],
-    "show": "yes",
-    "id": 2,
-    "startTime": "2026-11-04T20:00:00+06:00",
-    "endTime": "2026-11-04T23:00:00+06:00",
-    "enabled": true,
-    "status": "auto",
-    "matchType": "CRICKETS",
-    "drm": {
-      "scheme": "clearkey",
-      "license": "fa34fa8c90336dd528c7a23871cad1fe:552a78d1aeb74f1650d68255c5749408"
-    }
+    ]
   }
 }
