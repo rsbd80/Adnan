@@ -670,16 +670,22 @@ function makeChannelCard(ch,root,categoryLabel,isLiveEvent=false){
  const logoBox=document.createElement("div");logoBox.className="chlogo "+String(ch.tone||"blue").replace(/[^a-z0-9_-]/gi,"");
  const name=document.createElement("div");name.className="chname";name.textContent=String(ch.name||"Unnamed channel");
  if(isLiveEvent){
-  // Country/club names are resolved automatically for known country teams; unknown teams get initials.
-  const teams=splitMatchTeams(ch.name||"");
+  // Use the exact team logo URLs supplied by the match JSON.
+  const info=ch.eventInfo||{};
+  const teams=[
+   {name:String(info.teamA||splitMatchTeams(ch.name||"")[0]||"Team A"),logo:String(info.teamAFlag||"")},
+   {name:String(info.teamB||splitMatchTeams(ch.name||"")[1]||"Team B"),logo:String(info.teamBFlag||"")}
+  ];
   logoBox.classList.add("team-logos");logoBox.textContent="";
   teams.forEach((team,index)=>{
    if(index===1){const vs=document.createElement("span");vs.className="team-vs";vs.textContent="VS";logoBox.appendChild(vs)}
    const wrap=document.createElement("div");wrap.className="team-logo";
-   const code=teamFlagCode(team);
-   if(code){const img=document.createElement("img");img.src=`https://flagcdn.com/w80/${code}.png`;img.alt=team+" flag";img.loading="lazy";img.referrerPolicy="no-referrer";img.onerror=()=>{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team);img.replaceWith(f)};wrap.appendChild(img)}
-   else {const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team);wrap.appendChild(f)}
-   const label=document.createElement("small");label.textContent=team;wrap.appendChild(label);logoBox.appendChild(wrap);
+   if(/^https?:\/\//i.test(team.logo)){
+    const img=document.createElement("img");img.src=team.logo;img.alt=team.name+" logo";img.loading="lazy";img.referrerPolicy="no-referrer";
+    img.onerror=()=>{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team.name);img.replaceWith(f)};
+    wrap.appendChild(img);
+   }else{const f=document.createElement("span");f.className="team-logo-fallback";f.textContent=teamInitials(team.name);wrap.appendChild(f)}
+   const label=document.createElement("small");label.textContent=team.name;wrap.appendChild(label);logoBox.appendChild(wrap);
   });
  }else{
   const logoValue=String(ch.logoUrl||ch.logo||"▶").trim();
@@ -1268,7 +1274,8 @@ async function loadSportsMatches(){
    else if(Array.isArray(data.liveSports))items=data.liveSports;
    else if(Array.isArray(data.channels))items=data.channels;
    else if(data.event_name||data.name)items=[data];
-   return items.map(normalizeSportsMatch).filter(Boolean).filter(isChannelShown);
+   // Each of the 8 JSON files contributes only its first valid match.
+   return items.slice(0,1).map(normalizeSportsMatch).filter(Boolean).filter(isChannelShown);
   }catch(error){
    console.warn("Could not load sports file:",path,error);
    return [];
@@ -1281,7 +1288,7 @@ async function loadSportsMatches(){
   if(seen.has(id))return false;
   seen.add(id);
   return true;
- });
+ }).slice(0,8);
 }
 async function loadConfig(){
  const files={Bangla:"./data/bangla.json",Indian:"./data/india.json",Sports:"./data/sports.json",News:"./data/news.json",Music:"./data/music.json",Entertainment:"./data/entertainment.json",Movie:"./data/movie.json",Cartoon:"./data/cartoon.json",Religion:"./data/religion.json",Documentary:"./data/documentary.json"};
