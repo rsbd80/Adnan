@@ -1,13 +1,10 @@
 {
-  "notice": " ⚠️ প্রিয় দর্শক চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে। কোনো চ্যানেল সাময়িকভাবে কাজ না করলে একটু পর আবার চেষ্টা করুন। আপনাদের আরও ভালো সার্ভিস দিতে আমরা প্রতিনিয়ত কাজ করে যাচ্ছি। ধন্যবাদ আমাদের সাথে থাকার জন্য ❤️",
-  "telegram": "https://t.me/rslivetv",
-  "version": "1.0",
-  "updateLink": "",
-  "maintenance": "OFF",
-  "adCodeBanner": "<script type=\"text/javascript\">atOptions = {'key' : '774c0e371455f6476668178b5faae5ab','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};</script><script type=\"text/javascript\" src=\"//www.highperformanceformat.com/774c0e371455f6476668178b5faae5ab/invoke.js\"></script>",
-  "adCodePopunder": "<script async=\"async\" data-cfasync=\"false\" src=\"https://pl26377079.effectivecpmnetwork.com/cdeccdd75d3e2e6916a42ce9653cfb08/invoke.js\"></script><div id=\"container-cdeccdd75d3e2e6916a42ce9653cfb08\"></div>",
-  "defaultChannelUrl": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:starjalsha.smil/chunklist_b1928000.m3u8",
-  "m3uPlaylist1": "https://raw.githubusercontent.com/sm-monirulislam/Tapmad_Auto_Update_Playlist/refs/heads/main/tapmad_sm.m3u",
+  "m3uPlaylist1": "data/channels.m3u",
   "m3uPlaylist2": "",
-  "urlPlayer": "https://rs-tv-player.pages.dev/jw-player?url="
+  "urlPlayer": "https://rs-tv-player.pages.dev/jw-player?url=",
+  "defaultChannelUrl": "https://tvsen5.aynaott.com/TnMn5kZz8aLmjklkk/tracks-v1a1/mono.ts.m3u8",
+  "notice": "⚠️ প্রিয় দর্শক চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে।",
+  "telegram": "https://t.me/rslivetv",
+  "version": "12.0",
+  "maintenance": "OFF"
 }
