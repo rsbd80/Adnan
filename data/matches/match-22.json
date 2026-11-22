@@ -1,0 +1,34 @@
+{
+  "match": {
+    "name": "MI Emirates Vs Vipers",
+    "category": "Live Sports",
+    "logo": "🏆",
+    "logoUrl": "",
+    "fallbackLogo": "🏆",
+    "tone": "purple",
+    "url": "https://www.rtmpcdn.com/live/324ebf4a-01d6-44bb-ae1c-ef0870baaf9c.m3u8",
+    "section": "liveSports",
+    "streams": [
+      {
+        "name": "Fancode",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd|drmScheme=clearkey&drmLicense=1994b1df7dfd2e8a8d7b9bf3fb900285 pm:22a1444b3da18e139191665b3d652835",
+        "show": "yes"
+      },
+      {
+        "name": "LOW QUALITY (USE VPN)",
+        "url": "http://193.47.62.41/hls/JJJJGA.m3u8",
+        "show": "no"
+      }
+    ],
+    "show": "yes",
+    "id": 22,
+    "startTime": "2026-11-21T20:30:00+06:00",
+    "endTime": "2026-11-22T00:50:00+06:00",
+    "enabled": true,
+    "status": "auto",
+    "matchType": "Cricket | IL-T20",
+    "timeUpdateStatus": "API_ERROR",
+    "timeUpdateMessage": "HTTP 429: Too Many Requests",
+    "timeCheckedAt": "2026-11-22T12:47:06+06:00"
+  }
+}
