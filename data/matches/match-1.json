@@ -1,27 +1,17 @@
 {
   "match": {
-    "name": "TEST LIVE - Brazil Vs Argentina",
-    "category": "Live Sports",
-    "logoUrl": "",
-    "show": "yes",
-    "id": 1,
-    "startTime": "2026-11-22T20:00:00+06:00",
-    "endTime": "2026-11-22T23:59:00+06:00",
+    "name": "FC Barcelona Vs Villarreal",
+    "team1": "FC Barcelona",
+    "team2": "Villarreal",
+    "team1Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/120px-FC_Barcelona_%28crest%29.svg.png",
+    "team2Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Villarreal_CF_logo.svg/120px-Villarreal_CF_logo.svg.png",
+    "channel": "CH-13",
+    "matchType": "FOOTBALL | LA-LIGA",
+    "startTime": "2026-11-22T21:00:00+06:00",
+    "endTime": "2026-11-23T00:00:00+06:00",
     "enabled": true,
-    "status": "auto",
-    "matchType": "Football | TEST LIVE",
+    "show": "yes",
     "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-    "streams": [
-      {
-        "name": "Server 1",
-        "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "show": "yes"
-      },
-      {
-        "name": "Server 2",
-        "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "show": "yes"
-      }
-    ]
+    "streams": [{"name": "Server 1", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", "show": "yes"}]
   }
 }
