@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Rs Live TV</title>
+
+<script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<script>
+jwplayer.key="Khpp2dHxlBJHC8MCmLnBuV2jK/DwDnJMniwF6EO9HC/riJ712ZmbHg==";
+</script>
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{
+  width:100%; height:100%; background:#000; overflow:hidden;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+#player{ width:100% !important; height:100% !important; position: absolute; top: 0; left: 0; }
+#loader {
+  position:fixed; top:0; left:0; width:100%; height:100%; background:#000000;
+  display:flex; justify-content:center; align-items:center; z-index:9999;
+  flex-direction:column; transition: opacity 0.3s ease;
+}
+.spinner {
+  width: 50px; height: 50px; border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%; border-top-color: #fff; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#loader p { margin-top: 15px; color: #eee; font-size: 15px; letter-spacing: 0.5px; font-weight: 400; }
+.jwplayer { height:100% !important; width:100% !important; }
+.jw-video { object-fit: fill !important; width: 100vw !important; height: 100vh !important; }
+:-webkit-full-screen { width: 100% !important; height: 100% !important; }
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+  <div class="spinner"></div>
+  <p id="loader-text">Loading Stream...</p>
+</div>
+
+<div id="player"></div>
+
+<script>
+function decodeStreamParam(val) {
+  if (!val) return "";
+  try {
+    const clean = decodeURIComponent(val).trim();
+    if (clean.startsWith("http://") || clean.startsWith("https://")) {
+      return clean;
+    }
+    const decoded = atob(clean);
+    if (decoded.startsWith("http://") || decoded.startsWith("https://")) {
+      return decoded;
+    }
+    return clean;
+  } catch (e) {
+    return val;
+  }
+}
+
+function getStreamUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return decodeStreamParam(urlParams.get('url'));
+}
+
+const streamUrl = getStreamUrl();
+const player = jwplayer("player");
+const defaultStream = "https://tvsen5.aynaott.com/TnMn5kZz8aLmjklkk/tracks-v1a1/mono.ts.m3u8";
+const finalStream = streamUrl ? streamUrl : defaultStream;
+
+player.setup({
+  playlist:[{
+    title:"",
+    sources:[{
+      file: finalStream,
+      type: "hls",
+      label: "HD"
+    }]
+  }],
+  width:"100%",
+  height:"100%",
+  aspectratio:"16:9",
+  autostart:true,
+  mute:false,
+  primary:"html5",
+  stretching:"fill",
+  controls:true
+});
+
+player.on("fullscreen", function(event){
+  if(event.fullscreen) {
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock("landscape").catch(function(error) {});
+    }
+    setTimeout(() => {
+      const videoEl = document.querySelector('.jw-video');
+      if(videoEl) videoEl.style.setProperty('object-fit', 'fill', 'important');
+    }, 100);
+  }
+});
+
+player.on("ready", function(){ fadeAndHideLoader(); });
+
+player.on("error", function(){
+  document.getElementById("loader").style.display="flex";
+  document.getElementById("loader").style.opacity="1";
+  document.getElementById("loader-text").innerHTML = "<span style='color:#ff4444;'>Stream Failed or Invalid URL</span>";
+});
+
+player.on("buffer", function(){
+  document.getElementById("loader").style.display="flex";
+  document.getElementById("loader").style.opacity="1";
+  document.getElementById("loader-text").innerText = "Buffering...";
+});
+
+player.on("play", function(){ fadeAndHideLoader(); });
+
+function fadeAndHideLoader() {
+  document.getElementById("loader").style.opacity="0";
+  setTimeout(() => {
+    document.getElementById("loader").style.display="none";
+  }, 300);
+}
+</script>
+
+</body>
+</html>
