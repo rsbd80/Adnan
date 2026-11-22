@@ -1,81 +1,57 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Barcelona%20Vs%20Villarreal.jpg" group-title="Football", FC Barcelona Vs Villarreal - DAZN Multi Commentary
-#KODIPROP:inputstream.adaptive.license_type=clearkey
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SPORTS%20LIVE%20Vs%20SPORTS%20LIVE.jpg" group-title="Other", SPORTS LIVE Vs SPORTS LIVE - NFL SERVER FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Formula%201%20Vs%20Formula%201.jpg" group-title="Motorsports", Formula 1 Vs Formula 1 - FANCODE FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/TENNIS%20%20EVENTO%20Vs%20TENNIS%20%20EVENTO.jpg" group-title="Other", TENNIS | EVENTO Vs TENNIS | EVENTO - SKY SPORT TENNIS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/MotorGP%20Vs%20MotorGP.jpg" group-title="Motorsports", MotorGP Vs MotorGP - TNT2UK SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/NFL%20REDZONE%20Vs%20NFL%20REDZONE.jpg" group-title="American football", NFL REDZONE Vs NFL REDZONE - RedZone - Week 11
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/DARTS%20PDC%20Vs%20DARTS%20PDC.jpg" group-title="Other", DARTS PDC Vs DARTS PDC - NOVA2 SPORTS FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Italia%20T10%20League%20Vs%20Italia%20T10%20League.jpg" group-title="Cricket", Italia T10 League Vs Italia T10 League - UNBEATEN FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/ILT20%20Vs%20ILT20.jpg" group-title="Cricket", ILT20 Vs ILT20 - WILLOW FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Pakistan%20A%20Vs%20INDIA%20A.jpg" group-title="Cricket", Pakistan A Vs INDIA A - WILLOW FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/C%C3%B3rdoba%20Vs%20Real%20Oviedo.jpg" group-title="Football", Córdoba Vs Real Oviedo - LaLiga Hypermotion
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Juventus%20Vs%20Venezia.jpg" group-title="Football", Juventus Vs Venezia - PARAMOUNT+ FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Energie%20Cottbus%20Vs%20Hertha%20BSC.jpg" group-title="Football", Energie Cottbus Vs Hertha BSC - SKY BUNDESLIGA FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/1.%20FC%20Kaiserslautern%20Vs%20SG%20Dynamo%20Dresden.jpg" group-title="Football", 1. FC Kaiserslautern Vs SG Dynamo Dresden - SKY BUNDESLIGA FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Karlsruher%20SC%20Vs%20VfL%20Osnabr%C3%BCck.jpg" group-title="Football", Karlsruher SC Vs VfL Osnabrück - SKY BUNDESLIGA FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/France%20U17%20Vs%20Saudi%20Arabia%20U17.jpg" group-title="Football", France U17 Vs Saudi Arabia U17 - SERVER + HD
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Ecuador%20U17%20Vs%20Uganda%20U17.jpg" group-title="Football", Ecuador U17 Vs Uganda U17 - SERVER + HD
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Burnley%20Vs%20Blackburn%20Rovers.jpg" group-title="Football", Burnley Vs Blackburn Rovers - PARAMOUNT+ FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Denmark%20U17%20Vs%20Australia%20U17.jpg" group-title="Football", Denmark U17 Vs Australia U17 - FOX2 SPORTS FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Greece%20U17%20Vs%20Panama%20U17.jpg" group-title="Football", Greece U17 Vs Panama U17 - LOW QUALITY (USE VPN)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Sparta%20Rotterdam%20Vs%20AZ%20Alkmaar.jpg" group-title="Football", Sparta Rotterdam Vs AZ Alkmaar - LOW QUALITY (USE VPN)
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/AFC%20Ajax%20Vs%20ADO%20Den%20Haag.jpg" group-title="Football", AFC Ajax Vs ADO Den Haag - SportDigital FussBall
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Twente%20Vs%20Willem%20II%20Tilburg.jpg" group-title="Football", FC Twente Vs Willem II Tilburg - SERVER + HD
-https://www.rtmpcdn.com/live/2c3af664-e548-442d-9d11-34a11ee9d60c.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/IK%20Sirius%20Vs%20Djurg%C3%A5rdens%20IF.jpg" group-title="Football", IK Sirius Vs Djurgårdens IF - LOW QUALITY (USE VPN)
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/BK%20H%C3%A4cken%20Vs%20IF%20Elfsborg.jpg" group-title="Football", BK Häcken Vs IF Elfsborg - LOW QUALITY (USE VPN)
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kas%C4%B1mpa%C5%9Fa%20Vs%20Alanyaspor.jpg" group-title="Football", Kasımpaşa Vs Alanyaspor - SERVER + HD
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Konyaspor%20Vs%20Be%C5%9Fikta%C5%9F%20JK.jpg" group-title="Football", Konyaspor Vs Beşiktaş JK - BeIN SPORTS3 -- FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Geita%20Gold%20FC%20Vs%20Mashujaa%20FC.jpg" group-title="Football", Geita Gold FC Vs Mashujaa FC - STREAM TV + HD
+https://file.genoads.com/ch1.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Osasuna%20Vs%20M%C3%A1laga%20CF.jpg" group-title="Football", Osasuna Vs Málaga CF - PREMIER SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Manchester%20City%20Vs%20Tottenham%20FC.jpg" group-title="Football", Manchester City Vs Tottenham FC - PARAMOUNT+ FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Celta%20Fortuna%20Vs%20Real%20Valladolid.jpg" group-title="Football", Celta Fortuna Vs Real Valladolid - LaLiga Hypermotion2
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Birmingham%20City%20W.F.C.%20Vs%20Manchester%20United.jpg" group-title="Football", Birmingham City W.F.C. Vs Manchester United - PARAMOUNT+ FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Girona%20FC%20Vs%20Eibar.jpg" group-title="Football", Girona FC Vs Eibar - LaLiga Hypermotion
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/SK%20Beveren%20Vs%20KAA%20Gent.jpg" group-title="Football", SK Beveren Vs KAA Gent - SERVER + HD
-https://www.rtmpcdn.com/live/37ca8343-92d8-4cbd-9129-11fc6ba554ad.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Mamelodi%20Sundowns%20FC%20Vs%20Kaizer%20Chiefs.jpg" group-title="Football", Mamelodi Sundowns FC Vs Kaizer Chiefs - TV QUALITY
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Rak%C3%B3w%20Cz%C4%99stochowa%20Vs%20Widzew%20%C5%81%C3%B3d%C5%BA.jpg" group-title="Football", Raków Częstochowa Vs Widzew Łódź - SERVER + HD
-#EXTVLCOPT:http-referrer=https://nadia01eo.tn76degree12ec3out.cfd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Brighton%20%26%20Hove%20Albion%20Vs%20Hull%20City.jpg" group-title="Football", Brighton & Hove Albion Vs Hull City - SKY SPORTS EPL FHD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Sassuolo%20Vs%20Genoa.jpg" group-title="Football", Sassuolo Vs Genoa - CBS NETWORK HD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Athletico%20Vs%20Remo.jpg" group-title="Football", Athletico Vs Remo - PREMIERER1 FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/RSC%20Anderlecht%20Vs%20Oud-Heverlee%20Leuven.jpg" group-title="Football", RSC Anderlecht Vs Oud-Heverlee Leuven - SERVER + HD
+https://file.genoads.com/ch1.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Lommel%20SK%20Vs%20Standard%20Li%C3%A8ge.jpg" group-title="Football", Lommel SK Vs Standard Liège - SERVER + HD
+https://file.genoads.com/ch1.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Rosario%20Central%20Vs%20Gimnasia%20y%20Esgrima%20Mendoza.jpg" group-title="Football", Rosario Central Vs Gimnasia y Esgrima Mendoza - TV QUALITY
+http://162.251.160.53:8089/1001/index.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/FC%20Arge%C8%99%20Pite%C8%99ti%20Vs%20FCSB.jpg" group-title="Football", FC Argeș Pitești Vs FCSB - SportDigital FussBall
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Dallas%20Cowboys%20Vs%20Tennessee%20Titans.jpg" group-title="American football", Dallas Cowboys Vs Tennessee Titans - SERVER + HD
 #EXTVLCOPT:http-referrer=https://gooz.aapmains.net
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Bologna%20Vs%20Udinese.jpg" group-title="Football", Bologna Vs Udinese - BeIN2 SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kansas%20City%20Chiefs%20Vs%20Arizona%20Cardinals.jpg" group-title="American football", Kansas City Chiefs Vs Arizona Cardinals - SPORTV2 BR FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Paris%20FC%20Vs%20Angers.jpg" group-title="Football", Paris FC Vs Angers - beIN SPORTS US FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Buffalo%20Bills%20Vs%20Vice%20City%20Manatees.jpg" group-title="American football", Buffalo Bills Vs Vice City Manatees - SERVER + HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Chicago%20Bears%20Vs%20New%20Orleans%20Saints.jpg" group-title="American football", Chicago Bears Vs New Orleans Saints - TSN1 SPORTS FHD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/South%20Korea%20U17%20Vs%20New%20Caledonia%20U17.jpg" group-title="Football", South Korea U17 Vs New Caledonia U17 - FOX2 SPORTS FHD
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Detroit%20Lions%20Vs%20Tampa%20Bay%20Buccaneers.jpg" group-title="American football", Detroit Lions Vs Tampa Bay Buccaneers - SERVER + HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Carolina%20Panthers%20Vs%20Baltimore%20Ravens.jpg" group-title="American football", Carolina Panthers Vs Baltimore Ravens - SERVER + HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Philadelphia%20Eagles%20Vs%20Pittsburgh%20Steelers.jpg" group-title="American football", Philadelphia Eagles Vs Pittsburgh Steelers - SERVER + HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/New%20York%20Rangers%20Vs%20Carolina%20Hurricanes.jpg" group-title="Hockey", New York Rangers Vs Carolina Hurricanes - PREMIERE2 SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/F%C3%BAtbol%20Club%20Barcelona%20Vs%20Athletic%20Club.jpg" group-title="Football", Fútbol Club Barcelona Vs Athletic Club - SERVER + HD
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Nebraska%20Cornhuskers%20Vs%20Butler%20Bulldogs.jpg" group-title="Basketball", Nebraska Cornhuskers Vs Butler Bulldogs - FOX1 SPORTS FHD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/US%20Avellino%201912%20Vs%20Mantova.jpg" group-title="Football", US Avellino 1912 Vs Mantova - SERVER + HD
-https://file.genoads.com/ch1.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Arsenal%20Vs%20West%20Ham.jpg" group-title="Football", Arsenal Vs West Ham - CBS SPORTS FHD
-#EXTVLCOPT:http-referrer=https://amazon.com
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Charlton%20Athletic%20WFC%20Vs%20Aston%20Villa.jpg" group-title="Football", Charlton Athletic WFC Vs Aston Villa - SERVER + HD
-https://file.genoads.com/ch1.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Everton%20Vs%20Brighton.jpg" group-title="Football", Everton Vs Brighton - SERVER + HD
-https://file.genoads.com/ch1.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/GKS%20Katowice%20Vs%20Lech%20Pozna%C5%84.jpg" group-title="Football", GKS Katowice Vs Lech Poznań - SERVER + HD
-#EXTVLCOPT:http-user-agent=Mozilla
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Getafe%20Vs%20Atl%C3%A9tico%20Madrid.jpg" group-title="Football", Getafe Vs Atlético Madrid - PREMIER SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Burgos%20Club%20de%20F%C3%BAtbol%20Vs%20Albacete%20Balompi%C3%A9.jpg" group-title="Football", Burgos Club de Fútbol Vs Albacete Balompié - LaLiga Hypermotion
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Atalanta%20Vs%20Inter.jpg" group-title="Football", Atalanta Vs Inter - TNT1UK SPORTS FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Olympique%20de%20Marseille%20Vs%20Le%20Mans.jpg" group-title="Football", Olympique de Marseille Vs Le Mans - beIN SPORTS US FHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Atlanta%20Hawks%20Vs%20Detroit%20Pistons.jpg" group-title="Basketball", Atlanta Hawks Vs Detroit Pistons - NOVA1 SPORTS FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
