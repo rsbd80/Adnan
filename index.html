@@ -112,39 +112,50 @@ iframe{ border:0!important; }
     .search-icon-inside{ width:14px; height:14px; right:10px; }
     #installAppBtn{ width:calc(100% - 30px); max-width:320px; }
 }
-/* ===== RS MATCH - নিচে থাকবে, ডিজাইন ভাঙবে না ===== */
+/* ===== RS MATCH - চিকন লম্বা লিস্ট, স্ক্রল করা যাবে ===== */
 .rs-section{margin:6px 0 14px;padding:0 2px}
-.rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
-.rs-sec-title{font-size:16px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
-.rs-sec-title span.live-dot{width:9px;height:9px;background:#ff0033;border-radius:50%;box-shadow:0 0 0 0 rgba(255,0,51,.7);animation:pulse-animation 1.2s infinite}
-.rs-sec-count{font-size:11px;background:#10121e;border:1px solid rgba(0,240,255,.2);color:#8ea1b7;padding:4px 10px;border-radius:20px;font-weight:700}
-.rs-match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(min-width:768px){.rs-match-grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1100px){.rs-match-grid{grid-template-columns:repeat(4,1fr)}}
-.rs-card{background:linear-gradient(135deg,#0f101c,#080a14 60%,#0e121e);border:1px solid rgba(0,240,255,.14);border-radius:18px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 12px 25px rgba(0,0,0,.3)}
-.rs-card:active{transform:scale(.97)}
-.rs-card img{width:100%;height:130px;object-fit:cover;display:block;background:#000}
-.rs-card-body{padding:12px}
-.rs-card-badge{position:absolute;top:10px;left:10px;font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;color:#fff;z-index:2}
+.rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
+.rs-sec-title{font-size:15px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
+.rs-sec-title span.live-dot{width:9px;height:9px;background:#ff0033;border-radius:50%;box-shadow:0 0 0 0 rgba(255,0,51,.7);animation:pulse-animation 1.2s infinite;flex-shrink:0}
+.rs-sec-count{font-size:11px;background:#10121e;border:1px solid rgba(0,240,255,.2);color:#8ea1b7;padding:4px 10px;border-radius:20px;font-weight:700;flex-shrink:0}
+/* লম্বা স্ক্রল বক্স - যেখানে আছে সেখানেই থাকবে */
+.rs-match-grid{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto;overflow-x:hidden;padding:2px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#00f0ff #111}
+.rs-match-grid::-webkit-scrollbar{width:5px}
+.rs-match-grid::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:10px}
+.rs-match-grid::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00f0ff,#0072ff);border-radius:10px}
+@media(min-width:768px){ .rs-match-grid{max-height:380px} }
+/* চিকন কার্ড - এক লাইনে সব */
+.rs-card{background:linear-gradient(135deg,#0f101c,#080a14 60%,#0e121e);border:1px solid rgba(0,240,255,.14);border-radius:12px;overflow:hidden;cursor:pointer;position:relative;display:flex;align-items:center;gap:10px;padding:8px 10px;min-height:72px;flex-shrink:0}
+.rs-card:active{transform:scale(.98);border-color:#00f0ff}
+.rs-card-thumb{width:96px;height:56px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#000;position:relative;display:flex;align-items:center;justify-content:center}
+.rs-card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.rs-card-thumb .rs-thumb-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f101c,#1a0f2e);font-size:22px}
+.rs-card-badge{position:absolute;top:5px;left:5px;font-size:8px;font-weight:900;padding:2px 6px;border-radius:20px;color:#fff;z-index:2;white-space:nowrap}
 .rs-card-badge.live{background:linear-gradient(135deg,#ff0055,#ff5500)}
 .rs-card-badge.up{background:#00f0ff;color:#001017}
 .rs-card-badge.end{background:#333;color:#999}
-.rs-card h3{font-size:14px;font-weight:800;color:#fff;margin:0 0 6px;line-height:1.3;min-height:36px}
-.rs-card p{font-size:11px;color:#8ea1b7;margin:0 0 8px}
-.rs-countdown{font-size:12px;font-weight:800;color:#ffd000}
-.rs-card-btn{width:100%;border:none;padding:10px;border-radius:12px;font-weight:800;font-size:13px;background:linear-gradient(135deg,#00f0ff,#0072ff);color:#001017;cursor:pointer}
+.rs-card-body{flex:1;min-width:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.rs-card h3{font-size:13px;font-weight:800;color:#fff;margin:0;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rs-card p{font-size:10.5px;color:#8ea1b7;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rs-countdown{font-size:11px;font-weight:800;color:#ffd000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rs-card-btn{flex-shrink:0;border:none;padding:8px 12px;border-radius:10px;font-weight:800;font-size:11px;background:linear-gradient(135deg,#00f0ff,#0072ff);color:#001017;cursor:pointer;white-space:nowrap}
 .rs-card-btn.live-btn{background:linear-gradient(135deg,#ff0055,#ff5500);color:#fff}
-.rs-server-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.rs-server-row button{flex:1;background:#1a1b26;color:#fff;border:1px solid #2a2c3a;border-radius:8px;padding:6px;font-size:11px;font-weight:700;cursor:pointer}
+.rs-server-row{display:none}
+.rs-server-row.show{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.rs-server-row button{flex:1;background:#1a1b26;color:#fff;border:1px solid #2a2c3a;border-radius:7px;padding:5px;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
 .rs-server-row button.active{background:#00f0ff;color:#000}
-.rs-empty{grid-column:1/-1;text-align:center;color:#777;padding:20px;font-size:13px;background:#0d0d13;border-radius:14px;border:1px dashed #222}
+.rs-empty{text-align:center;color:#777;padding:18px;font-size:13px;background:#0d0d13;border-radius:12px;border:1px dashed #222;flex-shrink:0}
+@media(max-width:420px){
+  .rs-card-thumb{width:82px;height:52px}
+  .rs-card h3{font-size:12.5px}
+  .rs-card-btn{padding:7px 9px;font-size:10px}
+}
 </style>
 </head>
 <body>
 <div id="intro-loader"><div class="loader-content"><div class="welcome-text">Welcome To</div><h1 class="brand-text">RS Live <span>TV</span></h1><div class="loading-dots"><span></span><span></span><span></span></div></div></div>
 
 <div class="container tv-area">
-    <!-- 1. হেডার - আগের মতোই -->
     <div class="row"><div class="col-xs-12 col-md-12">
         <div class="top-bar-wrapper">
             <a href="https://rslivetv.pages.dev" class="logo-link"><div class="brand-title-neon"><div class="brand-stack"><div class="brand-line-main"><span class="brand-rs">RS</span><span class="brand-live">LIVE TV</span></div><div class="brand-line-sub">Watch Live Sports & Entertainment</div></div></div></a>
@@ -152,13 +163,12 @@ iframe{ border:0!important; }
         </div>
     </div></div>
 
-    <!-- 2. প্লেয়ার + চ্যানেল - সামনে, আগের মতোই -->
     <div class="row">
         <div class="col-xs-12 col-md-10 tv-view"><div class="embed-responsive embed-responsive-16by9"><iframe id="tv-player-iframe" name="player" class="embed-responsive-item" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen webkitallowfullscreen src="about:blank"></iframe></div></div>
         <div class="col-xs-12 col-md-2 channel-list" id="scroll-wrapper"><ul class="thumbnail-slider" id="channel-container"></ul></div>
     </div>
 
-    <!-- 3. LIVE + UPCOMING - চ্যানেলের নিচে, NOTICE এর উপরে -->
+    <!-- LIVE + UPCOMING - চিকন লম্বা, স্ক্রল করা যাবে, যেখানে আছে সেখানেই -->
     <div class="row"><div class="col-xs-12 col-md-12">
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title"><span class="live-dot"></span> 🔴 LIVE NOW</div><div class="rs-sec-count" id="liveCount">0 Live</div></div><div class="rs-match-grid" id="liveGrid"><div class="rs-empty">⏳ Live match লোড হচ্ছে...</div></div></div>
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title">📅 UPCOMING MATCHES</div><div class="rs-sec-count" id="upCount">0 Upcoming</div></div><div class="rs-match-grid" id="upcomingGrid"><div class="rs-empty">⏳ Upcoming match লোড হচ্ছে...</div></div></div>
@@ -277,18 +287,19 @@ function loadAllChannels(){
     if(container) container.innerHTML = `<li style="text-align:center;padding:20px;color:#94a3b8">⏳ Loading channels...</li>`;
     loadM3UChannels(function(m3uChannels) { loadJSONChannels(function(jsonChannels) { const allChannels = mergeChannels(m3uChannels, jsonChannels); if(!allChannels.length){ container.innerHTML = `<li style="color:#aaa;text-align:center;padding:20px">❌ No channels found!</li>`; hideLoader(); return; } renderChannels(allChannels); setupSearch(); hideLoader(); }); });
 }
-// ===== RS AUTO MATCH - নিচে, অটো =====
+// ===== RS MATCH - চিকন লম্বা লিস্ট =====
 let RS_MATCHES = [];
 function rsTimeLabel(m){ const s=new Date(m.startTime), n=new Date(), e=new Date(m.endTime||m.startTime); if(n>=s && n<=e) return {t:"LIVE",cls:"live"}; if(n>e) return {t:"ENDED",cls:"end"}; const diff=s-n, h=Math.floor(diff/3600000), mi=Math.floor(diff%3600000/60000), se=Math.floor(diff%60000/1000); return {t:`Starts in ${h}h ${mi}m ${se}s`,cls:"up"}; }
 function rsCard(m, idx){
   const st=rsTimeLabel(m);
   const img=m.logoUrl||"";
   const hasImg = img && img.startsWith("http");
-  const imgHTML = hasImg ? `<img src="${img}" onerror="this.parentNode.innerHTML='<div style=\'height:130px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#0f101c,#1a0f2e)\'>⚽</div>'">` : `<div style="height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f101c,#1a0f2e,#0e121e);gap:4px"><div style="font-size:42px">⚽</div><div style="font-size:11px;color:#8ea1b7;font-weight:800;letter-spacing:1px">${m.matchType||'LIVE SPORTS'}</div></div>`;
+  const thumb = hasImg ? `<img src="${img}" onerror="this.style.display='none';this.parentNode.innerHTML='<div class=\\'rs-thumb-fallback\\'>⚽</div>'">` : `<div class="rs-thumb-fallback">⚽</div>`;
   const servers=(m.streams||[]).filter(s=>s.show!=="no");
   const btns=servers.map((s,i)=>`<button class="${i===0?'active':''}" onclick="event.stopPropagation();rsPlayServer(${idx},${i},this)">${s.name||'Server '+(i+1)}</button>`).join("");
   const isLive = st.t==="LIVE";
-  return `<div class="rs-card" onclick="rsPlayMatch(${idx})"><span class="rs-card-badge ${st.cls}">${isLive?"🔴 LIVE":st.t==="ENDED"?"ENDED":"UPCOMING"}</span>${imgHTML}<div class="rs-card-body"><h3>${m.name}</h3><p>${m.matchType||m.category||'Live Sports'} • ${new Date(m.startTime).toLocaleString('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})} (BD)</p><div class="rs-countdown" data-count="${m.startTime}">${st.t}</div><div class="rs-server-row">${btns||""}</div><button class="rs-card-btn ${isLive?'live-btn':''}" style="margin-top:10px">${isLive?'▶ Watch Live':st.t==='ENDED'?'Match Ended':'🔔 Notify Me'}</button></div></div>`;
+  const dateStr = new Date(m.startTime).toLocaleString('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+  return `<div class="rs-card" onclick="rsPlayMatch(${idx})"><div class="rs-card-thumb">${thumb}<span class="rs-card-badge ${st.cls}">${isLive?"🔴 LIVE":st.t==="ENDED"?"ENDED":"UPCOMING"}</span></div><div class="rs-card-body"><h3>${m.name}</h3><p>${m.matchType||m.category||'Live Sports'} • ${dateStr} (BD)</p><div class="rs-countdown" data-count="${m.startTime}">${st.t}</div><div class="rs-server-row ${servers.length>1?'show':''}">${btns||""}</div></div><button class="rs-card-btn ${isLive?'live-btn':''}">${isLive?'▶ Live':st.t==='ENDED'?'Ended':'🔔 Notify'}</button></div>`;
 }
 window.rsPlayMatch=function(idx){
   const m=RS_MATCHES[idx]; if(!m) return;
