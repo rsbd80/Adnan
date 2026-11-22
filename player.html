@@ -66,16 +66,11 @@ video::-webkit-media-controls{display:none!important}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--grad-b);cursor:pointer}
 #time-label{font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap}
 
-/* ✅ Ads - ২ কলমে জোর করে */
+/* ✅ Ads - এখন আর জোর করে ভাঙা হবে না, Ad নিজের মতো চলবে */
 .ad-wrap{margin:14px 14px 0;background:#111118;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px 10px 12px;overflow:hidden}
 .ad-label{font-size:9px;letter-spacing:2.5px;color:#777;text-align:center;margin-bottom:10px;font-family:var(--mono)}
-.ad-box{border-radius:10px;overflow:hidden;background:#0a0a12}
-/* Ad কন্টেইনারকে ফ্লেক্স ২ কলম বানাও */
-#container-cdeccdd75d3e2e6916a42ce9653cfb08{display:flex!important;flex-wrap:wrap!important;gap:10px!important;width:100%!important;justify-content:space-between!important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 > *{flex:0 0 calc(50% - 5px)!important;width:calc(50% - 5px)!important;max-width:calc(50% - 5px)!important;margin:0!important;box-sizing:border-box!important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 img{width:100%!important;height:auto!important;border-radius:10px!important;display:block!important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 a{width:100%!important;display:block!important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 iframe{width:100%!important}
+.ad-box{border-radius:10px;overflow:hidden;background:#0a0a12;display:flex;justify-content:center}
+#container-cdeccdd75d3e2e6916a42ce9653cfb08{width:100%!important;max-width:100%!important}
 .ad-note{text-align:center;font-size:11px;color:#666;margin:12px 0 20px}
 .ad-note b{color:#a78bfa}
 </style>
@@ -103,7 +98,7 @@ video::-webkit-media-controls{display:none!important}
 <div id="controls"><button id="playBtn">▶</button><input type="range" id="seek" value="0" min="0" max="100"><span id="time-label">LIVE</span><button id="fsBtn">⛶</button></div>
 </div>
 
-<!-- ✅ তোমার Ad - এইখানেই থাকবে -->
+<!-- ✅ তোমার Ad - আগের মতো, ভাঙা হবে না -->
 <div class="ad-wrap">
 <div class="ad-label">ADVERTISEMENT</div>
 <div class="ad-box">
@@ -113,55 +108,6 @@ video::-webkit-media-controls{display:none!important}
 <div class="ad-note">তুমি দেখছো <b id="chName2">Play Go</b> • কোনো সমস্যা হলে টেলিগ্রামে জানাও</div>
 
 <script async="async" data-cfasync="false" src="https://czernik.org/21/cdeccdd75d3e2e6916a42ce9653cfb08"></script>
-
-<script>
-// ✅✅✅ Ads কে জোর করে ২ কলমে আনার JS - এইটাই আসল ফিক্স
-function forceTwoColumnAds(){
-  var container = document.getElementById('container-cdeccdd75d3e2e6916a42ce9653cfb08');
-  if(!container) return;
-  // কন্টেইনারকে ফ্লেক্স করো
-  container.style.display = 'flex';
-  container.style.flexWrap = 'wrap';
-  container.style.gap = '10px';
-  container.style.justifyContent = 'space-between';
-  // ভিতরের প্রতিটা Ad কে ৫০% করো
-  var items = container.querySelectorAll(':scope > div, :scope > a, :scope > iframe, :scope > ins, :scope > span');
-  items.forEach(function(el){
-    el.style.setProperty('width','calc(50% - 5px)','important');
-    el.style.setProperty('max-width','calc(50% - 5px)','important');
-    el.style.setProperty('flex','0 0 calc(50% - 5px)','important');
-    el.style.setProperty('margin','0','important');
-    el.style.setProperty('float','none','important');
-    // ভিতরের ছবিকেও ১০০% করো
-    var imgs = el.querySelectorAll('img, iframe, a, div');
-    imgs.forEach(function(im){
-      im.style.setProperty('width','100%','important');
-      im.style.setProperty('max-width','100%','important');
-      if(im.tagName==='IMG') im.style.setProperty('height','auto','important');
-    });
-  });
-  // যদি Ad একটা বড় div এর ভিতরে সব Ad ঢুকায় দেয়, তাহলে ওই বড় div এর ভিতরেও ২ কলম করো
-  var innerDivs = container.querySelectorAll('div');
-  innerDivs.forEach(function(d){
-    if(d.children.length > 1){
-      d.style.display = 'flex';
-      d.style.flexWrap = 'wrap';
-      d.style.gap = '10px';
-      Array.from(d.children).forEach(function(ch){
-        ch.style.setProperty('width','calc(50% - 5px)','important');
-        ch.style.setProperty('max-width','calc(50% - 5px)','important');
-        ch.style.setProperty('flex','0 0 calc(50% - 5px)','important');
-      });
-    }
-  });
-}
-// Ad আসতে দেরি হয়, তাই ১০ সেকেন্ড ধরে বার বার চেক করবে
-setInterval(forceTwoColumnAds, 800);
-// Ad আসলেই সাথে সাথে ধরার জন্য Observer
-var obs = new MutationObserver(forceTwoColumnAds);
-var adBox = document.getElementById('container-cdeccdd75d3e2e6916a42ce9653cfb08');
-if(adBox) obs.observe(adBox, {childList:true, subtree:true});
-</script>
 
 <script>
 const urlParams = new URLSearchParams(window.location.search);
