@@ -2,16 +2,31 @@
   "match": {
     "name": "Saudi Arabia U17 Vs Uruguay U17",
     "category": "Live Sports",
-    "logoUrl": "https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Saudi-Arabia-U17-Vs-Uruguay-U17.jpg",
+    "logoUrl": "https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Tottenham%20FC%20Vs%20Arsenal.jpg",
     "tone": "gold",
     "section": "liveSports",
     "show": "yes",
     "id": 1,
-    "startTime": "2026-11-18T09:30:00+06:00",
-    "endTime": "2026-11-18T11:30:00+06:00",
+    "startTime": "2026-11-23T20:00:00+06:00",
+    "endTime": "2026-11-23T23:00:00+06:00",
     "enabled": true,
     "status": "auto",
     "matchType": "Football | U17 World Cup",
-    "streams": []
+    "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
+    "drm": {
+      "scheme": "clearkey",
+      "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
+    },
+    "streams": [
+      {
+        "name": "D SPORTS + FHD",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
+        "drm": {
+          "scheme": "clearkey",
+          "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
+        },
+        "show": "yes"
+      }
+    ]
   }
 }
