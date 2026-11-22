@@ -5,7 +5,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 MATCHES_DIR = ROOT / "data" / "matches"
-PLAYLIST_URL = "https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/Sports_data.m3u"
+PLAYLIST_URL = "https://raw.githubusercontent.com/sm-monirulislam/SonyLiv_Event_Playlist/refs/heads/main/sonyLiv.m3u"
 
 FLAGS = {
  "pakistan":"https://flagcdn.com/w160/pk.png","india":"https://flagcdn.com/w160/in.png",
