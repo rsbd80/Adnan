@@ -29,6 +29,10 @@
     "matchType": "Cricket | IL-T20",
     "timeUpdateStatus": "API_ERROR",
     "timeUpdateMessage": "HTTP 429: Too Many Requests",
-    "timeCheckedAt": "2026-11-22T12:47:06+06:00"
+    "timeCheckedAt": "2026-11-22T12:47:06+06:00",
+    "team1": "MI Emirates",
+    "team2": "Vipers",
+    "team1Logo": "",
+    "team2Logo": ""
   }
 }

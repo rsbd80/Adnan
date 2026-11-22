@@ -11,7 +11,73 @@
     "endTime": "2026-11-23T00:00:00+06:00",
     "enabled": true,
     "show": "yes",
-    "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-    "streams": [{"name": "Server 1", "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", "show": "yes"}]
+    "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/at5ay8ceup/out/v1/a494c8de4aad410a9feef3d2892f1484/cenc.mpd",
+    "streams": [
+      {
+        "name": "Server 1",
+        "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/at5ay8ceup/out/v1/a494c8de4aad410a9feef3d2892f1484/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 2",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/m6sqanvm2m/out/v1/f6beb46c6e9a4132ad739f3ca27df6aa/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 3",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 4",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ghwcl6hv68/out/v1/83536910d8034e9b9895a20fbe1c1687/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 5",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 6",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 7",
+        "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/u8ummoryxo/out/v1/34c6b6d4f2e340fcb56e3eb5a0d9726c/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 8",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/3ynrpdanq2/out/v1/81fd4c26584044d2b1a1cc5b32fa9af0/cenc.mpd?",
+        "show": "yes"
+      },
+      {
+        "name": "Server 9",
+        "url": "https://chatgpt.hereisman.net/playlist/60725/load-playlist-multi?&.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 10",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash-sd/enc/eayjamsonn/out/v1/6c25cddab58043a6ace0ac64d97983f0/cenc-sd.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 11",
+        "url": "https://www.rtmpcdn.com/live/8b610bde-4b1e-4242-b997-274b9e6c7943.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 12",
+        "url": "https://www.rtmpcdn.com/live/migu2.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 13",
+        "url": "http://193.47.62.41/hls/8UUU.m3u8",
+        "show": "yes"
+      }
+    ]
   }
 }

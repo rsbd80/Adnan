@@ -48,6 +48,10 @@
     "endTime": "2026-10-15T20:30:00+06:00",
     "enabled": true,
     "status": "auto",
-    "matchType": "FOOTBALL"
+    "matchType": "FOOTBALL",
+    "team1": "New Sports 2",
+    "team2": "",
+    "team1Logo": "",
+    "team2Logo": ""
   }
 }

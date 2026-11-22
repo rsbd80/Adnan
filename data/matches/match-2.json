@@ -24,6 +24,10 @@
         },
         "show": "yes"
       }
-    ]
+    ],
+    "team1": "India",
+    "team2": "New Zealand",
+    "team1Logo": "https://flagcdn.com/w160/in.png",
+    "team2Logo": "https://flagcdn.com/w160/nz.png"
   }
 }

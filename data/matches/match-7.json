@@ -48,7 +48,11 @@
     "endTime": "2026-10-15T23:00:00+06:00",
     "enabled": true,
     "status": "auto",
-    "matchType": "FOOTBALL"
+    "matchType": "FOOTBALL",
+    "team1": "MPD Sports 3",
+    "team2": "",
+    "team1Logo": "",
+    "team2Logo": ""
   },
   "name": "Ban Vs Ind",
   "category": "Live Sports",
