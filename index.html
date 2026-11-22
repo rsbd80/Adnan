@@ -112,8 +112,8 @@ iframe{ border:0!important; }
     .search-icon-inside{ width:14px; height:14px; right:10px; }
     #installAppBtn{ width:calc(100% - 30px); max-width:320px; }
 }
-/* ===== RS AUTO MATCH CARDS ===== */
-.rs-section{margin:14px 0 4px}
+/* ===== RS MATCH - নিচে থাকবে, ডিজাইন ভাঙবে না ===== */
+.rs-section{margin:6px 0 14px;padding:0 2px}
 .rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
 .rs-sec-title{font-size:16px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
 .rs-sec-title span.live-dot{width:9px;height:9px;background:#ff0033;border-radius:50%;box-shadow:0 0 0 0 rgba(255,0,51,.7);animation:pulse-animation 1.2s infinite}
@@ -121,7 +121,7 @@ iframe{ border:0!important; }
 .rs-match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(min-width:768px){.rs-match-grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1100px){.rs-match-grid{grid-template-columns:repeat(4,1fr)}}
-.rs-card{background:linear-gradient(135deg,#0f101c,#080a14 60%,#0e121e);border:1px solid rgba(0,240,255,.14);border-radius:18px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 12px 25px rgba(0,0,0,.3);transition:transform .15s}
+.rs-card{background:linear-gradient(135deg,#0f101c,#080a14 60%,#0e121e);border:1px solid rgba(0,240,255,.14);border-radius:18px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 12px 25px rgba(0,0,0,.3)}
 .rs-card:active{transform:scale(.97)}
 .rs-card img{width:100%;height:130px;object-fit:cover;display:block;background:#000}
 .rs-card-body{padding:12px}
@@ -142,7 +142,9 @@ iframe{ border:0!important; }
 </head>
 <body>
 <div id="intro-loader"><div class="loader-content"><div class="welcome-text">Welcome To</div><h1 class="brand-text">RS Live <span>TV</span></h1><div class="loading-dots"><span></span><span></span><span></span></div></div></div>
+
 <div class="container tv-area">
+    <!-- 1. হেডার - আগের মতোই -->
     <div class="row"><div class="col-xs-12 col-md-12">
         <div class="top-bar-wrapper">
             <a href="https://rslivetv.pages.dev" class="logo-link"><div class="brand-title-neon"><div class="brand-stack"><div class="brand-line-main"><span class="brand-rs">RS</span><span class="brand-live">LIVE TV</span></div><div class="brand-line-sub">Watch Live Sports & Entertainment</div></div></div></a>
@@ -150,17 +152,19 @@ iframe{ border:0!important; }
         </div>
     </div></div>
 
-    <!-- LIVE + UPCOMING AUTO -->
-    <div class="row"><div class="col-xs-12 col-md-12">
-      <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title"><span class="live-dot"></span> 🔴 LIVE NOW</div><div class="rs-sec-count" id="liveCount">0 Live</div></div><div class="rs-match-grid" id="liveGrid"><div class="rs-empty">⏳ Live match লোড হচ্ছে...</div></div></div>
-      <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title">📅 UPCOMING MATCHES</div><div class="rs-sec-count" id="upCount">0 Upcoming</div></div><div class="rs-match-grid" id="upcomingGrid"><div class="rs-empty">⏳ Upcoming match লোড হচ্ছে...</div></div></div>
-    </div></div>
-
+    <!-- 2. প্লেয়ার + চ্যানেল - সামনে, আগের মতোই -->
     <div class="row">
         <div class="col-xs-12 col-md-10 tv-view"><div class="embed-responsive embed-responsive-16by9"><iframe id="tv-player-iframe" name="player" class="embed-responsive-item" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen webkitallowfullscreen src="about:blank"></iframe></div></div>
         <div class="col-xs-12 col-md-2 channel-list" id="scroll-wrapper"><ul class="thumbnail-slider" id="channel-container"></ul></div>
     </div>
+
+    <!-- 3. LIVE + UPCOMING - চ্যানেলের নিচে, NOTICE এর উপরে -->
+    <div class="row"><div class="col-xs-12 col-md-12">
+      <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title"><span class="live-dot"></span> 🔴 LIVE NOW</div><div class="rs-sec-count" id="liveCount">0 Live</div></div><div class="rs-match-grid" id="liveGrid"><div class="rs-empty">⏳ Live match লোড হচ্ছে...</div></div></div>
+      <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title">📅 UPCOMING MATCHES</div><div class="rs-sec-count" id="upCount">0 Upcoming</div></div><div class="rs-match-grid" id="upcomingGrid"><div class="rs-empty">⏳ Upcoming match লোড হচ্ছে...</div></div></div>
+    </div></div>
 </div>
+
 <div class="marquee-container"><div class="notice-label">NOTICE</div><marquee scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()" id="noticeBar">⚠️ প্রিয় দর্শক চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে। কোনো চ্যানেল সাময়িকভাবে কাজ না করলে একটু পর আবার চেষ্টা করুন। আপনাদের আরও ভালো সার্ভিস দিতে আমরা প্রতিনিয়ত কাজ করে যাচ্ছি। ধন্যবাদ আমাদের সাথে থাকার জন্য ❤️</marquee></div>
 <footer class="footer-premium"><div class="container">
     <div class="tio-style-banner-fixed"><div class="banner-overlay"></div><div class="content-wrapper"><div class="brand-logo-fixed"><span class="rs-live">RS Live</span> <span class="tv-text">TV</span></div><div class="text-section-fixed"><div class="main-tags"><span class="tag-cricket">CRICKET 🏏</span><span class="tag-football">FOOTBALL ⚽</span><span class="tag-tv">TV SHOWS 📺</span></div><p class="sub-text">সব পাবেন একদম ফ্রিতে!</p></div><div class="live-circle"><span class="pulse"></span> LIVE</div></div></div>
@@ -169,7 +173,6 @@ iframe{ border:0!important; }
     <div class="ad-box" id="bannerAdBox"><script>atOptions={'key':'774c0e371455f6476668178b5faae5ab','format':'iframe','height':50,'width':320,'params':{}};</script><script src="//www.highperformanceformat.com/774c0e371455f6476668178b5faae5ab/invoke.js"></script></div>
     <div class="copyright">© 2026 RS LIVE TV | All Rights Reserved</div>
 </div></footer>
-
 <script>
 if (!String.prototype.includes) { String.prototype.includes = function(search, start) { if (typeof start !== 'number') { start = 0; } if (start + search.length > this.length) { return false; } else { return this.indexOf(search, start) !== -1; } }; }
 if (!Array.prototype.find) { Array.prototype.find = function(predicate) { if (this == null) { throw new TypeError('"this" is null or not defined'); } var o = Object(this); var len = o.length >>> 0; if (typeof predicate !== 'function') { throw new TypeError('predicate must be a function'); } var thisArg = arguments[1]; var k = 0; while (k < len) { var kValue = o[k]; if (predicate.call(thisArg, kValue, k, o)) { return kValue; } k++; } return undefined; }; }
@@ -274,18 +277,24 @@ function loadAllChannels(){
     if(container) container.innerHTML = `<li style="text-align:center;padding:20px;color:#94a3b8">⏳ Loading channels...</li>`;
     loadM3UChannels(function(m3uChannels) { loadJSONChannels(function(jsonChannels) { const allChannels = mergeChannels(m3uChannels, jsonChannels); if(!allChannels.length){ container.innerHTML = `<li style="color:#aaa;text-align:center;padding:20px">❌ No channels found!</li>`; hideLoader(); return; } renderChannels(allChannels); setupSearch(); hideLoader(); }); });
 }
-// ===== RS AUTO MATCH SYSTEM =====
+// ===== RS AUTO MATCH - নিচে, অটো =====
 let RS_MATCHES = [];
 function rsTimeLabel(m){ const s=new Date(m.startTime), n=new Date(), e=new Date(m.endTime||m.startTime); if(n>=s && n<=e) return {t:"LIVE",cls:"live"}; if(n>e) return {t:"ENDED",cls:"end"}; const diff=s-n, h=Math.floor(diff/3600000), mi=Math.floor(diff%3600000/60000), se=Math.floor(diff%60000/1000); return {t:`Starts in ${h}h ${mi}m ${se}s`,cls:"up"}; }
 function rsCard(m, idx){
   const st=rsTimeLabel(m);
-  const img=m.logoUrl||FALLBACK_IMAGE;
+  const img=m.logoUrl||"";
+  const hasImg = img && img.startsWith("http");
+  const imgHTML = hasImg ? `<img src="${img}" onerror="this.parentNode.innerHTML='<div style=\'height:130px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#0f101c,#1a0f2e)\'>⚽</div>'">` : `<div style="height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f101c,#1a0f2e,#0e121e);gap:4px"><div style="font-size:42px">⚽</div><div style="font-size:11px;color:#8ea1b7;font-weight:800;letter-spacing:1px">${m.matchType||'LIVE SPORTS'}</div></div>`;
   const servers=(m.streams||[]).filter(s=>s.show!=="no");
   const btns=servers.map((s,i)=>`<button class="${i===0?'active':''}" onclick="event.stopPropagation();rsPlayServer(${idx},${i},this)">${s.name||'Server '+(i+1)}</button>`).join("");
-  return `<div class="rs-card" onclick="rsPlayMatch(${idx})"><span class="rs-card-badge ${st.cls}">${st.t==="LIVE"?"🔴 LIVE":st.t==="ENDED"?"ENDED":"UPCOMING"}</span><img src="${img}" onerror="this.src='${FALLBACK_IMAGE}'"><div class="rs-card-body"><h3>${m.name}</h3><p>${m.matchType||m.category||'Live Sports'} • ${new Date(m.startTime).toLocaleString('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})} (BD)</p><div class="rs-countdown" data-count="${m.startTime}">${st.t}</div><div class="rs-server-row">${btns||""}</div><button class="rs-card-btn ${st.t==='LIVE'?'live-btn':''}" style="margin-top:10px">${st.t==='LIVE'?'▶ Watch Live':st.t==='ENDED'?'Match Ended':'🔔 Watch Now'}</button></div></div>`;
+  const isLive = st.t==="LIVE";
+  return `<div class="rs-card" onclick="rsPlayMatch(${idx})"><span class="rs-card-badge ${st.cls}">${isLive?"🔴 LIVE":st.t==="ENDED"?"ENDED":"UPCOMING"}</span>${imgHTML}<div class="rs-card-body"><h3>${m.name}</h3><p>${m.matchType||m.category||'Live Sports'} • ${new Date(m.startTime).toLocaleString('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})} (BD)</p><div class="rs-countdown" data-count="${m.startTime}">${st.t}</div><div class="rs-server-row">${btns||""}</div><button class="rs-card-btn ${isLive?'live-btn':''}" style="margin-top:10px">${isLive?'▶ Watch Live':st.t==='ENDED'?'Match Ended':'🔔 Notify Me'}</button></div></div>`;
 }
 window.rsPlayMatch=function(idx){
   const m=RS_MATCHES[idx]; if(!m) return;
+  const now=new Date(), s=new Date(m.startTime), e=new Date(m.endTime||m.startTime);
+  if(now < s){ const diff=s-now, h=Math.floor(diff/3600000), mi=Math.floor(diff%3600000/60000); alert(`⏳ ${m.name}\n\nম্যাচ এখনো শুরু হয় নাই!\nশুরু হবে: ${s.toLocaleString('en-GB',{timeZone:'Asia/Dhaka'})} (BD Time)\nবাকি আছে: ${h} ঘন্টা ${mi} মিনিট`); return; }
+  if(now > e){ alert("এই ম্যাচটা শেষ হয়ে গেছে!"); return; }
   const url=(m.streams&&m.streams[0]&&m.streams[0].url)||m.url;
   if(!url) return alert("Stream এখনো আসে নাই, একটু পর ট্রাই করো");
   document.getElementById("tv-player-iframe").src = "channel.html?url="+encodeURIComponent(url);
@@ -302,24 +311,21 @@ window.rsPlayServer=function(idx,sIdx,btn){
 async function loadAutoMatches(){
   const liveEl=document.getElementById("liveGrid"), upEl=document.getElementById("upcomingGrid");
   if(!liveEl||!upEl) return;
-  try{
-    let files=[];
-    try{ const idxRes=await fetch("data/matches/index.json?t="+Date.now()); if(idxRes.ok){ const idxData=await idxRes.json(); files=idxData.files||[]; } }catch(e){}
-    RS_MATCHES=[];
-    if(files.length){
-      for(let f of files){ try{ const r=await fetch("data/matches/"+f+"?t="+Date.now()); const j=await r.json(); if(j.match && j.match.enabled!==false && j.match.show!=="no") RS_MATCHES.push(j.match); }catch(e){} }
-    } else {
-      for(let i=1;i<=20;i++){ try{ const r=await fetch(`data/matches/match-${i}.json?t=${Date.now()}`); if(!r.ok) continue; const j=await r.json(); if(j.match) RS_MATCHES.push(j.match);}catch(e){} }
-    }
-    const now=new Date();
-    const live=RS_MATCHES.filter(m=> now>=new Date(m.startTime) && now<=new Date(m.endTime||m.startTime));
-    const up=RS_MATCHES.filter(m=> now < new Date(m.startTime)).sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
-    const ended=RS_MATCHES.filter(m=> now > new Date(m.endTime||m.startTime));
-    document.getElementById("liveCount").textContent=live.length+" Live";
-    document.getElementById("upCount").textContent=up.length+" Upcoming";
-    liveEl.innerHTML = live.length? live.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : `<div class="rs-empty">এই মুহূর্তে কোনো Live ম্যাচ নাই। Upcoming দেখো 👇</div>`;
-    upEl.innerHTML = up.length? up.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : (ended.length? `<div class="rs-empty">সব ম্যাচ শেষ। নতুন ম্যাচ আসতেছে...</div>` : `<div class="rs-empty">কোনো Upcoming ম্যাচ নাই।</div>`);
-  }catch(e){ if(liveEl) liveEl.innerHTML=`<div class="rs-empty">Match লোড হয় নাই, পেজ রিফ্রেশ করো</div>`; }
+  RS_MATCHES=[];
+  let files=[];
+  try{ const r=await fetch("data/matches/index.json?t="+Date.now()); if(r.ok){ const j=await r.json(); files=j.files||[]; } }catch(e){}
+  if(!files.length){ for(let i=1;i<=20;i++) files.push("match-"+i+".json"); }
+  for(let f of files){
+    try{ const r=await fetch("data/matches/"+f+"?t="+Date.now()); if(!r.ok) continue; const j=await r.json(); if(j.match && j.match.enabled!==false && j.match.show!=="no") RS_MATCHES.push(j.match); }catch(e){}
+  }
+  const now=new Date();
+  const live=RS_MATCHES.filter(m=> now>=new Date(m.startTime) && now<=new Date(m.endTime||m.startTime));
+  const up=RS_MATCHES.filter(m=> now < new Date(m.startTime)).sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
+  const ended=RS_MATCHES.filter(m=> now > new Date(m.endTime||m.startTime));
+  document.getElementById("liveCount").textContent=live.length+" Live";
+  document.getElementById("upCount").textContent=up.length+" Upcoming";
+  liveEl.innerHTML = live.length? live.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : `<div class="rs-empty">এই মুহূর্তে কোনো Live ম্যাচ নাই। Upcoming দেখো 👇</div>`;
+  upEl.innerHTML = up.length? up.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : (ended.length? `<div class="rs-empty">সব ম্যাচ শেষ। নতুন ম্যাচ আসতেছে...</div>` : `<div class="rs-empty">কোনো Upcoming ম্যাচ নাই।</div>`);
 }
 setInterval(()=>{ document.querySelectorAll("[data-count]").forEach(el=>{ const s=new Date(el.dataset.count), n=new Date(), d=s-n; if(d<=0) el.textContent="🔴 LIVE"; else el.textContent=`Starts in ${Math.floor(d/3600000)}h ${Math.floor(d%3600000/60000)}m ${Math.floor(d%60000/1000)}s`; }); },1000);
 loadAutoMatches();
