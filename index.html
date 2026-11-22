@@ -112,7 +112,6 @@ iframe{ border:0!important; }
     .search-icon-inside{ width:14px; height:14px; right:10px; }
     #installAppBtn{ width:calc(100% - 30px); max-width:320px; }
 }
-/* ===== RS AUTO MATCH CARDS ===== */
 .rs-section{margin:14px 0 4px}
 .rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
 .rs-sec-title{font-size:16px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
@@ -149,13 +148,10 @@ iframe{ border:0!important; }
             <div class="channel-search-box-premium"><input type="text" id="channelSearch" placeholder="Search channels..." autocomplete="off"><svg class="search-icon-inside" viewBox="0 0 24 24" fill="none"><path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 22L20 20" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
     </div></div>
-
-    <!-- LIVE + UPCOMING AUTO -->
     <div class="row"><div class="col-xs-12 col-md-12">
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title"><span class="live-dot"></span> 🔴 LIVE NOW</div><div class="rs-sec-count" id="liveCount">0 Live</div></div><div class="rs-match-grid" id="liveGrid"><div class="rs-empty">⏳ Live match লোড হচ্ছে...</div></div></div>
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title">📅 UPCOMING MATCHES</div><div class="rs-sec-count" id="upCount">0 Upcoming</div></div><div class="rs-match-grid" id="upcomingGrid"><div class="rs-empty">⏳ Upcoming match লোড হচ্ছে...</div></div></div>
     </div></div>
-
     <div class="row">
         <div class="col-xs-12 col-md-10 tv-view"><div class="embed-responsive embed-responsive-16by9"><iframe id="tv-player-iframe" name="player" class="embed-responsive-item" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen webkitallowfullscreen src="about:blank"></iframe></div></div>
         <div class="col-xs-12 col-md-2 channel-list" id="scroll-wrapper"><ul class="thumbnail-slider" id="channel-container"></ul></div>
@@ -169,7 +165,6 @@ iframe{ border:0!important; }
     <div class="ad-box" id="bannerAdBox"><script>atOptions={'key':'774c0e371455f6476668178b5faae5ab','format':'iframe','height':50,'width':320,'params':{}};</script><script src="//www.highperformanceformat.com/774c0e371455f6476668178b5faae5ab/invoke.js"></script></div>
     <div class="copyright">© 2026 RS LIVE TV | All Rights Reserved</div>
 </div></footer>
-
 <script>
 if (!String.prototype.includes) { String.prototype.includes = function(search, start) { if (typeof start !== 'number') { start = 0; } if (start + search.length > this.length) { return false; } else { return this.indexOf(search, start) !== -1; } }; }
 if (!Array.prototype.find) { Array.prototype.find = function(predicate) { if (this == null) { throw new TypeError('"this" is null or not defined'); } var o = Object(this); var len = o.length >>> 0; if (typeof predicate !== 'function') { throw new TypeError('predicate must be a function'); } var thisArg = arguments[1]; var k = 0; while (k < len) { var kValue = o[k]; if (predicate.call(thisArg, kValue, k, o)) { return kValue; } k++; } return undefined; }; }
@@ -274,7 +269,7 @@ function loadAllChannels(){
     if(container) container.innerHTML = `<li style="text-align:center;padding:20px;color:#94a3b8">⏳ Loading channels...</li>`;
     loadM3UChannels(function(m3uChannels) { loadJSONChannels(function(jsonChannels) { const allChannels = mergeChannels(m3uChannels, jsonChannels); if(!allChannels.length){ container.innerHTML = `<li style="color:#aaa;text-align:center;padding:20px">❌ No channels found!</li>`; hideLoader(); return; } renderChannels(allChannels); setupSearch(); hideLoader(); }); });
 }
-// ===== RS AUTO MATCH SYSTEM =====
+// ===== RS AUTO MATCH SYSTEM - FIXED V2 =====
 let RS_MATCHES = [];
 function rsTimeLabel(m){ const s=new Date(m.startTime), n=new Date(), e=new Date(m.endTime||m.startTime); if(n>=s && n<=e) return {t:"LIVE",cls:"live"}; if(n>e) return {t:"ENDED",cls:"end"}; const diff=s-n, h=Math.floor(diff/3600000), mi=Math.floor(diff%3600000/60000), se=Math.floor(diff%60000/1000); return {t:`Starts in ${h}h ${mi}m ${se}s`,cls:"up"}; }
 function rsCard(m, idx){
@@ -302,24 +297,28 @@ window.rsPlayServer=function(idx,sIdx,btn){
 async function loadAutoMatches(){
   const liveEl=document.getElementById("liveGrid"), upEl=document.getElementById("upcomingGrid");
   if(!liveEl||!upEl) return;
-  try{
-    let files=[];
-    try{ const idxRes=await fetch("data/matches/index.json?t="+Date.now()); if(idxRes.ok){ const idxData=await idxRes.json(); files=idxData.files||[]; } }catch(e){}
-    RS_MATCHES=[];
-    if(files.length){
-      for(let f of files){ try{ const r=await fetch("data/matches/"+f+"?t="+Date.now()); const j=await r.json(); if(j.match && j.match.enabled!==false && j.match.show!=="no") RS_MATCHES.push(j.match); }catch(e){} }
-    } else {
-      for(let i=1;i<=20;i++){ try{ const r=await fetch(`data/matches/match-${i}.json?t=${Date.now()}`); if(!r.ok) continue; const j=await r.json(); if(j.match) RS_MATCHES.push(j.match);}catch(e){} }
-    }
-    const now=new Date();
-    const live=RS_MATCHES.filter(m=> now>=new Date(m.startTime) && now<=new Date(m.endTime||m.startTime));
-    const up=RS_MATCHES.filter(m=> now < new Date(m.startTime)).sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
-    const ended=RS_MATCHES.filter(m=> now > new Date(m.endTime||m.startTime));
-    document.getElementById("liveCount").textContent=live.length+" Live";
-    document.getElementById("upCount").textContent=up.length+" Upcoming";
-    liveEl.innerHTML = live.length? live.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : `<div class="rs-empty">এই মুহূর্তে কোনো Live ম্যাচ নাই। Upcoming দেখো 👇</div>`;
-    upEl.innerHTML = up.length? up.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : (ended.length? `<div class="rs-empty">সব ম্যাচ শেষ। নতুন ম্যাচ আসতেছে...</div>` : `<div class="rs-empty">কোনো Upcoming ম্যাচ নাই।</div>`);
-  }catch(e){ if(liveEl) liveEl.innerHTML=`<div class="rs-empty">Match লোড হয় নাই, পেজ রিফ্রেশ করো</div>`; }
+  RS_MATCHES=[];
+  let files=[];
+  try{ const r=await fetch("data/matches/index.json?t="+Date.now()); if(r.ok){ const j=await r.json(); files=j.files||[]; } }catch(e){}
+  if(!files.length){ for(let i=1;i<=20;i++) files.push("match-"+i+".json"); }
+  for(let f of files){
+    try{
+      const r=await fetch("data/matches/"+f+"?t="+Date.now());
+      if(!r.ok) continue;
+      const text=await r.text();
+      let j; try{ j=JSON.parse(text); }catch(e){ continue; }
+      if(j.match && j.match.enabled!==false && j.match.show!=="no") RS_MATCHES.push(j.match);
+    }catch(e){}
+  }
+  console.log("RS MATCHES:", RS_MATCHES.length);
+  const now=new Date();
+  const live=RS_MATCHES.filter(m=> now>=new Date(m.startTime) && now<=new Date(m.endTime||m.startTime));
+  const up=RS_MATCHES.filter(m=> now < new Date(m.startTime)).sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
+  const ended=RS_MATCHES.filter(m=> now > new Date(m.endTime||m.startTime));
+  document.getElementById("liveCount").textContent=live.length+" Live";
+  document.getElementById("upCount").textContent=up.length+" Upcoming";
+  liveEl.innerHTML = live.length? live.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : `<div class="rs-empty">এই মুহূর্তে কোনো Live ম্যাচ নাই। Upcoming দেখো 👇</div>`;
+  upEl.innerHTML = up.length? up.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : (ended.length? `<div class="rs-empty">সব ম্যাচ শেষ। নতুন ম্যাচ আসতেছে...</div>` : `<div class="rs-empty">কোনো Upcoming ম্যাচ নাই।</div>`);
 }
 setInterval(()=>{ document.querySelectorAll("[data-count]").forEach(el=>{ const s=new Date(el.dataset.count), n=new Date(), d=s-n; if(d<=0) el.textContent="🔴 LIVE"; else el.textContent=`Starts in ${Math.floor(d/3600000)}h ${Math.floor(d%3600000/60000)}m ${Math.floor(d%60000/1000)}s`; }); },1000);
 loadAutoMatches();
