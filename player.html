@@ -11,16 +11,13 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{width:100%;background:#07070f;font-family:var(--font)}
 body{padding:0}
-
-/* ✅ প্রিমিয়াম হেডার - Back বাটন বাদ */
 .topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden}
 .topbar::before{content:"";position:absolute;top:-50px;left:-20px;width:180px;height:100px;background:radial-gradient(circle,rgba(34,211,238,.25),transparent 70%);filter:blur(10px);pointer-events:none}
 .topbar::after{content:"";position:absolute;top:-50px;right:-20px;width:180px;height:100px;background:radial-gradient(circle,rgba(167,139,250,.28),transparent 70%);filter:blur(10px);pointer-events:none}
-.brand{display:flex;align-items:center;gap:9px;position:relative;z-index:2;min-width:0;flex-shrink:0}
+.brand{display:flex;align-items:center;gap:9px;position:relative;z-index:2;flex-shrink:0}
 .brand .play-ico{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#22d3ee,#a78bfa,#ff5d8f);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;box-shadow:0 4px 16px rgba(167,139,250,.5)}
-.brand-text{line-height:1;min-width:0}
-/* ✅✅✅ Play এখন সাদা, Go গ্রেডিয়েন্ট */
-.brand-text .pg{font-size:17px;font-weight:900;letter-spacing:.3px;color:#fff !important;-webkit-text-fill-color:#fff !important}
+.brand-text{line-height:1}
+.brand-text .pg{font-size:17px;font-weight:900;letter-spacing:.3px;color:#fff!important;-webkit-text-fill-color:#fff!important}
 .brand-text .pg i{font-style:normal;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .brand-text .tag{font-size:8px;letter-spacing:2.5px;color:#9a9ab5;font-weight:700;margin-top:2px}
 .divider{width:1px;height:32px;background:rgba(255,255,255,.12);flex-shrink:0;position:relative;z-index:2}
@@ -30,7 +27,6 @@ body{padding:0}
 .live-pill{margin-left:auto;display:flex;align-items:center;gap:6px;background:rgba(255,45,85,.14);border:1px solid rgba(255,45,85,.35);color:#ff6b81;font-size:10px;font-weight:800;letter-spacing:1px;padding:6px 10px;border-radius:20px;flex-shrink:0;position:relative;z-index:2}
 .live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;box-shadow:0 0 0 0 rgba(255,45,85,.7);animation:pulseDot 1.4s infinite}
 @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(255,45,85,.7)}70%{box-shadow:0 0 0 7px rgba(255,45,85,0)}100%{box-shadow:0 0 0 0 rgba(255,45,85,0)}}
-
 #player-wrapper{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
 #player-wrapper:fullscreen{width:100vw;height:100vh;aspect-ratio:auto}
 #player-wrapper:fullscreen #player{width:100vw!important;height:100vh!important}
@@ -63,7 +59,6 @@ video::-webkit-media-controls{display:none!important}
 .state-content p.sub{font-family:var(--mono);font-size:10.5px;color:var(--text-dim);margin-top:8px;max-width:280px;overflow-wrap:anywhere}
 .state-content .brand-name{display:block;margin-top:18px}
 .retry-btn{margin-top:16px;padding:8px 20px;font-weight:600;font-size:11px;color:#0a0a12;background:linear-gradient(90deg,var(--grad-a),var(--grad-b));border:none;border-radius:18px;cursor:pointer}
-.retry-btn:active{transform:scale(.96)}
 #controls{position:absolute;bottom:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:10px;padding:14px 14px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);opacity:0;transition:opacity .3s}
 #player-wrapper.show-controls #controls{opacity:1}
 #controls button{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:42px;height:42px;border-radius:50%;font-size:16px;cursor:pointer;backdrop-filter:blur(5px)}
@@ -71,21 +66,21 @@ video::-webkit-media-controls{display:none!important}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--grad-b);cursor:pointer}
 #time-label{font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap}
 
-/* ✅✅✅ Ads - ২ কলমে */
+/* ✅ Ads - ২ কলমে জোর করে */
 .ad-wrap{margin:14px 14px 0;background:#111118;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px 10px 12px;overflow:hidden}
 .ad-label{font-size:9px;letter-spacing:2.5px;color:#777;text-align:center;margin-bottom:10px;font-family:var(--mono)}
 .ad-box{border-radius:10px;overflow:hidden;background:#0a0a12}
-/* Ad নেটওয়ার্ক যাই দিক, ২ কলমে ভাগ করে দিবে */
-#container-cdeccdd75d3e2e6916a42ce9653cfb08{display:grid !important;grid-template-columns:1fr 1fr !important;gap:10px !important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 > *{width:100% !important;max-width:100% !important;margin:0 !important}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 img{width:100% !important;height:auto !important;border-radius:10px !important;display:block}
-#container-cdeccdd75d3e2e6916a42ce9653cfb08 iframe{width:100% !important;border-radius:10px}
+/* Ad কন্টেইনারকে ফ্লেক্স ২ কলম বানাও */
+#container-cdeccdd75d3e2e6916a42ce9653cfb08{display:flex!important;flex-wrap:wrap!important;gap:10px!important;width:100%!important;justify-content:space-between!important}
+#container-cdeccdd75d3e2e6916a42ce9653cfb08 > *{flex:0 0 calc(50% - 5px)!important;width:calc(50% - 5px)!important;max-width:calc(50% - 5px)!important;margin:0!important;box-sizing:border-box!important}
+#container-cdeccdd75d3e2e6916a42ce9653cfb08 img{width:100%!important;height:auto!important;border-radius:10px!important;display:block!important}
+#container-cdeccdd75d3e2e6916a42ce9653cfb08 a{width:100%!important;display:block!important}
+#container-cdeccdd75d3e2e6916a42ce9653cfb08 iframe{width:100%!important}
 .ad-note{text-align:center;font-size:11px;color:#666;margin:12px 0 20px}
 .ad-note b{color:#a78bfa}
 </style>
 </head>
 <body>
-<!-- ✅ হেডার - Back বাটন বাদ -->
 <div class="topbar">
 <div class="brand"><div class="play-ico">▶</div><div class="brand-text"><div class="pg">Play <i>Go</i></div><div class="tag">LIVE TV</div></div></div>
 <div class="divider"></div>
@@ -105,15 +100,10 @@ video::-webkit-media-controls{display:none!important}
 </div>
 </div>
 <div id="player"></div>
-<div id="controls">
-<button id="playBtn">▶</button>
-<input type="range" id="seek" value="0" min="0" max="100">
-<span id="time-label">LIVE</span>
-<button id="fsBtn">⛶</button>
-</div>
+<div id="controls"><button id="playBtn">▶</button><input type="range" id="seek" value="0" min="0" max="100"><span id="time-label">LIVE</span><button id="fsBtn">⛶</button></div>
 </div>
 
-<!-- ✅ Ads - ২ কলমে -->
+<!-- ✅ তোমার Ad - এইখানেই থাকবে -->
 <div class="ad-wrap">
 <div class="ad-label">ADVERTISEMENT</div>
 <div class="ad-box">
@@ -125,18 +115,60 @@ video::-webkit-media-controls{display:none!important}
 <script async="async" data-cfasync="false" src="https://czernik.org/21/cdeccdd75d3e2e6916a42ce9653cfb08"></script>
 
 <script>
+// ✅✅✅ Ads কে জোর করে ২ কলমে আনার JS - এইটাই আসল ফিক্স
+function forceTwoColumnAds(){
+  var container = document.getElementById('container-cdeccdd75d3e2e6916a42ce9653cfb08');
+  if(!container) return;
+  // কন্টেইনারকে ফ্লেক্স করো
+  container.style.display = 'flex';
+  container.style.flexWrap = 'wrap';
+  container.style.gap = '10px';
+  container.style.justifyContent = 'space-between';
+  // ভিতরের প্রতিটা Ad কে ৫০% করো
+  var items = container.querySelectorAll(':scope > div, :scope > a, :scope > iframe, :scope > ins, :scope > span');
+  items.forEach(function(el){
+    el.style.setProperty('width','calc(50% - 5px)','important');
+    el.style.setProperty('max-width','calc(50% - 5px)','important');
+    el.style.setProperty('flex','0 0 calc(50% - 5px)','important');
+    el.style.setProperty('margin','0','important');
+    el.style.setProperty('float','none','important');
+    // ভিতরের ছবিকেও ১০০% করো
+    var imgs = el.querySelectorAll('img, iframe, a, div');
+    imgs.forEach(function(im){
+      im.style.setProperty('width','100%','important');
+      im.style.setProperty('max-width','100%','important');
+      if(im.tagName==='IMG') im.style.setProperty('height','auto','important');
+    });
+  });
+  // যদি Ad একটা বড় div এর ভিতরে সব Ad ঢুকায় দেয়, তাহলে ওই বড় div এর ভিতরেও ২ কলম করো
+  var innerDivs = container.querySelectorAll('div');
+  innerDivs.forEach(function(d){
+    if(d.children.length > 1){
+      d.style.display = 'flex';
+      d.style.flexWrap = 'wrap';
+      d.style.gap = '10px';
+      Array.from(d.children).forEach(function(ch){
+        ch.style.setProperty('width','calc(50% - 5px)','important');
+        ch.style.setProperty('max-width','calc(50% - 5px)','important');
+        ch.style.setProperty('flex','0 0 calc(50% - 5px)','important');
+      });
+    }
+  });
+}
+// Ad আসতে দেরি হয়, তাই ১০ সেকেন্ড ধরে বার বার চেক করবে
+setInterval(forceTwoColumnAds, 800);
+// Ad আসলেই সাথে সাথে ধরার জন্য Observer
+var obs = new MutationObserver(forceTwoColumnAds);
+var adBox = document.getElementById('container-cdeccdd75d3e2e6916a42ce9653cfb08');
+if(adBox) obs.observe(adBox, {childList:true, subtree:true});
+</script>
+
+<script>
 const urlParams = new URLSearchParams(window.location.search);
 let streamSource = urlParams.get('url') || '';
 try{ streamSource = decodeURIComponent(streamSource); }catch(e){}
 const chNameParam = urlParams.get('name') || '';
-try{
-  if(chNameParam){
-    const decodedName = decodeURIComponent(chNameParam);
-    document.getElementById('chName').textContent = decodedName;
-    document.getElementById('chName2').textContent = decodedName;
-    document.title = decodedName + ' - Play Go';
-  }
-}catch(e){}
+try{ if(chNameParam){ const decodedName = decodeURIComponent(chNameParam); document.getElementById('chName').textContent = decodedName; document.getElementById('chName2').textContent = decodedName; document.title = decodedName + ' - Play Go'; } }catch(e){}
 const startMuted = urlParams.get('mute') === '1';
 const loaderEl = document.getElementById('loader');
 const statusEl = document.getElementById('status-line');
@@ -156,22 +188,16 @@ async function releaseWakeLock(){ wakeLockWanted=false; if(wakeLock){ try{await 
 document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'&&wakeLockWanted) requestWakeLock(); });
 let hideCtrlTimer=null;
 function showControls(){ wrapper.classList.add('show-controls'); clearTimeout(hideCtrlTimer); hideCtrlTimer=setTimeout(()=>wrapper.classList.remove('show-controls'),3000); }
-wrapper.addEventListener('click',showControls);
-wrapper.addEventListener('touchstart',showControls,{passive:true});
-wrapper.addEventListener('mousemove',showControls);
+wrapper.addEventListener('click',showControls); wrapper.addEventListener('touchstart',showControls,{passive:true}); wrapper.addEventListener('mousemove',showControls);
 if(!streamSource){
   showState(`<div class="state-content"><div class="glyph warn"><i>&#9888;</i></div><p class="title">No stream URL supplied</p><p class="sub">Add ?url=YOUR_STREAM_LINK to this page's address.</p>${brandBlock()}</div>`);
 } else {
   const video = document.createElement('video');
-  video.setAttribute('playsinline','');
-  video.setAttribute('webkit-playsinline','');
-  video.muted = startMuted;
-  video.autoplay = true;
-  video.controls = false;
+  video.setAttribute('playsinline',''); video.setAttribute('webkit-playsinline','');
+  video.muted = startMuted; video.autoplay = true; video.controls = false;
   video.style.cssText='width:100%;height:100%;object-fit:contain;background:#000';
   document.getElementById('player').appendChild(video);
-  let hls=null, everPlayed=false, retryCount=0;
-  const maxRetries=6;
+  let hls=null, everPlayed=false, retryCount=0; const maxRetries=6;
   function doPlay(){ video.play().then(()=>{ hideLoader(); everPlayed=true; requestWakeLock(); }).catch(()=>{}); }
   function loadStream(url){
     if(hls){ try{hls.destroy();}catch(e){} hls=null; }
@@ -179,53 +205,24 @@ if(!streamSource){
     if(url.includes('.m3u8') || url.includes('m3u8')){
       if(window.Hls && Hls.isSupported()){
         hls = new Hls({ maxBufferLength:30, maxMaxBufferLength:60, enableWorker:true, lowLatencyMode:true, manifestLoadingMaxRetry:3, levelLoadingMaxRetry:4, fragLoadingMaxRetry:4 });
-        hls.loadSource(url);
-        hls.attachMedia(video);
+        hls.loadSource(url); hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED, ()=>{ doPlay(); });
-        hls.on(Hls.Events.ERROR, (e,data)=>{
-          if(!data.fatal) return;
-          if(data.type===Hls.ErrorTypes.NETWORK_ERROR){ hls.startLoad(); }
-          else if(data.type===Hls.ErrorTypes.MEDIA_ERROR){ hls.recoverMediaError(); }
-          else { tryReconnect(url); }
-        });
-      } else if(video.canPlayType('application/vnd.apple.mpegurl')){
-        video.src=url; doPlay();
-      } else { showNoStreamState({message:'Browser HLS support নেই'}); }
-    } else if(url.includes('.mpd')){
-      showNoStreamState({message:'DASH লিংক এই প্লেয়ারে সাপোর্ট করে না, M3U8 লিংক ইউজ করো'});
-    } else { video.src=url; doPlay(); }
+        hls.on(Hls.Events.ERROR, (e,data)=>{ if(!data.fatal) return; if(data.type===Hls.ErrorTypes.NETWORK_ERROR){ hls.startLoad(); } else if(data.type===Hls.ErrorTypes.MEDIA_ERROR){ hls.recoverMediaError(); } else { tryReconnect(url); } });
+      } else if(video.canPlayType('application/vnd.apple.mpegurl')){ video.src=url; doPlay(); } else { showNoStreamState({message:'Browser HLS support নেই'}); }
+    } else if(url.includes('.mpd')){ showNoStreamState({message:'DASH লিংক এই প্লেয়ারে সাপোর্ট করে না, M3U8 লিংক ইউজ করো'}); } else { video.src=url; doPlay(); }
   }
-  function tryReconnect(baseUrl){
-    if(retryCount>=maxRetries){ showNoStreamState({message:'The source could not be reached.'}); return; }
-    retryCount++;
-    statusEl.textContent='RECONNECTING ('+retryCount+'/'+maxRetries+')';
-    showLoader();
-    const sep = baseUrl.includes('?')?'&':'?';
-    const retryUrl = baseUrl + sep + '_rs=' + Date.now();
-    setTimeout(()=>loadStream(retryUrl), Math.min(1000*retryCount,4000));
-  }
-  function showNoStreamState(err){
-    releaseWakeLock();
-    showState(`<div class="state-content"><div class="glyph"><i>&#10060;</i></div><p class="title">No streaming — this link won't play</p><p class="sub">${err&&err.message?err.message:'The source could not be reached.'}</p><button class="retry-btn" onclick="location.reload()">Retry</button>${brandBlock()}</div>`);
-  }
+  function tryReconnect(baseUrl){ if(retryCount>=maxRetries){ showNoStreamState({message:'The source could not be reached.'}); return; } retryCount++; statusEl.textContent='RECONNECTING ('+retryCount+'/'+maxRetries+')'; showLoader(); const sep = baseUrl.includes('?')?'&':'?'; const retryUrl = baseUrl + sep + '_rs=' + Date.now(); setTimeout(()=>loadStream(retryUrl), Math.min(1000*retryCount,4000)); }
+  function showNoStreamState(err){ releaseWakeLock(); showState(`<div class="state-content"><div class="glyph"><i>&#10060;</i></div><p class="title">No streaming — this link won't play</p><p class="sub">${err&&err.message?err.message:'The source could not be reached.'}</p><button class="retry-btn" onclick="location.reload()">Retry</button>${brandBlock()}</div>`); }
   video.addEventListener('playing',()=>{ hideLoader(); everPlayed=true; retryCount=0; requestWakeLock(); });
   video.addEventListener('waiting',()=>{ if(!video.paused) showLoader(); });
   video.addEventListener('pause',()=>{ playBtn.textContent='▶'; releaseWakeLock(); });
   video.addEventListener('play',()=>{ playBtn.textContent='❚❚'; requestWakeLock(); });
   video.addEventListener('error',()=>{ if(!everPlayed) tryReconnect(streamSource); });
   playBtn.addEventListener('click',(e)=>{ e.stopPropagation(); if(video.paused){ video.play(); } else { video.pause(); } showControls(); });
-  fsBtn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-    if(document.fullscreenElement){ document.exitFullscreen(); }
-    else { wrapper.requestFullscreen().catch(()=>{}); }
-    showControls();
-  });
+  fsBtn.addEventListener('click',(e)=>{ e.stopPropagation(); if(document.fullscreenElement){ document.exitFullscreen(); } else { wrapper.requestFullscreen().catch(()=>{}); } showControls(); });
   async function lockLandscape(){ try{ if(screen.orientation&&screen.orientation.lock) await screen.orientation.lock('landscape'); }catch(e){} }
   function unlockLandscape(){ try{ if(screen.orientation&&screen.orientation.unlock) screen.orientation.unlock(); }catch(e){} }
-  document.addEventListener('fullscreenchange',()=>{
-    if(document.fullscreenElement){ lockLandscape(); video.style.objectFit='fill'; }
-    else { unlockLandscape(); video.style.objectFit='contain'; }
-  });
+  document.addEventListener('fullscreenchange',()=>{ if(document.fullscreenElement){ lockLandscape(); video.style.objectFit='fill'; } else { unlockLandscape(); video.style.objectFit='contain'; } });
   setTimeout(()=>{ if(!everPlayed && video.readyState===0){ tryReconnect(streamSource); } },25000);
   loadStream(streamSource);
 }
