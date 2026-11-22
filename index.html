@@ -5,12 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
 <title>RS Live TV</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRBZH98TKH"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());
-gtag('config','G-DRBZH98TKH');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DRBZH98TKH');</script>
 <link rel="shortcut icon" href="https://i.postimg.cc/pdRY8R25/file-00000000503c821084ff860afc9cc672.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#06060c">
@@ -28,12 +23,12 @@ body{ -webkit-user-select:none; user-select:none; }
 img{ -webkit-user-drag:none; user-drag:none; }
 .tv-area{ margin-top:0!important; padding-top:0!important; }
 .tv-view{ margin-bottom:5px!important; }
-.tv-view .embed-responsive{ border:1px solid #1f2029; border-radius:0; background:#000; overflow:hidden; box-shadow:none; isolation:auto; }
+.tv-view .embed-responsive{ border:1px solid #1f2029; border-radius:0; background:#000; overflow:hidden; box-shadow:none; }
 .tv-view .embed-responsive-item{ border:0!important; display:block; width:100%; height:100%; touch-action:manipulation; }
 iframe{ border:0!important; }
 #intro-loader{ position:fixed; inset:0; width:100%; height:100%; background:radial-gradient(circle at center,#0f0f16 0,#040406 100%); display:flex; align-items:center; justify-content:center; z-index:9999999; transition:opacity .3s ease,visibility .3s; }
 .loader-content{ text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-.welcome-text{ font-size:14px; color:#888899; text-transform:uppercase; letter-spacing:4px; margin-bottom:5px; font-weight:600; animation:fadeInText 1s ease-out; }
+.welcome-text{ font-size:14px; color:#888899; text-transform:uppercase; letter-spacing:4px; margin-bottom:5px; font-weight:600; }
 .brand-text{ font-size:32px; font-weight:900; color:#fff; letter-spacing:1px; margin:0; }
 .brand-text span{ color:#00f0ff; text-shadow:0 0 20px rgba(0,240,255,.6); }
 .loading-dots{ display:flex; justify-content:center; align-items:center; gap:6px; margin-top:15px; }
@@ -41,10 +36,8 @@ iframe{ border:0!important; }
 .loading-dots span:nth-child(1){ animation-delay:-.32s; background:#00f0ff; }
 .loading-dots span:nth-child(2){ animation-delay:-.16s; }
 .loading-dots span:nth-child(3){ background:#00f0ff; }
-@keyframes fadeInText{ 0%{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)} }
 @keyframes dotPulse{ 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
 .top-bar-wrapper{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; margin:10px 0 12px; padding:14px; border-radius:18px; background:linear-gradient(135deg,#0f101c,#080a14 55%,#0e121e); border:1px solid rgba(0,240,255,.14); box-shadow:0 12px 25px rgba(0,0,0,.3); overflow:hidden; box-sizing:border-box; }
-.top-bar-wrapper::before{ content:""; position:absolute; inset:0; background:radial-gradient(circle at left top,rgba(0,240,255,.10),transparent 32%),radial-gradient(circle at right bottom,rgba(255,0,85,.07),transparent 30%); pointer-events:none; }
 .logo-link{ position:relative; z-index:2; text-decoration:none!important; display:flex; align-items:center; flex:1 1 auto; min-width:0; }
 .brand-title-neon{ display:flex; align-items:center; min-width:0; width:100%; }
 .brand-stack{ display:flex; flex-direction:column; line-height:1; min-width:0; flex:1 1 auto; }
@@ -56,7 +49,6 @@ iframe{ border:0!important; }
 .channel-search-box-premium{ position:relative; z-index:2; width:180px; flex-shrink:0; }
 .channel-search-box-premium input{ width:100%; height:44px; padding:0 44px 0 14px; border-radius:15px; border:1px solid rgba(0,240,255,.18); background:#10121e; color:#fff; font-size:13px; font-weight:700; outline:0; box-sizing:border-box; }
 .channel-search-box-premium input::placeholder{ color:#8da0b3; }
-.channel-search-box-premium input:focus{ border-color:#00f0ff; box-shadow:0 0 0 2px rgba(0,240,255,.12); }
 .search-icon-inside{ position:absolute; right:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; pointer-events:none; }
 .channel-list{ max-height:360px!important; overflow-y:auto!important; box-sizing:border-box; margin-bottom:0!important; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
 @media(min-width:768px){ .channel-list{ max-height:480px!important; } }
@@ -64,7 +56,6 @@ iframe{ border:0!important; }
 .channel-list::-webkit-scrollbar-track{ background:rgba(255,255,255,.03); }
 .channel-list::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,#00f0ff,#0072ff); border-radius:10px; }
 #channel-container li{ cursor:pointer; touch-action:manipulation; }
-#channel-container li:active{ opacity:.75; }
 .marquee-container{ background:#0d0d13; color:#fff; padding:10px 0; display:flex; align-items:center; border-top:1px solid #1a1b26; border-bottom:1px solid #1a1b26; margin-top:10px; margin-bottom:15px; clear:both; }
 .notice-label{ background:linear-gradient(135deg,#ff0055,#ff5500); color:#fff; padding:3px 12px; margin-left:15px; border-radius:20px; font-weight:700; font-size:11px; flex-shrink:0; }
 .marquee-container marquee{ flex:1; padding:0 10px; font-size:13px; color:#ddd; }
@@ -85,9 +76,8 @@ iframe{ border:0!important; }
 @keyframes pulse-animation{ 0%{transform:scale(.95);opacity:1} 100%{transform:scale(1.5);opacity:0} }
 .tg-card{ background:#111116; padding:15px; border-radius:12px; border:1px solid #1a1b26; display:block; width:320px; margin:0 auto 15px; }
 .telegram-btn{ display:inline-block; background:#0088cc; color:#fff!important; padding:8px 25px; border-radius:6px; font-weight:700; text-decoration:none!important; margin-top:10px; font-size:13px; font-family:'Courier New',monospace; font-style:italic; }
-#installAppBtn{ display:none; align-items:center; justify-content:center; gap:8px; margin:0 auto 15px; padding:11px 26px; background:linear-gradient(135deg,#00f0ff,#0072ff); color:#001017; font-weight:800; font-size:14px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 6px 20px rgba(0,240,255,.35); letter-spacing:.3px; transition:transform .15s ease,box-shadow .15s ease; font-family:'Segoe UI',sans-serif; width:320px; }
-#installAppBtn:hover{ transform:scale(1.03); box-shadow:0 8px 25px rgba(0,240,255,.55); }
-.ad-box{ margin:15px auto; width:320px; height:50px; display:flex; justify-content:center; align-items:center; overflow:hidden; background: transparent; }
+#installAppBtn{ display:none; align-items:center; justify-content:center; gap:8px; margin:0 auto 15px; padding:11px 26px; background:linear-gradient(135deg,#00f0ff,#0072ff); color:#001017; font-weight:800; font-size:14px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 6px 20px rgba(0,240,255,.35); width:320px; }
+.ad-box{ margin:15px auto; width:320px; height:50px; display:flex; justify-content:center; align-items:center; overflow:hidden; }
 .copyright{ color:#444; font-size:11px; margin-top:15px; }
 @media(max-width:767px){
     .top-bar-wrapper{ padding:12px 10px; border-radius:15px; gap:10px; }
@@ -95,66 +85,55 @@ iframe{ border:0!important; }
     .brand-line-sub{ font-size:8.8px; letter-spacing:1px; margin-top:6px; }
     .channel-search-box-premium{ width:145px; }
     .channel-search-box-premium input{ height:40px; font-size:12px; padding:0 40px 0 12px; border-radius:12px; }
-    .search-icon-inside{ width:16px; height:16px; right:12px; }
-}
-@media(min-width:768px){
-    .top-bar-wrapper{padding:15px 16px}
-    .brand-rs,.brand-live{font-size:28px}
-    .brand-line-sub{font-size:11px}
-    .channel-search-box-premium{width:230px}
 }
 @media(max-width:420px){
-    .top-bar-wrapper{ gap:8px; padding:10px 8px; }
     .brand-rs,.brand-live{font-size:17px}
-    .brand-line-sub{ font-size:7.5px; letter-spacing:.8px; margin-top:5px; }
-    .channel-search-box-premium{ width:120px; min-width:100px; }
-    .channel-search-box-premium input{ height:36px; font-size:11px; padding:0 34px 0 10px; border-radius:10px; }
-    .search-icon-inside{ width:14px; height:14px; right:10px; }
-    #installAppBtn{ width:calc(100% - 30px); max-width:320px; }
+    .brand-line-sub{ font-size:7.5px; }
+    .channel-search-box-premium{ width:120px; }
+    .channel-search-box-premium input{ height:36px; font-size:11px; padding:0 34px 0 10px; }
 }
-/* ===== RS MATCH - চিকন লম্বা লিস্ট, স্ক্রল করা যাবে ===== */
+/* ===== স্ক্রিনশটের মতো VS কার্ড - 2 দলের লোগো ===== */
 .rs-section{margin:6px 0 14px;padding:0 2px}
-.rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
-.rs-sec-title{font-size:15px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
-.rs-sec-title span.live-dot{width:9px;height:9px;background:#ff0033;border-radius:50%;box-shadow:0 0 0 0 rgba(255,0,51,.7);animation:pulse-animation 1.2s infinite;flex-shrink:0}
-.rs-sec-count{font-size:11px;background:#10121e;border:1px solid rgba(0,240,255,.2);color:#8ea1b7;padding:4px 10px;border-radius:20px;font-weight:700;flex-shrink:0}
-/* লম্বা স্ক্রল বক্স - যেখানে আছে সেখানেই থাকবে */
-.rs-match-grid{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto;overflow-x:hidden;padding:2px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#00f0ff #111}
+.rs-sec-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
+.rs-sec-title{font-size:16px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px}
+.rs-sec-title span.live-dot{width:9px;height:9px;background:#ff0033;border-radius:50%;animation:pulse-animation 1.2s infinite;flex-shrink:0}
+.rs-sec-count{font-size:11px;background:#10121e;border:1px solid rgba(0,240,255,.2);color:#8ea1b7;padding:4px 10px;border-radius:20px;font-weight:700}
+.rs-match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-height:520px;overflow-y:auto;padding:2px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#00f0ff #111}
 .rs-match-grid::-webkit-scrollbar{width:5px}
 .rs-match-grid::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:10px}
 .rs-match-grid::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00f0ff,#0072ff);border-radius:10px}
-@media(min-width:768px){ .rs-match-grid{max-height:380px} }
-/* চিকন কার্ড - এক লাইনে সব */
-.rs-card{background:linear-gradient(135deg,#0f101c,#080a14 60%,#0e121e);border:1px solid rgba(0,240,255,.14);border-radius:12px;overflow:hidden;cursor:pointer;position:relative;display:flex;align-items:center;gap:10px;padding:8px 10px;min-height:72px;flex-shrink:0}
-.rs-card:active{transform:scale(.98);border-color:#00f0ff}
-.rs-card-thumb{width:96px;height:56px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#000;position:relative;display:flex;align-items:center;justify-content:center}
-.rs-card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.rs-card-thumb .rs-thumb-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f101c,#1a0f2e);font-size:22px}
-.rs-card-badge{position:absolute;top:5px;left:5px;font-size:8px;font-weight:900;padding:2px 6px;border-radius:20px;color:#fff;z-index:2;white-space:nowrap}
-.rs-card-badge.live{background:linear-gradient(135deg,#ff0055,#ff5500)}
-.rs-card-badge.up{background:#00f0ff;color:#001017}
-.rs-card-badge.end{background:#333;color:#999}
-.rs-card-body{flex:1;min-width:0;padding:0;display:flex;flex-direction:column;gap:2px}
-.rs-card h3{font-size:13px;font-weight:800;color:#fff;margin:0;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rs-card p{font-size:10.5px;color:#8ea1b7;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rs-countdown{font-size:11px;font-weight:800;color:#ffd000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rs-card-btn{flex-shrink:0;border:none;padding:8px 12px;border-radius:10px;font-weight:800;font-size:11px;background:linear-gradient(135deg,#00f0ff,#0072ff);color:#001017;cursor:pointer;white-space:nowrap}
-.rs-card-btn.live-btn{background:linear-gradient(135deg,#ff0055,#ff5500);color:#fff}
-.rs-server-row{display:none}
-.rs-server-row.show{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
-.rs-server-row button{flex:1;background:#1a1b26;color:#fff;border:1px solid #2a2c3a;border-radius:7px;padding:5px;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
+@media(max-width:480px){ .rs-match-grid{grid-template-columns:1fr 1fr;gap:10px} }
+@media(min-width:768px){ .rs-match-grid{grid-template-columns:repeat(3,1fr);max-height:560px} }
+/* স্ক্রিনশটের কার্ড */
+.rs-card{background:linear-gradient(160deg,#0a1a22 0%,#0a0f1e 55%,#060a14 100%);border:1.5px solid rgba(0,240,255,.25);border-radius:20px;overflow:hidden;cursor:pointer;position:relative;padding:10px 10px 12px;box-shadow:0 12px 25px rgba(0,0,0,.45);transition:transform .15s,border-color .15s}
+.rs-card:active{transform:scale(.97)}
+.rs-card:nth-child(2n){border-color:rgba(255,180,0,.35)}
+.rs-card-top{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:6px 8px;margin-bottom:10px}
+.rs-ch{font-size:12px;font-weight:900;color:#ffd76a;display:flex;align-items:center;gap:6px;letter-spacing:.5px}
+.rs-ch i{width:8px;height:8px;background:#00ff88;border-radius:50%;display:inline-block;box-shadow:0 0 8px #00ff88}
+.rs-share{width:26px;height:26px;border:1px solid #00f0ff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#00f0ff;background:rgba(0,240,255,.08)}
+.rs-vs-wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;padding:2px 2px 8px}
+.rs-team{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;text-align:center}
+.rs-team img{width:52px;height:52px;object-fit:contain;border-radius:8px;background:#fff;padding:2px}
+.rs-team .rs-flag{width:52px;height:38px;object-fit:cover;border-radius:6px;background:#fff}
+.rs-team-emoji{font-size:42px;line-height:1}
+.rs-team b{font-size:12.5px;font-weight:800;color:#fff;line-height:1.2;display:block;white-space:normal;word-break:break-word}
+.rs-vs{font-size:14px;font-weight:900;color:#00d2ff;padding-top:16px;flex-shrink:0}
+.rs-card-divider{height:1px;background:rgba(255,255,255,.08);margin:2px 2px 10px}
+.rs-card-bottom{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center}
+.rs-live-pill{background:rgba(255,0,85,.18);border:1px solid #ff0055;color:#ff8fab;font-size:11px;font-weight:900;padding:5px 12px;border-radius:20px}
+.rs-live-pill.live{background:rgba(255,0,85,.25);color:#fff;box-shadow:0 0 12px rgba(255,0,85,.4)}
+.rs-cat-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:#cbd5e1;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;text-transform:uppercase;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rs-countdown{width:100%;text-align:center;font-size:11px;font-weight:800;color:#ffd000;margin-top:2px}
+.rs-server-row{display:none;width:100%;gap:5px;flex-wrap:wrap;margin-top:6px;justify-content:center}
+.rs-server-row.show{display:flex}
+.rs-server-row button{flex:1;background:#1a1b26;color:#fff;border:1px solid #2a2c3a;border-radius:7px;padding:5px;font-size:10px;font-weight:700;cursor:pointer}
 .rs-server-row button.active{background:#00f0ff;color:#000}
-.rs-empty{text-align:center;color:#777;padding:18px;font-size:13px;background:#0d0d13;border-radius:12px;border:1px dashed #222;flex-shrink:0}
-@media(max-width:420px){
-  .rs-card-thumb{width:82px;height:52px}
-  .rs-card h3{font-size:12.5px}
-  .rs-card-btn{padding:7px 9px;font-size:10px}
-}
+.rs-empty{grid-column:1/-1;text-align:center;color:#777;padding:20px;font-size:13px;background:#0d0d13;border-radius:14px;border:1px dashed #222}
 </style>
 </head>
 <body>
 <div id="intro-loader"><div class="loader-content"><div class="welcome-text">Welcome To</div><h1 class="brand-text">RS Live <span>TV</span></h1><div class="loading-dots"><span></span><span></span><span></span></div></div></div>
-
 <div class="container tv-area">
     <div class="row"><div class="col-xs-12 col-md-12">
         <div class="top-bar-wrapper">
@@ -162,20 +141,16 @@ iframe{ border:0!important; }
             <div class="channel-search-box-premium"><input type="text" id="channelSearch" placeholder="Search channels..." autocomplete="off"><svg class="search-icon-inside" viewBox="0 0 24 24" fill="none"><path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 22L20 20" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
     </div></div>
-
     <div class="row">
         <div class="col-xs-12 col-md-10 tv-view"><div class="embed-responsive embed-responsive-16by9"><iframe id="tv-player-iframe" name="player" class="embed-responsive-item" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen webkitallowfullscreen src="about:blank"></iframe></div></div>
         <div class="col-xs-12 col-md-2 channel-list" id="scroll-wrapper"><ul class="thumbnail-slider" id="channel-container"></ul></div>
     </div>
-
-    <!-- LIVE + UPCOMING - চিকন লম্বা, স্ক্রল করা যাবে, যেখানে আছে সেখানেই -->
     <div class="row"><div class="col-xs-12 col-md-12">
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title"><span class="live-dot"></span> 🔴 LIVE NOW</div><div class="rs-sec-count" id="liveCount">0 Live</div></div><div class="rs-match-grid" id="liveGrid"><div class="rs-empty">⏳ Live match লোড হচ্ছে...</div></div></div>
       <div class="rs-section"><div class="rs-sec-head"><div class="rs-sec-title">📅 UPCOMING MATCHES</div><div class="rs-sec-count" id="upCount">0 Upcoming</div></div><div class="rs-match-grid" id="upcomingGrid"><div class="rs-empty">⏳ Upcoming match লোড হচ্ছে...</div></div></div>
     </div></div>
 </div>
-
-<div class="marquee-container"><div class="notice-label">NOTICE</div><marquee scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()" id="noticeBar">⚠️ প্রিয় দর্শক চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে। কোনো চ্যানেল সাময়িকভাবে কাজ না করলে একটু পর আবার চেষ্টা করুন। আপনাদের আরও ভালো সার্ভিস দিতে আমরা প্রতিনিয়ত কাজ করে যাচ্ছি। ধন্যবাদ আমাদের সাথে থাকার জন্য ❤️</marquee></div>
+<div class="marquee-container"><div class="notice-label">NOTICE</div><marquee scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()" id="noticeBar">⚠️ প্রিয় দর্শক চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে। কোনো চ্যানেল সাময়িকভাবে কাজ না করলে একটু পর আবার চেষ্টা করুন। ধন্যবাদ ❤️</marquee></div>
 <footer class="footer-premium"><div class="container">
     <div class="tio-style-banner-fixed"><div class="banner-overlay"></div><div class="content-wrapper"><div class="brand-logo-fixed"><span class="rs-live">RS Live</span> <span class="tv-text">TV</span></div><div class="text-section-fixed"><div class="main-tags"><span class="tag-cricket">CRICKET 🏏</span><span class="tag-football">FOOTBALL ⚽</span><span class="tag-tv">TV SHOWS 📺</span></div><p class="sub-text">সব পাবেন একদম ফ্রিতে!</p></div><div class="live-circle"><span class="pulse"></span> LIVE</div></div></div>
     <button id="installAppBtn" type="button">📲 Install App</button>
@@ -185,7 +160,6 @@ iframe{ border:0!important; }
 </div></footer>
 <script>
 if (!String.prototype.includes) { String.prototype.includes = function(search, start) { if (typeof start !== 'number') { start = 0; } if (start + search.length > this.length) { return false; } else { return this.indexOf(search, start) !== -1; } }; }
-if (!Array.prototype.find) { Array.prototype.find = function(predicate) { if (this == null) { throw new TypeError('"this" is null or not defined'); } var o = Object(this); var len = o.length >>> 0; if (typeof predicate !== 'function') { throw new TypeError('predicate must be a function'); } var thisArg = arguments[1]; var k = 0; while (k < len) { var kValue = o[k]; if (predicate.call(thisArg, kValue, k, o)) { return kValue; } k++; } return undefined; }; }
 (function(){
 "use strict";
 let M3U_URLS = ["",""];
@@ -216,16 +190,6 @@ function loadSettingsAndStart() {
                 if(marquee && settings.notice) marquee.textContent = settings.notice;
                 const tgBtn = document.getElementById("telegramBtn");
                 if(tgBtn && settings.telegram) tgBtn.href = settings.telegram;
-                const copyright = document.querySelector(".copyright");
-                if(copyright && settings.version){ const year = new Date().getFullYear(); copyright.textContent = `© ${year} RS LIVE TV v${settings.version} | All Rights Reserved`; }
-                if(settings.maintenance === "ON") {
-                    document.body.innerHTML = `<style>.maintenance-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #0f0f16 0, #040406 100%); font-family: 'Segoe UI', sans-serif; z-index: 9999999; padding: 20px; text-align: center; }.maintenance-box { background: rgba(15, 16, 28, 0.8); border: 1px solid rgba(0, 240, 255, 0.15); border-radius: 24px; padding: 40px 30px; max-width: 450px; width: 100%; }.gear-icon { font-size: 70px; margin-bottom: 20px; display: inline-block; animation: spinAndPulse 3s infinite linear; }.maintenance-title { font-size: 26px; font-weight: 900; margin: 0 0 15px; background: linear-gradient(135deg, #00f0ff, #ff0055); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }.maintenance-text { color: #a0a5b5; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }.maintenance-badge { display: inline-block; background: rgba(0, 240, 255, 0.1); color: #00f0ff; padding: 10px 25px; border-radius: 50px; font-size: 14px; font-weight: 600; border: 1px solid rgba(0, 240, 255, 0.3); }.dot { display: inline-block; width: 6px; height: 6px; margin: 0 3px; background: #00f0ff; border-radius: 50%; animation: blink 1.4s infinite both; }@keyframes spinAndPulse { 0% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.1) rotate(180deg); } 100% { transform: scale(1) rotate(360deg); } }@keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }</style><div class="maintenance-overlay"><div class="maintenance-box"><div class="gear-icon">⚙️</div><h1 class="maintenance-title">সাইটে আপডেট চলছে!</h1><p class="maintenance-text">প্রিয় দর্শক, আপনাদের আরও ভালো সার্ভিস দিতে আমাদের ওয়েবসাইটে নতুন কিছু ফিচার যোগ করা হচ্ছে।<br><br>অনুগ্রহ করে একটু অপেক্ষা করুন <span class="dot"></span><span class="dot"></span><span class="dot"></span></p><div class="maintenance-badge">⏳ শীঘ্রই ফিরে আসছি</div></div></div>`;
-                    return;
-                }
-                if(settings.adCodeBanner) {
-                    const adBox = document.getElementById("bannerAdBox");
-                    if(adBox) { adBox.innerHTML = ""; const adFrame = document.createElement('iframe'); adFrame.style.width = '320px'; adFrame.style.height = '50px'; adFrame.style.border = 'none'; adFrame.style.overflow = 'hidden'; adFrame.scrolling = "no"; adBox.appendChild(adFrame); const frameDoc = adFrame.contentWindow.document; frameDoc.open(); frameDoc.write('<body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;">' + settings.adCodeBanner + '</body>'); frameDoc.close(); }
-                }
             } catch(e) {}
         }
         if(iframe) iframe.src = "channel.html?url=" + encodeURIComponent(defaultUrl);
@@ -256,7 +220,7 @@ async function decryptJSONPayload(payload){
 function loadJSONChannels(callback){
     fetchURL(window.location.origin + "/bd76t2s1w9.json", async function(err, data) {
         if(err || !data) return callback([]);
-        try { const payload=JSON.parse(data); const parsed=await decryptJSONPayload(payload); let channels=[]; if(Array.isArray(parsed)) channels=parsed; else if(parsed.channels && Array.isArray(parsed.channels)) channels=parsed.channels; return callback(channels.filter(ch => ch && typeof ch === "object" && ch.name && (ch.url || ch.link)).map(ch => ({ name:String(ch.name).trim(), image:ch.image || ch.logo || FALLBACK_IMAGE, url:applyPlayerPrefix(ch.url || ch.link) }))); } catch(e) { console.warn("Encrypted channel JSON could not be decrypted",e); callback([]); }
+        try { const payload=JSON.parse(data); const parsed=await decryptJSONPayload(payload); let channels=[]; if(Array.isArray(parsed)) channels=parsed; else if(parsed.channels && Array.isArray(parsed.channels)) channels=parsed.channels; return callback(channels.filter(ch => ch && typeof ch === "object" && ch.name && (ch.url || ch.link)).map(ch => ({ name:String(ch.name).trim(), image:ch.image || ch.logo || FALLBACK_IMAGE, url:applyPlayerPrefix(ch.url || ch.link) }))); } catch(e) { callback([]); }
     });
 }
 function mergeChannels(m3uChannels, jsonChannels){
@@ -287,19 +251,53 @@ function loadAllChannels(){
     if(container) container.innerHTML = `<li style="text-align:center;padding:20px;color:#94a3b8">⏳ Loading channels...</li>`;
     loadM3UChannels(function(m3uChannels) { loadJSONChannels(function(jsonChannels) { const allChannels = mergeChannels(m3uChannels, jsonChannels); if(!allChannels.length){ container.innerHTML = `<li style="color:#aaa;text-align:center;padding:20px">❌ No channels found!</li>`; hideLoader(); return; } renderChannels(allChannels); setupSearch(); hideLoader(); }); });
 }
-// ===== RS MATCH - চিকন লম্বা লিস্ট =====
+// ===== VS CARD - 2 দলের লোগো সহ =====
 let RS_MATCHES = [];
 function rsTimeLabel(m){ const s=new Date(m.startTime), n=new Date(), e=new Date(m.endTime||m.startTime); if(n>=s && n<=e) return {t:"LIVE",cls:"live"}; if(n>e) return {t:"ENDED",cls:"end"}; const diff=s-n, h=Math.floor(diff/3600000), mi=Math.floor(diff%3600000/60000), se=Math.floor(diff%60000/1000); return {t:`Starts in ${h}h ${mi}m ${se}s`,cls:"up"}; }
+// দলের নাম থেকে পতাকা / ইমোজি বানানো
+function rsTeamLogo(team, logoUrl){
+  if(logoUrl && logoUrl.startsWith("http")) return `<img src="${logoUrl}" onerror="this.outerHTML='<div class=\\'rs-team-emoji\\'>⚽</div>'">`;
+  const t=(team||"").toLowerCase();
+  const flags={pakistan:"https://flagcdn.com/w160/pk.png",india:"https://flagcdn.com/w160/in.png",bangladesh:"https://flagcdn.com/w160/bd.png",australia:"https://flagcdn.com/w160/au.png",england:"https://flagcdn.com/w160/gb-eng.png",srilanka:"https://flagcdn.com/w160/lk.png","sri lanka":"https://flagcdn.com/w160/lk.png",newzealand:"https://flagcdn.com/w160/nz.png","new zealand":"https://flagcdn.com/w160/nz.png",southafrica:"https://flagcdn.com/w160/za.png","south africa":"https://flagcdn.com/w160/za.png",westindies:"https://flagcdn.com/w160/bb.png",afghanistan:"https://flagcdn.com/w160/af.png",nepal:"https://flagcdn.com/w160/np.png",usa:"https://flagcdn.com/w160/us.png",brazil:"https://flagcdn.com/w160/br.png",argentina:"https://flagcdn.com/w160/ar.png",spain:"https://flagcdn.com/w160/es.png",france:"https://flagcdn.com/w160/fr.png",germany:"https://flagcdn.com/w160/de.png",italy:"https://flagcdn.com/w160/it.png",uruguay:"https://flagcdn.com/w160/uy.png",saudiarabia:"https://flagcdn.com/w160/sa.png","saudi arabia":"https://flagcdn.com/w160/sa.png",portugal:"https://flagcdn.com/w160/pt.png",netherlands:"https://flagcdn.com/w160/nl.png"};
+  for(let k in flags){ if(t.includes(k)) return `<img class="rs-flag" src="${flags[k]}" onerror="this.outerHTML='<div class=\\'rs-team-emoji\\'>🏏</div>'">`; }
+  if(t.includes("barcelona")) return `<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/120px-FC_Barcelona_%28crest%29.svg.png" onerror="this.outerHTML='<div class=\\'rs-team-emoji\\'>⚽</div>'">`;
+  if(t.includes("villarreal")) return `<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Villarreal_CF_logo.svg/120px-Villarreal_CF_logo.svg.png" onerror="this.outerHTML='<div class=\\'rs-team-emoji\\'>⚽</div>'">`;
+  if(t.includes("napoli")) return `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/SSC_Napoli_logo.svg/120px-SSC_Napoli_logo.svg.png" onerror="this.outerHTML='<div class=\\'rs-team-emoji\\'>⚽</div>'">`;
+  return `<div class="rs-team-emoji">${t.includes("cricket")||mIsCricket(team)?"🏏":"⚽"}</div>`;
+}
+function mIsCricket(){return false}
+function rsSplitTeams(m){
+  // match.json এ team1/team2 থাকলে সেটাই, না থাকলে name থেকে Vs দিয়ে ভাগ করবে
+  if(m.team1 && m.team2) return {t1:m.team1,t2:m.team2,l1:m.team1Logo||m.team1_logo||"",l2:m.team2Logo||m.team2_logo||""};
+  let name=m.name||"";
+  let parts=name.split(/\s+Vs\s+|\s+vs\s+|\s+VS\s+|\s+-\s+vs\s+/);
+  if(parts.length>=2) return {t1:parts[0].trim(),t2:parts.slice(1).join(" Vs ").trim(),l1:m.logoUrl||"",l2:""};
+  return {t1:name,t2:"",l1:m.logoUrl||"",l2:""};
+}
 function rsCard(m, idx){
   const st=rsTimeLabel(m);
-  const img=m.logoUrl||"";
-  const hasImg = img && img.startsWith("http");
-  const thumb = hasImg ? `<img src="${img}" onerror="this.style.display='none';this.parentNode.innerHTML='<div class=\\'rs-thumb-fallback\\'>⚽</div>'">` : `<div class="rs-thumb-fallback">⚽</div>`;
+  const isLive=st.t==="LIVE";
+  const {t1,t2,l1,l2}=rsSplitTeams(m);
+  const ch=m.channel||m.ch||("CH-"+(idx+1));
+  const cat=m.matchType||m.category||"LIVE SPORTS";
   const servers=(m.streams||[]).filter(s=>s.show!=="no");
   const btns=servers.map((s,i)=>`<button class="${i===0?'active':''}" onclick="event.stopPropagation();rsPlayServer(${idx},${i},this)">${s.name||'Server '+(i+1)}</button>`).join("");
-  const isLive = st.t==="LIVE";
-  const dateStr = new Date(m.startTime).toLocaleString('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
-  return `<div class="rs-card" onclick="rsPlayMatch(${idx})"><div class="rs-card-thumb">${thumb}<span class="rs-card-badge ${st.cls}">${isLive?"🔴 LIVE":st.t==="ENDED"?"ENDED":"UPCOMING"}</span></div><div class="rs-card-body"><h3>${m.name}</h3><p>${m.matchType||m.category||'Live Sports'} • ${dateStr} (BD)</p><div class="rs-countdown" data-count="${m.startTime}">${st.t}</div><div class="rs-server-row ${servers.length>1?'show':''}">${btns||""}</div></div><button class="rs-card-btn ${isLive?'live-btn':''}">${isLive?'▶ Live':st.t==='ENDED'?'Ended':'🔔 Notify'}</button></div>`;
+  const shareBtn=`<span class="rs-share" onclick="event.stopPropagation();if(navigator.share){navigator.share({title:'${m.name}',url:location.href})}else{alert('${m.name}')}">↗</span>`;
+  return `<div class="rs-card" onclick="rsPlayMatch(${idx})">
+    <div class="rs-card-top"><span class="rs-ch"><i></i> ${ch}</span>${shareBtn}</div>
+    <div class="rs-vs-wrap">
+      <div class="rs-team">${rsTeamLogo(t1,l1)}<b>${t1}</b></div>
+      <div class="rs-vs">VS</div>
+      <div class="rs-team">${t2?rsTeamLogo(t2,l2):'<div class="rs-team-emoji">🏆</div>'}<b>${t2||'TBD'}</b></div>
+    </div>
+    <div class="rs-card-divider"></div>
+    <div class="rs-card-bottom">
+      <span class="rs-live-pill ${isLive?'live':''}">${isLive?'LIVE':st.t==='ENDED'?'ENDED':'UPCOMING'}</span>
+      <span class="rs-cat-pill">${cat}</span>
+      <div class="rs-countdown" data-count="${m.startTime}">${isLive?'🔴 LIVE NOW':st.t}</div>
+      <div class="rs-server-row ${servers.length>1?'show':''}">${btns||""}</div>
+    </div>
+  </div>`;
 }
 window.rsPlayMatch=function(idx){
   const m=RS_MATCHES[idx]; if(!m) return;
@@ -338,7 +336,7 @@ async function loadAutoMatches(){
   liveEl.innerHTML = live.length? live.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : `<div class="rs-empty">এই মুহূর্তে কোনো Live ম্যাচ নাই। Upcoming দেখো 👇</div>`;
   upEl.innerHTML = up.length? up.map(m=>rsCard(m,RS_MATCHES.indexOf(m))).join("") : (ended.length? `<div class="rs-empty">সব ম্যাচ শেষ। নতুন ম্যাচ আসতেছে...</div>` : `<div class="rs-empty">কোনো Upcoming ম্যাচ নাই।</div>`);
 }
-setInterval(()=>{ document.querySelectorAll("[data-count]").forEach(el=>{ const s=new Date(el.dataset.count), n=new Date(), d=s-n; if(d<=0) el.textContent="🔴 LIVE"; else el.textContent=`Starts in ${Math.floor(d/3600000)}h ${Math.floor(d%3600000/60000)}m ${Math.floor(d%60000/1000)}s`; }); },1000);
+setInterval(()=>{ document.querySelectorAll("[data-count]").forEach(el=>{ const s=new Date(el.dataset.count), n=new Date(), d=s-n; if(d<=0) el.textContent="🔴 LIVE NOW"; else el.textContent=`Starts in ${Math.floor(d/3600000)}h ${Math.floor(d%3600000/60000)}m ${Math.floor(d%60000/1000)}s`; }); },1000);
 loadAutoMatches();
 setInterval(loadAutoMatches, 60000);
 document.addEventListener("DOMContentLoaded", loadSettingsAndStart);
@@ -349,8 +347,6 @@ setTimeout(hideLoader, 7000);
 (function(){ "use strict";
 document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
 document.addEventListener("keydown", function(e){ var key = e.keyCode || e.which; if(key === 123) { e.preventDefault(); return false; } if(e.ctrlKey && e.shiftKey && (key === 73 || key === 74 || key === 67)) { e.preventDefault(); return false; } if(e.ctrlKey && (key === 85 || key === 83 || key === 80)) { e.preventDefault(); return false; } });
-document.addEventListener("dragstart", function(e){ if(e.target && e.target.tagName === "IMG") e.preventDefault(); });
-document.addEventListener('selectstart', function(e) { if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); } });
 })();
 </script>
 <script>
@@ -360,9 +356,7 @@ document.addEventListener('selectstart', function(e) { if (e.target.tagName !== 
     let deferredPrompt = null;
     window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferredPrompt = e; const btn = document.getElementById("installAppBtn"); if (btn) btn.style.display = "inline-flex"; });
     window.addEventListener("appinstalled", function () { const btn = document.getElementById("installAppBtn"); if (btn) btn.style.display = "none"; deferredPrompt = null; });
-    document.addEventListener("click", async function (e) { const btn = e.target.closest("#installAppBtn"); if (!btn) return; if (!deferredPrompt) { alert("✅ অ্যাপ ইতিমধ্যে ইনস্টল করা আছে অথবা আপনার ব্রাউজার এই ফিচার সাপোর্ট করছে না।\n\nChrome Menu (⋮) → 'Add to Home screen' ব্যবহার করে ম্যানুয়ালি ইনস্টল করতে পারেন।"); return; } deferredPrompt.prompt(); const choice = await deferredPrompt.userChoice; deferredPrompt = null; btn.style.display = "none"; });
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent); const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-    if (isIOS && !isStandalone) { const btn = document.getElementById("installAppBtn"); if (btn) { btn.style.display = "inline-flex"; btn.addEventListener("click", function () { alert("📲 iPhone / iPad এ ইনস্টল করতে:\n\n1. নিচের Share বাটনে (⬆️) ট্যাপ করুন\n2. 'Add to Home Screen' সিলেক্ট করুন\n3. 'Add' এ ট্যাপ করুন"); }); } }
+    document.addEventListener("click", async function (e) { const btn = e.target.closest("#installAppBtn"); if (!btn) return; if (!deferredPrompt) { alert("✅ অ্যাপ ইতিমধ্যে ইনস্টল করা আছে"); return; } deferredPrompt.prompt(); const choice = await deferredPrompt.userChoice; deferredPrompt = null; btn.style.display = "none"; });
 })();
 </script>
 <script async="async" data-cfasync="false" src="https://pl26377079.effectivecpmnetwork.com/cdeccdd75d3e2e6916a42ce9653cfb08/invoke.js"></script>
