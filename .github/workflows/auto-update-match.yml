@@ -1,20 +1,93 @@
-name: RS Live TV Auto Update
-on:
-  schedule: [{cron: "*/5 * * * *"}]
-  workflow_dispatch:
-permissions: {contents: write}
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: "3.x"}
-      - run: python scripts/update_all_matches.py
-      - run: |
-          if git diff --quiet; then echo "No change"; exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/matches/
-          git commit -m "Auto-update matches + index"
-          git push
+#!/usr/bin/env python3
+# RS Live TV - M3U থেকে অটো ম্যাচ + 2 দলের লোগো + CH নাম্বার বানাবে
+import json, os, re
+from pathlib import Path
+from urllib.request import Request, urlopen
+ROOT = Path(__file__).resolve().parents[1]
+MATCHES_DIR = ROOT / "data" / "matches"
+PLAYLIST_URL = os.environ.get("SPORTS_M3U_URL","https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/Sports_data.m3u")
+
+# দেশের পতাকা - অটো
+FLAGS = {
+ "pakistan":"https://flagcdn.com/w160/pk.png","india":"https://flagcdn.com/w160/in.png",
+ "bangladesh":"https://flagcdn.com/w160/bd.png","australia":"https://flagcdn.com/w160/au.png",
+ "england":"https://flagcdn.com/w160/gb-eng.png","sri lanka":"https://flagcdn.com/w160/lk.png",
+ "srilanka":"https://flagcdn.com/w160/lk.png","new zealand":"https://flagcdn.com/w160/nz.png",
+ "south africa":"https://flagcdn.com/w160/za.png","afghanistan":"https://flagcdn.com/w160/af.png",
+ "nepal":"https://flagcdn.com/w160/np.png","brazil":"https://flagcdn.com/w160/br.png",
+ "argentina":"https://flagcdn.com/w160/ar.png","spain":"https://flagcdn.com/w160/es.png",
+ "france":"https://flagcdn.com/w160/fr.png","germany":"https://flagcdn.com/w160/de.png",
+ "italy":"https://flagcdn.com/w160/it.png","uruguay":"https://flagcdn.com/w160/uy.png",
+ "saudi arabia":"https://flagcdn.com/w160/sa.png","portugal":"https://flagcdn.com/w160/pt.png",
+ "usa":"https://flagcdn.com/w160/us.png","netherlands":"https://flagcdn.com/w160/nl.png",
+}
+def flag_for(team):
+    t = re.sub(r"\s+a$","", (team or "").lower().strip())
+    t = t.replace(" a","").strip()
+    return FLAGS.get(t, "")
+
+def fetch_text(url):
+    req=Request(url,headers={"User-Agent":"RS-LiveTV-Updater/1.0"})
+    with urlopen(req,timeout=30) as r: return r.read().decode("utf-8",errors="replace")
+
+def norm(t): return re.sub(r"[^a-z0-9]+","",(t or "").lower())
+
+def parse_m3u(text, name):
+    wanted=norm(name); entries=[]; cur=None; lk=""; lt=""; ch_no=""; logo=""
+    for raw in text.splitlines():
+        line=raw.strip()
+        if not line: continue
+        if line.startswith("#EXTINF:"):
+            m=re.search(r',([^,]+)$',line); lm=re.search(r'tvg-logo="([^"]*)"',line); cm=re.search(r'tvg-name="([^"]*)"',line)
+            cur={"display":m.group(1).strip() if m else ""}; lk=""; lt=""; logo=lm.group(1) if lm else ""; ch_no=""
+            # CH-16 এর মতো নাম্বার খুঁজো
+            if "CH-" in cur["display"]: ch_no=re.search(r"CH-\d+",cur["display"]).group(0)
+        elif "license_type=" in line: lt=line.split("=",1)[1].strip()
+        elif "license_key=" in line: lk=line.split("=",1)[1].strip()
+        elif line.startswith("#"): continue
+        else:
+            if cur and wanted in norm(cur["display"]):
+                drm={"scheme":"clearkey","license":lk} if lk and "clearkey" in lt.lower() else None
+                entries.append({"name":cur["display"],"url":line,"logo":logo,"ch":ch_no,**({"drm":drm} if drm else {})})
+            cur=None
+    seen=set(); out=[]
+    for e in entries:
+        if e["url"] not in seen: seen.add(e["url"]); out.append(e)
+    return out
+
+def split_teams(name):
+    parts=re.split(r"\s+Vs\s+|\s+vs\s+|\s+VS\s+", name, flags=re.I)
+    if len(parts)>=2: return parts[0].strip(), parts[1].strip()
+    return name.strip(), ""
+
+def main():
+    playlist=""
+    try: playlist=fetch_text(PLAYLIST_URL)
+    except Exception as e: print("M3U fetch failed",e)
+    files=sorted(MATCHES_DIR.glob("match-*.json")); index=[]
+    for p in files:
+        data=json.loads(p.read_text(encoding="utf-8")); m=data.get("match",{})
+        if not m.get("name"): continue
+        # 1. নাম থেকে 2 দল ভাগ করো
+        t1,t2=split_teams(m["name"])
+        m["team1"]=t1; m["team2"]=t2
+        # 2. লোগো অটো বসাও - পতাকা / ক্লাব লোগো
+        if not m.get("team1Logo"): m["team1Logo"]=flag_for(t1)
+        if not m.get("team2Logo"): m["team2Logo"]=flag_for(t2)
+        # 3. CH নাম্বার + স্ট্রিম অটো আপডেট
+        if playlist:
+            s=parse_m3u(playlist,m["name"])
+            if s:
+                m["streams"]=[{"name":f"Server {i+1}","url":x["url"],"show":"yes",**({"drm":x["drm"]} if "drm" in x else {})} for i,x in enumerate(s)]
+                m["url"]=s[0]["url"]
+                if s[0].get("drm"): m["drm"]=s[0]["drm"]
+                if s[0].get("ch"): m["channel"]=s[0]["ch"]
+                # M3U তে লোগো থাকলে সেটা দিয়ে দাও
+                if s[0].get("logo") and not m.get("team1Logo"): m["team1Logo"]=s[0]["logo"]
+                # ক্যাটাগরি M3U থেকে - CRICKET|RISING ASIA CUP এর মতো
+                if "|" in s[0]["name"]: m["matchType"]=s[0]["name"].split("|")[0].strip()+" | "+s[0]["name"].split("|")[-1].strip() if False else m.get("matchType",m.get("matchType"))
+        p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        index.append(p.name)
+    (MATCHES_DIR/"index.json").write_text(json.dumps({"files":index},ensure_ascii=False,indent=2),encoding="utf-8")
+    print(f"Done: {len(index)} matches with VS logos")
+if __name__=="__main__": main()
