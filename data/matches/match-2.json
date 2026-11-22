@@ -1,33 +1,83 @@
 {
   "match": {
-    "id": 2,
-    "name": "India Vs New Zealand",
-    "category": "Live Sports",
-    "logo": "🏏",
-    "logoUrl": "https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Tottenham%20FC%20Vs%20Arsenal.jpg",
-    "fallbackLogo": "🏏",
-    "tone": "gold",
-    "section": "liveSports",
-    "matchType": "CRICKET",
-    "startTime": "2026-11-04T20:00:00+06:00",
-    "endTime": "2026-11-04T23:00:00+06:00",
-    "status": "auto",
+    "name": "Pakistan A Vs India A",
+    "team1": "Pakistan A",
+    "team2": "India A",
+    "team1Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/120px-FC_Barcelona_%28crest%29.svg.png",
+    "team2Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Villarreal_CF_logo.svg/120px-Villarreal_CF_logo.svg.png",
+    "channel": "CH-13",
+    "matchType": "CRICKET | ASIA CUP",
+    "startTime": "2026-11-22T20:00:00+06:00",
+    "endTime": "2026-11-23T00:00:00+06:00",
     "enabled": true,
     "show": "yes",
+    "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/at5ay8ceup/out/v1/a494c8de4aad410a9feef3d2892f1484/cenc.mpd",
     "streams": [
       {
-        "name": "TNT4UK SPORTS FHD",
-        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/tdijwiga2k/out/v1/f5fde318678f4f7583bf27b7231bde1f/cenc.mpd",
-        "drm": {
-          "scheme": "clearkey",
-          "license": "fa34fa8c90336dd528c7a23871cad1fe:552a78d1aeb74f1650d68255c5749408"
-        },
+        "name": "Server 1",
+        "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/at5ay8ceup/out/v1/a494c8de4aad410a9feef3d2892f1484/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 2",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/m6sqanvm2m/out/v1/f6beb46c6e9a4132ad739f3ca27df6aa/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 3",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 4",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ghwcl6hv68/out/v1/83536910d8034e9b9895a20fbe1c1687/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 5",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 6",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 7",
+        "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/u8ummoryxo/out/v1/34c6b6d4f2e340fcb56e3eb5a0d9726c/cenc.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 8",
+        "url": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/3ynrpdanq2/out/v1/81fd4c26584044d2b1a1cc5b32fa9af0/cenc.mpd?",
+        "show": "yes"
+      },
+      {
+        "name": "Server 9",
+        "url": "https://chatgpt.hereisman.net/playlist/60725/load-playlist-multi?&.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 10",
+        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash-sd/enc/eayjamsonn/out/v1/6c25cddab58043a6ace0ac64d97983f0/cenc-sd.mpd",
+        "show": "yes"
+      },
+      {
+        "name": "Server 11",
+        "url": "https://www.rtmpcdn.com/live/8b610bde-4b1e-4242-b997-274b9e6c7943.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 12",
+        "url": "https://www.rtmpcdn.com/live/migu2.m3u8",
+        "show": "yes"
+      },
+      {
+        "name": "Server 13",
+        "url": "http://193.47.62.41/hls/8UUU.m3u8",
         "show": "yes"
       }
-    ],
-    "team1": "India",
-    "team2": "New Zealand",
-    "team1Logo": "https://flagcdn.com/w160/in.png",
-    "team2Logo": "https://flagcdn.com/w160/nz.png"
+    ]
   }
 }
