@@ -11,10 +11,10 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{width:100%;background:#07070f;font-family:var(--font)}
 body{padding:0}
+/* ✅ হেডার - Back বাটন বাদ */
 .topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden}
 .topbar::before{content:"";position:absolute;top:-50px;left:-20px;width:180px;height:100px;background:radial-gradient(circle,rgba(34,211,238,.25),transparent 70%);filter:blur(10px);pointer-events:none}
 .topbar::after{content:"";position:absolute;top:-50px;right:-20px;width:180px;height:100px;background:radial-gradient(circle,rgba(167,139,250,.28),transparent 70%);filter:blur(10px);pointer-events:none}
-.backBtn{width:38px;height:38px;flex-shrink:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
 .brand{display:flex;align-items:center;gap:9px;position:relative;z-index:2;flex-shrink:0}
 .brand .play-ico{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#22d3ee,#a78bfa,#ff5d8f);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;box-shadow:0 4px 16px rgba(167,139,250,.5)}
 .brand-text{line-height:1}
@@ -66,8 +66,7 @@ video::-webkit-media-controls{display:none!important}
 #seek{flex:1;-webkit-appearance:none;height:4px;background:rgba(255,255,255,.3);border-radius:4px;outline:none}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--grad-b);cursor:pointer}
 #time-label{font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap}
-
-/* ✅✅✅ সাজেশন - ছোট + সুন্দর + লেখা সাদা */
+/* ✅ সাজেশন - ছোট + ১ লাইনে স্ক্রল + লেখা সাদা */
 .suggest{margin:12px 0 0}
 .suggest-head{display:flex;align-items:center;justify-content:space-between;margin:0 14px 8px}
 .suggest-head h3{font-size:13px;font-weight:800;display:flex;align-items:center;gap:6px;color:#fff!important}
@@ -75,11 +74,9 @@ video::-webkit-media-controls{display:none!important}
 .suggest-head a{font-size:11px;color:#a78bfa;text-decoration:none;font-weight:700}
 .suggest-grid{display:flex;gap:9px;overflow-x:auto;padding:0 14px 6px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .suggest-grid::-webkit-scrollbar{display:none}
-/* কার্ড এখন অনেক ছোট - ৭২px চওড়া, লম্বা কম */
 .sug-card{flex:0 0 72px;scroll-snap-align:start;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:8px 4px 7px;text-align:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .sug-card:active{transform:scale(.93);border-color:#a78bfa}
 .sug-card img{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:10px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-/* নাম এখন ১ লাইনে, সাদা, ছোট - (1080p) বাদ */
 .sug-card p{font-size:11px;font-weight:600;margin-top:6px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff!important;font-family:'Hind Siliguri',sans-serif}
 .sug-skel{flex:0 0 72px;height:70px;border-radius:14px;background:#15151f;position:relative;overflow:hidden}
 .sug-skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:shimmer 1.2s infinite}
@@ -93,8 +90,8 @@ video::-webkit-media-controls{display:none!important}
 </style>
 </head>
 <body>
+<!-- ✅ হেডার - Back বাটন বাদ -->
 <div class="topbar">
-<button class="backBtn" onclick="history.back()">←</button>
 <div class="brand"><div class="play-ico">▶</div><div class="brand-text"><div class="pg">Play <i>Go</i></div><div class="tag">LIVE TV</div></div></div>
 <div class="divider"></div>
 <div style="min-width:0;flex:1"><div id="chName">Play Go</div><div id="chSub">● <b>Now Playing</b> • HD Live</div></div>
@@ -160,7 +157,6 @@ document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==
 let hideCtrlTimer=null;
 function showControls(){ wrapper.classList.add('show-controls'); clearTimeout(hideCtrlTimer); hideCtrlTimer=setTimeout(()=>wrapper.classList.remove('show-controls'),3000); }
 wrapper.addEventListener('click',showControls); wrapper.addEventListener('touchstart',showControls,{passive:true}); wrapper.addEventListener('mousemove',showControls);
-// ✅ নাম ছোট করো - (1080p) (720p) (Bangladeshi) বাদ দাও
 function cleanName(name){
   return name.replace(/\(.*?\)/g,'').replace(/\[.*?\]/g,'').replace(/HD|FHD|4K|1080p|720p/gi,'').replace(/\s+/g,' ').trim();
 }
