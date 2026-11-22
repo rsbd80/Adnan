@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RS LIVE TV - Auto Channels</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a12;color:#fff;font-family:'Segoe UI',sans-serif;padding-bottom:80px}
+header{position:sticky;top:0;z-index:10;background:rgba(10,10,18,.95);backdrop-filter:blur(10px);padding:14px 16px;border-bottom:1px solid #222}
+.logo{font-size:20px;font-weight:800}.logo span{background:linear-gradient(90deg,#22d3ee,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:11px;color:#888;margin-top:2px}
+#search{width:100%;margin-top:12px;padding:11px 14px;border-radius:10px;border:1px solid #333;background:#16161f;color:#fff;font-size:14px;outline:none}
+#cats{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;white-space:nowrap;scrollbar-width:none}
+#cats::-webkit-scrollbar{display:none}
+.cat{padding:8px 16px;border-radius:20px;background:#1c1c28;border:1px solid #333;font-size:12px;cursor:pointer;flex-shrink:0}
+.cat.active{background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#000;font-weight:700;border:none}
+#count{padding:0 16px;font-size:12px;color:#888}
+#grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 16px}
+@media(min-width:600px){#grid{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:1000px){#grid{grid-template-columns:repeat(7,1fr)}}
+.card{background:#15151f;border:1px solid #262633;border-radius:14px;padding:12px 6px;text-align:center;cursor:pointer;transition:.2s}
+.card:hover{border-color:#a78bfa;transform:translateY(-2px)}
+.card img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:10px;padding:4px}
+.card p{font-size:11px;margin-top:8px;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:28px}
+.card small{font-size:9px;color:#22d3ee}
+
+/* ✅✅✅ নতুন সুন্দর লোডার - আগের বোরিং স্পিনার বাদ */
+#loading{text-align:center;padding:40px 20px 20px;color:#aaa}
+.loader-ring{position:relative;width:90px;height:90px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.loader-ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#22d3ee,#a78bfa,#ff5d8f,#22d3ee);animation:spinRing 1.1s linear infinite;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 6px),#000 calc(100% - 5px));mask:radial-gradient(farthest-side,transparent calc(100% - 6px),#000 calc(100% - 5px))}
+.loader-ring::after{content:"";position:absolute;inset:13px;border-radius:50%;background:#12121e;box-shadow:0 0 30px rgba(167,139,250,.35)}
+@keyframes spinRing{to{transform:rotate(360deg)}}
+.loader-emoji{position:relative;z-index:2;font-size:32px;animation:pop 1.2s ease-in-out infinite}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.loader-brand{font-size:17px;font-weight:800;letter-spacing:2px;margin-top:16px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 2s linear infinite}
+.loader-brand b{color:#fff;-webkit-text-fill-color:#fff}
+@keyframes shine{to{background-position:200% center}}
+.loader-status{font-family:monospace;font-size:10px;letter-spacing:3px;color:#888;margin-top:8px}
+.load-bar{width:190px;height:5px;background:rgba(255,255,255,.12);border-radius:10px;overflow:hidden;margin:16px auto 0}
+.load-bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);border-radius:10px;animation:slideBar 1.1s ease-in-out infinite}
+@keyframes slideBar{0%{transform:translateX(-100%)}100%{transform:translateX(480%)}}
+.loader-text{font-size:13px;color:#c8c8dd;margin-top:12px}
+.loader-text b{color:#fff}
+/* চ্যানেল আসার আগে ঝাপসা বক্সগুলো - Shimmer */
+.skeleton-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px}
+.skel{height:96px;border-radius:14px;background:#15151f;position:relative;overflow:hidden}
+.skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:shimmer 1.2s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+#status{position:fixed;bottom:0;left:0;right:0;background:#111;padding:8px;text-align:center;font-size:11px;color:#7CFC00;border-top:1px solid #222}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">RS LIVE <span>TV</span></div>
+<div class="sub">🔴 অটোমেটিক চ্যানেল - তোমার কিছু করা লাগবে না</div>
+<input id="search" placeholder="🔍 চ্যানেল খুঁজো... যেমন T Sports, BTV, Star Jalsha">
+</header>
+<div id="cats"></div>
+<div id="count"></div>
+<div id="grid">
+  <!-- ✅ নতুন লোডার -->
+  <div id="loading" style="grid-column:1/-1">
+    <div class="loader-ring"><div class="loader-emoji">📺</div></div>
+    <div class="loader-brand"><b>RS LIVE</b> TV</div>
+    <div class="loader-status">LOADING CHANNELS...</div>
+    <div class="load-bar"><i></i></div>
+    <div class="loader-text">চ্যানেল লোড হচ্ছে... <b>একটু অপেক্ষা করো</b></div>
+  </div>
+  <div class="skeleton-grid" style="grid-column:1/-1">
+    <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+  </div>
+</div>
+<div id="status">Auto Playlist: Loading...</div>
+
+<script>
+const PLAYLISTS = [
+  { name: "Bangladesh", url: "https://iptv-org.github.io/iptv/countries/bd.m3u" },
+  { name: "India", url: "https://iptv-org.github.io/iptv/countries/in.m3u" },
+  { name: "Sports", url: "https://iptv-org.github.io/iptv/categories/sports.m3u" }
+];
+let allChannels = [];
+let activeCat = "All";
+async function loadOne(url){
+  const proxyUrl = "/proxy?url=" + encodeURIComponent(url);
+  try{ const res = await fetch(proxyUrl); const text = await res.text(); return parseM3U(text); }catch(e){ return []; }
+}
+function parseM3U(text){
+  const lines = text.split("\n"); const out=[]; let cur=null;
+  for(let line of lines){
+    line=line.trim();
+    if(line.startsWith("#EXTINF")){
+      const name=line.split(",").pop().trim();
+      const logoMatch=line.match(/tvg-logo="([^"]+)"/);
+      const groupMatch=line.match(/group-title="([^"]+)"/);
+      cur={name,logo:logoMatch?logoMatch[1]:"",group:groupMatch?groupMatch[1]:"General"};
+    } else if(line.startsWith("http") && cur){ cur.url=line; if(cur.name&&cur.url) out.push(cur); cur=null; }
+  }
+  return out;
+}
+async function loadAll(){
+  document.getElementById("status").textContent = "⏳ চ্যানেল লোড হচ্ছে...";
+  for(let p of PLAYLISTS){
+    const list = await loadOne(p.url);
+    for(let ch of list){ if(!allChannels.find(x=>x.url===ch.url)) allChannels.push(ch); }
+    document.getElementById("status").textContent = `✅ ${allChannels.length} টা চ্যানেল লোড হইছে...`;
+    render();
+  }
+  document.getElementById("status").textContent = `✅ মোট ${allChannels.length} টা চ্যানেল - অটোমেটিক লোড হইছে`;
+  if(allChannels.length===0){
+    document.getElementById("grid").innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ff5d5d">❌ চ্যানেল লোড হয় নাই<br><br>functions/proxy.js বসানো আছে কিনা চেক করো।<br>Proxy ছাড়া M3U লোড হবে না।</div>`;
+  }
+}
+function getCats(){ return ["All", "Sports", "News", "General", "Entertainment", "Movies", "Kids", "Music", "Bangladesh", "India"]; }
+function render(){
+  const q = document.getElementById("search").value.toLowerCase();
+  let filtered = allChannels.filter(c=>{
+    const matchSearch = !q || c.name.toLowerCase().includes(q);
+    let matchCat = true;
+    if(activeCat==="All") matchCat = true;
+    else if(activeCat==="Sports") matchCat = c.group.toLowerCase().includes("sport");
+    else if(activeCat==="News") matchCat = c.group.toLowerCase().includes("news");
+    else if(activeCat==="Movies") matchCat = c.group.toLowerCase().includes("movie");
+    else if(activeCat==="Kids") matchCat = c.group.toLowerCase().includes("kid") || c.group.toLowerCase().includes("children");
+    else if(activeCat==="Music") matchCat = c.group.toLowerCase().includes("music");
+    else if(activeCat==="Entertainment") matchCat = c.group.toLowerCase().includes("entertainment") || c.group.toLowerCase().includes("general");
+    else if(activeCat==="Bangladesh") matchCat = c.name.toLowerCase().includes("bangla") || c.name.toLowerCase().includes("btv") || c.name.toLowerCase().includes("t sports") || c.name.toLowerCase().includes("channel i") || c.name.toLowerCase().includes("somoy") || c.name.toLowerCase().includes("jamuna") || c.name.toLowerCase().includes("ntv") || c.name.toLowerCase().includes("maasranga");
+    else if(activeCat==="India") matchCat = c.name.toLowerCase().includes("star") || c.name.toLowerCase().includes("sony") || c.name.toLowerCase().includes("zee") || c.name.toLowerCase().includes("colors");
+    else matchCat = c.group.toLowerCase().includes(activeCat.toLowerCase());
+    return matchSearch && matchCat;
+  });
+  document.getElementById("count").textContent = `${filtered.length} টা চ্যানেল দেখাচ্ছে`;
+  document.getElementById("cats").innerHTML = getCats().map(c=>`<div class="cat ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</div>`).join("");
+  document.getElementById("grid").innerHTML = filtered.slice(0,500).map(c=>`
+    <div class="card" onclick="openCh('${encodeURIComponent(c.url)}','${encodeURIComponent(c.name)}')">
+      <img src="${c.logo || 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png'}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png'">
+      <p>${c.name}</p>
+      <small>${c.group}</small>
+    </div>
+  `).join("");
+}
+function setCat(c){ activeCat=c; render(); }
+function openCh(urlEnc, nameEnc){
+  const url = decodeURIComponent(urlEnc);
+  window.location.href = `player.html?url=${encodeURIComponent(url)}&name=${nameEnc}`;
+}
+document.getElementById("search").addEventListener("input", render);
+loadAll();
+</script>
+</body>
+</html>
