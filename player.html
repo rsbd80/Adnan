@@ -8,25 +8,23 @@
 <style>
 :root{--bg-1:#0a0a12;--bg-2:#14101f;--grad-a:#22d3ee;--grad-b:#a78bfa;--grad-c:#fb923c;--warn:#ffb84d;--alert:#ff5d5d;--text:#eef0f7;--text-dim:#7a7a92;--font:'Poppins','Segoe UI',sans-serif;--mono:'JetBrains Mono','Courier New',monospace}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-/* ✅ ফিক্স ১: আগে body fixed + height 100% ছিল, এখন নরমাল */
 html,body{width:100%;background:#0a0a12;font-family:var(--font)}
-body{padding-bottom:20px}
+body{padding:0}
 
-/* ✅ উপরে Back + নাম - তোমার স্ক্রিনশটের মতো */
+/* উপরে Back + নাম */
 .topbar{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#111;border-bottom:1px solid #222;position:sticky;top:0;z-index:100}
 .backBtn{background:#222;border:1px solid #333;color:#fff;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:13px}
 #chName{font-weight:700;font-size:14px;color:#fff}
 #chSub{font-size:11px;color:#888}
 
-/* ✅✅✅ ফিক্স ২: আসল খেলা এখানে */
-/* প্রথমে - ছোট 16:9, CONTAIN */
-#player-wrapper{position:relative;width:100%;aspect-ratio:16/9;max-height:250px;overflow:hidden;background:#000}
-#player{position:absolute;inset:0;width:100%!important;height:100%!important}
-#player video{width:100%!important;height:100%!important;object-fit:contain!important}
-/* ফুল স্ক্রিন করলে - FILL, পুরা ভরে যাবে */
-#player-wrapper:fullscreen{max-height:none;width:100vw;height:100vh;aspect-ratio:auto}
+/* ✅ প্রথমে - ছোট 16:9, CONTAIN */
+#player-wrapper{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
+/* ✅ ফুল স্ক্রিন করলে - FILL, পুরা ভরে যাবে */
+#player-wrapper:fullscreen{width:100vw;height:100vh;aspect-ratio:auto}
 #player-wrapper:fullscreen #player{width:100vw!important;height:100vh!important}
-#player-wrapper:fullscreen #player video{width:100%!important;height:100%!important;object-fit:fill!important}
+#player-wrapper:fullscreen #player video{object-fit:fill!important}
+#player{position:absolute;inset:0;width:100%!important;height:100%!important}
+#player video{width:100%!important;height:100%!important;object-fit:contain!important;background:#000}
 
 video::-webkit-media-controls{display:none!important}
 #loader{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 40%,var(--bg-2) 0%,var(--bg-1) 70%);display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:99;transition:opacity .1s ease,visibility .1s ease;pointer-events:none}
@@ -60,10 +58,6 @@ video::-webkit-media-controls{display:none!important}
 #seek{flex:1;-webkit-appearance:none;height:4px;background:rgba(255,255,255,.3);border-radius:4px;outline:none}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--grad-b);cursor:pointer}
 #time-label{font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap}
-.bottom-actions{display:flex;gap:8px;padding:14px}
-.actionBtn{flex:1;padding:11px;border-radius:20px;border:1px solid #333;background:#1c1c28;color:#fff;cursor:pointer;font-size:13px}
-.actionBtn.primary{background:linear-gradient(90deg,var(--grad-a),var(--grad-b));color:#000;font-weight:700;border:none}
-.info{padding:0 14px;color:#888;font-size:12px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -92,15 +86,7 @@ video::-webkit-media-controls{display:none!important}
 </div>
 </div>
 
-<div class="bottom-actions">
-<button class="actionBtn primary" onclick="goFS()">⛶ Full Screen</button>
-<button class="actionBtn" onclick="location.reload()">🔄 Retry</button>
-<button class="actionBtn" onclick="history.back()">📺 All Channels</button>
-</div>
-<div class="info">
-✅ প্রথমে <b>ছোট 16:9 - Contain</b> মুডে চলবে, তোমার স্ক্রিনশটের মতো।<br>
-✅ Full Screen চাপলে <b>Fill</b> মুডে পুরা স্ক্রিন ভরে যাবে, কোনো কালো দাগ থাকবে না।
-</div>
+<!-- ✅ নিচে আর কোনো বাটন / লেখা নাই - ডিলিট করে দেওয়া হইছে -->
 
 <script>
 const urlParams = new URLSearchParams(window.location.search);
@@ -112,7 +98,6 @@ const statusEl = document.getElementById('status-line');
 const wrapper = document.getElementById('player-wrapper');
 const playBtn = document.getElementById('playBtn');
 const fsBtn = document.getElementById('fsBtn');
-
 const statusMessages = ['LOADING','CONNECTING','BUFFERING'];
 let statusIdx = 0;
 let statusTimer = setInterval(()=>{ if(loaderEl.classList.contains('hide-now')) return; statusIdx=(statusIdx+1)%statusMessages.length; statusEl.textContent=statusMessages[statusIdx]; },1800);
@@ -120,21 +105,15 @@ function showLoader(){ loaderEl.classList.remove('hide-now'); }
 function hideLoader(){ loaderEl.classList.add('hide-now'); }
 function showState(html){ clearInterval(statusTimer); loaderEl.innerHTML=html; showLoader(); }
 function brandBlock(){ return `<div class="brand-name"><b>RS LIVE</b> TV</div>`; }
-function goFS(){ if(document.fullscreenElement) document.exitFullscreen(); else wrapper.requestFullscreen().catch(()=>{}); }
-
-// Wake Lock
 let wakeLock=null,wakeLockWanted=false;
 async function requestWakeLock(){ wakeLockWanted=true; if(!('wakeLock' in navigator))return; if(wakeLock)return; if(document.visibilityState!=='visible')return; try{ wakeLock=await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release',()=>{wakeLock=null;}); }catch(e){ wakeLock=null; } }
 async function releaseWakeLock(){ wakeLockWanted=false; if(wakeLock){ try{await wakeLock.release();}catch(e){} wakeLock=null; } }
 document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'&&wakeLockWanted) requestWakeLock(); });
-
-// Controls show/hide
 let hideCtrlTimer=null;
 function showControls(){ wrapper.classList.add('show-controls'); clearTimeout(hideCtrlTimer); hideCtrlTimer=setTimeout(()=>wrapper.classList.remove('show-controls'),3000); }
 wrapper.addEventListener('click',showControls);
 wrapper.addEventListener('touchstart',showControls,{passive:true});
 wrapper.addEventListener('mousemove',showControls);
-
 if(!streamSource){
   showState(`<div class="state-content"><div class="glyph warn"><i>&#9888;</i></div><p class="title">No stream URL supplied</p><p class="sub">Add ?url=YOUR_STREAM_LINK to this page's address.</p>${brandBlock()}</div>`);
 } else {
@@ -146,14 +125,9 @@ if(!streamSource){
   video.controls = false;
   video.style.cssText='width:100%;height:100%;object-fit:contain;background:#000';
   document.getElementById('player').appendChild(video);
-
   let hls=null, everPlayed=false, retryCount=0;
   const maxRetries=6;
-
-  function doPlay(){
-    video.play().then(()=>{ hideLoader(); everPlayed=true; requestWakeLock(); }).catch(()=>{});
-  }
-
+  function doPlay(){ video.play().then(()=>{ hideLoader(); everPlayed=true; requestWakeLock(); }).catch(()=>{}); }
   function loadStream(url){
     if(hls){ try{hls.destroy();}catch(e){} hls=null; }
     video.removeAttribute('src'); video.load();
@@ -171,16 +145,11 @@ if(!streamSource){
         });
       } else if(video.canPlayType('application/vnd.apple.mpegurl')){
         video.src=url; doPlay();
-      } else {
-        showNoStreamState({message:'Browser HLS support নেই'});
-      }
+      } else { showNoStreamState({message:'Browser HLS support নেই'}); }
     } else if(url.includes('.mpd')){
       showNoStreamState({message:'DASH লিংক এই প্লেয়ারে সাপোর্ট করে না, M3U8 লিংক ইউজ করো'});
-    } else {
-      video.src=url; doPlay();
-    }
+    } else { video.src=url; doPlay(); }
   }
-
   function tryReconnect(baseUrl){
     if(retryCount>=maxRetries){ showNoStreamState({message:'The source could not be reached.'}); return; }
     retryCount++;
@@ -190,33 +159,28 @@ if(!streamSource){
     const retryUrl = baseUrl + sep + '_rs=' + Date.now();
     setTimeout(()=>loadStream(retryUrl), Math.min(1000*retryCount,4000));
   }
-
   function showNoStreamState(err){
     releaseWakeLock();
     showState(`<div class="state-content"><div class="glyph"><i>&#10060;</i></div><p class="title">No streaming — this link won't play</p><p class="sub">${err&&err.message?err.message:'The source could not be reached.'}</p><button class="retry-btn" onclick="location.reload()">Retry</button>${brandBlock()}</div>`);
   }
-
   video.addEventListener('playing',()=>{ hideLoader(); everPlayed=true; retryCount=0; requestWakeLock(); });
   video.addEventListener('waiting',()=>{ if(!video.paused) showLoader(); });
   video.addEventListener('pause',()=>{ playBtn.textContent='▶'; releaseWakeLock(); });
   video.addEventListener('play',()=>{ playBtn.textContent='❚❚'; requestWakeLock(); });
   video.addEventListener('error',()=>{ if(!everPlayed) tryReconnect(streamSource); });
-
   playBtn.addEventListener('click',(e)=>{ e.stopPropagation(); if(video.paused){ video.play(); } else { video.pause(); } showControls(); });
   fsBtn.addEventListener('click',(e)=>{
     e.stopPropagation();
-    goFS();
+    if(document.fullscreenElement){ document.exitFullscreen(); }
+    else { wrapper.requestFullscreen().catch(()=>{}); }
     showControls();
   });
-
-  // ✅ ফুল স্ক্রিনে Fill, নরমালে Contain
   async function lockLandscape(){ try{ if(screen.orientation&&screen.orientation.lock) await screen.orientation.lock('landscape'); }catch(e){} }
   function unlockLandscape(){ try{ if(screen.orientation&&screen.orientation.unlock) screen.orientation.unlock(); }catch(e){} }
   document.addEventListener('fullscreenchange',()=>{
     if(document.fullscreenElement){ lockLandscape(); video.style.objectFit='fill'; }
     else { unlockLandscape(); video.style.objectFit='contain'; }
   });
-
   setTimeout(()=>{ if(!everPlayed && video.readyState===0){ tryReconnect(streamSource); } },25000);
   loadStream(streamSource);
 }
