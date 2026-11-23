@@ -105,27 +105,26 @@ header::after{content:"";position:absolute;top:-60px;right:-20px;width:220px;hei
 <svg viewBox="0 0 24 24"><path d="M9.04 15.31l-.38 5.32c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L24 3.6c.1-.9-.32-1.38-1.1-1.12L1.5 10.2c-.9.35-.88 1.45.14 1.72l5.48 1.71 12.66-8.04c.6-.36 1.14-.17.7.23L9.04 15.31z"/></svg>
 </a>
 <script>
-// ✅ Proxy - Lovable
-const PROXY = "";
+// ✅ Proxy - শুধু Toffee এর জন্য
+const PROXY = "https://stream-through-spark.lovable.app/api/proxy?u=";
 
-// ✅✅✅ মোট ৮ টা প্লেলিস্ট - তোমার সিরিয়ালে
+// ✅ প্লেলিস্ট - useProxy:true মানে শুধু ওইটা Proxy দিয়ে যাবে
 const PLAYLISTS = [
-  // --- ১. আগে তোমার ৫ টা ---
-  { name: "Tapmad", url: "https://raw.githubusercontent.com/sm-monirulislam/Tapmad_Auto_Update_Playlist/refs/heads/main/tapmad_sm.m3u" },
-  { name: "SonyLiv", url: "https://raw.githubusercontent.com/sm-monirulislam/SonyLiv_Event_Playlist/refs/heads/main/sonyLiv.m3u" },
-  { name: "Toffee", url: "https://raw.githubusercontent.com/sm-monirulislam/Toffee-Auto-Update/refs/heads/main/toffee_playlist.m3u" },
-  { name: "AynaOTT", url: "https://raw.githubusercontent.com/sm-monirulislam/AynaOTT_Auto_Update_Playlist/refs/heads/main/aynaott.m3u" },
-  { name: "JagoBD", url: "https://raw.githubusercontent.com/sm-monirulislam/jago_bd_auto_update_playlist-/refs/heads/main/jago_bd_main.m3u" },
-  // --- ২. পরে বাকি ৩ টা ---
-  { name: "Bangladesh", url: "" },
-  { name: "India", url: "" },
-  { name: "Sports", url: "" }
+  { name: "Tapmad", url: "https://raw.githubusercontent.com/sm-monirulislam/Tapmad_Auto_Update_Playlist/refs/heads/main/tapmad_sm.m3u", useProxy: false },
+  { name: "SonyLiv", url: "https://raw.githubusercontent.com/sm-monirulislam/SonyLiv_Event_Playlist/refs/heads/main/sonyLiv.m3u", useProxy: false },
+  { name: "Toffee", url: "https://raw.githubusercontent.com/sm-monirulislam/Toffee-Auto-Update/refs/heads/main/toffee_playlist.m3u", useProxy: true },
+  { name: "AynaOTT", url: "https://raw.githubusercontent.com/sm-monirulislam/AynaOTT_Auto_Update_Playlist/refs/heads/main/aynaott.m3u", useProxy: false },
+  { name: "JagoBD", url: "https://raw.githubusercontent.com/sm-monirulislam/jago_bd_auto_update_playlist-/refs/heads/main/jago_bd_main.m3u", useProxy: false },
+  { name: "Bangladesh", url: "https://iptv-org.github.io/iptv/countries/bd.m3u", useProxy: false },
+  { name: "India", url: "https://iptv-org.github.io/iptv/countries/in.m3u", useProxy: false },
+  { name: "Sports", url: "https://iptv-org.github.io/iptv/categories/sports.m3u", useProxy: false }
 ];
 let allChannels = [];
 let activeCat = "All";
-async function loadOne(url){
-  const proxyUrl = PROXY + encodeURIComponent(url);
-  try{ const res = await fetch(proxyUrl); const text = await res.text(); return parseM3U(text); }catch(e){ return []; }
+async function loadOne(p){
+  // ✅ Toffee হলে Proxy, বাকি সব Direct
+  const fetchUrl = p.useProxy ? PROXY + encodeURIComponent(p.url) : p.url;
+  try{ const res = await fetch(fetchUrl); const text = await res.text(); return parseM3U(text); }catch(e){ return []; }
 }
 function parseM3U(text){
   const lines = text.split("\n"); const out=[]; let cur=null;
@@ -143,14 +142,14 @@ function parseM3U(text){
 async function loadAll(){
   document.getElementById("status").textContent = "⏳ চ্যানেল লোড হচ্ছে...";
   for(let p of PLAYLISTS){
-    const list = await loadOne(p.url);
+    const list = await loadOne(p);
     for(let ch of list){ ch.source = p.name; if(!allChannels.find(x=>x.url===ch.url)) allChannels.push(ch); }
     document.getElementById("status").textContent = `✅ ${allChannels.length} টা চ্যানেল লোড হইছে... (${p.name})`;
     render();
   }
-  document.getElementById("status").textContent = `✅ মোট ${allChannels.length} টা চ্যানেল - Play Go`;
+  document.getElementById("status").textContent = `✅ মোট ${allChannels.length} টা চ্যানেল - Stream Go`;
   if(allChannels.length===0){
-    document.getElementById("grid").innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ff5d5d">❌ চ্যানেল লোড হয় নাই<br><br>Proxy লিংকটা ঠিক আছে কিনা চেক করো।</div>`;
+    document.getElementById("grid").innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ff5d5d">❌ চ্যানেল লোড হয় নাই<br><br>নেট চেক করে Refresh দাও।</div>`;
   }
 }
 function getCats(){ return ["All", "Tapmad", "SonyLiv", "Toffee", "AynaOTT", "JagoBD", "Sports", "News", "General", "Entertainment", "Movies", "Kids", "Music", "Bangladesh", "India"]; }
@@ -175,7 +174,7 @@ function render(){
   document.getElementById("count").textContent = `${filtered.length} টা চ্যানেল দেখাচ্ছে`;
   document.getElementById("cats").innerHTML = getCats().map(c=>`<div class="cat ${c===activeCat?'active':''}" onclick="setCat('${c}')">${c}</div>`).join("");
   document.getElementById("grid").innerHTML = filtered.slice(0,500).map(c=>`
-    <div class="card" onclick="openCh('${encodeURIComponent(c.url)}','${encodeURIComponent(c.name)}')">
+    <div class="card" onclick="openCh('${encodeURIComponent(c.url)}','${encodeURIComponent(c.name)}','${c.source}')">
       <img src="${c.logo || 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png'}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png'">
       <p>${c.name}</p>
       <small>${c.group}</small>
@@ -183,9 +182,9 @@ function render(){
   `).join("");
 }
 function setCat(c){ activeCat=c; render(); }
-function openCh(urlEnc, nameEnc){
+function openCh(urlEnc, nameEnc, src){
   const url = decodeURIComponent(urlEnc);
-  window.location.href = `player.html?url=${encodeURIComponent(url)}&name=${nameEnc}`;
+  window.location.href = `player.html?url=${encodeURIComponent(url)}&name=${nameEnc}&src=${encodeURIComponent(src||'')}`;
 }
 document.getElementById("search").addEventListener("input", render);
 loadAll();
