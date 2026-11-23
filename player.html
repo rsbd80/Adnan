@@ -11,7 +11,6 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{width:100%;background:#07070f;font-family:var(--font);overflow-x:hidden}
 body{padding:0;background:radial-gradient(600px 300px at 50% -80px, rgba(167,139,250,.18), transparent 70%), radial-gradient(500px 250px at 100% 0%, rgba(34,211,238,.12), transparent 70%), #07070f}
-/* ===== TOPBAR - আরো প্রিমিয়াম ===== */
 .topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;padding:13px 14px;background:rgba(10,10,20,.88);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.10);overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.35)}
 .topbar::before{content:"";position:absolute;top:-50px;left:-20px;width:200px;height:110px;background:radial-gradient(circle,rgba(34,211,238,.30),transparent 70%);filter:blur(10px);pointer-events:none}
 .topbar::after{content:"";position:absolute;top:-50px;right:-20px;width:200px;height:110px;background:radial-gradient(circle,rgba(167,139,250,.32),transparent 70%);filter:blur(10px);pointer-events:none}
@@ -30,7 +29,6 @@ body{padding:0;background:radial-gradient(600px 300px at 50% -80px, rgba(167,139
 .live-pill{margin-left:auto;display:flex;align-items:center;gap:6px;background:rgba(255,45,85,.16);border:1px solid rgba(255,45,85,.40);color:#ff6b81;font-size:10px;font-weight:800;letter-spacing:1px;padding:7px 11px;border-radius:20px;flex-shrink:0;position:relative;z-index:2;box-shadow:0 0 16px rgba(255,45,85,.25)}
 .live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;box-shadow:0 0 0 0 rgba(255,45,85,.7);animation:pulseDot 1.4s infinite}
 @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(255,45,85,.7)}70%{box-shadow:0 0 0 7px rgba(255,45,85,0)}100%{box-shadow:0 0 0 0 rgba(255,45,85,0)}}
-/* ===== PLAYER - গ্লো বর্ডার ===== */
 #player-wrapper{position:relative;width:calc(100% - 24px);margin:12px auto 0;aspect-ratio:16/9;background:#000;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 36px rgba(0,0,0,.55), 0 0 0 1px rgba(167,139,250,.12), 0 0 32px rgba(167,139,250,.12)}
 #player-wrapper:fullscreen{width:100vw;height:100vh;margin:0;aspect-ratio:auto;border-radius:0;border:none;box-shadow:none}
 #player-wrapper:fullscreen #player{width:100vw!important;height:100vh!important}
@@ -70,15 +68,15 @@ video::-webkit-media-controls{display:none!important}
 #seek{flex:1;-webkit-appearance:none;height:5px;background:rgba(255,255,255,.30);border-radius:5px;outline:none}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid #a78bfa;cursor:pointer;box-shadow:0 2px 8px rgba(167,139,250,.6)}
 #time-label{font-family:var(--mono);font-size:11px;color:#fff;white-space:nowrap;background:rgba(255,45,85,.18);border:1px solid rgba(255,45,85,.35);padding:4px 8px;border-radius:10px}
-/* ===== SUGGEST - হাইলাইট + সুন্দর ===== */
+/* ✅ ২ টা অপশন - ক্লিন প্রিমিয়াম ডিজাইন */
 .suggest{margin:16px 0 0;width:100%;overflow:hidden}
-.suggest-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 14px 10px;width:100%;box-sizing:border-box}
-.suggest-head h3{font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px;color:#fff!important;min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:linear-gradient(135deg,rgba(34,211,238,.20),rgba(167,139,250,.24),rgba(255,93,143,.20));border:1px solid rgba(167,139,250,.50);padding:10px 12px;border-radius:16px;box-shadow:0 5px 18px rgba(167,139,250,.28), inset 0 1px 0 rgba(255,255,255,.18)}
-.suggest-head h3 span{width:27px;height:27px;flex-shrink:0;background:linear-gradient(135deg,#ff8a00,#ff2d55);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 4px 12px rgba(255,45,85,.55);animation:firePulse 1.8s ease-in-out infinite}
-@keyframes firePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.suggest-head a{font-size:12px;color:#fff!important;text-decoration:none;font-weight:800;flex-shrink:0;white-space:nowrap;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);padding:10px 15px;border-radius:20px;box-shadow:0 5px 20px rgba(167,139,250,.55), inset 0 1px 0 rgba(255,255,255,.35);animation:btnGlow 2.2s ease-in-out infinite}
-.suggest-head a:active{transform:scale(.92)}
-@keyframes btnGlow{0%,100%{box-shadow:0 5px 20px rgba(167,139,250,.55)}50%{box-shadow:0 5px 28px rgba(255,93,143,.80)}}
+.suggest-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px 10px;width:100%;box-sizing:border-box}
+.suggest-head h3{font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px;color:#fff!important;min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.2px}
+.suggest-head h3 span{width:28px;height:28px;flex-shrink:0;background:rgba(255,138,0,.15);border:1px solid rgba(255,138,0,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.suggest-head h3::after{content:"";flex:1;height:1px;min-width:12px;background:linear-gradient(90deg, rgba(167,139,250,.6), transparent);margin-left:4px}
+.suggest-head a{font-size:12px;color:#fff!important;text-decoration:none;font-weight:700;flex-shrink:0;white-space:nowrap;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:8px 8px 8px 13px;border-radius:30px;backdrop-filter:blur(8px)}
+.suggest-head a i{font-style:normal;width:22px;height:22px;border-radius:50%;background:#fff;color:#000;font-size:11px;display:flex;align-items:center;justify-content:center}
+.suggest-head a:active{transform:scale(.94);background:rgba(255,255,255,.15)}
 .suggest-grid{display:flex;gap:10px;overflow-x:auto;padding:2px 14px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .suggest-grid::-webkit-scrollbar{display:none}
 .sug-card{flex:0 0 74px;scroll-snap-align:start;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:9px 4px 8px;text-align:center;cursor:pointer;box-shadow:0 5px 14px rgba(0,0,0,.30);transition:.2s}
@@ -89,7 +87,6 @@ video::-webkit-media-controls{display:none!important}
 .sug-skel{flex:0 0 74px;height:72px;border-radius:16px;background:#15151f;position:relative;overflow:hidden}
 .sug-skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:shimmer 1.2s infinite}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-/* ===== AD - ক্লিন ===== */
 .ad-wrap{margin:14px 14px 0;background:linear-gradient(180deg,#14141f,#111118);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:12px 12px 14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.30)}
 .ad-label{font-size:9px;letter-spacing:3px;color:#777;text-align:center;margin-bottom:10px;font-family:var(--mono)}
 .ad-box{border-radius:12px;overflow:hidden;background:#0a0a12;display:flex;justify-content:center}
@@ -122,7 +119,7 @@ video::-webkit-media-controls{display:none!important}
 </div>
 
 <div class="suggest">
-<div class="suggest-head"><h3><span>🔥</span> তুমি আরো দেখতে পারো</h3><a href="index.html">সব দেখো →</a></div>
+<div class="suggest-head"><h3><span>🔥</span> তুমি আরো দেখতে পারো</h3><a href="index.html">সব দেখো <i>→</i></a></div>
 <div class="suggest-grid" id="suggestGrid">
 <div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div>
 </div>
