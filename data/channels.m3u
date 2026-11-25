@@ -1,15 +1,1 @@
-#EXTM3U
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Kashima%20Antlers%20Vs%20Jeonbuk%20Hyundai%20Motors.jpg" group-title="Football", Kashima Antlers Vs Jeonbuk Hyundai Motors - SPORTDIGITAL AQ
-https://sdn-global-live-streaming-packager-cache.3qsdn.com/102539/102539_264_live.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Gamba%20Osaka%20Vs%20Port%20FC.jpg" group-title="Football", Gamba Osaka Vs Port FC - TAPMAD - AQ
-https://multiregion-asia-cdn.tapmad.com/v1/01a154de56151ea540a81c2b41b77a/01a154de85c41567ee931e109fa5a5/main.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Italia%20T10%20Vs%20Italia%20T10.jpg" group-title="Cricket", Italia T10 Vs Italia T10 - UNBEATEN FHD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Persib%20Bandung%20Vs%20FC%20Seoul.jpg" group-title="Football", Persib Bandung Vs FC Seoul - TAPMAD - AQ
-https://multiregion-asia-cdn.tapmad.com/v1/01a1548c4faf15fc600b1e3e968408/01a1548c7fde1ea557841e1612cf76/main.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Ecuador%20U17%20Vs%20South%20Korea%20U17.jpg" group-title="Football", Ecuador U17 Vs South Korea U17 - D SPORTS - AQ
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Uganda%20U17%20Vs%20New%20Caledonia%20U17.jpg" group-title="Football", Uganda U17 Vs New Caledonia U17 - HD STREAM
-https://live3979.zundrixmediapipeline.com/live/channel7.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/Upcoming-and-Live-Sports-Data/main/match_image/Sporting%20U19%20Vs%20Manchester%20United%20U19.jpg" group-title="Football", Sporting U19 Vs Manchester United U19 - TNT SPORTS - AQ
-#KODIPROP:inputstream.adaptive.license_type=clearkey
+
