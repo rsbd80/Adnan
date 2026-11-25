@@ -3,39 +3,32 @@
   "match": {
     "id": 2,
     "name": "Watford Vs Blackburn Rovers",
+    "teamA": "Watford",
+    "teamB": "Blackburn Rovers",
+    "teamALogo": "WATFORD_LOGO_URL",
+    "teamBLogo": "BLACKBURN_LOGO_URL",
     "category": "Live Sports",
-    "matchType": "Championship|2026",
-
     "logo": "⚽",
     "logoUrl": "",
     "fallbackLogo": "⚽",
     "tone": "gold",
-
     "section": "liveSports",
-    "show": "yes",
-    "enabled": true,
-    "status": "auto",
-
-    "startTime": "2026-11-26T01:45:00+06:00",
-    "endTime": "2026-11-26T03:45:00+06:00",
-
-    "url": "",
-
     "streams": [
       {
         "name": "D SPORTS + FHD",
-        "url": "",
+        "url": "YOUR_STREAM_URL",
         "show": "yes",
         "drm": {
           "scheme": "clearkey",
-          "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
+          "license": "YOUR_AUTHORIZED_LICENSE_CONFIGURATION"
         }
       }
     ],
-
-    "drm": {
-      "scheme": "clearkey",
-      "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
-    }
+    "show": "yes",
+    "startTime": "2026-11-26T01:45:00+06:00",
+    "endTime": "2026-11-26T03:45:00+06:00",
+    "enabled": true,
+    "status": "auto",
+    "matchType": "Championship|2026"
   }
 }
