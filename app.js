@@ -16,7 +16,7 @@
   var h = window.location.hostname || '';
   var p = window.location.protocol || '';
   if(p === 'blob:' || p === 'data:' || p === 'file:' || p === 'about:' || h === '' || h === 'null'){ kick(); throw new Error('Blocked'); }
-  if(h !== 'https://novastreem.pages.dev' && h !== 'https://novastreem.pages.dev' && h !== 'localhost' && h !== '127.0.0.1'){ kick(); throw new Error('Blocked'); }
+  if(h !== 'rslivego.pages.dev' && h !== 'www.rslivego.pages.dev' && h !== 'localhost' && h !== '127.0.0.1'){ kick(); throw new Error('Blocked'); }
   if(window.top !== window.self){ kick(); throw new Error('Blocked'); }
 })();
 
