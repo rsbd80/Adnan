@@ -1,49 +1,70 @@
 
-name: RS Live Go Auto Update
+#!/usr/bin/env python3
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+import json
+from pathlib import Path
 
-permissions:
-  contents: write
+ROOT = Path(__file__).resolve().parents[1]
+MATCH_DIR = ROOT / "data" / "matches"
+INDEX_FILE = MATCH_DIR / "index.json"
 
-concurrency:
-  group: rs-live-go-auto-update
-  cancel-in-progress: false
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
+def main():
+    MATCH_DIR.mkdir(parents=True, exist_ok=True)
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    match_files = sorted(
+        MATCH_DIR.glob("match-*.json"),
+        key=lambda p: p.name.lower()
+    )
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
+    valid_files = []
 
-      - name: Update Channels
-        run: python scripts/update_all_channels.py
+    for file in match_files:
+        try:
+            with file.open("r", encoding="utf-8") as f:
+                data = json.load(f)
 
-      - name: Update Matches
-        run: python scripts/update_all_matches.py
+            if not isinstance(data, dict):
+                print(f"Skipped invalid JSON structure: {file.name}")
+                continue
 
-      - name: Commit Only Changed Files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            if not (
+                isinstance(data.get("match"), dict)
+                or isinstance(data.get("matches"), list)
+                or "name" in data
+            ):
+                print(f"Skipped: No match data in {file.name}")
+                continue
 
-          git add data/channels.m3u data/matches/
+            valid_files.append(file.name)
+            print(f"Checked: {file.name}")
 
-          if git diff --cached --quiet; then
-            echo "No changes detected. Nothing to commit."
-            exit 0
-          fi
+        except Exception as e:
+            print(f"Skipped {file.name}: {e}")
 
-          git commit -m "Auto-update channels and matches"
-          git push
+    index_data = {
+        "files": valid_files
+    }
+
+    new_content = json.dumps(
+        index_data,
+        ensure_ascii=False,
+        indent=2
+    ) + "\n"
+
+    old_content = ""
+
+    if INDEX_FILE.exists():
+        old_content = INDEX_FILE.read_text(encoding="utf-8")
+
+    if old_content == new_content:
+        print("Match index is already up to date.")
+        return
+
+    INDEX_FILE.write_text(new_content, encoding="utf-8")
+
+    print(f"Match index updated: {len(valid_files)} valid match files")
+
+
+if __name__ == "__main__":
+    main()
