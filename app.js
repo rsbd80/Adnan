@@ -1,25 +1,3 @@
-// KICK-OUT LOCK - Open হবে না, সরাসরি বের করে দিবে
-(function(){
-  function kick(){
-    try{ window.top.location.href = 'about:blank'; }catch(e){}
-    try{ window.parent.location.href = 'about:blank'; }catch(e){}
-    try{ window.location.href = 'about:blank'; }catch(e){}
-    try{ window.location.replace('about:blank'); }catch(e){}
-    try{ window.close(); }catch(e){}
-    document.documentElement.innerHTML = '';
-    setInterval(function(){
-      try{ window.top.location.href = 'about:blank'; }catch(e){}
-      try{ window.location.href = 'about:blank'; }catch(e){}
-      document.documentElement.innerHTML = '';
-    }, 100);
-  }
-  var h = window.location.hostname || '';
-  var p = window.location.protocol || '';
-  if(p === 'blob:' || p === 'data:' || p === 'file:' || p === 'about:' || h === '' || h === 'null'){ kick(); throw new Error('Blocked'); }
-  if(h !== 'rslivego.pages.dev' && h !== 'www.rslivego.pages.dev' && h !== 'localhost' && h !== '127.0.0.1'){ kick(); throw new Error('Blocked'); }
-  if(window.top !== window.self){ kick(); throw new Error('Blocked'); }
-})();
-
 // --- UI বানানো ---
 document.getElementById('app').innerHTML = `
 <style>
