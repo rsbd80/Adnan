@@ -1,7 +1,7 @@
 /* =====================================================
    RsLive Go - COMPLETE APP.JS
    Live TV + GitHub Live & Upcoming Matches
-   Thin Card + 2 Side Team Logo + Fullscreen Player
+   Thin Card + 2 Side Team Logo + SVG Logo + Fullscreen Player
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -68,14 +68,24 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35)
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
+/* SVG লোগো সুন্দর দেখানোর জন্য */
+.match-team img.svg-logo{
+  background:#fff !important;
+  padding:5px !important;
+  object-fit:contain;
+}
+.card img[src$=".svg"]{
+  background:#fff !important;
+  padding:4px !important;
+}
 /* ===== চিকন চ্যানেল কার্ড ===== */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:10px;overflow:hidden;min-width:0;min-height:56px;position:relative}
 .card:active{transform:scale(.97);border-color:#a78bfa}
-.card .serial{position:absolute;top:4px;right:6px;font-size:8px;background:rgba(255,255,255,.12);padding:2px 6px;border-radius:99px;color:#aaa;font-weight:800}
+.card .serial{position:static;flex-shrink:0;font-size:9px;background:rgba(255,255,255,.12);padding:4px 7px;border-radius:99px;color:#aaa;font-weight:800;order:-1}
 .card img{width:38px;height:38px;min-width:38px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
 .card .c-txt{flex:1;min-width:0}
-.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
+.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600;padding-right:0}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
 #loadMoreWrap{text-align:center;padding:6px 12px 18px;display:none}
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
@@ -178,7 +188,7 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 `;
 
 /* ================= CONFIG ================= */
-const CONFIG_VERSION = 'nova-v6-thin-card';
+const CONFIG_VERSION = 'nova-v7-svg-logo';
 const DEFAULT = {
   siteName: 'RsLive Go',
   tagline: 'LIVE TV • BANGLADESH',
@@ -239,6 +249,9 @@ function normalizeMatch(raw) {
   m.endTime = m.endTime || m.end_time || m.end || '';
   m.teamA = String(m.teamA || m.homeTeam || m.team1 || '').trim();
   m.teamB = String(m.teamB || m.awayTeam || m.team2 || '').trim();
+  // SVG + সব নামের লোগো ধরবে
+  m.teamALogo = m.teamALogo || m.logoA || m.teamA_logo || m.homeLogo || m.teamAFlag || m.flagA || m.teamAImage || m.teamAImg || '';
+  m.teamBLogo = m.teamBLogo || m.logoB || m.teamB_logo || m.awayLogo || m.teamBFlag || m.flagB || m.teamBImage || m.teamBImg || '';
   if (!m.teamA || !m.teamB) {
     const parts = m.name.split(/\s+(?:vs\.?|v\.?|versus)\s+/i);
     if (parts.length >= 2) { if (!m.teamA) m.teamA = parts[0].trim(); if (!m.teamB) m.teamB = parts.slice(1).join(' vs ').trim(); }
@@ -275,7 +288,7 @@ function matchCountdown(m) {
   return ((days ? days + 'd ' : '') + String(hours).padStart(2, '0') + ':' + String(mins).padStart(2, '0') + ':' + String(sec).padStart(2, '0'));
 }
 
-/* ================= TEAM LOGO - 2 SIDE ================= */
+/* ================= TEAM LOGO - 2 SIDE + SVG ================= */
 function teamNode(name, logo, side){
   const wrap = document.createElement('div');
   wrap.className = 'match-team ' + (side || 'left');
@@ -284,6 +297,7 @@ function teamNode(name, logo, side){
   if (logo) {
     const img = document.createElement('img');
     img.src = logo; img.alt = labelName; img.loading = 'lazy';
+    if(String(logo).toLowerCase().split('?')[0].includes('.svg')) img.classList.add('svg-logo');
     img.onerror = function(){
       this.remove();
       const fb = document.createElement('div');
@@ -338,10 +352,10 @@ function renderMatches() {
     const type = document.createElement('span'); type.className = 'match-type'; type.textContent = m.matchType || m.category || 'LIVE SPORTS';
     top.append(badge, type);
     const teams = document.createElement('div'); teams.className = 'match-teams';
-    const a = teamNode(m.teamA || m.name, m.teamALogo || m.teamAFlag || m.homeLogo || m.logoA || '', 'left');
+    const a = teamNode(m.teamA || m.name, m.teamALogo, 'left');
     const vs = document.createElement('div'); vs.className = 'match-vs';
     vs.innerHTML = `<span class="vs-txt">VS</span><span class="vs-time">${state==='live' ? '● LIVE' : (fmtMatchTime(m.startTime).split(',')[1] || '')}</span>`;
-    const b = teamNode(m.teamB || '', m.teamBLogo || m.teamBFlag || m.awayLogo || m.logoB || '', 'right');
+    const b = teamNode(m.teamB || '', m.teamBLogo, 'right');
     teams.append(a, vs, b);
     const bottom = document.createElement('div'); bottom.className = 'match-bottom';
     const time = document.createElement('div'); time.className = 'match-time'; time.textContent = 'শুরু: ' + fmtMatchTime(m.startTime);
