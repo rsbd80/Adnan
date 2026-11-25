@@ -8,39 +8,6 @@
 <title>RsLive Go - Live TV</title>
 <link rel="manifest" href="/manifest.json">
 <script>
-// KICK-OUT LOCK - Open হবে না, সরাসরি বের করে দিবে
-(function(){
-  function kick(){
-    try{ window.top.location.href = 'about:blank'; }catch(e){}
-    try{ window.parent.location.href = 'about:blank'; }catch(e){}
-    try{ window.location.href = 'about:blank'; }catch(e){}
-    try{ window.location.replace('about:blank'); }catch(e){}
-    try{ window.close(); }catch(e){}
-    document.documentElement.innerHTML = '';
-    document.write('');
-    setInterval(function(){
-      try{ window.top.location.href = 'about:blank'; }catch(e){}
-      try{ window.location.href = 'about:blank'; }catch(e){}
-      document.documentElement.innerHTML = '';
-    }, 100);
-  }
-  var h = window.location.hostname || '';
-  var p = window.location.protocol || '';
-  var ref = document.referrer || '';
-  if(p === 'blob:' || p === 'data:' || p === 'file:' || p === 'about:' || h === '' || h === 'null'){
-    kick(); throw new Error('Blocked');
-  }
-  if(h !== 'rslivego.pages.dev' && h !== 'www.rslivego.pages.dev' && h !== 'localhost' && h !== '127.0.0.1'){
-    kick(); throw new Error('Blocked');
-  }
-  if(window.top !== window.self){
-    kick(); throw new Error('Blocked');
-  }
-  if(ref.indexOf('codebeautify') !== -1 || ref.indexOf('html-viewer') !== -1 || ref.indexOf('htmlpreview') !== -1 || ref.indexOf('online-tool') !== -1){
-    kick(); throw new Error('Blocked');
-  }
-})();
-</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG156QL5T"></script>
 <script>
