@@ -1,7 +1,7 @@
 /* =====================================================
-   RsLive Go - COMPLETE APP.JS
-   Live TV + GitHub Live & Upcoming Matches
-   Thin Card + 2 Side Team Logo + SVG Logo + Fullscreen Player
+   RsLive Go - HOME = ONLY MATCHES
+   Home -> Sudhu Live & Upcoming Matches
+   All / Category -> Sob Channel
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -68,25 +68,19 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35)
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
-/* SVG লোগো সুন্দর দেখানোর জন্য */
-.match-team img.svg-logo{
-  background:#fff !important;
-  padding:5px !important;
-  object-fit:contain;
-}
-.card img[src$=".svg"]{
-  background:#fff !important;
-  padding:4px !important;
-}
-/* ===== চিকন চ্যানেল কার্ড ===== */
+.match-team img.svg-logo{background:#fff !important;padding:5px !important;object-fit:contain}
+.card img[src$=".svg"]{background:#fff !important;padding:4px !important}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:10px;overflow:hidden;min-width:0;min-height:56px;position:relative}
 .card:active{transform:scale(.97);border-color:#a78bfa}
 .card .serial{position:static;flex-shrink:0;font-size:9px;background:rgba(255,255,255,.12);padding:4px 7px;border-radius:99px;color:#aaa;font-weight:800;order:-1}
 .card img{width:38px;height:38px;min-width:38px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
 .card .c-txt{flex:1;min-width:0}
-.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600;padding-right:0}
+.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
+#homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
+#homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
+#homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#fff;font-family:inherit;font-weight:800}
 #loadMoreWrap{text-align:center;padding:6px 12px 18px;display:none}
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
@@ -159,14 +153,17 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 </div>
 <div id="matchesGrid"></div>
 </section>
+<div id="homeEmpty">
+<b>😴 এখন কোনো লাইভ / আপকামিং ম্যাচ নাই</b>
+<span>নিচে All এ ক্লিক করে সব চ্যানেল দেখো</span><br>
+<button onclick="setCat('All')">সব চ্যানেল দেখো →</button>
+</div>
 <div id="featured">
 <div style="font-size:11px;color:#ff5d8f;font-weight:800">⭐ FEATURED LIVE</div>
 <b id="featName"></b><br>
 <span style="font-size:11px;color:#22d3ee">এখনই দেখো →</span>
 </div>
-<div id="grid">
-<div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa">⏳ চ্যানেল লোড হচ্ছে...</div>
-</div>
+<div id="grid"></div>
 <div id="loadMoreWrap">
 <button id="loadMoreBtn" onclick="loadMore()">আরো দেখো ↓</button>
 </div>
@@ -188,7 +185,7 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 `;
 
 /* ================= CONFIG ================= */
-const CONFIG_VERSION = 'nova-v7-svg-logo';
+const CONFIG_VERSION = 'nova-v8-home-matches-only';
 const DEFAULT = {
   siteName: 'RsLive Go',
   tagline: 'LIVE TV • BANGLADESH',
@@ -221,7 +218,7 @@ try {
 
 /* ================= GLOBAL DATA ================= */
 let all = [];
-let cat = 'All';
+let cat = 'Home'; // <-- হোম ডিফল্ট: শুধু ম্যাচ দেখাবে
 let _catCache = null;
 let visibleCount = 200;
 let currentFiltered = [];
@@ -229,7 +226,7 @@ let allMatches = [];
 const MATCH_INDEX_URL = '/data/matches/index.json';
 function goHome() { window.location.href = '/?t=' + Date.now(); }
 
-/* ================= MATCH JSON HANDLING ================= */
+/* ================= MATCH JSON ================= */
 function unwrapMatchFile(data) {
   if (!data || typeof data !== 'object') return [];
   if (Array.isArray(data.matches)) return data.matches;
@@ -249,9 +246,8 @@ function normalizeMatch(raw) {
   m.endTime = m.endTime || m.end_time || m.end || '';
   m.teamA = String(m.teamA || m.homeTeam || m.team1 || '').trim();
   m.teamB = String(m.teamB || m.awayTeam || m.team2 || '').trim();
-  // SVG + সব নামের লোগো ধরবে
-  m.teamALogo = m.teamALogo || m.logoA || m.teamA_logo || m.homeLogo || m.teamAFlag || m.flagA || m.teamAImage || m.teamAImg || '';
-  m.teamBLogo = m.teamBLogo || m.logoB || m.teamB_logo || m.awayLogo || m.teamBFlag || m.flagB || m.teamBImage || m.teamBImg || '';
+  m.teamALogo = m.teamALogo || m.logoA || m.teamA_logo || m.homeLogo || m.teamAFlag || m.flagA || m.teamAImage || '';
+  m.teamBLogo = m.teamBLogo || m.logoB || m.teamB_logo || m.awayLogo || m.teamBFlag || m.flagB || m.teamBImage || '';
   if (!m.teamA || !m.teamB) {
     const parts = m.name.split(/\s+(?:vs\.?|v\.?|versus)\s+/i);
     if (parts.length >= 2) { if (!m.teamA) m.teamA = parts[0].trim(); if (!m.teamB) m.teamB = parts.slice(1).join(' vs ').trim(); }
@@ -260,8 +256,6 @@ function normalizeMatch(raw) {
   if (m.enabled === false || String(m.enabled).toLowerCase() === 'off' || String(m.show).toLowerCase() === 'no') return null;
   return m;
 }
-
-/* ================= MATCH TIME ================= */
 function getMatchState(m) {
   const now = Date.now();
   const start = Date.parse(m.startTime || '');
@@ -287,8 +281,6 @@ function matchCountdown(m) {
   const mins = Math.floor(sec / 60); sec %= 60;
   return ((days ? days + 'd ' : '') + String(hours).padStart(2, '0') + ':' + String(mins).padStart(2, '0') + ':' + String(sec).padStart(2, '0'));
 }
-
-/* ================= TEAM LOGO - 2 SIDE + SVG ================= */
 function teamNode(name, logo, side){
   const wrap = document.createElement('div');
   wrap.className = 'match-team ' + (side || 'left');
@@ -317,8 +309,6 @@ function teamNode(name, logo, side){
   else { wrap.append(logoEl, label); }
   return wrap;
 }
-
-/* ================= OPEN MATCH / CHANNEL - FULLSCREEN ================= */
 function openMatch(m, idx) {
   if (!m.url) return;
   try{ localStorage.setItem('rslive_sports_match', JSON.stringify({name:m.name, streams:m.streams||[{stream_url:m.url}], savedAt:Date.now()})); }catch(e){}
@@ -329,16 +319,18 @@ function openCh(u, n, s, g, serial) {
   const params = new URLSearchParams({ url: u, name: n, src: s, group: g, serial: String(serial||1), fs: '1' });
   window.location.href = 'player.html?' + params.toString();
 }
-
-/* ================= RENDER MATCH CARDS ================= */
 function renderMatches() {
   const section = document.getElementById('matchesSection');
   const grid = document.getElementById('matchesGrid');
+  const homeEmpty = document.getElementById('homeEmpty');
   if (!section || !grid) return;
   const q = (document.getElementById('search')?.value || '').trim().toLowerCase();
   const visible = allMatches.map(normalizeMatch).filter(Boolean).filter(m => getMatchState(m) !== 'expired').filter(m => !q || m.name.toLowerCase().includes(q));
   visible.sort((a, b) => { const sa = getMatchState(a); const sb = getMatchState(b); if (sa !== sb) return sa === 'live' ? -1 : 1; return ((Date.parse(a.startTime || '') || 0) - (Date.parse(b.startTime || '') || 0)); });
-  section.style.display = visible.length ? 'block' : 'none';
+  // Home এ থাকলে ম্যাচ দেখাবে, অন্য ক্যাটাগরিতে ম্যাচ লুকাবে (সার্চ ছাড়া)
+  const showMatches = (cat === 'Home' || !!q);
+  section.style.display = (showMatches && visible.length) ? 'block' : 'none';
+  if (homeEmpty) homeEmpty.style.display = (cat === 'Home' && !q && visible.length === 0) ? 'block' : 'none';
   const count = document.getElementById('matchesCount');
   if (count) count.textContent = visible.length ? visible.length + ' ম্যাচ' : '';
   grid.replaceChildren();
@@ -367,8 +359,6 @@ function renderMatches() {
     grid.appendChild(card);
   });
 }
-
-/* ================= LOAD MATCHES ================= */
 async function loadMatches() {
   try {
     const indexResponse = await fetch(MATCH_INDEX_URL + '?t=' + Date.now(), {cache: 'no-store'});
@@ -386,11 +376,8 @@ async function loadMatches() {
     }));
     allMatches = results.flat();
     renderMatches();
-    console.log('RsLive matches loaded:', allMatches.length, 'from', files.length, 'files');
   } catch(error) { console.error('Match index load failed:', error); renderMatches(); }
 }
-
-/* ================= PLAYLIST SYSTEM ================= */
 async function getPlaylistsFromSW() {
   try {
     if ('serviceWorker' in navigator) await navigator.serviceWorker.ready;
@@ -432,24 +419,29 @@ async function loadAll() {
     const list = await loadOne(p);
     for (const ch of list) { ch.source = p.name || 'TV'; if (!all.some(y => y.url === ch.url)) all.push(ch); }
     document.getElementById('status').innerHTML = '✅ মোট <b>' + all.length + '</b> টা চ্যানেল লোড হচ্ছে...';
-    _catCache = null; renderCats(); renderGrid();
+    _catCache = null; renderCats(); renderGrid(); renderMatches();
   }
   document.getElementById('status').innerHTML = CFG.statusText.replace('{count}', '<b>' + all.length + '</b>');
-  renderCats(); renderGrid();
+  renderCats(); renderGrid(); renderMatches();
 }
-
-/* ================= CATEGORY ================= */
 function getCats() {
   if (_catCache) return _catCache;
   const sources = [...new Set(CFG.playlists.map(p => p.name).filter(Boolean))];
-  _catCache = ['All', ...sources, 'Sports', 'News', 'Entertainment', 'Movies', 'Kids', 'Music', 'Bangladesh', 'India'];
+  _catCache = ['Home', 'All', ...sources, 'Sports', 'News', 'Entertainment', 'Movies', 'Kids', 'Music', 'Bangladesh', 'India'];
   return _catCache;
 }
-function catIcon(c) { const icons = { All: '🏠', Sports: '🏆', News: '📰', Entertainment: '🎭', Movies: '🎬', Kids: '🧒', Music: '🎵', Bangladesh: '🇧🇩', India: '🇮🇳' }; return icons[c] || '📺'; }
-function catCount(c) { if (!all.length) return 0; if (c === 'All') return all.length; if (CFG.playlists.find(p => p.name === c)) return all.filter(x => x.source === c).length; return all.filter(x => matchesCat(x, c)).length; }
+function catIcon(c) { const icons = { Home: '🏠', All: '📺', Sports: '🏆', News: '📰', Entertainment: '🎭', Movies: '🎬', Kids: '🧒', Music: '🎵', Bangladesh: '🇧🇩', India: '🇮🇳' }; return icons[c] || '📺'; }
+function catCount(c) {
+  if (c === 'Home') return allMatches.length;
+  if (!all.length) return 0;
+  if (c === 'All') return all.length;
+  if (CFG.playlists.find(p => p.name === c)) return all.filter(x => x.source === c).length;
+  return all.filter(x => matchesCat(x, c)).length;
+}
 function matchesCat(c, category) {
   const name = String(c.name || '').toLowerCase(); const group = String(c.group || '').toLowerCase();
   if (category === 'All') return true;
+  if (category === 'Home') return false;
   if (CFG.playlists.find(p => p.name === category)) return c.source === category;
   if (category === 'Sports') return ['sport','cricket','football'].some(x => group.includes(x));
   if (category === 'News') return group.includes('news');
@@ -472,14 +464,25 @@ function renderCats() {
     el.addEventListener('click', () => setCat(c)); catsEl.appendChild(el);
   });
 }
-
-/* ================= RENDER CHANNELS - THIN CARD ================= */
+/* ===== HOME = ONLY MATCHES, OTHERS = CHANNELS ===== */
 function renderGrid(reset = true) {
+  const grid = document.getElementById('grid');
+  const wrap = document.getElementById('loadMoreWrap');
+  const feat = document.getElementById('featured');
+  // Home এ চ্যানেল গ্রিড লুকাও
+  if (cat === 'Home' && !(document.getElementById('search').value || '').trim()) {
+    grid.replaceChildren();
+    grid.style.display = 'none';
+    if (wrap) wrap.style.display = 'none';
+    if (feat) feat.style.display = 'none';
+    if (reset) { const sa = document.getElementById('scrollArea'); if (sa) sa.scrollTop = 0; window.scrollTo({top: 0}); }
+    return;
+  }
+  grid.style.display = 'grid';
   if (reset) visibleCount = 200;
   const q = document.getElementById('search').value.toLowerCase();
   currentFiltered = all.filter(c => { if (q && !String(c.name).toLowerCase().includes(q)) return false; return matchesCat(c, cat); });
   const show = currentFiltered.slice(0, visibleCount);
-  const grid = document.getElementById('grid');
   grid.replaceChildren();
   show.forEach((c, i) => {
     const card = document.createElement('div'); card.className = 'card';
@@ -494,25 +497,25 @@ function renderGrid(reset = true) {
     card.addEventListener('click', () => { openCh(c.url, c.name, c.source || '', c.group || '', i+1); });
     grid.appendChild(card);
   });
-  const wrap = document.getElementById('loadMoreWrap'); const btn = document.getElementById('loadMoreBtn');
+  const btn = document.getElementById('loadMoreBtn');
   if (currentFiltered.length > visibleCount) { wrap.style.display = 'block'; btn.textContent = 'আরো দেখো ↓ (' + visibleCount + '/' + currentFiltered.length + ')'; } else { wrap.style.display = 'none'; }
   if (reset) { const sa = document.getElementById('scrollArea'); if (sa) sa.scrollTop = 0; window.scrollTo({top: 0}); }
 }
 function loadMore() { visibleCount += 200; renderGrid(false); }
-function setCat(c) { if (cat === c) return; cat = c; document.querySelectorAll('#cats .cat').forEach(el => { el.classList.toggle('active', el.dataset.cat === c); }); renderGrid(true); }
-
-/* ================= SEARCH ================= */
+function setCat(c) {
+  if (cat === c) return;
+  cat = c;
+  document.getElementById('search').value = '';
+  document.querySelectorAll('#cats .cat').forEach(el => { el.classList.toggle('active', el.dataset.cat === c); });
+  renderGrid(true); renderMatches();
+}
 let _searchT = null;
 document.getElementById('search').addEventListener('input', () => { clearTimeout(_searchT); _searchT = setTimeout(() => { renderGrid(true); renderMatches(); }, 100); });
 let _rszT = null;
 window.addEventListener('resize', () => { clearTimeout(_rszT); _rszT = setTimeout(renderCats, 150); });
-
-/* ================= START ================= */
 loadAll();
 setInterval(loadMatches, 60000);
 setInterval(renderMatches, 1000);
-
-/* ================= PWA ================= */
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js').catch(e => console.warn('Service Worker:', e)); }
 let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; if (!window.matchMedia('(display-mode: standalone)').matches) { const bar = document.getElementById('installBar'); if (bar && !localStorage.getItem('rslive_install_closed')) bar.style.display = 'flex'; } });
