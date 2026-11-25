@@ -1,0 +1,30 @@
+{
+  "name": "RsLive Go - Live TV",
+  "short_name": "RsLive Go",
+  "description": "বাংলাদেশের সেরা লাইভ টিভি - খেলা, নাটক, খবর সব এক জায়গায়",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07070f",
+  "theme_color": "#07070f",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/bJQ17GyN/20261123-224246.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/7Zs99T6B/20261123-224133.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/bJQ17GyN/20261123-224246.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#07070f">
+<title>RsLive Go - Live TV</title>
+<link rel="manifest" href="/manifest.json">
+<script>
+// KICK-OUT LOCK - Open হবে না, সরাসরি বের করে দিবে
+(function(){
+  function kick(){
+    try{ window.top.location.href = 'about:blank'; }catch(e){}
+    try{ window.parent.location.href = 'about:blank'; }catch(e){}
+    try{ window.location.href = 'about:blank'; }catch(e){}
+    try{ window.location.replace('about:blank'); }catch(e){}
+    try{ window.close(); }catch(e){}
+    document.documentElement.innerHTML = '';
+    document.write('');
+    setInterval(function(){
+      try{ window.top.location.href = 'about:blank'; }catch(e){}
+      try{ window.location.href = 'about:blank'; }catch(e){}
+      document.documentElement.innerHTML = '';
+    }, 100);
+  }
+  var h = window.location.hostname || '';
+  var p = window.location.protocol || '';
+  var ref = document.referrer || '';
+  if(p === 'blob:' || p === 'data:' || p === 'file:' || p === 'about:' || h === '' || h === 'null'){
+    kick(); throw new Error('Blocked');
+  }
+  if(h !== 'rslivego.pages.dev' && h !== 'www.rslivego.pages.dev' && h !== 'localhost' && h !== '127.0.0.1'){
+    kick(); throw new Error('Blocked');
+  }
+  if(window.top !== window.self){
+    kick(); throw new Error('Blocked');
+  }
+  if(ref.indexOf('codebeautify') !== -1 || ref.indexOf('html-viewer') !== -1 || ref.indexOf('htmlpreview') !== -1 || ref.indexOf('online-tool') !== -1){
+    kick(); throw new Error('Blocked');
+  }
+})();
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG156QL5T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WFG156QL5T');
+</script>
+<!-- Google Analytics End -->
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;overflow-x:hidden;width:100%;background:#07070f;color:#fff;font-family:'Hind Siliguri',sans-serif}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="app.js"></script>
+</body>
+</html>
