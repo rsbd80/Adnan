@@ -1,35 +1,12 @@
-
 {
-  "match": {
-    "name": "Sri Lanka A Vs India A ",
-    "category": "Live Sports",
-    "logo": "⚽",
-    "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl5KYeJOdIH1BSB7dZrOHFPj0fbXtiSMozvV_IKUlshPC9_lii4FvfObVR&s=10",
-    "fallbackLogo": "⚽",
-    "tone": "gold",
-    "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
-    "section": "liveSports",
-    "streams": [
-      {
-        "name": "D SPORTS + FHD",
-        "url": "https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd",
-        "drm": {
-          "scheme": "clearkey",
-          "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
-        },
-        "show": "yes"
-      }
-    ],
-    "show": "yes",
-    "id": 2,
-    "startTime": "2026-11-26T16:00:00+06:00",
-    "endTime": "2026-11-26T20:00:00+06:00",
-    "enabled": true,
-    "status": "auto",
-    "matchType": "Cricket|Asia Cup|ODI",
-    "drm": {
-      "scheme": "clearkey",
-      "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
-    }
-  }
+  "name": "Sri Lanka A vs India A",
+  "matchType": "Cricket | Asia Cup | ODI",
+  "status": "upcoming",
+  "startTime": "2026-11-26T16:00:00+06:00",
+  "endTime": "2026-11-26T23:00:00+06:00",
+  "teamA": "Sri Lanka A",
+  "teamB": "India A",
+  "teamALogo": "https://flagcdn.com/w320/lk.png",
+  "teamBLogo": "https://flagcdn.com/w320/in.png",
+  "streams": []
 }
