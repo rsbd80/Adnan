@@ -1,33 +1,41 @@
+
 {
   "match": {
-    "name": "Pakistan A Vs India A",
-    "team1": "Pakistan A",
-    "team2": "India A",
-    "team1Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/120px-FC_Barcelona_%28crest%29.svg.png",
-    "team2Logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Villarreal_CF_logo.svg/120px-Villarreal_CF_logo.svg.png",
-    "channel": "CH-13",
-    "matchType": "CRICKET | ASIA CUP",
-    "startTime": "2026-11-22T20:00:00+06:00",
-    "endTime": "2026-11-23T00:00:00+06:00",
-    "enabled": true,
+    "id": 2,
+    "name": "Watford Vs Blackburn Rovers",
+    "category": "Live Sports",
+    "matchType": "Championship|2026",
+
+    "logo": "⚽",
+    "logoUrl": "",
+    "fallbackLogo": "⚽",
+    "tone": "gold",
+
+    "section": "liveSports",
     "show": "yes",
-    "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/wnogcwzjio/out/v1/0b50a750ac204322913af280029aa602/cenc.mpd",
+    "enabled": true,
+    "status": "auto",
+
+    "startTime": "2026-11-26T01:45:00+06:00",
+    "endTime": "2026-11-26T03:45:00+06:00",
+
+    "url": "",
+
     "streams": [
       {
-        "name": "Server 1",
-        "url": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/wnogcwzjio/out/v1/0b50a750ac204322913af280029aa602/cenc.mpd",
-        "show": "yes"
-      },
-      {
-        "name": "Server 2",
-        "url": "https://d1ifzl5cnhi7bu.cloudfront.net/out/v1/45ba30e075ad455a8767d3f33e67ea3d/index.mpd",
-        "show": "yes"
-      },
-      {
-        "name": "Server 3",
-        "url": "https://abfjk4haaaaaaaamkitc5445rybm6.bia-cf.live.pv-cdn.net/iad-nitro/live/clients/dash/enc/wnogcwzjio/out/v1/0b50a750ac204322913af280029aa602/cenc.mpd",
-        "show": "yes"
+        "name": "D SPORTS + FHD",
+        "url": "",
+        "show": "yes",
+        "drm": {
+          "scheme": "clearkey",
+          "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
+        }
       }
-    ]
+    ],
+
+    "drm": {
+      "scheme": "clearkey",
+      "license": "f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3"
+    }
   }
 }
