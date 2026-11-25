@@ -1,0 +1,27 @@
+RsLive Go — GitHub Match Cards Update
+
+এই প্যাকেজে যা আছে:
+1) app.js — বর্তমান চ্যানেল ডিজাইন ও লোডিং রেখে Live/Upcoming ম্যাচ কার্ড যোগ করা হয়েছে।
+2) scripts/update-matches.py — data/matches ফোল্ডারের সব ম্যাচ JSON পড়ে index.json তৈরি করে এবং Sports M3U-তে ম্যাচের সার্ভার মিললে stream list আপডেট করে।
+3) .github/workflows/auto-update-match-1.yml — আগের workflow-এর জায়গায় বসাতে হবে; প্রতি ৫ মিনিটে সব ম্যাচ আপডেট করবে এবং হাতে Run workflow করা যাবে।
+4) data/matches/README.md — নতুন ম্যাচ JSON কীভাবে যোগ করতে হবে তার নমুনা।
+
+GitHub-এ বসানোর নিয়ম:
+
+A. রিপোজিটরির Root-এ থাকা app.js ফাইলটি এই প্যাকেজের app.js দিয়ে সম্পূর্ণ Replace করো।
+B. scripts ফোল্ডারে update-matches.py আপলোড করো।
+C. .github/workflows/auto-update-match-1.yml ফাইলটি এই প্যাকেজের একই path-এর ফাইল দিয়ে Replace করো।
+D. data/matches/README.md যোগ করো। তোমার আগের match-1.json, New.json, match-2.json ইত্যাদি ফাইল ডিলিট বা Replace করবে না।
+E. GitHub-এ Commit করো। Actions ট্যাবে গিয়ে “Auto Update All Match Cards” workflow একবার Run workflow করো।
+F. Workflow সফল হলে data/matches/index.json নিজে তৈরি হবে। এটি নিজে হাতে বানানোর দরকার নেই।
+
+নতুন ম্যাচ যোগ করতে:
+- data/matches ফোল্ডারে match-2.json, match-3.json, match-4.json ইত্যাদি নতুন ফাইল যোগ করো।
+- JSON-এর ভেতরে match অবজেক্টে name, startTime, endTime, enabled, url/streams রাখো।
+- সময় বাংলাদেশ সময় অনুযায়ী +06:00 দিয়ে লিখবে।
+- নতুন ফাইল Commit হলেই workflow চলবে; এছাড়া প্রতি ৫ মিনিটেও চলবে।
+
+গুরুত্বপূর্ণ:
+- index.html, sw.js, manifest.json এবং player.html এই প্যাকেজে পরিবর্তন করা হয়নি।
+- LIVE/UPCOMING/কাউন্টডাউন/শেষ হলে লুকানো—এগুলো ওয়েবসাইটের সময় অনুযায়ী হিসাব হবে।
+- Watch Live বাটন বর্তমান player.html-এ ম্যাচের URL পাঠায়। player.html-এ যে format/DRM সমর্থিত নয়, সেই stream আলাদা player update ছাড়া চলবে না।
