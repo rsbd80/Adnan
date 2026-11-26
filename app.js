@@ -1,9 +1,10 @@
 /* =====================================================
-   RsLive Go - FINAL v23 - CLEAN
+   RsLive Go - FINAL v23 - CLEAN + SLIM MATCH CARD
    Top Left: Sport Icon + Name (Cricket/Football)
    UPCOMING: Center Above VS
    Countdown: Small + Light
    Category: 3 Per Row, Box Card
+   Match Card: Slim / Chikon
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -33,42 +34,42 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .desktop-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 #mainCol{flex:1;min-height:0;display:flex;flex-direction:column;overflow-x:hidden}
 #scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:82px}
-#matchesSection{display:none;padding:12px 12px 4px}
-.matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.matches-head strong{font-family:Poppins,sans-serif;font-size:13px}
-.matches-head span{font-size:10px;color:#8e91a8}
-#matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
-.match-card{background:linear-gradient(115deg,#171a29,#10121d 58%,#171321);border:1px solid #ffffff19;border-radius:14px;padding:10px 12px;box-shadow:0 5px 14px #0005;cursor:pointer}
+#matchesSection{display:none;padding:8px 10px 2px}
+.matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}
+.matches-head strong{font-family:Poppins,sans-serif;font-size:12px}
+.matches-head span{font-size:9px;color:#8e91a8}
+#matchesGrid{display:grid;grid-template-columns:1fr;gap:6px}
+.match-card{background:linear-gradient(115deg,#171a29,#10121d 58%,#171321);border:1px solid #ffffff19;border-radius:12px;padding:8px 10px;box-shadow:0 4px 10px #0005;cursor:pointer}
 .match-card.live{border-left:3px solid #ff3d5a}
 .match-card.upcoming{border-left:3px solid #f3a43b}
 .match-card:active{transform:scale(.98)}
-.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-.sport-badge{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#fff}
-.sport-badge .sport-ico{font-size:13px;line-height:1}
-.match-badge{border-radius:20px;padding:3px 8px;font-size:9px;font-weight:900}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.sport-badge{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800;color:#fff}
+.sport-badge .sport-ico{font-size:11px;line-height:1}
+.match-badge{border-radius:20px;padding:2px 7px;font-size:8px;font-weight:900}
 .match-badge.live{background:#ff304e25;color:#ff6176;border:1px solid #ff304e44}
 .match-badge.upcoming{background:#f5a43b22;color:#ffc36b;border:1px solid #f5a43b44}
-.match-type{font-size:9px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
-.match-status-center{text-align:center;margin:2px 0 8px}
+.match-type{font-size:8px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
+.match-status-center{text-align:center;margin:1px 0 5px}
 .match-status-center .match-badge{display:inline-block}
-.match-teams{display:grid;grid-template-columns:1fr 62px 1fr;align-items:center;gap:6px}
-.match-team{min-width:0;display:flex;align-items:center;gap:8px}
+.match-teams{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;gap:4px}
+.match-team{min-width:0;display:flex;align-items:center;gap:6px}
 .match-team.left{justify-content:flex-start;text-align:left;flex-direction:row}
 .match-team.right{justify-content:flex-end;text-align:right;flex-direction:row-reverse}
-.match-team img,.team-fallback{width:42px;height:42px;min-width:42px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex-shrink:0}
-.team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:15px;border:1px solid #41445a}
-.match-team b{font-size:12px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.match-team img.svg-logo{background:#fff !important;padding:5px !important}
-.card img[src$=".svg"]{background:#fff !important;padding:4px !important}
+.match-team img,.team-fallback{width:32px;height:32px;min-width:32px;object-fit:contain;border-radius:50%;background:#fff;padding:3px;flex-shrink:0}
+.team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:12px;border:1px solid #41445a}
+.match-team b{font-size:11px;line-height:1.2;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.match-team img.svg-logo{background:#fff !important;padding:4px !important}
+.card img[src$=".svg"]{background:#fff !important;padding:3px !important}
 .match-vs{text-align:center}
-.match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:13px;font-weight:900;color:#9ea4ba;display:block}
-.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #ffffff14}
-.match-time{font-size:10px;color:#aeb2c5;line-height:1.5;text-align:left}
-.match-action{border:0;border-radius:20px;padding:7px 12px;font-family:inherit;font-size:10px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
+.match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:11px;font-weight:900;color:#9ea4ba;display:block}
+.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding-top:6px;border-top:1px solid #ffffff14}
+.match-time{font-size:9px;color:#aeb2c5;line-height:1.4;text-align:left}
+.match-action{border:0;border-radius:20px;padding:6px 10px;font-family:inherit;font-size:9px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
-.match-countdown{display:block;color:#c9a86a;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.4;white-space:nowrap;opacity:.85}
-.match-countdown small{display:block;font-size:8px;font-weight:600;color:#8e91a8;letter-spacing:1px;opacity:.8}
+.match-countdown{display:block;color:#c9a86a;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.3;white-space:nowrap;opacity:.85}
+.match-countdown small{display:block;font-size:7px;font-weight:600;color:#8e91a8;letter-spacing:1px;opacity:.8}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -77,7 +78,6 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* ===== CATEGORY - 3 PER ROW, BOX CARD ===== */
 .cat-box{flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:12px 6px 10px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:14px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:105px !important;width:100% !important;overflow:hidden !important;text-align:center !important}
 .cat-box:active{transform:scale(.96);border-color:#a78bfa}
 .cat-wrap{position:relative;width:46px;height:46px;flex-shrink:0}
@@ -218,8 +218,6 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 /* ================= CONFIG - v23 ================= */
 const CONFIG_VERSION = 'nova-v23-clean';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
-
-/* CATEGORY LOGO - EKHANE CHANGE KORO */
 const DEFAULT_CAT_LOGO = 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
 const CATEGORY_IMAGES = {
   Tapmad: '',
@@ -235,14 +233,11 @@ const CATEGORY_IMAGES = {
   Kids: '',
   Music: '',
 };
-
-/* Proxy - Developer Only */
 const PROXY_BASE_FALLBACK = 'https://api.allorigins.win/raw?url=';
 function isProxyOn(catName){
   const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
   return !!(pl?.useProxy);
 }
-
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
 const CFG={...DEFAULT,...(saved||{})};
@@ -371,7 +366,6 @@ function renderMatches(){
     const state=getMatchState(m);
     const card=document.createElement('article');card.className='match-card '+state;
     card.addEventListener('click',()=>{if(state==='live'&&m.url) openMatch(m,idx);});
-    // TOP: Left = Sport Icon + Name, Right = Tournament only
     const top=document.createElement('div');top.className='match-top';
     const sport=getSportInfo(m);
     const sportEl=document.createElement('span');sportEl.className='sport-badge';
@@ -381,7 +375,6 @@ function renderMatches(){
     typeTxt = typeTxt.replace(/cricket\s*\|\s*/i,'').replace(/football\s*\|\s*/i,'').replace(/soccer\s*\|\s*/i,'');
     type.textContent=typeTxt;
     top.append(sportEl,type);
-    // CENTER: UPCOMING / LIVE above VS
     const statusCenter=document.createElement('div');statusCenter.className='match-status-center';
     const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'LIVE':'UPCOMING';
     statusCenter.appendChild(badge);
