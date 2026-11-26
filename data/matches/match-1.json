@@ -1,13 +1,14 @@
+
 {
   "name": "Sri Lanka A vs India A",
   "matchType": "Cricket | Asia Cup | ODI",
-  "status": "upcoming",
+  "status": "live",
   "startTime": "2026-11-26T16:00:00+06:00",
   "endTime": "2026-11-26T23:00:00+06:00",
   "teamA": "Sri Lanka A",
   "teamB": "India A",
-  "teamALogo": "https://flagcdn.com/sl.svg",
-  "teamBLogo": "https://flagcdn.com/in.svg",
+  "teamALogo": "https://flagcdn.com/w320/lk.png",
+  "teamBLogo": "https://flagcdn.com/w320/in.png",
   "streams": [
     {
       "label": "Server 1",
