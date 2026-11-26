@@ -1,20 +1,20 @@
 /* =====================================================
-   RsLive Go - FINAL v14
-   Slim Bottom Nav, Premium Dark Header + Glass Search
+   RsLive Go - FINAL v15
+   Header: Pure Black Background
+   Slim Bottom Nav, Premium Dark + Glass Search
    No Footer, No Bengali - All English
-   Header: Home=Search Only, Events/Category=LIVE Only
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
 <style>
 *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none}
-html,body{height:100%;width:100%;background:#07070f;color:#fff;font-family:Poppins,'Hind Siliguri',sans-serif;overflow-x:hidden}
+html,body{height:100%;width:100%;background:#000;color:#fff;font-family:Poppins,'Hind Siliguri',sans-serif;overflow-x:hidden}
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* ===== HEADER - PREMIUM DARK ===== */
-header{background:linear-gradient(180deg,#12121f 0%,#0a0a14 100%);backdrop-filter:blur(20px);padding:14px 14px 13px;border-bottom:1px solid #ffffff0d;position:relative;overflow:hidden}
-header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 80px at 20% 0%,rgba(139,124,255,.28),transparent 70%),radial-gradient(220px 80px at 85% 0%,rgba(34,211,238,.18),transparent 70%);pointer-events:none}
+/* ===== HEADER - PURE BLACK ===== */
+header{background:#000;border-bottom:1px solid #ffffff14;backdrop-filter:blur(20px);padding:14px 14px 13px;position:relative;overflow:hidden}
+header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 70px at 20% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(220px 70px at 85% 0%,rgba(34,211,238,.14),transparent 70%);pointer-events:none}
 .header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
 .play-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#8b7cff,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;box-shadow:0 4px 14px rgba(139,124,255,.35)}
@@ -24,11 +24,11 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .live-pill{display:none;align-items:center;gap:5px;background:rgba(255,45,85,.12);border:1px solid rgba(255,45,85,.3);color:#ff6b81;font-size:9px;font-weight:800;padding:6px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
 .live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;animation:pulse 1.4s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 7px #ff2d5500}}
-/* Searchbar - Glass Premium */
+/* Searchbar - Glass Premium on Black */
 #searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
 #searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7;z-index:1}
-#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
-#search:focus{background:rgba(255,255,255,.09);border-color:rgba(139,124,255,.55);box-shadow:0 0 0 3px rgba(139,124,255,.15)}
+#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);backdrop-filter:blur(10px);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
+#search:focus{background:rgba(255,255,255,.10);border-color:rgba(139,124,255,.60);box-shadow:0 0 0 3px rgba(139,124,255,.18)}
 #search::placeholder{color:#8e91a8}
 #pageTitle{display:none !important}
 #cats{display:none !important}
@@ -93,7 +93,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
 #featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
 /* ===== BOTTOM NAV - SLIM PREMIUM ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(12,12,22,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
 .bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px 5px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:46px}
 .bnav .b-ico{line-height:1;display:flex}
 .bnav .b-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -213,8 +213,8 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - ALL ENGLISH ================= */
-const CONFIG_VERSION = 'nova-v14-slim-premium';
+/* ================= CONFIG - v15 ================= */
+const CONFIG_VERSION = 'nova-v15-black-header';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
