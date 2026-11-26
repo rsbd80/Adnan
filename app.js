@@ -1,4 +1,7 @@
-/* RsLive Go - FINAL v23.3 - Top Lively + Countdown Light */
+/* =====================================================
+   RsLive Go - FINAL v23.2 - Gap Fixed
+   ===================================================== */
+
 document.getElementById('app').innerHTML = `
 <style>
 *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none}
@@ -32,17 +35,17 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .matches-head span{font-size:9px;color:#8e91a8}
 #matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
 .match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff22;border-radius:14px;padding:7px 11px 9px;box-shadow:0 6px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative;overflow:hidden}
-.match-card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,238,.5),rgba(167,139,250,.5),transparent)}
+.match-card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}
 .match-card.live{border-left:3px solid #ff3d5a;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 18px rgba(255,61,90,.12)}
 .match-card.upcoming{border-left:3px solid #f3a43b;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 14px rgba(243,164,59,.08)}
 .match-card:active{transform:scale(.98)}
 .match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:1px}
-.sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:linear-gradient(90deg,rgba(34,211,238,.22),rgba(139,124,255,.22));padding:3px 9px 3px 7px;border-radius:99px;border:1px solid rgba(34,211,238,.35);box-shadow:0 2px 10px rgba(34,211,238,.18)}
-.sport-badge .sport-ico{font-size:12px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))}
+.sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.06);padding:3px 8px 3px 6px;border-radius:99px;border:1px solid rgba(255,255,255,.08)}
+.sport-badge .sport-ico{font-size:12px;line-height:1}
 .match-badge{border-radius:20px;padding:3px 9px;font-size:8.5px;font-weight:900;letter-spacing:.5px}
-.match-badge.live{background:linear-gradient(90deg,rgba(255,48,78,.35),rgba(255,93,143,.25));color:#ff8fa0;border:1px solid #ff304e55;box-shadow:0 2px 8px rgba(255,48,78,.25)}
-.match-badge.upcoming{background:linear-gradient(90deg,rgba(245,164,59,.28),rgba(255,200,100,.18));color:#ffd98a;border:1px solid #f5a43b55;box-shadow:0 2px 8px rgba(245,164,59,.2)}
-.match-type{font-size:9px;color:#c7cadb;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.match-badge.live{background:#ff304e25;color:#ff6176;border:1px solid #ff304e44}
+.match-badge.upcoming{background:#f5a43b22;color:#ffc36b;border:1px solid #f5a43b44}
+.match-type{font-size:9px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
 .match-status-center{text-align:center;margin:0 0 4px}
 .match-status-center .match-badge{display:inline-block;box-shadow:0 3px 10px rgba(0,0,0,.4)}
 .match-teams{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;gap:6px}
@@ -57,12 +60,12 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-vs{text-align:center}
 .match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:11px;font-weight:900;color:#fff;display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 8px;border-radius:99px}
 .match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding-top:7px;border-top:1px solid #ffffff14}
-.match-time{font-size:9.5px;color:#c9cce0;line-height:1.4;text-align:left}
+.match-time{font-size:9.5px;color:#aeb2c5;line-height:1.4;text-align:left}
 .match-action{border:0;border-radius:20px;padding:6px 11px;font-family:inherit;font-size:9px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
-.match-countdown{display:block;color:#fff2cc;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.3;white-space:nowrap;text-shadow:0 1px 6px rgba(255,220,140,.35)}
-.match-countdown small{display:block;font-size:7.5px;font-weight:700;color:#b8bccf;letter-spacing:1.5px}
+.match-countdown{display:block;color:#ffc36b;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;line-height:1.3;white-space:nowrap}
+.match-countdown small{display:block;font-size:7.5px;font-weight:700;color:#8e91a8;letter-spacing:1.5px}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -106,61 +109,499 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #installBar .ib-txt span{font-size:10px;color:#b8b8d0}
 #installBar button{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#fff;border:0;padding:7px 11px;border-radius:100px;font-weight:800;font-size:11px}
 #closeInstall{cursor:pointer;padding:5px}
-@media(max-width:480px){.logo-text .name{font-size:19px}.logo-text .tag{font-size:7.5px;letter-spacing:3px}#searchWrap{max-width:148px}#search{padding:9px 10px 9px 30px;font-size:12px}.header-top{gap:8px}}
-@media(min-width:900px){body{display:block;overflow-y:auto}#app{display:block}.sticky{position:sticky;top:0}header{max-width:1440px;margin:auto;padding:18px 24px}.logo-text .name{font-size:26px}#searchWrap{max-width:300px;margin-left:auto}.desktop-wrap{flex-direction:row;max-width:1440px;margin:auto;gap:18px;padding:16px 24px 40px}#mainCol{order:1}#scrollArea{overflow:visible}#grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:14px 0}.card{min-height:62px;padding:10px 12px}.card img{width:44px;height:44px;min-width:44px}.card p{font-size:13px}#matchesSection{padding:8px 0 4px}#matchesGrid{grid-template-columns:repeat(2,1fr)}.match-card{padding:12px 14px}.match-team img,.team-fallback{width:48px;height:48px;min-width:48px}.match-team b{font-size:13px}#bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}}
+@media(max-width:480px){
+.logo-text .name{font-size:19px}
+.logo-text .tag{font-size:7.5px;letter-spacing:3px}
+#searchWrap{max-width:148px}
+#search{padding:9px 10px 9px 30px;font-size:12px}
+.header-top{gap:8px}
+}
+@media(min-width:900px){
+body{display:block;overflow-y:auto}
+#app{display:block}
+.sticky{position:sticky;top:0}
+header{max-width:1440px;margin:auto;padding:18px 24px}
+.logo-text .name{font-size:26px}
+#searchWrap{max-width:300px;margin-left:auto}
+.desktop-wrap{flex-direction:row;max-width:1440px;margin:auto;gap:18px;padding:16px 24px 40px}
+#mainCol{order:1}
+#scrollArea{overflow:visible}
+#grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:14px 0}
+.card{min-height:62px;padding:10px 12px}
+.card img{width:44px;height:44px;min-width:44px}
+.card p{font-size:13px}
+#matchesSection{padding:8px 0 4px}
+#matchesGrid{grid-template-columns:repeat(2,1fr)}
+.match-card{padding:12px 14px}
+.match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
+.match-team b{font-size:13px}
+#bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
+}
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 </style>
+
 <div id="noticeBar"></div>
-<div class="sticky"><header><div class="header-top"><div class="logo" onclick="switchTab('events')"><div class="play-ico"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></div><div class="logo-text"><div class="name">RsLive <i>Go</i></div><div class="tag" id="taglineEl">LIVE TV • BANGLADESH</div></div></div><div id="searchWrap"><span class="s-ico">🔍</span><input id="search" placeholder="Search..." autocomplete="off"></div></div></header></div>
-<div class="desktop-wrap"><div id="cats"></div><div id="mainCol"><div id="scrollArea"><section id="matchesSection"><div class="matches-head"><strong>LIVE & UPCOMING MATCHES</strong><span id="matchesCount"></span></div><div id="matchesGrid"></div></section><div id="homeEmpty"><b>No Live / Upcoming Match Right Now</b><span>Tap Home to see all channels</span><br><button onclick="switchTab('home')">View All Channels →</button></div><div id="featured"><div style="font-size:11px;color:#ff5d8f;font-weight:800">FEATURED LIVE</div><b id="featName"></b><br><span style="font-size:11px;color:#22d3ee">Watch Now →</span></div><div id="grid"></div><div id="loadMoreWrap"><button id="loadMoreBtn" onclick="loadMore()">Load More ↓</button></div></div></div></div>
-<a class="tele" id="teleBtn" href="https://t.me/RsLiveGo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.04 15.31l-.38 5.32c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L24 3.6c.1-.9-.32-1.38-1.1-1.12L1.5 10.2c-.9.35-.88 1.45.14 1.72l5.48 1.71 12.66-8.04c.6-.36 1.14-.17.7.23L9.04 15.31z"/></svg></a>
-<div id="installBar"><div class="ib-txt"><b>Get RsLive Go App</b><span>Save to phone in 1 click</span></div><button id="installBtn">Install</button><span id="closeInstall">✕</span></div>
-<nav id="bottomNav"><button class="bnav active" id="navEvents" onclick="switchTab('events')"><span class="b-ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0V4z"/><path d="M8 6H5a3 3 0 003 5M16 6h3a3 3 0 01-3 5"/><path d="M12 13v4M8 20h8M10 17h4"/></svg></span><span class="b-txt">Events</span></button><button class="bnav" id="navHome" onclick="switchTab('home')"><span class="b-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><span class="b-txt">Home</span></button><button class="bnav" id="navCategory" onclick="switchTab('category')"><span class="b-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="b-txt">Categories</span></button></nav>
+<div class="sticky">
+<header>
+<div class="header-top">
+<div class="logo" onclick="switchTab('events')">
+<div class="play-ico"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></div>
+<div class="logo-text">
+<div class="name">RsLive <i>Go</i></div>
+<div class="tag" id="taglineEl">LIVE TV • BANGLADESH</div>
+</div>
+</div>
+<div id="searchWrap">
+<span class="s-ico">🔍</span>
+<input id="search" placeholder="Search..." autocomplete="off">
+</div>
+</div>
+</header>
+</div>
+
+<div class="desktop-wrap">
+<div id="cats"></div>
+<div id="mainCol">
+<div id="scrollArea">
+<section id="matchesSection">
+<div class="matches-head">
+<strong>LIVE & UPCOMING MATCHES</strong>
+<span id="matchesCount"></span>
+</div>
+<div id="matchesGrid"></div>
+</section>
+<div id="homeEmpty">
+<b>No Live / Upcoming Match Right Now</b>
+<span>Tap Home to see all channels</span><br>
+<button onclick="switchTab('home')">View All Channels →</button>
+</div>
+<div id="featured">
+<div style="font-size:11px;color:#ff5d8f;font-weight:800">FEATURED LIVE</div>
+<b id="featName"></b><br>
+<span style="font-size:11px;color:#22d3ee">Watch Now →</span>
+</div>
+<div id="grid"></div>
+<div id="loadMoreWrap">
+<button id="loadMoreBtn" onclick="loadMore()">Load More ↓</button>
+</div>
+</div>
+</div>
+</div>
+
+<a class="tele" id="teleBtn" href="https://t.me/RsLiveGo" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24"><path d="M9.04 15.31l-.38 5.32c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L24 3.6c.1-.9-.32-1.38-1.1-1.12L1.5 10.2c-.9.35-.88 1.45.14 1.72l5.48 1.71 12.66-8.04c.6-.36 1.14-.17.7.23L9.04 15.31z"/></svg>
+</a>
+
+<div id="installBar">
+<div class="ib-txt"><b>Get RsLive Go App</b><span>Save to phone in 1 click</span></div>
+<button id="installBtn">Install</button>
+<span id="closeInstall">✕</span>
+</div>
+
+<nav id="bottomNav">
+<button class="bnav active" id="navEvents" onclick="switchTab('events')">
+<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0V4z"/><path d="M8 6H5a3 3 0 003 5M16 6h3a3 3 0 01-3 5"/><path d="M12 13v4M8 20h8M10 17h4"/></svg></span><span class="b-txt">Events</span>
+</button>
+<button class="bnav" id="navHome" onclick="switchTab('home')">
+<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><span class="b-txt">Home</span>
+</button>
+<button class="bnav" id="navCategory" onclick="switchTab('category')">
+<span class="b-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="b-txt">Categories</span>
+</button>
+</nav>
 `;
-const CONFIG_VERSION='nova-v23-clean';
-const DEFAULT={siteName:'RsLive Go',tagline:'LIVE TV • BANGLADESH',telegram:'https://t.me/RsLiveGo',searchPh:'Search...',statusText:'Total {count} Channels - RsLive Go',showLive:false,showTele:true,proxyUrl:'',notice:'',showNotice:false,featName:'',featUrl:'',showFeat:false,playlists:[]};
-const DEFAULT_CAT_LOGO='https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
-const CATEGORY_IMAGES={Tapmad:'',Sports:'',Toffee:'',AynaOTT:'',JagoBD:'',Bangladesh:'https://flagcdn.com/w320/bd.png',India:'https://flagcdn.com/w320/in.png',News:'',Entertainment:'',Movies:'',Kids:'',Music:''};
-const PROXY_BASE_FALLBACK='https://api.allorigins.win/raw?url=';
-function isProxyOn(catName){const pl=CFG.playlists.find(p=>normName(p.name)===normName(catName));return !!(pl?.useProxy);}
-let saved=null;try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
-if(!saved||!Array.isArray(saved.playlists))saved=null;
+
+/* ================= CONFIG - v23 ================= */
+const CONFIG_VERSION = 'nova-v23-clean';
+const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+const DEFAULT_CAT_LOGO = 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
+const CATEGORY_IMAGES = {
+  Tapmad: '',
+  Sports: '',
+  Toffee: '',
+  AynaOTT: '',
+  JagoBD: '',
+  Bangladesh: 'https://flagcdn.com/w320/bd.png',
+  India: 'https://flagcdn.com/w320/in.png',
+  News: '',
+  Entertainment: '',
+  Movies: '',
+  Kids: '',
+  Music: '',
+};
+const PROXY_BASE_FALLBACK = 'https://api.allorigins.win/raw?url=';
+function isProxyOn(catName){
+  const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
+  return !!(pl?.useProxy);
+}
+let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
+if(!saved||!Array.isArray(saved.playlists)) saved=null;
 const CFG={...DEFAULT,...(saved||{})};
-try{document.getElementById('taglineEl').textContent=CFG.tagline;document.getElementById('search').placeholder=CFG.searchPh;document.getElementById('teleBtn').href=CFG.telegram;if(!CFG.showTele)document.getElementById('teleBtn').style.display='none';if(CFG.showNotice&&CFG.notice){const n=document.getElementById('noticeBar');n.textContent=CFG.notice;n.style.display='block';}if(CFG.showFeat&&CFG.featName){document.getElementById('featured').style.display='block';document.getElementById('featName').textContent=CFG.featName;window._f=CFG.featUrl;}}catch(e){}
-let all=[];let cat='All';let currentTab='events';let _catCache=null;let visibleCount=200;let currentFiltered=[];let allMatches=[];let categoryHomeMode=false;
+try{
+  document.getElementById('taglineEl').textContent=CFG.tagline;
+  document.getElementById('search').placeholder=CFG.searchPh;
+  document.getElementById('teleBtn').href=CFG.telegram;
+  if(!CFG.showTele) document.getElementById('teleBtn').style.display='none';
+  if(CFG.showNotice&&CFG.notice){const n=document.getElementById('noticeBar');n.textContent=CFG.notice;n.style.display='block';}
+  if(CFG.showFeat&&CFG.featName){document.getElementById('featured').style.display='block';document.getElementById('featName').textContent=CFG.featName;window._f=CFG.featUrl;}
+}catch(e){}
+
+/* ================= GLOBAL ================= */
+let all=[];
+let cat='All';
+let currentTab='events';
+let _catCache=null;
+let visibleCount=200;
+let currentFiltered=[];
+let allMatches=[];
+let categoryHomeMode=false;
 const MATCH_INDEX_URL='/data/matches/index.json';
-function goHome(){switchTab('events');}
-function getSearchQ(){return (document.getElementById('search')?.value||'').trim().toLowerCase();}
-function switchTab(tab){currentTab=tab;categoryHomeMode=(tab==='category');document.getElementById('search').value='';document.querySelectorAll('.bnav').forEach(b=>b.classList.remove('active'));const btn=tab==='events'?document.getElementById('navEvents'):tab==='home'?document.getElementById('navHome'):document.getElementById('navCategory');if(btn)btn.classList.add('active');if(tab==='home')cat='All';renderGrid(true);renderMatches();const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
-function unwrapMatchFile(data){if(!data||typeof data!=='object')return[];if(Array.isArray(data.matches))return data.matches;if(data.match)return Array.isArray(data.match)?data.match:[data.match];if(Array.isArray(data.liveSports))return data.liveSports;if(data.name||data.event_name||data.title)return[data];return[];}
-function normalizeMatch(raw){if(!raw||typeof raw!=='object')return null;const m={...raw};m.name=String(m.name||m.event_name||m.title||'').trim();const streams=Array.isArray(m.streams)?m.streams:[];const first=streams.find(x=>x&&(x.url||x.stream_url||x.src));m.url=String(m.url||(first&&(first.url||first.stream_url||first.src))||'').trim();m.startTime=m.startTime||m.start_time||m.start||'';m.endTime=m.endTime||m.end_time||m.end||'';m.teamA=String(m.teamA||m.homeTeam||m.team1||'').trim();m.teamB=String(m.teamB||m.awayTeam||m.team2||'').trim();m.teamALogo=m.teamALogo||m.logoA||m.teamA_logo||m.homeLogo||m.teamAFlag||m.flagA||m.teamAImage||'';m.teamBLogo=m.teamBLogo||m.logoB||m.teamB_logo||m.awayLogo||m.teamBFlag||m.flagB||m.teamBImage||'';if(!m.teamA||!m.teamB){const parts=m.name.split(/\s+(?:vs\.?|v\.?|versus)\s+/i);if(parts.length>=2){if(!m.teamA)m.teamA=parts[0].trim();if(!m.teamB)m.teamB=parts.slice(1).join(' vs ').trim();}}if(!m.name)return null;if(m.enabled===false||String(m.enabled).toLowerCase()==='off'||String(m.show).toLowerCase()==='no')return null;return m;}
-function getMatchState(m){const now=Date.now();const start=Date.parse(m.startTime||'');const end=Date.parse(m.endTime||'');if(Number.isFinite(end)&&end>0&&now>=end)return 'expired';const manual=String(m.status||'').toLowerCase();if(manual==='ended'||manual==='finished'||manual==='expired')return 'expired';if(Number.isFinite(start)&&start>0&&now<start)return 'upcoming';if(manual==='upcoming'&&!(Number.isFinite(start)&&start>0))return 'upcoming';return 'live';}
-function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime()))return 'Time Not Set';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
+function goHome(){ switchTab('events'); }
+function getSearchQ(){ return (document.getElementById('search')?.value||'').trim().toLowerCase(); }
+function switchTab(tab){
+  currentTab=tab;
+  categoryHomeMode = (tab==='category');
+  document.getElementById('search').value='';
+  document.querySelectorAll('.bnav').forEach(b=>b.classList.remove('active'));
+  const btn = tab==='events' ? document.getElementById('navEvents') : tab==='home' ? document.getElementById('navHome') : document.getElementById('navCategory');
+  if(btn) btn.classList.add('active');
+  if(tab==='home') cat='All';
+  renderGrid(true); renderMatches();
+  const sa=document.getElementById('scrollArea'); if(sa) sa.scrollTop=0; window.scrollTo({top:0});
+}
+function unwrapMatchFile(data){
+  if(!data||typeof data!=='object') return [];
+  if(Array.isArray(data.matches)) return data.matches;
+  if(data.match) return Array.isArray(data.match)?data.match:[data.match];
+  if(Array.isArray(data.liveSports)) return data.liveSports;
+  if(data.name||data.event_name||data.title) return [data];
+  return [];
+}
+function normalizeMatch(raw){
+  if(!raw||typeof raw!=='object') return null;
+  const m={...raw};
+  m.name=String(m.name||m.event_name||m.title||'').trim();
+  const streams=Array.isArray(m.streams)?m.streams:[];
+  const first=streams.find(x=>x&&(x.url||x.stream_url||x.src));
+  m.url=String(m.url||(first&&(first.url||first.stream_url||first.src))||'').trim();
+  m.startTime=m.startTime||m.start_time||m.start||'';
+  m.endTime=m.endTime||m.end_time||m.end||'';
+  m.teamA=String(m.teamA||m.homeTeam||m.team1||'').trim();
+  m.teamB=String(m.teamB||m.awayTeam||m.team2||'').trim();
+  m.teamALogo=m.teamALogo||m.logoA||m.teamA_logo||m.homeLogo||m.teamAFlag||m.flagA||m.teamAImage||'';
+  m.teamBLogo=m.teamBLogo||m.logoB||m.teamB_logo||m.awayLogo||m.teamBFlag||m.flagB||m.teamBImage||'';
+  if(!m.teamA||!m.teamB){
+    const parts=m.name.split(/\s+(?:vs\.?|v\.?|versus)\s+/i);
+    if(parts.length>=2){if(!m.teamA)m.teamA=parts[0].trim();if(!m.teamB)m.teamB=parts.slice(1).join(' vs ').trim();}
+  }
+  if(!m.name) return null;
+  if(m.enabled===false||String(m.enabled).toLowerCase()==='off'||String(m.show).toLowerCase()==='no') return null;
+  return m;
+}
+function getMatchState(m){
+  const now=Date.now();
+  const start=Date.parse(m.startTime||'');
+  const end=Date.parse(m.endTime||'');
+  if(Number.isFinite(end)&&end>0&&now>=end) return 'expired';
+  const manual=String(m.status||'').toLowerCase();
+  if(manual==='ended'||manual==='finished'||manual==='expired') return 'expired';
+  if(Number.isFinite(start)&&start>0&&now<start) return 'upcoming';
+  if(manual==='upcoming'&&!(Number.isFinite(start)&&start>0)) return 'upcoming';
+  return 'live';
+}
+function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime())) return 'Time Not Set';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
 function matchCountdown(m){const t=Date.parse(m.startTime||'');if(!Number.isFinite(t))return'';let sec=Math.max(0,Math.floor((t-Date.now())/1000));const days=Math.floor(sec/86400);sec%=86400;const hours=Math.floor(sec/3600);sec%=3600;const mins=Math.floor(sec/60);sec%=60;return ((days?days+'d ':'')+String(hours).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(sec).padStart(2,'0'));}
-function getSportInfo(m){const txt=String((m.matchType||'')+' '+(m.category||'')+' '+(m.name||'')).toLowerCase();if(txt.includes('football')||txt.includes('soccer'))return {ico:'⚽',label:'Football'};if(txt.includes('tennis'))return {ico:'🎾',label:'Tennis'};if(txt.includes('basketball'))return {ico:'🏀',label:'Basketball'};if(txt.includes('hockey'))return {ico:'🏑',label:'Hockey'};if(txt.includes('volleyball'))return {ico:'🏐',label:'Volleyball'};if(txt.includes('badminton'))return {ico:'🏸',label:'Badminton'};return {ico:'🏏',label:'Cricket'};}
-function teamNode(name,logo,side){const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');const labelName=name||'Team';let logoEl;if(logo){const img=document.createElement('img');img.src=logo;img.alt=labelName;img.loading='lazy';if(String(logo).toLowerCase().split('?')[0].includes('.svg'))img.classList.add('svg-logo');img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();wrap.appendChild(fb);};logoEl=img;}else{logoEl=document.createElement('div');logoEl.className='team-fallback';logoEl.textContent=labelName.trim().slice(0,2).toUpperCase();}const label=document.createElement('b');label.textContent=labelName;if(side==='right'){wrap.append(label,logoEl);}else{wrap.append(logoEl,label);}return wrap;}
-function openMatch(m,idx){if(!m.url)return;try{localStorage.setItem('rslive_sports_match',JSON.stringify({name:m.name,streams:m.streams||[{stream_url:m.url}],savedAt:Date.now()}));}catch(e){}const params=new URLSearchParams({url:m.url,name:m.name,src:'Live Sports',group:m.matchType||m.category||'Sports',serial:String((idx||0)+1),fs:'1'});window.location.href='player.html?'+params.toString();}
-function openCh(u,n,s,g,serial){const params=new URLSearchParams({url:u,name:n,src:s,group:g,serial:String(serial||1),fs:'1'});window.location.href='player.html?'+params.toString();}
-function renderMatches(){const section=document.getElementById('matchesSection');const grid=document.getElementById('matchesGrid');const homeEmpty=document.getElementById('homeEmpty');if(!section||!grid)return;const q=getSearchQ();const visible=allMatches.map(normalizeMatch).filter(Boolean).filter(m=>getMatchState(m)!=='expired').filter(m=>!q||m.name.toLowerCase().includes(q));visible.sort((a,b)=>{const sa=getMatchState(a);const sb=getMatchState(b);if(sa!==sb)return sa==='live'?-1:1;return ((Date.parse(a.startTime||'')||0)-(Date.parse(b.startTime||'')||0));});const showMatches=(currentTab==='events'||!!q);section.style.display=(showMatches&&visible.length)?'block':'none';if(homeEmpty)homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0)?'block':'none';const count=document.getElementById('matchesCount');if(count)count.textContent=visible.length?visible.length+' Matches':'';grid.replaceChildren();visible.forEach((m,idx)=>{const state=getMatchState(m);const card=document.createElement('article');card.className='match-card '+state;card.addEventListener('click',()=>{if(state==='live'&&m.url)openMatch(m,idx);});const top=document.createElement('div');top.className='match-top';const sport=getSportInfo(m);const sportEl=document.createElement('span');sportEl.className='sport-badge';sportEl.innerHTML=`<span class="sport-ico">${sport.ico}</span>${sport.label}`;const type=document.createElement('span');type.className='match-type';let typeTxt=m.matchType||m.category||'LIVE SPORTS';typeTxt=typeTxt.replace(/cricket\s*\|\s*/i,'').replace(/football\s*\|\s*/i,'').replace(/soccer\s*\|\s*/i,'');type.textContent=typeTxt;top.append(sportEl,type);const statusCenter=document.createElement('div');statusCenter.className='match-status-center';const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'LIVE':'UPCOMING';statusCenter.appendChild(badge);const teams=document.createElement('div');teams.className='match-teams';const a=teamNode(m.teamA||m.name,m.teamALogo,'left');const vs=document.createElement('div');vs.className='match-vs';vs.innerHTML=`<span class="vs-txt">VS</span>`;const b=teamNode(m.teamB||'',m.teamBLogo,'right');teams.append(a,vs,b);const bottom=document.createElement('div');bottom.className='match-bottom';const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);if(state==='live'){const btn=document.createElement('button');btn.className='match-action live';btn.type='button';btn.textContent='Watch Live';btn.disabled=!m.url;if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}bottom.append(time,btn);}else{const cd=document.createElement('div');cd.className='match-countdown';cd.innerHTML=`<small>STARTS IN</small>${matchCountdown(m)}`;bottom.append(time,cd);}card.append(top,statusCenter,teams,bottom);grid.appendChild(card);});}
-async function loadMatches(){try{const indexResponse=await fetch(MATCH_INDEX_URL+'?t='+Date.now(),{cache:'no-store'});if(!indexResponse.ok)throw new Error('Index HTTP '+indexResponse.status);const indexData=await indexResponse.json();if(!Array.isArray(indexData.files))throw new Error('No files in index.json');const files=indexData.files.filter(file=>typeof file==='string'&&/^[a-zA-Z0-9_-]+\.json$/.test(file));const results=await Promise.all(files.map(async file=>{try{const response=await fetch('/data/matches/'+encodeURIComponent(file)+'?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();return unwrapMatchFile(data).map(normalizeMatch).filter(Boolean);}catch(error){console.warn('Match file failed:',file,error);return[];}}));allMatches=results.flat();renderMatches();}catch(error){console.error('Match index load failed:',error);renderMatches();}}
-async function getPlaylistsFromSW(){try{if('serviceWorker' in navigator)await navigator.serviceWorker.ready;const r=await fetch('/api/playlists',{cache:'no-store'});if(!r.ok)throw new Error('Playlist API error');const data=await r.json();if(Array.isArray(data)&&data.length)return data;}catch(e){console.warn('SW playlist unavailable:',e);}return Array.isArray(CFG.playlists)?CFG.playlists:[];}
-async function loadOne(p){if(!p||!p.url)return[];const tryFetch=async(u)=>{const r=await fetch(u);if(!r.ok)throw new Error('Playlist HTTP '+r.status);return parse(await r.text());};const useProxy=isProxyOn(p.name);try{let u=p.url;if(useProxy&&CFG.proxyUrl)u=CFG.proxyUrl+encodeURIComponent(p.url);const list=await tryFetch(u);if(list.length)return list;throw new Error('Empty playlist');}catch(e1){try{const proxyBase=CFG.proxyUrl||PROXY_BASE_FALLBACK;return await tryFetch(proxyBase+encodeURIComponent(p.url));}catch(e2){console.warn('Playlist proxy failed:',p.name,e2);return[];}}}
-function parse(t){const lines=t.split(/\r?\n/);const output=[];let channel=null;for(const line of lines){const x=line.trim();if(x.startsWith('#EXTINF')){const name=x.split(',').pop().trim();const logo=x.match(/tvg-logo="([^"]+)"/);const group=x.match(/group-title="([^"]+)"/);channel={name:name,logo:logo?logo[1]:'',group:group?group[1]:'General'};}else if(x.startsWith('#EXTVLCOPT')||x.startsWith('#EXTGRP')||x.startsWith('#EXT-X-')){continue;}else if(/^https?:\/\//i.test(x)&&channel){channel.url=x;output.push(channel);channel=null;}}return output;}
-async function loadAll(){loadMatches();CFG.playlists=await getPlaylistsFromSW();for(const p of CFG.playlists){const list=await loadOne(p);for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url))all.push(ch);}_catCache=null;renderGrid();renderMatches();}renderGrid();renderMatches();switchTab('events');}
-function normName(s){return String(s||'').toLowerCase().trim().replace(/\s+/g,' ');}
-function getCats(){if(_catCache)return _catCache;const seen=new Set();const out=[];const push=(c)=>{const k=normName(c);if(!k||seen.has(k))return;seen.add(k);out.push(c.trim());};CFG.playlists.forEach(p=>{if(p.name)push(p.name);});_catCache=['All',...out.filter(c=>normName(c)!=='all')];return _catCache;}
-function catIcon(c){const n=normName(c);const icons={Tapmad:'📺',Toffee:'🍬',Aynaott:'📺',Jagobd:'🇧🇩',All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};for(const k in icons){if(normName(k)===n)return icons[k];}return '📺';}
-function getCategoryImage(c){for(const k in CATEGORY_IMAGES){if(normName(k)===normName(c)&&CATEGORY_IMAGES[k])return CATEGORY_IMAGES[k];}const firstCh=all.find(x=>matchesCat(x,c)&&x.logo);return firstCh?.logo||DEFAULT_CAT_LOGO;}
-function catCount(c){if(!all.length)return 0;if(normName(c)==='all')return all.length;return all.filter(x=>normName(x.source)===normName(c)).length;}
-function matchesCat(c,category){const catN=normName(category);if(catN==='all')return true;return normName(c.source)===catN;}
-function renderCategoryHome(){const grid=document.getElementById('grid');grid.style.display='grid';grid.style.gridTemplateColumns='repeat(3,minmax(0,1fr))';grid.replaceChildren();const cats=getCats().filter(c=>normName(c)!=='all');cats.forEach((c)=>{const photo=getCategoryImage(c);const box=document.createElement('div');box.className='card cat-box';box.innerHTML=`<div class="cat-wrap"><div class="cat-photo"><img src="${photo}" loading="lazy" onerror="this.onerror=null;this.src='${DEFAULT_CAT_LOGO}'"></div><span class="cat-num">${catCount(c)}</span></div><div class="cat-info"><b>${c}</b><small>${catCount(c)} Channels</small></div>`;box.onclick=()=>{cat=c;categoryHomeMode=false;renderGrid(true);};grid.appendChild(box);});document.getElementById('loadMoreWrap').style.display='none';}
-function renderGrid(reset=true){const grid=document.getElementById('grid');const wrap=document.getElementById('loadMoreWrap');const feat=document.getElementById('featured');const q=getSearchQ();if(q){grid.style.display='grid';grid.style.gridTemplateColumns='';if(reset)visibleCount=200;currentFiltered=all.filter(c=>String(c.name).toLowerCase().includes(q)||String(c.group).toLowerCase().includes(q)||String(c.source).toLowerCase().includes(q));const show=currentFiltered.slice(0,visibleCount);grid.replaceChildren();show.forEach((c,i)=>{const card=document.createElement('div');card.className='card';const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};const txt=document.createElement('div');txt.className='c-txt';const name=document.createElement('p');name.textContent=c.name;const group=document.createElement('small');group.textContent=c.group||'General';txt.append(name,group);card.append(serial,img,txt);card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});grid.appendChild(card);});const btn=document.getElementById('loadMoreBtn');if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}if(feat)feat.style.display='none';return;}if(currentTab==='events'){grid.replaceChildren();grid.style.display='none';if(wrap)wrap.style.display='none';if(feat)feat.style.display='none';if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}return;}if(currentTab==='category'&&categoryHomeMode){renderCategoryHome();return;}grid.style.display='grid';grid.style.gridTemplateColumns='';if(reset)visibleCount=200;const effCat=currentTab==='home'?'All':cat;currentFiltered=all.filter(c=>matchesCat(c,effCat));const show=currentFiltered.slice(0,visibleCount);grid.replaceChildren();show.forEach((c,i)=>{const card=document.createElement('div');card.className='card';const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};const txt=document.createElement('div');txt.className='c-txt';const name=document.createElement('p');name.textContent=c.name;const group=document.createElement('small');group.textContent=c.group||'General';txt.append(name,group);card.append(serial,img,txt);card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});grid.appendChild(card);});const btn=document.getElementById('loadMoreBtn');if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}}
+function getSportInfo(m){
+  const txt = String((m.matchType||'')+' '+(m.category||'')+' '+(m.name||'')).toLowerCase();
+  if(txt.includes('football')||txt.includes('soccer')) return {ico:'⚽',label:'Football'};
+  if(txt.includes('tennis')) return {ico:'🎾',label:'Tennis'};
+  if(txt.includes('basketball')) return {ico:'🏀',label:'Basketball'};
+  if(txt.includes('hockey')) return {ico:'🏑',label:'Hockey'};
+  if(txt.includes('volleyball')) return {ico:'🏐',label:'Volleyball'};
+  if(txt.includes('badminton')) return {ico:'🏸',label:'Badminton'};
+  return {ico:'🏏',label:'Cricket'};
+}
+function teamNode(name,logo,side){
+  const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');
+  const labelName=name||'Team';let logoEl;
+  if(logo){
+    const img=document.createElement('img');img.src=logo;img.alt=labelName;img.loading='lazy';
+    if(String(logo).toLowerCase().split('?')[0].includes('.svg')) img.classList.add('svg-logo');
+    img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();wrap.appendChild(fb);};
+    logoEl=img;
+  }else{logoEl=document.createElement('div');logoEl.className='team-fallback';logoEl.textContent=labelName.trim().slice(0,2).toUpperCase();}
+  const label=document.createElement('b');label.textContent=labelName;
+  if(side==='right'){wrap.append(label,logoEl);}
+  else{wrap.append(logoEl,label);}
+  return wrap;
+}
+function openMatch(m,idx){
+  if(!m.url) return;
+  try{localStorage.setItem('rslive_sports_match',JSON.stringify({name:m.name,streams:m.streams||[{stream_url:m.url}],savedAt:Date.now()}));}catch(e){}
+  const params=new URLSearchParams({url:m.url,name:m.name,src:'Live Sports',group:m.matchType||m.category||'Sports',serial:String((idx||0)+1),fs:'1'});
+  window.location.href='player.html?'+params.toString();
+}
+function openCh(u,n,s,g,serial){
+  const params=new URLSearchParams({url:u,name:n,src:s,group:g,serial:String(serial||1),fs:'1'});
+  window.location.href='player.html?'+params.toString();
+}
+function renderMatches(){
+  const section=document.getElementById('matchesSection');
+  const grid=document.getElementById('matchesGrid');
+  const homeEmpty=document.getElementById('homeEmpty');
+  if(!section||!grid) return;
+  const q=getSearchQ();
+  const visible=allMatches.map(normalizeMatch).filter(Boolean).filter(m=>getMatchState(m)!=='expired').filter(m=>!q||m.name.toLowerCase().includes(q));
+  visible.sort((a,b)=>{const sa=getMatchState(a);const sb=getMatchState(b);if(sa!==sb) return sa==='live'?-1:1;return ((Date.parse(a.startTime||'')||0)-(Date.parse(b.startTime||'')||0));});
+  const showMatches=(currentTab==='events'||!!q);
+  section.style.display=(showMatches&&visible.length)?'block':'none';
+  if(homeEmpty) homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0)?'block':'none';
+  const count=document.getElementById('matchesCount');
+  if(count) count.textContent=visible.length?visible.length+' Matches':'';
+  grid.replaceChildren();
+  visible.forEach((m,idx)=>{
+    const state=getMatchState(m);
+    const card=document.createElement('article');card.className='match-card '+state;
+    card.addEventListener('click',()=>{if(state==='live'&&m.url) openMatch(m,idx);});
+    const top=document.createElement('div');top.className='match-top';
+    const sport=getSportInfo(m);
+    const sportEl=document.createElement('span');sportEl.className='sport-badge';
+    sportEl.innerHTML=`<span class="sport-ico">${sport.ico}</span>${sport.label}`;
+    const type=document.createElement('span');type.className='match-type';
+    let typeTxt = m.matchType||m.category||'LIVE SPORTS';
+    typeTxt = typeTxt.replace(/cricket\s*\|\s*/i,'').replace(/football\s*\|\s*/i,'').replace(/soccer\s*\|\s*/i,'');
+    type.textContent=typeTxt;
+    top.append(sportEl,type);
+    const statusCenter=document.createElement('div');statusCenter.className='match-status-center';
+    const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'LIVE':'UPCOMING';
+    statusCenter.appendChild(badge);
+    const teams=document.createElement('div');teams.className='match-teams';
+    const a=teamNode(m.teamA||m.name,m.teamALogo,'left');
+    const vs=document.createElement('div');vs.className='match-vs';
+    vs.innerHTML=`<span class="vs-txt">VS</span>`;
+    const b=teamNode(m.teamB||'',m.teamBLogo,'right');
+    teams.append(a,vs,b);
+    const bottom=document.createElement('div');bottom.className='match-bottom';
+    const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);
+    if(state==='live'){
+      const btn=document.createElement('button');btn.className='match-action live';btn.type='button';btn.textContent='Watch Live';btn.disabled=!m.url;
+      if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}
+      bottom.append(time,btn);
+    }else{
+      const cd=document.createElement('div');cd.className='match-countdown';
+      cd.innerHTML=`<small>STARTS IN</small>${matchCountdown(m)}`;
+      bottom.append(time,cd);
+    }
+    card.append(top,statusCenter,teams,bottom);
+    grid.appendChild(card);
+  });
+}
+async function loadMatches(){
+  try{
+    const indexResponse=await fetch(MATCH_INDEX_URL+'?t='+Date.now(),{cache:'no-store'});
+    if(!indexResponse.ok) throw new Error('Index HTTP '+indexResponse.status);
+    const indexData=await indexResponse.json();
+    if(!Array.isArray(indexData.files)) throw new Error('No files in index.json');
+    const files=indexData.files.filter(file=>typeof file==='string'&&/^[a-zA-Z0-9_-]+\.json$/.test(file));
+    const results=await Promise.all(files.map(async file=>{
+      try{
+        const response=await fetch('/data/matches/'+encodeURIComponent(file)+'?t='+Date.now(),{cache:'no-store'});
+        if(!response.ok) throw new Error('HTTP '+response.status);
+        const data=await response.json();
+        return unwrapMatchFile(data).map(normalizeMatch).filter(Boolean);
+      }catch(error){console.warn('Match file failed:',file,error);return[];}
+    }));
+    allMatches=results.flat();renderMatches();
+  }catch(error){console.error('Match index load failed:',error);renderMatches();}
+}
+async function getPlaylistsFromSW(){
+  try{
+    if('serviceWorker' in navigator) await navigator.serviceWorker.ready;
+    const r=await fetch('/api/playlists',{cache:'no-store'});
+    if(!r.ok) throw new Error('Playlist API error');
+    const data=await r.json();
+    if(Array.isArray(data)&&data.length) return data;
+  }catch(e){console.warn('SW playlist unavailable:',e);}
+  return Array.isArray(CFG.playlists)?CFG.playlists:[];
+}
+async function loadOne(p){
+  if(!p||!p.url) return [];
+  const tryFetch=async(u)=>{
+    const r=await fetch(u);
+    if(!r.ok) throw new Error('Playlist HTTP '+r.status);
+    return parse(await r.text());
+  };
+  const useProxy = isProxyOn(p.name);
+  try{
+    let u=p.url;
+    if(useProxy && CFG.proxyUrl) u=CFG.proxyUrl+encodeURIComponent(p.url);
+    const list=await tryFetch(u);
+    if(list.length) return list;
+    throw new Error('Empty playlist');
+  }catch(e1){
+    try{
+      const proxyBase = CFG.proxyUrl || PROXY_BASE_FALLBACK;
+      return await tryFetch(proxyBase+encodeURIComponent(p.url));
+    }catch(e2){ console.warn('Playlist proxy failed:',p.name,e2); return []; }
+  }
+}
+function parse(t){
+  const lines=t.split(/\r?\n/);const output=[];let channel=null;
+  for(const line of lines){
+    const x=line.trim();
+    if(x.startsWith('#EXTINF')){
+      const name=x.split(',').pop().trim();
+      const logo=x.match(/tvg-logo="([^"]+)"/);
+      const group=x.match(/group-title="([^"]+)"/);
+      channel={name:name,logo:logo?logo[1]:'',group:group?group[1]:'General'};
+    }else if(x.startsWith('#EXTVLCOPT') || x.startsWith('#EXTGRP') || x.startsWith('#EXT-X-')){
+      continue;
+    }else if(/^https?:\/\//i.test(x)&&channel){channel.url=x;output.push(channel);channel=null;}
+  }
+  return output;
+}
+async function loadAll(){
+  loadMatches();
+  CFG.playlists=await getPlaylistsFromSW();
+  for(const p of CFG.playlists){
+    const list=await loadOne(p);
+    for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
+    _catCache=null;renderGrid();renderMatches();
+  }
+  renderGrid();renderMatches();switchTab('events');
+}
+function normName(s){ return String(s||'').toLowerCase().trim().replace(/\s+/g,' '); }
+function getCats(){
+  if(_catCache) return _catCache;
+  const seen=new Set(); const out=[];
+  const push=(c)=>{ const k=normName(c); if(!k||seen.has(k)) return; seen.add(k); out.push(c.trim()); };
+  CFG.playlists.forEach(p=>{ if(p.name) push(p.name); });
+  _catCache=['All',...out.filter(c=>normName(c)!=='all')];
+  return _catCache;
+}
+function catIcon(c){
+  const n=normName(c);
+  const icons={Tapmad:'📺',Toffee:'🍬',Aynaott:'📺',Jagobd:'🇧🇩',All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};
+  for(const k in icons){ if(normName(k)===n) return icons[k]; }
+  return '📺';
+}
+function getCategoryImage(c){
+  for(const k in CATEGORY_IMAGES){
+    if(normName(k)===normName(c) && CATEGORY_IMAGES[k]) return CATEGORY_IMAGES[k];
+  }
+  const firstCh = all.find(x=>matchesCat(x,c) && x.logo);
+  return firstCh?.logo || DEFAULT_CAT_LOGO;
+}
+function catCount(c){
+  if(!all.length) return 0;
+  if(normName(c)==='all') return all.length;
+  return all.filter(x=>normName(x.source)===normName(c)).length;
+}
+function matchesCat(c,category){
+  const catN=normName(category);
+  if(catN==='all') return true;
+  return normName(c.source)===catN;
+}
+function renderCategoryHome(){
+  const grid=document.getElementById('grid');
+  grid.style.display='grid';
+  grid.style.gridTemplateColumns='repeat(3,minmax(0,1fr))';
+  grid.replaceChildren();
+  const cats = getCats().filter(c=>normName(c)!=='all');
+  cats.forEach((c)=>{
+    const photo = getCategoryImage(c);
+    const box=document.createElement('div');
+    box.className='card cat-box';
+    box.innerHTML=`
+      <div class="cat-wrap">
+        <div class="cat-photo">
+          <img src="${photo}" loading="lazy" onerror="this.onerror=null;this.src='${DEFAULT_CAT_LOGO}'">
+        </div>
+        <span class="cat-num">${catCount(c)}</span>
+      </div>
+      <div class="cat-info"><b>${c}</b><small>${catCount(c)} Channels</small></div>
+    `;
+    box.onclick=()=>{ cat=c; categoryHomeMode=false; renderGrid(true); };
+    grid.appendChild(box);
+  });
+  document.getElementById('loadMoreWrap').style.display='none';
+}
+function renderGrid(reset=true){
+  const grid=document.getElementById('grid');
+  const wrap=document.getElementById('loadMoreWrap');
+  const feat=document.getElementById('featured');
+  const q=getSearchQ();
+  if(q){
+    grid.style.display='grid';
+    grid.style.gridTemplateColumns='';
+    if(reset) visibleCount=200;
+    currentFiltered=all.filter(c=>String(c.name).toLowerCase().includes(q)||String(c.group).toLowerCase().includes(q)||String(c.source).toLowerCase().includes(q));
+    const show=currentFiltered.slice(0,visibleCount);
+    grid.replaceChildren();
+    show.forEach((c,i)=>{
+      const card=document.createElement('div');card.className='card';
+      const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
+      const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;
+      img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};
+      const txt=document.createElement('div');txt.className='c-txt';
+      const name=document.createElement('p');name.textContent=c.name;
+      const group=document.createElement('small');group.textContent=c.group||'General';
+      txt.append(name,group);
+      card.append(serial,img,txt);
+      card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});
+      grid.appendChild(card);
+    });
+    const btn=document.getElementById('loadMoreBtn');
+    if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}
+    if(feat) feat.style.display='none';
+    return;
+  }
+  if(currentTab==='events'){
+    grid.replaceChildren();grid.style.display='none';
+    if(wrap) wrap.style.display='none';
+    if(feat) feat.style.display='none';
+    if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
+    return;
+  }
+  if(currentTab==='category' && categoryHomeMode){
+    renderCategoryHome();
+    return;
+  }
+  grid.style.display='grid';
+  grid.style.gridTemplateColumns='';
+  if(reset) visibleCount=200;
+  const effCat = currentTab==='home' ? 'All' : cat;
+  currentFiltered=all.filter(c=>matchesCat(c,effCat));
+  const show=currentFiltered.slice(0,visibleCount);
+  grid.replaceChildren();
+  show.forEach((c,i)=>{
+    const card=document.createElement('div');card.className='card';
+    const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
+    const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;
+    img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};
+    const txt=document.createElement('div');txt.className='c-txt';
+    const name=document.createElement('p');name.textContent=c.name;
+    const group=document.createElement('small');group.textContent=c.group||'General';
+    txt.append(name,group);
+    card.append(serial,img,txt);
+    card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});
+    grid.appendChild(card);
+  });
+  const btn=document.getElementById('loadMoreBtn');
+  if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}
+  if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
+}
 function loadMore(){visibleCount+=200;renderGrid(false);}
-let _searchT=null;document.getElementById('search').addEventListener('input',()=>{clearTimeout(_searchT);_searchT=setTimeout(()=>{renderGrid(true);renderMatches();},100);});
-let _rszT=null;window.addEventListener('resize',()=>{clearTimeout(_rszT);_rszT=setTimeout(()=>{switchTab(currentTab);},150);});
-loadAll();setInterval(loadMatches,60000);setInterval(renderMatches,1000);
+let _searchT=null;
+document.getElementById('search').addEventListener('input',()=>{clearTimeout(_searchT);_searchT=setTimeout(()=>{renderGrid(true);renderMatches();},100);});
+let _rszT=null;
+window.addEventListener('resize',()=>{clearTimeout(_rszT);_rszT=setTimeout(()=>{switchTab(currentTab);},150);});
+loadAll();
+setInterval(loadMatches,60000);
+setInterval(renderMatches,1000);
 if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(e=>console.warn('Service Worker:',e));}
-let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;if(!window.matchMedia('(display-mode: standalone)').matches){const bar=document.getElementById('installBar');if(bar&&!localStorage.getItem('rslive_install_closed'))bar.style.display='flex';}});
-document.getElementById('installBtn')?.addEventListener('click',async()=>{if(!deferredPrompt){alert('Browser Menu -> Add to Home Screen');return;}deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;if(choice.outcome==='accepted')document.getElementById('installBar').style.display='none';deferredPrompt=null;});
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;if(!window.matchMedia('(display-mode: standalone)').matches){const bar=document.getElementById('installBar');if(bar&&!localStorage.getItem('rslive_install_closed')) bar.style.display='flex';}});
+document.getElementById('installBtn')?.addEventListener('click',async()=>{if(!deferredPrompt){alert('Browser Menu -> Add to Home Screen');return;}deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;if(choice.outcome==='accepted') document.getElementById('installBar').style.display='none';deferredPrompt=null;});
 document.getElementById('closeInstall')?.addEventListener('click',()=>{document.getElementById('installBar').style.display='none';localStorage.setItem('rslive_install_closed','1');});
 window.addEventListener('appinstalled',()=>{document.getElementById('installBar').style.display='none';});
