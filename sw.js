@@ -1,4 +1,4 @@
-/* RsLive Go - Secure SW + PWA + Per Playlist Proxy - FINAL v21 */
+/* RsLive Go - Secure SW + PWA + Per Playlist Proxy - FINAL v22 */
 const CACHE_NAME = 'rslive-v6-pwa';
 const CORE_ASSETS = ['/', '/index.html', '/player.html', '/manifest.json'];
 const PROXY_BASE = 'https://stream-through-spark.lovable.app/api/proxy?u=';
