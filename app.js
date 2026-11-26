@@ -1,5 +1,5 @@
 /* =====================================================
-   RsLive Go - FINAL v23.1 - Right Logo Fixed + Pretty Card
+   RsLive Go - FINAL v23.2 - Gap Fixed
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -34,20 +34,19 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .matches-head strong{font-family:Poppins,sans-serif;font-size:12px}
 .matches-head span{font-size:9px;color:#8e91a8}
 #matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
-/* ===== MATCH CARD - PRETTY + SLIM ===== */
-.match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff22;border-radius:14px;padding:9px 11px;box-shadow:0 6px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative;overflow:hidden}
+.match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff22;border-radius:14px;padding:7px 11px 9px;box-shadow:0 6px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative;overflow:hidden}
 .match-card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}
 .match-card.live{border-left:3px solid #ff3d5a;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 18px rgba(255,61,90,.12)}
 .match-card.upcoming{border-left:3px solid #f3a43b;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 14px rgba(243,164,59,.08)}
 .match-card:active{transform:scale(.98)}
-.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:1px}
 .sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.06);padding:3px 8px 3px 6px;border-radius:99px;border:1px solid rgba(255,255,255,.08)}
 .sport-badge .sport-ico{font-size:12px;line-height:1}
 .match-badge{border-radius:20px;padding:3px 9px;font-size:8.5px;font-weight:900;letter-spacing:.5px}
 .match-badge.live{background:#ff304e25;color:#ff6176;border:1px solid #ff304e44}
 .match-badge.upcoming{background:#f5a43b22;color:#ffc36b;border:1px solid #f5a43b44}
 .match-type{font-size:9px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
-.match-status-center{text-align:center;margin:2px 0 6px}
+.match-status-center{text-align:center;margin:0 0 4px}
 .match-status-center .match-badge{display:inline-block;box-shadow:0 3px 10px rgba(0,0,0,.4)}
 .match-teams{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;gap:6px}
 .match-team{min-width:0;display:flex;align-items:center;gap:9px}
@@ -322,7 +321,6 @@ function getSportInfo(m){
   if(txt.includes('badminton')) return {ico:'🏸',label:'Badminton'};
   return {ico:'🏏',label:'Cricket'};
 }
-/* ===== FIXED: Right Logo = Far Right, Name = Left of Logo ===== */
 function teamNode(name,logo,side){
   const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');
   const labelName=name||'Team';let logoEl;
