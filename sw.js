@@ -1,5 +1,5 @@
-/* RsLive Go - Secure SW + PWA + Per Playlist Proxy */
-const CACHE_NAME = 'rslive-v5-pwa';
+/* RsLive Go - Secure SW + PWA + Per Playlist Proxy - FINAL v19 */
+const CACHE_NAME = 'rslive-v6-pwa';
 const CORE_ASSETS = ['/', '/index.html', '/player.html', '/manifest.json'];
 const PROXY_BASE = 'https://stream-through-spark.lovable.app/api/proxy?u=';
 
@@ -16,14 +16,19 @@ let PROXY_MAP = {
 const _P = [
   { n: 'Tapmad', u: 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3NtLW1vbmlydWxpc2xhbS9UYXBtYWRfQXV0b19VcGRhdGVfUGxheWxpc3QvcmVmcy9oZWFkcy9tYWluL3RhcG1hZF9zbS5tM3U=', p: 0 },
   { n: 'Sports', u: 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2phbm5hdHVsYnVzcmEwMDAvU3BvcnRzLVBsYXlsaXN0L3JlZnMvaGVhZHMvbWFpbi9zcG9ydHMubTN1', p: 1 },
-  { n: 'Toffee', u: 'https://raw.githubusercontent.com/sm-monirulislam/Toffee-Auto-Update/refs/heads/main/toffee_playlist.m3u=', p: 1 },
+  { n: 'Toffee', u: 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3NtLW1vbmlydWxpc2xhbS9Ub2ZmZWUtQXV0by1VcGRhdGUvcmVmcy9oZWFkcy9tYWluL3RvZmZlZV9wbGF5bGlzdC5tM3U=', p: 1 },
   { n: 'AynaOTT', u: 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3NtLW1vbmlydWxpc2xhbS9BeW5hT1RUX0F1dG9fVXBkYXRlX1BsYXlsaXN0L3JlZnMvaGVhZHMvbWFpbi9heW5hb3R0Lm0zdQ==', p: 0 },
   { n: 'JagoBD', u: 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3NtLW1vbmlydWxpc2xhbS9qYWdvX2JkX2F1dG9fdXBkYXRlX3BsYXlsaXN0LS9yZWZzL2hlYWRzL21haW4vamFnb19iZF9tYWluLm0zdQ==', p: 0 },
   { n: 'Bangladesh', u: 'aHR0cHM6Ly9pcHR2LW9yZy5naXRodWIuaW8vaXB0di9jb3VudHJpZXMvYmQubTN1', p: 0 },
   { n: 'India', u: 'aHR0cHM6Ly9pcHR2LW9yZy5naXRodWIuaW8vaXB0di9jb3VudHJpZXMvaW4ubTN1', p: 0 }
 ];
 
-function _d(s){ try{ return atob(s); }catch(e){ return ''; } }
+// 👇 Base64 হলে decode করবে, সরাসরি http লিংক হলে ওইটাই নিবে
+function _d(s){
+  if(!s) return '';
+  if(s.startsWith('http')) return s;
+  try{ return atob(s); }catch(e){ return s; }
+}
 function _proxy(url, name){
   if(PROXY_MAP[name]) return PROXY_BASE + encodeURIComponent(url);
   return url;
