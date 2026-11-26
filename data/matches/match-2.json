@@ -1,34 +1,12 @@
-
 {
-  "match": {
-    "id": 2,
-    "name": "Watford Vs Blackburn Rovers",
-    "teamA": "Watford",
-    "teamB": "Blackburn Rovers",
-    "teamALogo": "WATFORD_LOGO_URL",
-    "teamBLogo": "BLACKBURN_LOGO_URL",
-    "category": "Live Sports",
-    "logo": "⚽",
-    "logoUrl": "",
-    "fallbackLogo": "⚽",
-    "tone": "gold",
-    "section": "liveSports",
-    "streams": [
-      {
-        "name": "D SPORTS + FHD",
-        "url": "YOUR_STREAM_URL",
-        "show": "yes",
-        "drm": {
-          "scheme": "clearkey",
-          "license": "YOUR_AUTHORIZED_LICENSE_CONFIGURATION"
-        }
-      }
-    ],
-    "show": "yes",
-    "startTime": "2026-11-26T01:45:00+06:00",
-    "endTime": "2026-11-26T03:45:00+06:00",
-    "enabled": true,
-    "status": "auto",
-    "matchType": "Championship|2026"
-  }
+  "name": "Bangladesh A vs Pakistan A",
+  "matchType": "Cricket | Asia Cup | ODI",
+  "status": "upcoming",
+  "startTime": "2026-11-27T16:00:00+06:00",
+  "endTime": "2026-11-27T23:00:00+06:00",
+  "teamA": "Bangladesh A",
+  "teamB": "Pakistan A",
+  "teamALogo": "https://flagcdn.com/bl.svg",
+  "teamBLogo": "https://flagcdn.com/pk.svg",
+  "streams": []
 }
