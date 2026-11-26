@@ -1,8 +1,8 @@
 /* =====================================================
-   RsLive Go - FINAL v15
-   Header: Pure Black Background
-   Slim Bottom Nav, Premium Dark + Glass Search
-   No Footer, No Bengali - All English
+   RsLive Go - FINAL v16
+   Header: No LIVE Pill - Search Always Visible
+   Search: Any Tab -> Any Channel
+   Category: Custom Logo Changeable
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -12,8 +12,8 @@ html,body{height:100%;width:100%;background:#000;color:#fff;font-family:Poppins,
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* ===== HEADER - PURE BLACK ===== */
-header{background:#000;border-bottom:1px solid #ffffff14;backdrop-filter:blur(20px);padding:14px 14px 13px;position:relative;overflow:hidden}
+/* ===== HEADER - PURE BLACK, SEARCH ALWAYS ===== */
+header{background:#000;border-bottom:1px solid #ffffff14;padding:14px 14px 13px;position:relative;overflow:hidden}
 header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 70px at 20% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(220px 70px at 85% 0%,rgba(34,211,238,.14),transparent 70%);pointer-events:none}
 .header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
@@ -21,13 +21,10 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
 .logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
 .logo-text .tag{font-size:7.5px;letter-spacing:3px;color:#9a9ab5;font-weight:700;margin-top:3px}
-.live-pill{display:none;align-items:center;gap:5px;background:rgba(255,45,85,.12);border:1px solid rgba(255,45,85,.3);color:#ff6b81;font-size:9px;font-weight:800;padding:6px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
-.live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;animation:pulse 1.4s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 7px #ff2d5500}}
-/* Searchbar - Glass Premium on Black */
-#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
+/* Search - Sob Tab e Thakbe */
+#searchWrap{display:flex;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
 #searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7;z-index:1}
-#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);backdrop-filter:blur(10px);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
+#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
 #search:focus{background:rgba(255,255,255,.10);border-color:rgba(139,124,255,.60);box-shadow:0 0 0 3px rgba(139,124,255,.18)}
 #search::placeholder{color:#8e91a8}
 #pageTitle{display:none !important}
@@ -76,14 +73,13 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* Category - 3 Column Photo Card */
-.cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important}
-.cat-photo{width:100%;height:62px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0}
-.cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.92}
-.cat-photo .cat-emoji{position:absolute;top:6px;left:7px;font-size:16px;filter:drop-shadow(0 2px 4px #000);z-index:2}
-.cat-photo .cat-num{position:absolute;top:6px;right:6px;background:#000b;padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:2}
-.cat-info{padding:8px 9px;width:100%}
-.cat-info b{font-size:12px;display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Category - 3 Column, Custom Logo */
+.cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important;background:#111118}
+.cat-photo{width:100%;height:72px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.95}
+.cat-photo .cat-num{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);padding:3px 7px;border-radius:99px;font-size:8px;font-weight:800;z-index:2;border:1px solid #ffffff22}
+.cat-info{padding:9px 10px;width:100%}
+.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cat-info small{color:#22d3ee;font-size:9px}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
@@ -92,8 +88,8 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
 #featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
-/* ===== BOTTOM NAV - SLIM PREMIUM ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
+/* ===== BOTTOM NAV - SLIM ===== */
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
 .bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px 5px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:46px}
 .bnav .b-ico{line-height:1;display:flex}
 .bnav .b-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -156,7 +152,6 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <span class="s-ico">🔍</span>
 <input id="search" placeholder="Search..." autocomplete="off">
 </div>
-<div class="live-pill" id="livePill"><i></i> LIVE</div>
 </div>
 </header>
 </div>
@@ -213,9 +208,31 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v15 ================= */
-const CONFIG_VERSION = 'nova-v15-black-header';
-const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+/* ================= CONFIG - v16 ================= */
+const CONFIG_VERSION = 'nova-v16-search-everywhere';
+const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+
+/* =====================================================
+   CATEGORY LOGO - EKHANE CHANGE KORO
+   Example: Tapmad: 'https://i.ibb.co/xxxx/tapmad.jpg',
+   Khali rakhle prothom channel er logo asbe.
+   Key = Category Name (Tapmad, Sports, Toffee...)
+   ===================================================== */
+const CATEGORY_IMAGES = {
+  Tapmad: '',
+  Sports: '',
+  Toffee: '',
+  AynaOTT: '',
+  JagoBD: '',
+  Bangladesh: '',
+  India: '',
+  News: '',
+  Entertainment: '',
+  Movies: '',
+  Kids: '',
+  Music: '',
+};
+
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
 const CFG={...DEFAULT,...(saved||{})};
@@ -239,12 +256,9 @@ let allMatches=[];
 let categoryHomeMode=false;
 const MATCH_INDEX_URL='/data/matches/index.json';
 function goHome(){ switchTab('events'); }
-function updateHeader(){
-  const searchWrap=document.getElementById('searchWrap');
-  const livePill=document.getElementById('livePill');
-  if(currentTab==='home'){ searchWrap.style.display='block'; livePill.style.display='none'; }
-  else { searchWrap.style.display='none'; livePill.style.display = CFG.showLive ? 'flex' : 'none'; }
-}
+function getSearchQ(){ return (document.getElementById('search')?.value||'').trim().toLowerCase(); }
+
+/* Search sob tab e thakbe - LIVE pill nai, tai updateHeader er dorkar nai */
 function switchTab(tab){
   currentTab=tab;
   categoryHomeMode = (tab==='category');
@@ -253,7 +267,6 @@ function switchTab(tab){
   const btn = tab==='events' ? document.getElementById('navEvents') : tab==='home' ? document.getElementById('navHome') : document.getElementById('navCategory');
   if(btn) btn.classList.add('active');
   if(tab==='home') cat='All';
-  updateHeader();
   renderGrid(true); renderMatches();
   const sa=document.getElementById('scrollArea'); if(sa) sa.scrollTop=0; window.scrollTo({top:0});
 }
@@ -327,7 +340,7 @@ function renderMatches(){
   const grid=document.getElementById('matchesGrid');
   const homeEmpty=document.getElementById('homeEmpty');
   if(!section||!grid) return;
-  const q=(document.getElementById('search')?.value||'').trim().toLowerCase();
+  const q=getSearchQ();
   const visible=allMatches.map(normalizeMatch).filter(Boolean).filter(m=>getMatchState(m)!=='expired').filter(m=>!q||m.name.toLowerCase().includes(q));
   visible.sort((a,b)=>{const sa=getMatchState(a);const sb=getMatchState(b);if(sa!==sb) return sa==='live'?-1:1;return ((Date.parse(a.startTime||'')||0)-(Date.parse(b.startTime||'')||0));});
   const showMatches=(currentTab==='events'||!!q);
@@ -427,7 +440,6 @@ async function loadAll(){
   CFG.playlists=await getPlaylistsFromSW();
   for(const p of CFG.playlists){
     const list=await loadOne(p);
-    console.log('Playlist loaded:',p.name,list.length);
     for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
     _catCache=null;renderGrid();renderMatches();
   }
@@ -445,13 +457,17 @@ function getCats(){
 }
 function catIcon(c){
   const n=normName(c);
-  if(n==='tapmad') return '📺';
-  if(n==='toffee') return '🍬';
-  if(n==='aynaott'||n==='ayna ott') return '📺';
-  if(n==='jagobd'||n==='jago bd') return '🇧🇩';
-  const icons={All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};
+  const icons={Tapmad:'📺',Toffee:'🍬',Aynaott:'📺',Jagobd:'🇧🇩',All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};
   for(const k in icons){ if(normName(k)===n) return icons[k]; }
   return '📺';
+}
+/* Category Logo - Custom > First Channel Logo > Fallback */
+function getCategoryImage(c){
+  for(const k in CATEGORY_IMAGES){
+    if(normName(k)===normName(c) && CATEGORY_IMAGES[k]) return CATEGORY_IMAGES[k];
+  }
+  const firstCh = all.find(x=>matchesCat(x,c));
+  return firstCh?.logo || '';
 }
 function catCount(c){
   if(!all.length) return 0;
@@ -490,14 +506,12 @@ function renderCategoryHome(){
   grid.replaceChildren();
   getCats().forEach(c=>{
     if(normName(c)==='all') return;
-    const firstCh = all.find(x=>matchesCat(x,c));
-    const photo = firstCh?.logo || '';
+    const photo = getCategoryImage(c);
     const box=document.createElement('div');
     box.className='card cat-box';
     box.innerHTML=`
       <div class="cat-photo">
-        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.remove()">` : ''}
-        <span class="cat-emoji">${catIcon(c)}</span>
+        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.remove()">` : `<span style="font-size:28px">${catIcon(c)}</span>`}
         <span class="cat-num">${catCount(c)} Channels</span>
       </div>
       <div class="cat-info"><b>${c}</b><small>View →</small></div>
@@ -511,23 +525,49 @@ function renderGrid(reset=true){
   const grid=document.getElementById('grid');
   const wrap=document.getElementById('loadMoreWrap');
   const feat=document.getElementById('featured');
-  if(currentTab==='events'&&!(document.getElementById('search').value||'').trim()){
+  const q=getSearchQ();
+  /* Search thakle - Jekono Tab theke Jekono Channel */
+  if(q){
+    grid.style.display='grid';
+    grid.style.gridTemplateColumns='';
+    if(reset) visibleCount=200;
+    currentFiltered=all.filter(c=>String(c.name).toLowerCase().includes(q)||String(c.group).toLowerCase().includes(q)||String(c.source).toLowerCase().includes(q));
+    const show=currentFiltered.slice(0,visibleCount);
+    grid.replaceChildren();
+    show.forEach((c,i)=>{
+      const card=document.createElement('div');card.className='card';
+      const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
+      const img=document.createElement('img');img.loading='lazy';img.src=c.logo||'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
+      img.onerror=function(){this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png';};
+      const txt=document.createElement('div');txt.className='c-txt';
+      const name=document.createElement('p');name.textContent=c.name;
+      const group=document.createElement('small');group.textContent=c.group||'General';
+      txt.append(name,group);
+      card.append(serial,img,txt);
+      card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});
+      grid.appendChild(card);
+    });
+    const btn=document.getElementById('loadMoreBtn');
+    if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
+    if(feat) feat.style.display='none';
+    return;
+  }
+  if(currentTab==='events'){
     grid.replaceChildren();grid.style.display='none';
     if(wrap) wrap.style.display='none';
     if(feat) feat.style.display='none';
     if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
     return;
   }
-  if(currentTab==='category' && categoryHomeMode && !(document.getElementById('search').value||'').trim()){
+  if(currentTab==='category' && categoryHomeMode){
     renderCategoryHome();
     return;
   }
   grid.style.display='grid';
   grid.style.gridTemplateColumns='';
   if(reset) visibleCount=200;
-  const q=document.getElementById('search').value.toLowerCase();
   const effCat = currentTab==='home' ? 'All' : cat;
-  currentFiltered=all.filter(c=>{if(q&&!String(c.name).toLowerCase().includes(q)) return false;return matchesCat(c,effCat);});
+  currentFiltered=all.filter(c=>matchesCat(c,effCat));
   const show=currentFiltered.slice(0,visibleCount);
   grid.replaceChildren();
   show.forEach((c,i)=>{
