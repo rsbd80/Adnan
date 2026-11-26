@@ -1,10 +1,5 @@
 /* =====================================================
-   RsLive Go - FINAL v23 - CLEAN + SLIM MATCH CARD
-   Top Left: Sport Icon + Name (Cricket/Football)
-   UPCOMING: Center Above VS
-   Countdown: Small + Light
-   Category: 3 Per Row, Box Card
-   Match Card: Slim / Chikon
+   RsLive Go - FINAL v23.1 - Right Logo Fixed + Pretty Card
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -38,38 +33,40 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px}
 .matches-head strong{font-family:Poppins,sans-serif;font-size:12px}
 .matches-head span{font-size:9px;color:#8e91a8}
-#matchesGrid{display:grid;grid-template-columns:1fr;gap:6px}
-.match-card{background:linear-gradient(115deg,#171a29,#10121d 58%,#171321);border:1px solid #ffffff19;border-radius:12px;padding:8px 10px;box-shadow:0 4px 10px #0005;cursor:pointer}
-.match-card.live{border-left:3px solid #ff3d5a}
-.match-card.upcoming{border-left:3px solid #f3a43b}
+#matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
+/* ===== MATCH CARD - PRETTY + SLIM ===== */
+.match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff22;border-radius:14px;padding:9px 11px;box-shadow:0 6px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative;overflow:hidden}
+.match-card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}
+.match-card.live{border-left:3px solid #ff3d5a;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 18px rgba(255,61,90,.12)}
+.match-card.upcoming{border-left:3px solid #f3a43b;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 14px rgba(243,164,59,.08)}
 .match-card:active{transform:scale(.98)}
-.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
-.sport-badge{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800;color:#fff}
-.sport-badge .sport-ico{font-size:11px;line-height:1}
-.match-badge{border-radius:20px;padding:2px 7px;font-size:8px;font-weight:900}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.06);padding:3px 8px 3px 6px;border-radius:99px;border:1px solid rgba(255,255,255,.08)}
+.sport-badge .sport-ico{font-size:12px;line-height:1}
+.match-badge{border-radius:20px;padding:3px 9px;font-size:8.5px;font-weight:900;letter-spacing:.5px}
 .match-badge.live{background:#ff304e25;color:#ff6176;border:1px solid #ff304e44}
 .match-badge.upcoming{background:#f5a43b22;color:#ffc36b;border:1px solid #f5a43b44}
-.match-type{font-size:8px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
-.match-status-center{text-align:center;margin:1px 0 5px}
-.match-status-center .match-badge{display:inline-block}
-.match-teams{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;gap:4px}
-.match-team{min-width:0;display:flex;align-items:center;gap:6px}
-.match-team.left{justify-content:flex-start;text-align:left;flex-direction:row}
-.match-team.right{justify-content:flex-end;text-align:right;flex-direction:row-reverse}
-.match-team img,.team-fallback{width:32px;height:32px;min-width:32px;object-fit:contain;border-radius:50%;background:#fff;padding:3px;flex-shrink:0}
-.team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:12px;border:1px solid #41445a}
-.match-team b{font-size:11px;line-height:1.2;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.match-team img.svg-logo{background:#fff !important;padding:4px !important}
+.match-type{font-size:9px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
+.match-status-center{text-align:center;margin:2px 0 6px}
+.match-status-center .match-badge{display:inline-block;box-shadow:0 3px 10px rgba(0,0,0,.4)}
+.match-teams{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;gap:6px}
+.match-team{min-width:0;display:flex;align-items:center;gap:9px}
+.match-team.left{justify-content:flex-start;text-align:left}
+.match-team.right{justify-content:flex-end;text-align:right}
+.match-team img,.team-fallback{width:38px;height:38px;min-width:38px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex-shrink:0;border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:13px;border:1px solid #41445a}
+.match-team b{font-size:12px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.match-team img.svg-logo{background:#fff !important;padding:5px !important}
 .card img[src$=".svg"]{background:#fff !important;padding:3px !important}
 .match-vs{text-align:center}
-.match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:11px;font-weight:900;color:#9ea4ba;display:block}
-.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;padding-top:6px;border-top:1px solid #ffffff14}
-.match-time{font-size:9px;color:#aeb2c5;line-height:1.4;text-align:left}
-.match-action{border:0;border-radius:20px;padding:6px 10px;font-family:inherit;font-size:9px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
+.match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:11px;font-weight:900;color:#fff;display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 8px;border-radius:99px}
+.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding-top:7px;border-top:1px solid #ffffff14}
+.match-time{font-size:9.5px;color:#aeb2c5;line-height:1.4;text-align:left}
+.match-action{border:0;border-radius:20px;padding:6px 11px;font-family:inherit;font-size:9px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
-.match-countdown{display:block;color:#c9a86a;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.3;white-space:nowrap;opacity:.85}
-.match-countdown small{display:block;font-size:7px;font-weight:600;color:#8e91a8;letter-spacing:1px;opacity:.8}
+.match-countdown{display:block;color:#ffc36b;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;line-height:1.3;white-space:nowrap}
+.match-countdown small{display:block;font-size:7.5px;font-weight:700;color:#8e91a8;letter-spacing:1.5px}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -325,17 +322,19 @@ function getSportInfo(m){
   if(txt.includes('badminton')) return {ico:'🏸',label:'Badminton'};
   return {ico:'🏏',label:'Cricket'};
 }
+/* ===== FIXED: Right Logo = Far Right, Name = Left of Logo ===== */
 function teamNode(name,logo,side){
   const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');
   const labelName=name||'Team';let logoEl;
   if(logo){
     const img=document.createElement('img');img.src=logo;img.alt=labelName;img.loading='lazy';
     if(String(logo).toLowerCase().split('?')[0].includes('.svg')) img.classList.add('svg-logo');
-    img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();if(side==='right')wrap.prepend(fb);else wrap.insertBefore(fb,wrap.firstChild);};
+    img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();wrap.appendChild(fb);};
     logoEl=img;
   }else{logoEl=document.createElement('div');logoEl.className='team-fallback';logoEl.textContent=labelName.trim().slice(0,2).toUpperCase();}
   const label=document.createElement('b');label.textContent=labelName;
-  if(side==='right'){wrap.append(label,logoEl);}else{wrap.append(logoEl,label);}
+  if(side==='right'){wrap.append(label,logoEl);}
+  else{wrap.append(logoEl,label);}
   return wrap;
 }
 function openMatch(m,idx){
