@@ -1,46 +1,42 @@
 /* =====================================================
-   RsLive Go - FINAL v12
+   RsLive Go - FINAL v13
+   Bottom Nav: Like Screenshot - Pill Active, Trophy/Home/Grid
+   No Footer Status Bar, Header Bigger + Matching
+   NO Bengali - All English
    Header: Home=Search Only, Events/Category=LIVE Only
-   Category: 3 Column Photo Card, No Chips Row
-   Bottom Nav: Slim / Chikon Premium
-   Grid: Channel 2 Col, Category 3 Col
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
 <style>
 *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none}
-html,body{height:100%;width:100%;background:#07070f;color:#fff;font-family:'Hind Siliguri',sans-serif;overflow-x:hidden}
+html,body{height:100%;width:100%;background:#07070f;color:#fff;font-family:Poppins,'Hind Siliguri',sans-serif;overflow-x:hidden}
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-header{background:rgba(10,10,20,.94);backdrop-filter:blur(16px);padding:11px 12px;border-bottom:1px solid #ffffff14;position:relative;overflow:hidden}
-header:before,header:after{content:"";position:absolute;top:-50px;width:200px;height:110px;filter:blur(10px);pointer-events:none;animation:glow 4s ease-in-out infinite alternate}
-header:before{left:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%)}
-header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35),transparent 70%)}
-@keyframes glow{to{transform:translateX(40px) scale(1.2)}}
-.header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:38px}
-.logo{display:flex;align-items:center;gap:9px;cursor:pointer;flex-shrink:0}
-.play-ico{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#22d3ee,#a78bfa,#ff5d8f);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.logo-text .name{font-family:Poppins,sans-serif;font-size:19px;font-weight:900;line-height:1}
-.logo-text .name i{font-style:normal;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f,#fb923c,#22d3ee);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text;animation:shine 3s linear infinite}
-@keyframes shine{to{background-position:300% center}}
-.logo-text .tag{font-size:7.5px;letter-spacing:2.5px;color:#9a9ab5;font-weight:700;margin-top:2px}
-/* LIVE Pill - Sudhu Events / Category te */
-.live-pill{display:none;align-items:center;gap:5px;background:#ff2d5522;border:1px solid #ff2d5555;color:#ff6b81;font-size:9px;font-weight:800;padding:6px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
+/* HEADER - Bigger + Matching Purple */
+header{background:linear-gradient(180deg,#14142a 0%,#0a0a16 100%);backdrop-filter:blur(16px);padding:18px 14px;border-bottom:1px solid #ffffff14;position:relative;overflow:hidden}
+header:before,header:after{content:"";position:absolute;top:-60px;width:220px;height:120px;filter:blur(12px);pointer-events:none}
+header:before{left:-20px;background:radial-gradient(circle,rgba(139,124,255,.45),transparent 70%)}
+header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%)}
+.header-top{display:flex;align-items:center;gap:12px;position:relative;z-index:2;min-height:44px}
+.logo{display:flex;align-items:center;gap:11px;cursor:pointer;flex-shrink:0}
+.play-ico{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#8b7cff,#22d3ee,#ff5d8f);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;box-shadow:0 4px 16px #8b7cff55}
+.logo-text .name{font-family:Poppins,sans-serif;font-size:24px;font-weight:900;line-height:1;letter-spacing:.2px}
+.logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
+.logo-text .tag{font-size:8px;letter-spacing:3.5px;color:#9a9ab5;font-weight:700;margin-top:3px}
+.live-pill{display:none;align-items:center;gap:5px;background:#ff2d5522;border:1px solid #ff2d5555;color:#ff6b81;font-size:9px;font-weight:800;padding:7px 10px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
 .live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;animation:pulse 1.4s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 7px #ff2d5500}}
-/* Search - Sudhu Home te, Konay */
-#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:175px;margin-left:auto}
-#searchWrap .s-ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;z-index:1}
-#search{width:100%;padding:9px 10px 9px 30px;border-radius:20px;border:1px solid #ffffff20;background:#1d1d2e;color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text}
-#search:focus{border-color:#22d3ee}
+#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:180px;margin-left:auto}
+#searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;z-index:1}
+#search{width:100%;padding:10px 10px 10px 32px;border-radius:20px;border:1px solid #ffffff20;background:#1d1d2e;color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text}
+#search:focus{border-color:#8b7cff}
 #search::placeholder{color:#8e91a8}
 #pageTitle{display:none !important}
-/* Category Chips - Ekdom Bondho, Ar Dekhabe Na */
 #cats{display:none !important}
 .desktop-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 #mainCol{flex:1;min-height:0;display:flex;flex-direction:column;overflow-x:hidden}
-#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:92px}
+#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:88px}
 #matchesSection{display:none;padding:12px 12px 4px}
 .matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .matches-head strong{font-family:Poppins,sans-serif;font-size:13px}
@@ -73,7 +69,6 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35)
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
-/* Channel Card - 2 Column */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -82,7 +77,6 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35)
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* Category Photo Card - 3 Column, Chikon */
 .cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important}
 .cat-photo{width:100%;height:62px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0}
 .cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.92}
@@ -98,44 +92,39 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(167,139,250,.35)
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
 #featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
-/* ===== BOTTOM NAV - SLIM / CHIKON ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(10,10,20,.96);backdrop-filter:blur(16px);border-top:1px solid #ffffff14;display:flex;justify-content:space-around;padding:3px 6px calc(3px + env(safe-area-inset-bottom));}
-.bnav{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 2px 3px;border-radius:10px;cursor:pointer;border:0;background:transparent;color:#8e91a8;font-family:inherit;position:relative}
+/* ===== BOTTOM NAV - LIKE SCREENSHOT ===== */
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:#0e0e1a;border-top:1px solid #ffffff1a;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));}
+.bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 2px 8px;border-radius:14px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:56px}
 .bnav .b-ico{line-height:1;display:flex}
-.bnav .b-ico svg{width:20px;height:20px;fill:currentColor}
-.bnav .b-txt{font-size:9px;font-weight:700;line-height:1.2}
-.bnav .b-count{font-size:7.5px;background:#ffffff14;padding:1px 5px;border-radius:99px;line-height:1.4}
-.bnav.active{color:#fff;background:#ffffff0d}
-.bnav.active .b-ico{transform:scale(1.1)}
-.bnav.active .b-ico svg{filter:drop-shadow(0 0 5px currentColor)}
-.bnav.active::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:2px;border-radius:99px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f)}
-.bnav.active#navEvents{color:#ff6176}
-.bnav.active#navHome{color:#22d3ee}
-.bnav.active#navCategory{color:#a78bfa}
-#status{position:fixed;bottom:52px;left:0;right:0;background:#0a0a14ed;padding:7px;text-align:center;font-size:10px;color:#c8c8dd;border-top:1px solid #ffffff14;z-index:200}
-#status b{color:#22d3ee}
+.bnav .b-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bnav .b-txt{font-size:13px;font-weight:700;line-height:1.2}
+.bnav.active{color:#fff;background:linear-gradient(180deg,#2b2450 0%,#1a2038 100%);border-color:#8b7cff88;box-shadow:0 4px 18px #8b7cff33}
+.bnav.active#navEvents{color:#c4b5fd}
+.bnav.active#navHome{color:#fff}
+.bnav.active#navCategory{color:#fff}
+.bnav.active .b-ico svg{stroke:#c4b5fd}
+#status{display:none !important}
 .tele{position:fixed;right:14px;bottom:112px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999}
 .tele svg{width:24px;height:24px;fill:#fff}
-#installBar{display:none;position:fixed;left:10px;right:10px;bottom:60px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
+#installBar{display:none;position:fixed;left:10px;right:10px;bottom:80px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
 #installBar .ib-txt{flex:1;text-align:center}
 #installBar .ib-txt b{font-size:12px;display:block}
 #installBar .ib-txt span{font-size:10px;color:#b8b8d0}
 #installBar button{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#fff;border:0;padding:7px 11px;border-radius:100px;font-weight:800;font-size:11px}
 #closeInstall{cursor:pointer;padding:5px}
 @media(max-width:480px){
-.logo-text .name{font-size:16px}
-.logo-text .tag{font-size:7px;letter-spacing:2px}
-.play-ico{width:32px;height:32px}
+.logo-text .name{font-size:21px}
+.logo-text .tag{font-size:7.5px;letter-spacing:3px}
 #searchWrap{max-width:150px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
-.header-top{gap:7px}
+.header-top{gap:8px}
 }
 @media(min-width:900px){
 body{display:block;overflow-y:auto}
 #app{display:block}
 .sticky{position:sticky;top:0}
-header{max-width:1440px;margin:auto;padding:16px 24px}
-.logo-text .name{font-size:21px}
+header{max-width:1440px;margin:auto;padding:20px 24px}
+.logo-text .name{font-size:26px}
 #searchWrap{max-width:320px;margin-left:auto}
 .desktop-wrap{flex-direction:row;max-width:1440px;margin:auto;gap:18px;padding:16px 24px 40px}
 #mainCol{order:1}
@@ -149,7 +138,7 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
-#bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0}
+#bottomNav{max-width:520px;left:50%;transform:translateX(-50%);border-radius:18px 18px 0 0}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 </style>
@@ -167,7 +156,7 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 </div>
 <div id="searchWrap">
 <span class="s-ico">🔍</span>
-<input id="search" placeholder="খুঁজো..." autocomplete="off">
+<input id="search" placeholder="Search..." autocomplete="off">
 </div>
 <div class="live-pill" id="livePill"><i></i> LIVE</div>
 </div>
@@ -180,57 +169,55 @@ header{max-width:1440px;margin:auto;padding:16px 24px}
 <div id="scrollArea">
 <section id="matchesSection">
 <div class="matches-head">
-<strong>⚽ LIVE & UPCOMING MATCHES</strong>
+<strong>LIVE & UPCOMING MATCHES</strong>
 <span id="matchesCount"></span>
 </div>
 <div id="matchesGrid"></div>
 </section>
 <div id="homeEmpty">
-<b>😴 এখন কোনো লাইভ / আপকামিং ম্যাচ নাই</b>
-<span>নিচে Home এ ক্লিক করে সব চ্যানেল দেখো</span><br>
-<button onclick="switchTab('home')">সব চ্যানেল দেখো →</button>
+<b>No Live / Upcoming Match Right Now</b>
+<span>Tap Home to see all channels</span><br>
+<button onclick="switchTab('home')">View All Channels →</button>
 </div>
 <div id="featured">
-<div style="font-size:11px;color:#ff5d8f;font-weight:800">⭐ FEATURED LIVE</div>
+<div style="font-size:11px;color:#ff5d8f;font-weight:800">FEATURED LIVE</div>
 <b id="featName"></b><br>
-<span style="font-size:11px;color:#22d3ee">এখনই দেখো →</span>
+<span style="font-size:11px;color:#22d3ee">Watch Now →</span>
 </div>
 <div id="grid"></div>
 <div id="loadMoreWrap">
-<button id="loadMoreBtn" onclick="loadMore()">আরো দেখো ↓</button>
+<button id="loadMoreBtn" onclick="loadMore()">Load More ↓</button>
 </div>
 </div>
 </div>
 </div>
-
-<div id="status">Loading...</div>
 
 <a class="tele" id="teleBtn" href="https://t.me/RsLiveGo" target="_blank" rel="noopener">
 <svg viewBox="0 0 24 24"><path d="M9.04 15.31l-.38 5.32c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.87c.97.53 1.66.25 1.92-.9L24 3.6c.1-.9-.32-1.38-1.1-1.12L1.5 10.2c-.9.35-.88 1.45.14 1.72l5.48 1.71 12.66-8.04c.6-.36 1.14-.17.7.23L9.04 15.31z"/></svg>
 </a>
 
 <div id="installBar">
-<div class="ib-txt"><b>RsLive Go অ্যাপ নাও</b><span>১ ক্লিকেই ফোনে সেভ হবে ✨</span></div>
-<button id="installBtn">ইন্সটল করো</button>
+<div class="ib-txt"><b>Get RsLive Go App</b><span>Save to phone in 1 click</span></div>
+<button id="installBtn">Install</button>
 <span id="closeInstall">✕</span>
 </div>
 
 <nav id="bottomNav">
 <button class="bnav active" id="navEvents" onclick="switchTab('events')">
-<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 110 14 7 7 0 010-14zm0 2a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg></span><span class="b-txt">Events</span><span class="b-count" id="countEvents">0</span>
+<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0V4z"/><path d="M8 6H5a3 3 0 003 5M16 6h3a3 3 0 01-3 5"/><path d="M12 13v4M8 20h8M10 17h4"/></svg></span><span class="b-txt">Events</span>
 </button>
 <button class="bnav" id="navHome" onclick="switchTab('home')">
-<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M12 2l10 9h-3v11h-6v-6H11v6H5V11H2z"/></svg></span><span class="b-txt">Home</span><span class="b-count" id="countHome">0 চ্যানেল</span>
+<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><span class="b-txt">Home</span>
 </button>
 <button class="bnav" id="navCategory" onclick="switchTab('category')">
-<span class="b-ico"><svg viewBox="0 0 24 24"><path d="M4 4h7l2 2h7v14H4z"/></svg></span><span class="b-txt">Category</span><span class="b-count" id="countCat">0</span>
+<span class="b-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="b-txt">Categories</span>
 </button>
 </nav>
 `;
 
-/* ================= CONFIG ================= */
-const CONFIG_VERSION = 'nova-v12-slim';
-const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'খুঁজো...', statusText:'✅ মোট {count} টা চ্যানেল - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+/* ================= CONFIG - ALL ENGLISH ================= */
+const CONFIG_VERSION = 'nova-v13-english';
+const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
 const CFG={...DEFAULT,...(saved||{})};
@@ -254,21 +241,12 @@ let allMatches=[];
 let categoryHomeMode=false;
 const MATCH_INDEX_URL='/data/matches/index.json';
 function goHome(){ switchTab('events'); }
-
-/* ================= HEADER: Home=Search, Events/Category=LIVE ================= */
 function updateHeader(){
   const searchWrap=document.getElementById('searchWrap');
   const livePill=document.getElementById('livePill');
-  if(currentTab==='home'){
-    searchWrap.style.display='block';
-    livePill.style.display='none';
-  } else {
-    searchWrap.style.display='none';
-    livePill.style.display = CFG.showLive ? 'flex' : 'none';
-  }
+  if(currentTab==='home'){ searchWrap.style.display='block'; livePill.style.display='none'; }
+  else { searchWrap.style.display='none'; livePill.style.display = CFG.showLive ? 'flex' : 'none'; }
 }
-
-/* ================= BOTTOM NAV SWITCH ================= */
 function switchTab(tab){
   currentTab=tab;
   categoryHomeMode = (tab==='category');
@@ -278,16 +256,9 @@ function switchTab(tab){
   if(btn) btn.classList.add('active');
   if(tab==='home') cat='All';
   updateHeader();
-  renderCats(); renderGrid(true); renderMatches(); updateNavCounts();
+  renderGrid(true); renderMatches();
   const sa=document.getElementById('scrollArea'); if(sa) sa.scrollTop=0; window.scrollTo({top:0});
 }
-function updateNavCounts(){
-  const ce=document.getElementById('countEvents'); if(ce) ce.textContent=allMatches.filter(m=>getMatchState(normalizeMatch(m))!=='expired').length;
-  const ch=document.getElementById('countHome'); if(ch) ch.textContent=all.length+' চ্যানেল';
-  const cc=document.getElementById('countCat'); if(cc) cc.textContent=getCats().length+' ক্যাটাগরি';
-}
-
-/* ================= MATCH ================= */
 function unwrapMatchFile(data){
   if(!data||typeof data!=='object') return [];
   if(Array.isArray(data.matches)) return data.matches;
@@ -328,7 +299,7 @@ function getMatchState(m){
   if(manual==='upcoming'&&!(Number.isFinite(start)&&start>0)) return 'upcoming';
   return 'live';
 }
-function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime())) return 'সময় নির্ধারিত নয়';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
+function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime())) return 'Time Not Set';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
 function matchCountdown(m){const t=Date.parse(m.startTime||'');if(!Number.isFinite(t))return'';let sec=Math.max(0,Math.floor((t-Date.now())/1000));const days=Math.floor(sec/86400);sec%=86400;const hours=Math.floor(sec/3600);sec%=3600;const mins=Math.floor(sec/60);sec%=60;return ((days?days+'d ':'')+String(hours).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(sec).padStart(2,'0'));}
 function teamNode(name,logo,side){
   const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');
@@ -365,39 +336,38 @@ function renderMatches(){
   section.style.display=(showMatches&&visible.length)?'block':'none';
   if(homeEmpty) homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0)?'block':'none';
   const count=document.getElementById('matchesCount');
-  if(count) count.textContent=visible.length?visible.length+' ম্যাচ':'';
+  if(count) count.textContent=visible.length?visible.length+' Matches':'';
   grid.replaceChildren();
   visible.forEach((m,idx)=>{
     const state=getMatchState(m);
     const card=document.createElement('article');card.className='match-card '+state;
     card.addEventListener('click',()=>{if(state==='live'&&m.url) openMatch(m,idx);});
     const top=document.createElement('div');top.className='match-top';
-    const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'● LIVE':'◷ UPCOMING';
+    const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'LIVE':'UPCOMING';
     const type=document.createElement('span');type.className='match-type';type.textContent=m.matchType||m.category||'LIVE SPORTS';
     top.append(badge,type);
     const teams=document.createElement('div');teams.className='match-teams';
     const a=teamNode(m.teamA||m.name,m.teamALogo,'left');
     const vs=document.createElement('div');vs.className='match-vs';
-    vs.innerHTML=`<span class="vs-txt">VS</span><span class="vs-time">${state==='live'?'● LIVE':(fmtMatchTime(m.startTime).split(',')[1]||'')}</span>`;
+    vs.innerHTML=`<span class="vs-txt">VS</span><span class="vs-time">${state==='live'?'LIVE':(fmtMatchTime(m.startTime).split(',')[1]||'')}</span>`;
     const b=teamNode(m.teamB||'',m.teamBLogo,'right');
     teams.append(a,vs,b);
     const bottom=document.createElement('div');bottom.className='match-bottom';
-    const time=document.createElement('div');time.className='match-time';time.textContent='শুরু: '+fmtMatchTime(m.startTime);
-    if(state==='upcoming'){const cd=document.createElement('span');cd.className='match-countdown';cd.textContent='শুরু হতে বাকি '+matchCountdown(m);time.appendChild(cd);}
-    const btn=document.createElement('button');btn.className='match-action '+state;btn.type='button';btn.textContent=state==='live'?'▶ Watch Live':'UPCOMING';btn.disabled=state!=='live'||!m.url;
+    const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);
+    if(state==='upcoming'){const cd=document.createElement('span');cd.className='match-countdown';cd.textContent='Starts in '+matchCountdown(m);time.appendChild(cd);}
+    const btn=document.createElement('button');btn.className='match-action '+state;btn.type='button';btn.textContent=state==='live'?'Watch Live':'UPCOMING';btn.disabled=state!=='live'||!m.url;
     if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}
     bottom.append(time,btn);
     card.append(top,teams,bottom);
     grid.appendChild(card);
   });
-  updateNavCounts();
 }
 async function loadMatches(){
   try{
     const indexResponse=await fetch(MATCH_INDEX_URL+'?t='+Date.now(),{cache:'no-store'});
     if(!indexResponse.ok) throw new Error('Index HTTP '+indexResponse.status);
     const indexData=await indexResponse.json();
-    if(!Array.isArray(indexData.files)) throw new Error('index.json এ files তালিকা পাওয়া যায়নি');
+    if(!Array.isArray(indexData.files)) throw new Error('No files in index.json');
     const files=indexData.files.filter(file=>typeof file==='string'&&/^[a-zA-Z0-9_-]+\.json$/.test(file));
     const results=await Promise.all(files.map(async file=>{
       try{
@@ -435,11 +405,9 @@ async function loadOne(p){
     if(list.length) return list;
     throw new Error('Empty playlist');
   }catch(e1){
-    console.warn('Playlist direct failed, trying proxy:',p.name,e1);
     try{
       const proxyBase = CFG.proxyUrl || 'https://api.allorigins.win/raw?url=';
-      const list2=await tryFetch(proxyBase+encodeURIComponent(p.url));
-      return list2;
+      return await tryFetch(proxyBase+encodeURIComponent(p.url));
     }catch(e2){ console.warn('Playlist proxy failed:',p.name,e2); return []; }
   }
 }
@@ -463,11 +431,9 @@ async function loadAll(){
     const list=await loadOne(p);
     console.log('Playlist loaded:',p.name,list.length);
     for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
-    document.getElementById('status').innerHTML='✅ মোট <b>'+all.length+'</b> টা চ্যানেল লোড হচ্ছে...';
-    _catCache=null;renderCats();renderGrid();renderMatches();
+    _catCache=null;renderGrid();renderMatches();
   }
-  document.getElementById('status').innerHTML=CFG.statusText.replace('{count}','<b>'+all.length+'</b>');
-  renderCats();renderGrid();renderMatches();switchTab('events');
+  renderGrid();renderMatches();switchTab('events');
 }
 function normName(s){ return String(s||'').toLowerCase().trim().replace(/\s+/g,' '); }
 function getCats(){
@@ -519,7 +485,6 @@ function matchesCat(c,category){
   if(catN==='india') return ['star','sony','zee','colors'].some(x=>name.includes(x));
   return group.includes(catN);
 }
-function renderCats(){ /* Chips bondho - kichu korar dorkar nai */ }
 function renderCategoryHome(){
   const grid=document.getElementById('grid');
   grid.style.display='grid';
@@ -535,14 +500,11 @@ function renderCategoryHome(){
       <div class="cat-photo">
         ${photo ? `<img src="${photo}" loading="lazy" onerror="this.remove()">` : ''}
         <span class="cat-emoji">${catIcon(c)}</span>
-        <span class="cat-num">${catCount(c)} টা</span>
+        <span class="cat-num">${catCount(c)} Channels</span>
       </div>
-      <div class="cat-info"><b>${c}</b><small>দেখো →</small></div>
+      <div class="cat-info"><b>${c}</b><small>View →</small></div>
     `;
-    box.onclick=()=>{
-      cat=c; categoryHomeMode=false;
-      renderGrid(true);
-    };
+    box.onclick=()=>{ cat=c; categoryHomeMode=false; renderGrid(true); };
     grid.appendChild(box);
   });
   document.getElementById('loadMoreWrap').style.display='none';
@@ -584,7 +546,7 @@ function renderGrid(reset=true){
     grid.appendChild(card);
   });
   const btn=document.getElementById('loadMoreBtn');
-  if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='আরো দেখো ↓ ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
+  if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
   if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
 }
 function loadMore(){visibleCount+=200;renderGrid(false);}
@@ -598,6 +560,6 @@ setInterval(renderMatches,1000);
 if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(e=>console.warn('Service Worker:',e));}
 let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;if(!window.matchMedia('(display-mode: standalone)').matches){const bar=document.getElementById('installBar');if(bar&&!localStorage.getItem('rslive_install_closed')) bar.style.display='flex';}});
-document.getElementById('installBtn')?.addEventListener('click',async()=>{if(!deferredPrompt){alert('ব্রাউজারের Menu (⋮) -> Add to Home Screen এ চাপ দাও');return;}deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;if(choice.outcome==='accepted') document.getElementById('installBar').style.display='none';deferredPrompt=null;});
+document.getElementById('installBtn')?.addEventListener('click',async()=>{if(!deferredPrompt){alert('Browser Menu -> Add to Home Screen');return;}deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;if(choice.outcome==='accepted') document.getElementById('installBar').style.display='none';deferredPrompt=null;});
 document.getElementById('closeInstall')?.addEventListener('click',()=>{document.getElementById('installBar').style.display='none';localStorage.setItem('rslive_install_closed','1');});
 window.addEventListener('appinstalled',()=>{document.getElementById('installBar').style.display='none';});
