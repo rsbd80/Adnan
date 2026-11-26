@@ -1,6 +1,7 @@
 /* =====================================================
-   RsLive Go - FINAL v20
-   Category: Same As Channel Card
+   RsLive Go - FINAL v21
+   Category: 1x1 Full Width, No Serial, No View Text
+   Match: Single UPCOMING Only
    Proxy: Developer Only - No UI Switch
    Telegram: Pulse Glow Effect Back
    Header Logo: Premium Play Icon
@@ -73,17 +74,16 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* ===== CATEGORY - SAME AS CHANNEL CARD ===== */
-.cat-box{flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;gap:8px !important;padding:8px 10px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:12px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:56px !important;overflow:hidden !important;text-align:left !important}
+/* ===== CATEGORY - 1x1 FULL WIDTH, SAME AS CHANNEL CARD ===== */
+.cat-box{flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;gap:8px !important;padding:10px 12px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:12px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:62px !important;width:100% !important;overflow:hidden !important;text-align:left !important}
 .cat-box:active{transform:scale(.97);border-color:#a78bfa}
-.cat-serial{flex-shrink:0;font-size:10px;background:rgba(255,255,255,.12);padding:3px 6px;border-radius:99px;color:#aaa;font-weight:800;min-width:20px;text-align:center}
 .cat-wrap{position:relative;width:38px;height:38px;flex-shrink:0}
 .cat-photo{width:38px;height:38px;min-width:38px;min-height:38px;border-radius:10px;overflow:hidden;position:relative;background:#fff;border:none;box-shadow:none;display:flex;align-items:center;justify-content:center}
 .cat-photo img{width:100%;height:100%;object-fit:contain;padding:3px}
 .cat-photo .cat-emoji{font-size:20px;line-height:1}
 .cat-num{position:absolute;bottom:-4px;right:-4px;background:#000;border:1px solid rgba(255,255,255,.35);padding:1px 5px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
 .cat-info{padding:0;flex:1;min-width:0;text-align:left}
-.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:none}
+.cat-info b{font-size:14px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:none}
 .cat-info small{color:#22d3ee;font-size:9px}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
@@ -212,8 +212,8 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v20 ================= */
-const CONFIG_VERSION = 'nova-v20-final';
+/* ================= CONFIG - v21 ================= */
+const CONFIG_VERSION = 'nova-v21-final';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
 /* CATEGORY LOGO - EKHANE CHANGE KORO - Khali rakhle Default asbe */
@@ -371,9 +371,14 @@ function renderMatches(){
     const bottom=document.createElement('div');bottom.className='match-bottom';
     const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);
     if(state==='upcoming'){const cd=document.createElement('span');cd.className='match-countdown';cd.textContent='Starts in '+matchCountdown(m);time.appendChild(cd);}
-    const btn=document.createElement('button');btn.className='match-action '+state;btn.type='button';btn.textContent=state==='live'?'Watch Live':'UPCOMING';btn.disabled=state!=='live'||!m.url;
-    if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}
-    bottom.append(time,btn);
+    // 👇 UPCOMING হলে নিচের বাটন থাকবে না - উপরে Badge এই UPCOMING থাকবে
+    if(state==='live'){
+      const btn=document.createElement('button');btn.className='match-action live';btn.type='button';btn.textContent='Watch Live';btn.disabled=!m.url;
+      if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}
+      bottom.append(time,btn);
+    }else{
+      bottom.append(time);
+    }
     card.append(top,teams,bottom);
     grid.appendChild(card);
   });
@@ -487,22 +492,21 @@ function matchesCat(c,category){
 function renderCategoryHome(){
   const grid=document.getElementById('grid');
   grid.style.display='grid';
-  grid.style.gridTemplateColumns='repeat(2,minmax(0,1fr))';
+  grid.style.gridTemplateColumns='1fr';
   grid.replaceChildren();
   const cats = getCats().filter(c=>normName(c)!=='all');
-  cats.forEach((c, idx)=>{
+  cats.forEach((c)=>{
     const photo = getCategoryImage(c);
     const box=document.createElement('div');
     box.className='card cat-box';
     box.innerHTML=`
-      <span class="cat-serial">${idx+1}</span>
       <div class="cat-wrap">
         <div class="cat-photo">
           <img src="${photo}" loading="lazy" onerror="this.onerror=null;this.src='${DEFAULT_CAT_LOGO}'">
         </div>
         <span class="cat-num">${catCount(c)}</span>
       </div>
-      <div class="cat-info"><b>${c}</b><small>${catCount(c)} Channels • View →</small></div>
+      <div class="cat-info"><b>${c}</b><small>${catCount(c)} Channels</small></div>
     `;
     box.onclick=()=>{ cat=c; categoryHomeMode=false; renderGrid(true); };
     grid.appendChild(box);
