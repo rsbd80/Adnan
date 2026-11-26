@@ -1,10 +1,8 @@
 /* =====================================================
-   RsLive Go - FINAL v21
-   Category: 1x1 Full Width, No Serial, No View Text
-   Match: Single UPCOMING Only
+   RsLive Go - FINAL v22 - CLEAN
+   Category: 3 Per Row, Box Card
+   Match: VS Time Removed, Countdown Right + Big
    Proxy: Developer Only - No UI Switch
-   Telegram: Pulse Glow Effect Back
-   Header Logo: Premium Play Icon
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -59,13 +57,13 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card img[src$=".svg"]{background:#fff !important;padding:4px !important}
 .match-vs{text-align:center}
 .match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:13px;font-weight:900;color:#9ea4ba;display:block}
-.match-vs .vs-time{font-size:9px;color:#aeb2c5;display:block;margin-top:2px}
 .match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #ffffff14}
-.match-time{font-size:10px;color:#aeb2c5;line-height:1.5}
+.match-time{font-size:10px;color:#aeb2c5;line-height:1.5;text-align:left}
 .match-action{border:0;border-radius:20px;padding:7px 12px;font-family:inherit;font-size:10px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
-.match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
+.match-countdown{display:block;color:#ffc36b;font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;text-align:right;line-height:1.4;white-space:nowrap}
+.match-countdown small{display:block;font-size:8px;font-weight:700;color:#8e91a8;letter-spacing:1px}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -74,17 +72,17 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* ===== CATEGORY - 1x1 FULL WIDTH, SAME AS CHANNEL CARD ===== */
-.cat-box{flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;gap:8px !important;padding:10px 12px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:12px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:62px !important;width:100% !important;overflow:hidden !important;text-align:left !important}
-.cat-box:active{transform:scale(.97);border-color:#a78bfa}
-.cat-wrap{position:relative;width:38px;height:38px;flex-shrink:0}
-.cat-photo{width:38px;height:38px;min-width:38px;min-height:38px;border-radius:10px;overflow:hidden;position:relative;background:#fff;border:none;box-shadow:none;display:flex;align-items:center;justify-content:center}
-.cat-photo img{width:100%;height:100%;object-fit:contain;padding:3px}
+/* ===== CATEGORY - 3 PER ROW, BOX CARD ===== */
+.cat-box{flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:12px 6px 10px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:14px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:105px !important;width:100% !important;overflow:hidden !important;text-align:center !important}
+.cat-box:active{transform:scale(.96);border-color:#a78bfa}
+.cat-wrap{position:relative;width:46px;height:46px;flex-shrink:0}
+.cat-photo{width:46px;height:46px;min-width:46px;min-height:46px;border-radius:12px;overflow:hidden;position:relative;background:#fff;display:flex;align-items:center;justify-content:center}
+.cat-photo img{width:100%;height:100%;object-fit:contain;padding:4px}
 .cat-photo .cat-emoji{font-size:20px;line-height:1}
-.cat-num{position:absolute;bottom:-4px;right:-4px;background:#000;border:1px solid rgba(255,255,255,.35);padding:1px 5px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
-.cat-info{padding:0;flex:1;min-width:0;text-align:left}
-.cat-info b{font-size:14px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:none}
-.cat-info small{color:#22d3ee;font-size:9px}
+.cat-num{position:absolute;bottom:-5px;right:-6px;background:#000;border:1px solid rgba(255,255,255,.35);padding:1px 5px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
+.cat-info{padding:0;flex:none;width:100%;min-width:0;text-align:center}
+.cat-info b{font-size:12px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat-info small{color:#22d3ee;font-size:9px;display:block;margin-top:2px}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
 #homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#fff;font-family:inherit;font-weight:800}
@@ -212,11 +210,11 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v21 ================= */
-const CONFIG_VERSION = 'nova-v21-final';
+/* ================= CONFIG - v22 ================= */
+const CONFIG_VERSION = 'nova-v22-clean';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
-/* CATEGORY LOGO - EKHANE CHANGE KORO - Khali rakhle Default asbe */
+/* CATEGORY LOGO - EKHANE CHANGE KORO */
 const DEFAULT_CAT_LOGO = 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
 const CATEGORY_IMAGES = {
   Tapmad: '',
@@ -233,7 +231,7 @@ const CATEGORY_IMAGES = {
   Music: '',
 };
 
-/* Proxy - Developer Only, UI te kono switch nai */
+/* Proxy - Developer Only */
 const PROXY_BASE_FALLBACK = 'https://api.allorigins.win/raw?url=';
 function isProxyOn(catName){
   const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
@@ -365,19 +363,19 @@ function renderMatches(){
     const teams=document.createElement('div');teams.className='match-teams';
     const a=teamNode(m.teamA||m.name,m.teamALogo,'left');
     const vs=document.createElement('div');vs.className='match-vs';
-    vs.innerHTML=`<span class="vs-txt">VS</span><span class="vs-time">${state==='live'?'LIVE':(fmtMatchTime(m.startTime).split(',')[1]||'')}</span>`;
+    vs.innerHTML=`<span class="vs-txt">VS</span>`;
     const b=teamNode(m.teamB||'',m.teamBLogo,'right');
     teams.append(a,vs,b);
     const bottom=document.createElement('div');bottom.className='match-bottom';
     const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);
-    if(state==='upcoming'){const cd=document.createElement('span');cd.className='match-countdown';cd.textContent='Starts in '+matchCountdown(m);time.appendChild(cd);}
-    // 👇 UPCOMING হলে নিচের বাটন থাকবে না - উপরে Badge এই UPCOMING থাকবে
     if(state==='live'){
       const btn=document.createElement('button');btn.className='match-action live';btn.type='button';btn.textContent='Watch Live';btn.disabled=!m.url;
       if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}
       bottom.append(time,btn);
     }else{
-      bottom.append(time);
+      const cd=document.createElement('div');cd.className='match-countdown';
+      cd.innerHTML=`<small>STARTS IN</small>${matchCountdown(m)}`;
+      bottom.append(time,cd);
     }
     card.append(top,teams,bottom);
     grid.appendChild(card);
@@ -492,7 +490,7 @@ function matchesCat(c,category){
 function renderCategoryHome(){
   const grid=document.getElementById('grid');
   grid.style.display='grid';
-  grid.style.gridTemplateColumns='1fr';
+  grid.style.gridTemplateColumns='repeat(3,minmax(0,1fr))';
   grid.replaceChildren();
   const cats = getCats().filter(c=>normName(c)!=='all');
   cats.forEach((c)=>{
