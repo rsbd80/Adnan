@@ -9,9 +9,9 @@
   "teamALogo": "https://flagcdn.com/sl.svg",
   "teamBLogo": "https://flagcdn.com/in.svg",
   "streams": [
+    {
       "label": "Server 1",
       "stream_url": "http://live.ftpbdlive.com:8080/live/FTPBD-LIVETV/FTPBD-2026/12.m3u8"
     }
   ]
-}]
 }
