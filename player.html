@@ -79,25 +79,25 @@ video::-webkit-media-controls{display:none!important}
 @keyframes tpPulse{0%{box-shadow:0 0 0 0 rgba(167,139,250,.6)}70%{box-shadow:0 0 0 18px rgba(167,139,250,0)}100%{box-shadow:0 0 0 0 rgba(167,139,250,0)}}
 #tapPlay p{font-size:14px;font-weight:700;color:#fff}
 #tapPlay small{font-size:11px;color:#ccc}
-#controls{position:absolute;bottom:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 10px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(0,0,0,.88),transparent);opacity:0;transition:opacity .3s;touch-action:manipulation}
+#controls{position:absolute;bottom:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:8px;padding:14px 12px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(0,0,0,.88),transparent);opacity:0;transition:opacity .3s;touch-action:manipulation}
 #player-wrapper.show-controls #controls{opacity:1}
-#controls button{background:rgba(255,255,255,.16)!important;border:1px solid rgba(255,255,255,.28)!important;color:#fff!important;width:30px;height:30px;border-radius:50%;font-size:11px;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+#controls button{background:rgba(255,255,255,.16)!important;border:1px solid rgba(255,255,255,.28)!important;color:#fff!important;width:38px!important;height:38px!important;border-radius:50%;font-size:13px!important;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 #controls button:active{transform:scale(.90)}
 #controls button.active-low{background:rgba(255,255,255,.25)!important;border-color:#fff!important}
-#controls .ctrl-ico{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
-#seek{-webkit-appearance:none;appearance:none;flex:1;height:4px;background:rgba(255,255,255,.30);border-radius:5px;outline:none;min-width:0}
+#controls .ctrl-ico{width:17px!important;height:17px!important;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
+#seek{-webkit-appearance:none;appearance:none;flex:1;height:5px;background:rgba(255,255,255,.30);border-radius:5px;outline:none;min-width:0}
 #seek::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.6)}
-#time-label{font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1px;color:#ff2d55!important;white-space:nowrap;background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.25)!important;padding:4px 8px;border-radius:10px}
+#time-label{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:1px;color:#ff2d55!important;white-space:nowrap;background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.25)!important;padding:5px 10px;border-radius:10px}
 #lowBadge{display:none;font-size:8px;font-weight:800;letter-spacing:1px;color:#fff;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);padding:3px 6px;border-radius:99px;white-space:nowrap}
 #settingsBtn{color:#fff!important;font-size:12px!important}
-#settingsBtn .sig-ico{width:14px;height:14px;display:block;fill:#fff}
-#qualityMenu{position:absolute;bottom:48px;right:10px;z-index:80;display:none;background:rgba(20,20,20,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px;width:160px;max-height:220px;overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+#settingsBtn .sig-ico{width:18px!important;height:18px!important;display:block;fill:#fff}
+#qualityMenu{position:absolute;bottom:56px;right:10px;z-index:80;display:none;background:rgba(20,20,20,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px;width:170px;max-height:220px;overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.6)}
 #qualityMenu.show{display:block}
 #player-wrapper:not(.show-controls) #qualityMenu{display:none!important}
 #qualityMenu .q-head{display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:1.5px;color:#fff;padding:4px 6px 6px;position:sticky;top:0;background:rgba(20,20,20,.92)}
 #qualityMenu .q-head .sig-ico{width:11px;height:11px;fill:#fff;display:block}
-#qualityMenu button{width:100%!important;height:36px!important;border-radius:8px!important;padding:8px 10px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;margin-bottom:4px;background:transparent!important;border:1px solid transparent!important;color:#fff!important;box-shadow:none!important;flex-shrink:0}
-#qualityMenu button .q-main{font-size:12px!important;font-weight:700;color:#fff}
+#qualityMenu button{width:100%!important;height:30px!important;border-radius:7px!important;padding:5px 10px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;margin-bottom:2px!important;background:transparent!important;border:1px solid transparent!important;color:#fff!important;box-shadow:none!important;flex-shrink:0}
+#qualityMenu button .q-main{font-size:11.5px!important;font-weight:700;color:#fff}
 #qualityMenu button .q-tick{font-size:12px;color:#fff;opacity:0}
 #qualityMenu button.sel{background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.35)!important}
 #qualityMenu button.sel .q-main{color:#fff}
@@ -219,7 +219,7 @@ wrapper.addEventListener('mousemove',showControls);
 function cleanName(name){return String(name||'').replace(/\(.*?\)/g,'').replace(/\[.*?\]/g,'').replace(/HD|FHD|4K|1080p|720p/gi,'').replace(/\s+/g,' ').trim();}
 function makeProxyUrl(original){if(!original)return original;if(original.indexOf(PROXY)===0)return original;return PROXY+encodeURIComponent(original);}
 // ---- QUALITY SYSTEM: Auto + All Resolutions ----
-let selectedQuality=-1; // -1 = Auto, else height like 1080,720...
+let selectedQuality=-1;
 let availableHeights=[];
 try{var sq=parseInt(localStorage.getItem('rslive_quality')||'-1');if(!isNaN(sq))selectedQuality=sq;}catch(e){}
 function isLowQuality(){return selectedQuality!==-1 && selectedQuality<=360;}
@@ -229,11 +229,11 @@ list.innerHTML='';
 function makeBtn(label,val){
 var b=document.createElement('button');var s1=document.createElement('span');s1.className='q-main';s1.textContent=label;var tick=document.createElement('span');tick.className='q-tick';tick.textContent='✓';b.append(s1,tick);if(selectedQuality===val)b.classList.add('sel');b.addEventListener('click',function(e){e.stopPropagation();setQuality(val);});list.appendChild(b);
 }
-makeBtn('Auto',-1);
+makeBtn('Quality Auto',-1);
 if(availableHeights.length===0){
-makeBtn('Low',240);
+makeBtn('Quality 240p',240);
 }else{
-availableHeights.forEach(function(h){makeBtn(h+'p',h);});
+availableHeights.forEach(function(h){makeBtn('Quality '+h+'p',h);});
 }
 var badge=document.getElementById('lowBadge');var sb=document.getElementById('settingsBtn');
 if(badge)badge.style.display=(selectedQuality!==-1 && selectedQuality<=360)?'inline-block':'none';
