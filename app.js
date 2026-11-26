@@ -1,8 +1,8 @@
 /* =====================================================
-   RsLive Go - FINAL v15
-   Header: Pure Black Background
-   Slim Bottom Nav, Premium Dark + Glass Search
-   No Footer, No Bengali - All English
+   RsLive Go - FINAL v19
+   UNIFORM: Sob jayga ek rokom Dark - #0D0D0D + #262633
+   FIX: Home Channel Load + Category Count 0
+   Header Icon: Dark Black-White
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -12,35 +12,38 @@ html,body{height:100%;width:100%;background:#000;color:#fff;font-family:Poppins,
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* ===== HEADER - PURE BLACK ===== */
-header{background:#000;border-bottom:1px solid #ffffff14;backdrop-filter:blur(20px);padding:14px 14px 13px;position:relative;overflow:hidden}
-header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 70px at 20% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(220px 70px at 85% 0%,rgba(34,211,238,.14),transparent 70%);pointer-events:none}
+/* ===== HEADER - PURE BLACK, UNIFORM ===== */
+header{background:#000;border-bottom:1px solid #262633;padding:14px 14px 13px;position:relative}
 .header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
-.play-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#8b7cff,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;box-shadow:0 4px 14px rgba(139,124,255,.35)}
-.logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
-.logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
+/* Header Icon - DARK BLACK-WHITE */
+.play-ico{
+  width:42px;height:42px;min-width:42px;border-radius:12px;
+  background:#0d0d0d;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  border:1px solid #262633;
+  box-shadow:0 5px 14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.play-ico svg{width:16px;height:16px;fill:#fff;margin-left:2px}
+.logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px;color:#fff}
+.logo-text .name i{font-style:normal;color:#fff}
 .logo-text .tag{font-size:7.5px;letter-spacing:3px;color:#9a9ab5;font-weight:700;margin-top:3px}
-.live-pill{display:none;align-items:center;gap:5px;background:rgba(255,45,85,.12);border:1px solid rgba(255,45,85,.3);color:#ff6b81;font-size:9px;font-weight:800;padding:6px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
-.live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;animation:pulse 1.4s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 7px #ff2d5500}}
-/* Searchbar - Glass Premium on Black */
-#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
-#searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7;z-index:1}
-#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);backdrop-filter:blur(10px);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
-#search:focus{background:rgba(255,255,255,.10);border-color:rgba(139,124,255,.60);box-shadow:0 0 0 3px rgba(139,124,255,.18)}
+#searchWrap{display:flex;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
+#searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.6;z-index:1}
+#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid #262633;background:#0d0d0d;color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text}
+#search:focus{border-color:#555;background:#111}
 #search::placeholder{color:#8e91a8}
 #pageTitle{display:none !important}
 #cats{display:none !important}
-.desktop-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
+.desktop-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden;background:#000}
 #mainCol{flex:1;min-height:0;display:flex;flex-direction:column;overflow-x:hidden}
-#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:82px}
+#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:82px;background:#000}
 #matchesSection{display:none;padding:12px 12px 4px}
 .matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .matches-head strong{font-family:Poppins,sans-serif;font-size:13px}
 .matches-head span{font-size:10px;color:#8e91a8}
 #matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
-.match-card{background:linear-gradient(115deg,#171a29,#10121d 58%,#171321);border:1px solid #ffffff19;border-radius:14px;padding:10px 12px;box-shadow:0 5px 14px #0005;cursor:pointer}
+.match-card{background:#0d0d0d;border:1px solid #262633;border-radius:14px;padding:10px 12px;box-shadow:0 5px 14px rgba(0,0,0,.5);cursor:pointer}
 .match-card.live{border-left:3px solid #ff3d5a}
 .match-card.upcoming{border-left:3px solid #f3a43b}
 .match-card:active{transform:scale(.98)}
@@ -54,61 +57,86 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-team.left{justify-content:flex-start;text-align:left;flex-direction:row}
 .match-team.right{justify-content:flex-end;text-align:right;flex-direction:row-reverse}
 .match-team img,.team-fallback{width:42px;height:42px;min-width:42px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex-shrink:0}
-.team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:15px;border:1px solid #41445a}
+.team-fallback{display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#fff;font-weight:900;font-size:15px;border:1px solid #262633}
 .match-team b{font-size:12px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .match-team img.svg-logo{background:#fff !important;padding:5px !important}
 .card img[src$=".svg"]{background:#fff !important;padding:4px !important}
 .match-vs{text-align:center}
 .match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:13px;font-weight:900;color:#9ea4ba;display:block}
 .match-vs .vs-time{font-size:9px;color:#aeb2c5;display:block;margin-top:2px}
-.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #ffffff14}
+.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #262633}
 .match-time{font-size:10px;color:#aeb2c5;line-height:1.5}
-.match-action{border:0;border-radius:20px;padding:7px 12px;font-family:inherit;font-size:10px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
-.match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
+.match-action{border:0;border-radius:20px;padding:7px 12px;font-family:inherit;font-size:10px;font-weight:900;color:#fff;background:#1a1a1a;border:1px solid #262633;cursor:pointer;flex-shrink:0}
+.match-action.upcoming{background:#1a1a1a;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
-/* Channel - 2 Column */
+/* Channel - UNIFORM */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
-.card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px}
-.card:active{transform:scale(.97);border-color:#a78bfa}
-.card .serial{flex-shrink:0;font-size:10px;background:rgba(255,255,255,.12);padding:3px 6px;border-radius:99px;color:#aaa;font-weight:800;order:-1;min-width:20px;text-align:center}
+.card{background:#0d0d0d;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.5)}
+.card:active{transform:scale(.97);border-color:#555}
+.card .serial{flex-shrink:0;font-size:10px;background:#1a1a1a;padding:3px 6px;border-radius:99px;color:#aaa;font-weight:800;order:-1;min-width:20px;text-align:center;border:1px solid #262633}
 .card img{width:38px;height:38px;min-width:38px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
 .card .c-txt{flex:1;min-width:0}
-.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
-.card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* Category - 3 Column Photo Card */
-.cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important}
-.cat-photo{width:100%;height:62px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0}
-.cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.92}
-.cat-photo .cat-emoji{position:absolute;top:6px;left:7px;font-size:16px;filter:drop-shadow(0 2px 4px #000);z-index:2}
-.cat-photo .cat-num{position:absolute;top:6px;right:6px;background:#000b;padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:2}
-.cat-info{padding:8px 9px;width:100%}
-.cat-info b{font-size:12px;display:block;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cat-info small{color:#22d3ee;font-size:9px}
+.card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600;color:#fff}
+.card small{font-size:9px;color:#aaa;display:block;margin-top:2px}
+/* ===== CATEGORY - UNIFORM, SUNDOR ===== */
+.cat-box{
+  flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;
+  gap:0 !important;padding:14px 6px 12px !important;
+  background:transparent !important;border:0 !important;box-shadow:none !important;
+  min-height:0 !important;overflow:visible !important;text-align:center;
+}
+.cat-box:active{transform:scale(.96)}
+.cat-wrap{position:relative;width:80px;height:80px;flex-shrink:0}
+.cat-photo{
+  width:80px;height:80px;min-width:80px;min-height:80px;
+  border-radius:50%;overflow:hidden;position:relative;
+  background:#0d0d0d;
+  border:1px solid #262633;
+  box-shadow:0 5px 14px rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:center;
+}
+.cat-photo img{width:100%;height:100%;object-fit:cover;background:#0d0d0d}
+.cat-photo .cat-emoji{font-size:34px;line-height:1;filter:none}
+.cat-num{
+  position:absolute;bottom:0;right:0;
+  background:#0d0d0d;border:1px solid #262633;
+  padding:3px 7px;border-radius:99px;font-size:9px;font-weight:800;z-index:3;
+  box-shadow:0 4px 10px rgba(0,0,0,.7);color:#fff;
+  white-space:nowrap;line-height:1.4;min-width:22px;text-align:center;
+}
+.cat-info{padding:10px 2px 0;width:100%;text-align:center}
+.cat-info b{font-size:13px;font-weight:700;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+.cat-info small{color:#aaa;font-size:10px}
+#loadingBox{display:none;text-align:center;padding:40px 16px;color:#aaa;font-size:13px}
+#loadingBox .spin{width:32px;height:32px;border:3px solid #262633;border-top-color:#fff;border-radius:50%;margin:0 auto 12px;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
-#homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#fff;font-family:inherit;font-weight:800}
+#homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:#fff;color:#000;font-family:inherit;font-weight:800}
 #loadMoreWrap{text-align:center;padding:6px 12px 18px;display:none}
-#loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
-#noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
-#featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
-/* ===== BOTTOM NAV - SLIM PREMIUM ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
+#loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#0d0d0d;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #262633}
+#noticeBar{display:none;background:#fff;color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
+#featured{display:none;margin:12px;background:#0d0d0d;border:1px solid #262633;border-radius:12px;padding:12px;cursor:pointer}
+/* ===== BOTTOM NAV - UNIFORM ===== */
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:#000;border-top:1px solid #262633;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
 .bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px 5px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:46px}
 .bnav .b-ico{line-height:1;display:flex}
 .bnav .b-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .bnav .b-txt{font-size:11px;font-weight:600;letter-spacing:.2px;line-height:1}
-.bnav.active{color:#fff;background:linear-gradient(180deg,rgba(139,124,255,.22),rgba(139,124,255,.06));border-color:rgba(139,124,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-.bnav.active .b-ico svg{stroke:#c4b5fd}
+.bnav.active{color:#fff;background:#0d0d0d;border-color:#262633;box-shadow:0 5px 14px rgba(0,0,0,.5)}
+.bnav.active .b-ico svg{stroke:#fff}
 .bnav.active .b-txt{color:#fff}
 #status{display:none !important}
-.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999}
-.tele svg{width:23px;height:23px;fill:#fff}
-#installBar{display:none;position:fixed;left:10px;right:10px;bottom:70px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
+/* Telegram - Subtle, Uniform */
+.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:#0d0d0d;display:flex;align-items:center;justify-content:center;z-index:999;border:1px solid #262633;box-shadow:0 8px 22px rgba(0,0,0,.6);animation:telePulse 2s infinite}
+.tele svg{width:22px;height:22px;fill:#fff}
+@keyframes telePulse{0%{box-shadow:0 8px 22px rgba(0,0,0,.6), 0 0 0 0 rgba(255,255,255,.12)}70%{box-shadow:0 8px 22px rgba(0,0,0,.6), 0 0 0 14px rgba(255,255,255,0)}100%{box-shadow:0 8px 22px rgba(0,0,0,.6), 0 0 0 0 rgba(255,255,255,0)}}
+#installBar{display:none;position:fixed;left:10px;right:10px;bottom:70px;z-index:998;background:#0d0d0d;border:1px solid #262633;border-radius:100px;padding:7px;align-items:center;gap:6px}
 #installBar .ib-txt{flex:1;text-align:center}
 #installBar .ib-txt b{font-size:12px;display:block}
 #installBar .ib-txt span{font-size:10px;color:#b8b8d0}
-#installBar button{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#fff;border:0;padding:7px 11px;border-radius:100px;font-weight:800;font-size:11px}
+#installBar button{background:#fff;color:#000;border:0;padding:7px 11px;border-radius:100px;font-weight:800;font-size:11px}
 #closeInstall{cursor:pointer;padding:5px}
 @media(max-width:480px){
 .logo-text .name{font-size:19px}
@@ -116,6 +144,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #searchWrap{max-width:148px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
 .header-top{gap:8px}
+.cat-wrap,.cat-photo{width:72px;height:72px;min-width:72px;min-height:72px}
 }
 @media(min-width:900px){
 body{display:block;overflow-y:auto}
@@ -136,6 +165,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
+.cat-wrap,.cat-photo{width:88px;height:88px;min-width:88px;min-height:88px}
 #bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -146,7 +176,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <header>
 <div class="header-top">
 <div class="logo" onclick="switchTab('events')">
-<div class="play-ico">▶</div>
+<div class="play-ico"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></div>
 <div class="logo-text">
 <div class="name">RsLive <i>Go</i></div>
 <div class="tag" id="taglineEl">LIVE TV • BANGLADESH</div>
@@ -156,7 +186,6 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <span class="s-ico">🔍</span>
 <input id="search" placeholder="Search..." autocomplete="off">
 </div>
-<div class="live-pill" id="livePill"><i></i> LIVE</div>
 </div>
 </header>
 </div>
@@ -165,6 +194,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <div id="cats"></div>
 <div id="mainCol">
 <div id="scrollArea">
+<div id="loadingBox"><div class="spin"></div>Loading Channels...</div>
 <section id="matchesSection">
 <div class="matches-head">
 <strong>LIVE & UPCOMING MATCHES</strong>
@@ -178,9 +208,9 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <button onclick="switchTab('home')">View All Channels →</button>
 </div>
 <div id="featured">
-<div style="font-size:11px;color:#ff5d8f;font-weight:800">FEATURED LIVE</div>
+<div style="font-size:11px;color:#fff;font-weight:800">FEATURED LIVE</div>
 <b id="featName"></b><br>
-<span style="font-size:11px;color:#22d3ee">Watch Now →</span>
+<span style="font-size:11px;color:#aaa">Watch Now →</span>
 </div>
 <div id="grid"></div>
 <div id="loadMoreWrap">
@@ -213,9 +243,26 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v15 ================= */
-const CONFIG_VERSION = 'nova-v15-black-header';
-const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+/* ================= CONFIG - v19 ================= */
+const CONFIG_VERSION = 'nova-v19-uniform-dark';
+const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
+
+/* CATEGORY LOGO - EKHANE CHANGE KORO - Khali thakle Emoji asbe, vul chobi asbe na */
+const CATEGORY_IMAGES = {
+  Tapmad: '',
+  Sports: '',
+  Toffee: '',
+  AynaOTT: '',
+  JagoBD: '',
+  Bangladesh: '',
+  India: '',
+  News: '',
+  Entertainment: '',
+  Movies: '',
+  Kids: '',
+  Music: '',
+};
+
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
 const CFG={...DEFAULT,...(saved||{})};
@@ -237,14 +284,11 @@ let visibleCount=200;
 let currentFiltered=[];
 let allMatches=[];
 let categoryHomeMode=false;
+let isLoading=true;
 const MATCH_INDEX_URL='/data/matches/index.json';
 function goHome(){ switchTab('events'); }
-function updateHeader(){
-  const searchWrap=document.getElementById('searchWrap');
-  const livePill=document.getElementById('livePill');
-  if(currentTab==='home'){ searchWrap.style.display='block'; livePill.style.display='none'; }
-  else { searchWrap.style.display='none'; livePill.style.display = CFG.showLive ? 'flex' : 'none'; }
-}
+function getSearchQ(){ return (document.getElementById('search')?.value||'').trim().toLowerCase(); }
+function showLoading(on){ const el=document.getElementById('loadingBox'); if(el) el.style.display = on ? 'block' : 'none'; }
 function switchTab(tab){
   currentTab=tab;
   categoryHomeMode = (tab==='category');
@@ -253,7 +297,6 @@ function switchTab(tab){
   const btn = tab==='events' ? document.getElementById('navEvents') : tab==='home' ? document.getElementById('navHome') : document.getElementById('navCategory');
   if(btn) btn.classList.add('active');
   if(tab==='home') cat='All';
-  updateHeader();
   renderGrid(true); renderMatches();
   const sa=document.getElementById('scrollArea'); if(sa) sa.scrollTop=0; window.scrollTo({top:0});
 }
@@ -327,12 +370,12 @@ function renderMatches(){
   const grid=document.getElementById('matchesGrid');
   const homeEmpty=document.getElementById('homeEmpty');
   if(!section||!grid) return;
-  const q=(document.getElementById('search')?.value||'').trim().toLowerCase();
+  const q=getSearchQ();
   const visible=allMatches.map(normalizeMatch).filter(Boolean).filter(m=>getMatchState(m)!=='expired').filter(m=>!q||m.name.toLowerCase().includes(q));
   visible.sort((a,b)=>{const sa=getMatchState(a);const sb=getMatchState(b);if(sa!==sb) return sa==='live'?-1:1;return ((Date.parse(a.startTime||'')||0)-(Date.parse(b.startTime||'')||0));});
   const showMatches=(currentTab==='events'||!!q);
   section.style.display=(showMatches&&visible.length)?'block':'none';
-  if(homeEmpty) homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0)?'block':'none';
+  if(homeEmpty) homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0&&!isLoading)?'block':'none';
   const count=document.getElementById('matchesCount');
   if(count) count.textContent=visible.length?visible.length+' Matches':'';
   grid.replaceChildren();
@@ -422,16 +465,27 @@ function parse(t){
   }
   return output;
 }
+/* FIX: Playlist asle sathe sathe Home + Category refresh */
 async function loadAll(){
+  showLoading(true);
   loadMatches();
   CFG.playlists=await getPlaylistsFromSW();
+  console.log('Playlists:', CFG.playlists);
+  if(!CFG.playlists.length){
+    isLoading=false; showLoading(false);
+    renderGrid(); renderMatches(); switchTab('events');
+    return;
+  }
   for(const p of CFG.playlists){
     const list=await loadOne(p);
-    console.log('Playlist loaded:',p.name,list.length);
+    console.log('Loaded:', p.name, list.length);
     for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
-    _catCache=null;renderGrid();renderMatches();
+    _catCache=null;
+    renderGrid(); renderMatches();
   }
-  renderGrid();renderMatches();switchTab('events');
+  isLoading=false; showLoading(false);
+  _catCache=null;
+  renderGrid(true); renderMatches(); switchTab('events');
 }
 function normName(s){ return String(s||'').toLowerCase().trim().replace(/\s+/g,' '); }
 function getCats(){
@@ -445,13 +499,16 @@ function getCats(){
 }
 function catIcon(c){
   const n=normName(c);
-  if(n==='tapmad') return '📺';
-  if(n==='toffee') return '🍬';
-  if(n==='aynaott'||n==='ayna ott') return '📺';
-  if(n==='jagobd'||n==='jago bd') return '🇧🇩';
-  const icons={All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};
+  const icons={Tapmad:'📺',Toffee:'🍬',Aynaott:'📺',Jagobd:'🇧🇩',All:'📺',Sports:'🏆',News:'📰',Entertainment:'🎭',Movies:'🎬',Kids:'🧒',Music:'🎵',Bangladesh:'🇧🇩',India:'🇮🇳'};
   for(const k in icons){ if(normName(k)===n) return icons[k]; }
   return '📺';
+}
+/* FIX: Vul chobi ar asbe na - Custom logo thakle seta, na thakle Emoji. Prothom channel er vul logo ar neya hobe na */
+function getCategoryImage(c){
+  for(const k in CATEGORY_IMAGES){
+    if(normName(k)===normName(c) && CATEGORY_IMAGES[k]) return CATEGORY_IMAGES[k];
+  }
+  return '';
 }
 function catCount(c){
   if(!all.length) return 0;
@@ -490,15 +547,15 @@ function renderCategoryHome(){
   grid.replaceChildren();
   getCats().forEach(c=>{
     if(normName(c)==='all') return;
-    const firstCh = all.find(x=>matchesCat(x,c));
-    const photo = firstCh?.logo || '';
+    const photo = getCategoryImage(c);
     const box=document.createElement('div');
     box.className='card cat-box';
     box.innerHTML=`
-      <div class="cat-photo">
-        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.remove()">` : ''}
-        <span class="cat-emoji">${catIcon(c)}</span>
-        <span class="cat-num">${catCount(c)} Channels</span>
+      <div class="cat-wrap">
+        <div class="cat-photo">
+          ${photo ? `<img src="${photo}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'cat-emoji\\'>${catIcon(c)}</span>'">` : `<span class="cat-emoji">${catIcon(c)}</span>`}
+        </div>
+        <span class="cat-num">${catCount(c)}</span>
       </div>
       <div class="cat-info"><b>${c}</b><small>View →</small></div>
     `;
@@ -511,23 +568,48 @@ function renderGrid(reset=true){
   const grid=document.getElementById('grid');
   const wrap=document.getElementById('loadMoreWrap');
   const feat=document.getElementById('featured');
-  if(currentTab==='events'&&!(document.getElementById('search').value||'').trim()){
+  const q=getSearchQ();
+  if(q){
+    grid.style.display='grid';
+    grid.style.gridTemplateColumns='';
+    if(reset) visibleCount=200;
+    currentFiltered=all.filter(c=>String(c.name).toLowerCase().includes(q)||String(c.group).toLowerCase().includes(q)||String(c.source).toLowerCase().includes(q));
+    const show=currentFiltered.slice(0,visibleCount);
+    grid.replaceChildren();
+    show.forEach((c,i)=>{
+      const card=document.createElement('div');card.className='card';
+      const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
+      const img=document.createElement('img');img.loading='lazy';img.src=c.logo||'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
+      img.onerror=function(){this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png';};
+      const txt=document.createElement('div');txt.className='c-txt';
+      const name=document.createElement('p');name.textContent=c.name;
+      const group=document.createElement('small');group.textContent=c.group||'General';
+      txt.append(name,group);
+      card.append(serial,img,txt);
+      card.addEventListener('click',()=>{openCh(c.url,c.name,c.source||'',c.group||'',i+1);});
+      grid.appendChild(card);
+    });
+    const btn=document.getElementById('loadMoreBtn');
+    if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
+    if(feat) feat.style.display='none';
+    return;
+  }
+  if(currentTab==='events'){
     grid.replaceChildren();grid.style.display='none';
     if(wrap) wrap.style.display='none';
     if(feat) feat.style.display='none';
     if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
     return;
   }
-  if(currentTab==='category' && categoryHomeMode && !(document.getElementById('search').value||'').trim()){
+  if(currentTab==='category' && categoryHomeMode){
     renderCategoryHome();
     return;
   }
   grid.style.display='grid';
   grid.style.gridTemplateColumns='';
   if(reset) visibleCount=200;
-  const q=document.getElementById('search').value.toLowerCase();
   const effCat = currentTab==='home' ? 'All' : cat;
-  currentFiltered=all.filter(c=>{if(q&&!String(c.name).toLowerCase().includes(q)) return false;return matchesCat(c,effCat);});
+  currentFiltered=all.filter(c=>matchesCat(c,effCat));
   const show=currentFiltered.slice(0,visibleCount);
   grid.replaceChildren();
   show.forEach((c,i)=>{
