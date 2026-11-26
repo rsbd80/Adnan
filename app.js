@@ -1,8 +1,7 @@
 /* =====================================================
-   RsLive Go - FINAL v13
-   Bottom Nav: Like Screenshot - Pill Active, Trophy/Home/Grid
-   No Footer Status Bar, Header Bigger + Matching
-   NO Bengali - All English
+   RsLive Go - FINAL v14
+   Slim Bottom Nav, Premium Dark Header + Glass Search
+   No Footer, No Bengali - All English
    Header: Home=Search Only, Events/Category=LIVE Only
    ===================================================== */
 
@@ -13,30 +12,29 @@ html,body{height:100%;width:100%;background:#07070f;color:#fff;font-family:Poppi
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* HEADER - Bigger + Matching Purple */
-header{background:linear-gradient(180deg,#14142a 0%,#0a0a16 100%);backdrop-filter:blur(16px);padding:18px 14px;border-bottom:1px solid #ffffff14;position:relative;overflow:hidden}
-header:before,header:after{content:"";position:absolute;top:-60px;width:220px;height:120px;filter:blur(12px);pointer-events:none}
-header:before{left:-20px;background:radial-gradient(circle,rgba(139,124,255,.45),transparent 70%)}
-header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%)}
-.header-top{display:flex;align-items:center;gap:12px;position:relative;z-index:2;min-height:44px}
-.logo{display:flex;align-items:center;gap:11px;cursor:pointer;flex-shrink:0}
-.play-ico{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#8b7cff,#22d3ee,#ff5d8f);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;box-shadow:0 4px 16px #8b7cff55}
-.logo-text .name{font-family:Poppins,sans-serif;font-size:24px;font-weight:900;line-height:1;letter-spacing:.2px}
+/* ===== HEADER - PREMIUM DARK ===== */
+header{background:linear-gradient(180deg,#12121f 0%,#0a0a14 100%);backdrop-filter:blur(20px);padding:14px 14px 13px;border-bottom:1px solid #ffffff0d;position:relative;overflow:hidden}
+header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 80px at 20% 0%,rgba(139,124,255,.28),transparent 70%),radial-gradient(220px 80px at 85% 0%,rgba(34,211,238,.18),transparent 70%);pointer-events:none}
+.header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
+.play-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#8b7cff,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;box-shadow:0 4px 14px rgba(139,124,255,.35)}
+.logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
 .logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
-.logo-text .tag{font-size:8px;letter-spacing:3.5px;color:#9a9ab5;font-weight:700;margin-top:3px}
-.live-pill{display:none;align-items:center;gap:5px;background:#ff2d5522;border:1px solid #ff2d5555;color:#ff6b81;font-size:9px;font-weight:800;padding:7px 10px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
+.logo-text .tag{font-size:7.5px;letter-spacing:3px;color:#9a9ab5;font-weight:700;margin-top:3px}
+.live-pill{display:none;align-items:center;gap:5px;background:rgba(255,45,85,.12);border:1px solid rgba(255,45,85,.3);color:#ff6b81;font-size:9px;font-weight:800;padding:6px 9px;border-radius:20px;flex-shrink:0;white-space:nowrap;margin-left:auto}
 .live-pill i{width:7px;height:7px;background:#ff2d55;border-radius:50%;animation:pulse 1.4s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 7px #ff2d5500}}
-#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:180px;margin-left:auto}
-#searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;z-index:1}
-#search{width:100%;padding:10px 10px 10px 32px;border-radius:20px;border:1px solid #ffffff20;background:#1d1d2e;color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text}
-#search:focus{border-color:#8b7cff}
+/* Searchbar - Glass Premium */
+#searchWrap{display:none;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
+#searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7;z-index:1}
+#search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
+#search:focus{background:rgba(255,255,255,.09);border-color:rgba(139,124,255,.55);box-shadow:0 0 0 3px rgba(139,124,255,.15)}
 #search::placeholder{color:#8e91a8}
 #pageTitle{display:none !important}
 #cats{display:none !important}
 .desktop-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 #mainCol{flex:1;min-height:0;display:flex;flex-direction:column;overflow-x:hidden}
-#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:88px}
+#scrollArea{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:82px}
 #matchesSection{display:none;padding:12px 12px 4px}
 .matches-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
 .matches-head strong{font-family:Poppins,sans-serif;font-size:13px}
@@ -69,6 +67,7 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
+/* Channel - 2 Column */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -77,6 +76,7 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
+/* Category - 3 Column Photo Card */
 .cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important}
 .cat-photo{width:100%;height:62px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0}
 .cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.92}
@@ -92,30 +92,28 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
 #featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
-/* ===== BOTTOM NAV - LIKE SCREENSHOT ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:#0e0e1a;border-top:1px solid #ffffff1a;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));}
-.bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 2px 8px;border-radius:14px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:56px}
+/* ===== BOTTOM NAV - SLIM PREMIUM ===== */
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(12,12,22,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
+.bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px 5px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:46px}
 .bnav .b-ico{line-height:1;display:flex}
-.bnav .b-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.bnav .b-txt{font-size:13px;font-weight:700;line-height:1.2}
-.bnav.active{color:#fff;background:linear-gradient(180deg,#2b2450 0%,#1a2038 100%);border-color:#8b7cff88;box-shadow:0 4px 18px #8b7cff33}
-.bnav.active#navEvents{color:#c4b5fd}
-.bnav.active#navHome{color:#fff}
-.bnav.active#navCategory{color:#fff}
+.bnav .b-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.bnav .b-txt{font-size:11px;font-weight:600;letter-spacing:.2px;line-height:1}
+.bnav.active{color:#fff;background:linear-gradient(180deg,rgba(139,124,255,.22),rgba(139,124,255,.06));border-color:rgba(139,124,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
 .bnav.active .b-ico svg{stroke:#c4b5fd}
+.bnav.active .b-txt{color:#fff}
 #status{display:none !important}
-.tele{position:fixed;right:14px;bottom:112px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999}
-.tele svg{width:24px;height:24px;fill:#fff}
-#installBar{display:none;position:fixed;left:10px;right:10px;bottom:80px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
+.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999}
+.tele svg{width:23px;height:23px;fill:#fff}
+#installBar{display:none;position:fixed;left:10px;right:10px;bottom:70px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
 #installBar .ib-txt{flex:1;text-align:center}
 #installBar .ib-txt b{font-size:12px;display:block}
 #installBar .ib-txt span{font-size:10px;color:#b8b8d0}
 #installBar button{background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#fff;border:0;padding:7px 11px;border-radius:100px;font-weight:800;font-size:11px}
 #closeInstall{cursor:pointer;padding:5px}
 @media(max-width:480px){
-.logo-text .name{font-size:21px}
+.logo-text .name{font-size:19px}
 .logo-text .tag{font-size:7.5px;letter-spacing:3px}
-#searchWrap{max-width:150px}
+#searchWrap{max-width:148px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
 .header-top{gap:8px}
 }
@@ -123,9 +121,9 @@ header:after{right:-20px;background:radial-gradient(circle,rgba(34,211,238,.35),
 body{display:block;overflow-y:auto}
 #app{display:block}
 .sticky{position:sticky;top:0}
-header{max-width:1440px;margin:auto;padding:20px 24px}
+header{max-width:1440px;margin:auto;padding:18px 24px}
 .logo-text .name{font-size:26px}
-#searchWrap{max-width:320px;margin-left:auto}
+#searchWrap{max-width:300px;margin-left:auto}
 .desktop-wrap{flex-direction:row;max-width:1440px;margin:auto;gap:18px;padding:16px 24px 40px}
 #mainCol{order:1}
 #scrollArea{overflow:visible}
@@ -138,7 +136,7 @@ header{max-width:1440px;margin:auto;padding:20px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
-#bottomNav{max-width:520px;left:50%;transform:translateX(-50%);border-radius:18px 18px 0 0}
+#bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 </style>
@@ -216,7 +214,7 @@ header{max-width:1440px;margin:auto;padding:20px 24px}
 `;
 
 /* ================= CONFIG - ALL ENGLISH ================= */
-const CONFIG_VERSION = 'nova-v13-english';
+const CONFIG_VERSION = 'nova-v14-slim-premium';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:true, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
