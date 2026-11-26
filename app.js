@@ -1,8 +1,10 @@
 /* =====================================================
-   RsLive Go - FINAL v18
+   RsLive Go - FINAL v19
    Category: Same Border + Shadow as Channel Card
    Telegram: Pulse Glow Effect Back
    Header Logo: Premium Play Icon
+   + FIX: Logo Default + All Channels + Load More
+   + FIX: Toffee #EXTVLCOPT + Per-Category Proxy True/False
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -12,20 +14,11 @@ html,body{height:100%;width:100%;background:#000;color:#fff;font-family:Poppins,
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* ===== HEADER - PURE BLACK ===== */
 header{background:#000;border-bottom:1px solid #ffffff14;padding:14px 14px 13px;position:relative;overflow:hidden}
 header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 70px at 20% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(220px 70px at 85% 0%,rgba(34,211,238,.14),transparent 70%);pointer-events:none}
 .header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
-/* Header Play Icon - PREMIUM */
-.play-ico{
-  width:42px;height:42px;min-width:42px;border-radius:13px;
-  background:linear-gradient(135deg,#22d3ee 0%,#8b7cff 48%,#ff5d8f 100%);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  border:1px solid rgba(255,255,255,.28);
-  box-shadow:0 6px 18px rgba(139,124,255,.45), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -2px 6px rgba(0,0,0,.18);
-  position:relative;overflow:hidden;
-}
+.play-ico{width:42px;height:42px;min-width:42px;border-radius:13px;background:linear-gradient(135deg,#22d3ee 0%,#8b7cff 48%,#ff5d8f 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(255,255,255,.28);box-shadow:0 6px 18px rgba(139,124,255,.45), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -2px 6px rgba(0,0,0,.18);position:relative;overflow:hidden}
 .play-ico:before{content:"";position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.35),transparent);border-radius:13px 13px 0 0}
 .play-ico svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));position:relative;z-index:1;margin-left:2px}
 .logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
@@ -73,7 +66,6 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
-/* Channel - 2 Column */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -82,37 +74,22 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* ===== CATEGORY - SAME AS CHANNEL CARD ===== */
-.cat-box{
-  flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;
-  gap:0 !important;padding:14px 6px 12px !important;
-  background:transparent !important;border:0 !important;box-shadow:none !important;
-  min-height:0 !important;overflow:visible !important;text-align:center;
-}
+.cat-box{flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;gap:0 !important;padding:14px 6px 12px !important;background:transparent !important;border:0 !important;box-shadow:none !important;min-height:0 !important;overflow:visible !important;text-align:center}
 .cat-box:active{transform:scale(.96)}
 .cat-wrap{position:relative;width:76px;height:76px;flex-shrink:0}
-.cat-photo{
-  width:76px;height:76px;min-width:76px;min-height:76px;
-  border-radius:50%;overflow:hidden;position:relative;
-  background:#15151f;
-  /* Channel Card er motoi Border + Shadow */
-  border:1px solid #262633;
-  box-shadow:0 5px 14px rgba(0,0,0,.35);
-  display:flex;align-items:center;justify-content:center;
-}
+.cat-photo{width:76px;height:76px;min-width:76px;min-height:76px;border-radius:50%;overflow:hidden;position:relative;background:#15151f;border:1px solid #262633;box-shadow:0 5px 14px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center}
 .cat-photo img{width:100%;height:100%;object-fit:cover}
 .cat-photo .cat-emoji{font-size:30px;line-height:1}
-/* Count Badge - Ekhon Gol er Vitor e, Katbe Na */
-.cat-num{
-  position:absolute;bottom:2px;right:0;
-  background:#000;border:1px solid rgba(255,255,255,.35);
-  padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;
-  box-shadow:0 4px 10px rgba(0,0,0,.7);
-  white-space:nowrap;line-height:1.4;
-}
+.cat-num{position:absolute;bottom:2px;right:0;background:#000;border:1px solid rgba(255,255,255,.35);padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
 .cat-info{padding:9px 2px 0;width:100%;text-align:center}
 .cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 8px #000}
 .cat-info small{color:#22d3ee;font-size:9px}
+/* Per-Category Proxy Switch */
+.p-switch{width:36px;height:20px;background:#333;border-radius:99px;position:relative;cursor:pointer;flex-shrink:0;transition:.2s}
+.p-switch.on{background:#22c55e}
+.p-switch::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:.2s}
+.p-switch.on::after{left:18px}
+.p-badge{font-size:9px;font-weight:800;padding:3px 8px;border-radius:99px;white-space:nowrap}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
 #homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#fff;font-family:inherit;font-weight:800}
@@ -120,8 +97,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #loadMoreBtn{width:100%;max-width:320px;padding:12px;border-radius:12px;background:#2a2a3a;color:#fff;font-family:inherit;font-size:13px;font-weight:700;border:1px solid #ffffff33}
 #noticeBar{display:none;background:linear-gradient(90deg,#22d3ee,#a78bfa,#ff5d8f);color:#000;font-size:12px;font-weight:700;padding:8px;text-align:center}
 #featured{display:none;margin:12px;background:#221a3a;border:1px solid #a78bfa;border-radius:12px;padding:12px;cursor:pointer}
-/* ===== BOTTOM NAV - SLIM ===== */
-#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom));}
+#bottomNav{position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);border-top:1px solid #ffffff10;display:flex;gap:6px;padding:6px 10px calc(6px + env(safe-area-inset-bottom))}
 .bnav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 2px 5px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;color:#7a7a8e;font-family:inherit;position:relative;min-height:46px}
 .bnav .b-ico{line-height:1;display:flex}
 .bnav .b-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -130,7 +106,6 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .bnav.active .b-ico svg{stroke:#c4b5fd}
 .bnav.active .b-txt{color:#fff}
 #status{display:none !important}
-/* ===== TELEGRAM - PULSE GLOW EFFECT BACK ===== */
 .tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999;border:1px solid rgba(255,255,255,.3);box-shadow:0 8px 22px rgba(42,171,238,.55), inset 0 1px 0 rgba(255,255,255,.4);animation:telePulse 2s infinite}
 .tele svg{width:23px;height:23px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 @keyframes telePulse{0%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 0 rgba(42,171,238,.5)}70%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 14px rgba(42,171,238,0)}100%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 0 rgba(42,171,238,0)}}
@@ -244,25 +219,54 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v18 ================= */
-const CONFIG_VERSION = 'nova-v18-category-same-shadow';
+/* ================= CONFIG - v19 ================= */
+const CONFIG_VERSION = 'nova-v19-final';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
-/* CATEGORY LOGO - EKHANE CHANGE KORO */
+/* CATEGORY LOGO - EKHANE CHANGE KORO - Khali rakhle Default asbe */
+const DEFAULT_CAT_LOGO = 'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
 const CATEGORY_IMAGES = {
   Tapmad: '',
   Sports: '',
   Toffee: '',
   AynaOTT: '',
   JagoBD: '',
-  Bangladesh: '',
-  India: '',
+  Bangladesh: 'https://flagcdn.com/w320/bd.png',
+  India: 'https://flagcdn.com/w320/in.png',
   News: '',
   Entertainment: '',
   Movies: '',
   Kids: '',
   Music: '',
 };
+
+/* 👇 Per-Category Proxy True / False */
+let proxyMap = JSON.parse(localStorage.getItem('rslive_proxy_map') || '{}');
+const PROXY_BASE_FALLBACK = 'https://api.allorigins.win/raw?url=';
+function saveProxyMap(){
+  localStorage.setItem('rslive_proxy_map', JSON.stringify(proxyMap));
+  if(navigator.serviceWorker?.controller) navigator.serviceWorker.controller.postMessage({ type:'SET_PROXY_ALL', map: proxyMap });
+}
+function isProxyOn(catName){
+  if(proxyMap[catName] !== undefined) return !!proxyMap[catName];
+  const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
+  return !!(pl?.useProxy);
+}
+async function toggleCategoryProxy(catName, e){
+  if(e) e.stopPropagation();
+  const now = !isProxyOn(catName);
+  proxyMap[catName] = now;
+  const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
+  if(pl) pl.useProxy = now;
+  saveProxyMap();
+  if(pl){
+    all = all.filter(c=>normName(c.source)!==normName(catName));
+    const list = await loadOne(pl);
+    for(const ch of list){ ch.source = pl.name; if(!all.some(y=>y.url===ch.url)) all.push(ch); }
+  }
+  _catCache = null;
+  renderGrid(true); renderMatches();
+}
 
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
 if(!saved||!Array.isArray(saved.playlists)) saved=null;
@@ -435,22 +439,23 @@ async function loadOne(p){
   const tryFetch=async(u)=>{
     const r=await fetch(u);
     if(!r.ok) throw new Error('Playlist HTTP '+r.status);
-    const t=await r.text();
-    return parse(t);
+    return parse(await r.text());
   };
+  const useProxy = isProxyOn(p.name);
   try{
     let u=p.url;
-    if(p.useProxy&&CFG.proxyUrl) u=CFG.proxyUrl+encodeURIComponent(p.url);
+    if(useProxy && CFG.proxyUrl) u=CFG.proxyUrl+encodeURIComponent(p.url);
     const list=await tryFetch(u);
     if(list.length) return list;
     throw new Error('Empty playlist');
   }catch(e1){
     try{
-      const proxyBase = CFG.proxyUrl || 'https://api.allorigins.win/raw?url=';
+      const proxyBase = CFG.proxyUrl || PROXY_BASE_FALLBACK;
       return await tryFetch(proxyBase+encodeURIComponent(p.url));
     }catch(e2){ console.warn('Playlist proxy failed:',p.name,e2); return []; }
   }
 }
+// 👇 Toffee FIX - EXTVLCOPT স্কিপ করবে
 function parse(t){
   const lines=t.split(/\r?\n/);const output=[];let channel=null;
   for(const line of lines){
@@ -460,6 +465,8 @@ function parse(t){
       const logo=x.match(/tvg-logo="([^"]+)"/);
       const group=x.match(/group-title="([^"]+)"/);
       channel={name:name,logo:logo?logo[1]:'',group:group?group[1]:'General'};
+    }else if(x.startsWith('#EXTVLCOPT') || x.startsWith('#EXTGRP') || x.startsWith('#EXT-X-')){
+      continue;
     }else if(/^https?:\/\//i.test(x)&&channel){channel.url=x;output.push(channel);channel=null;}
   }
   return output;
@@ -467,6 +474,10 @@ function parse(t){
 async function loadAll(){
   loadMatches();
   CFG.playlists=await getPlaylistsFromSW();
+  for(const p of CFG.playlists){
+    if(proxyMap[p.name]===undefined) proxyMap[p.name]=!!p.useProxy;
+  }
+  saveProxyMap();
   for(const p of CFG.playlists){
     const list=await loadOne(p);
     for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
@@ -480,7 +491,6 @@ function getCats(){
   const seen=new Set(); const out=[];
   const push=(c)=>{ const k=normName(c); if(!k||seen.has(k)) return; seen.add(k); out.push(c.trim()); };
   CFG.playlists.forEach(p=>{ if(p.name) push(p.name); });
-  ['All','Sports','News','Entertainment','Movies','Kids','Music','Bangladesh','India'].forEach(push);
   _catCache=['All',...out.filter(c=>normName(c)!=='all')];
   return _catCache;
 }
@@ -494,38 +504,18 @@ function getCategoryImage(c){
   for(const k in CATEGORY_IMAGES){
     if(normName(k)===normName(c) && CATEGORY_IMAGES[k]) return CATEGORY_IMAGES[k];
   }
-  const firstCh = all.find(x=>matchesCat(x,c));
-  return firstCh?.logo || '';
+  const firstCh = all.find(x=>matchesCat(x,c) && x.logo);
+  return firstCh?.logo || DEFAULT_CAT_LOGO;
 }
 function catCount(c){
   if(!all.length) return 0;
   if(normName(c)==='all') return all.length;
-  const pl=CFG.playlists.find(p=>normName(p.name)===normName(c));
-  if(pl){
-    const cnt=all.filter(x=>normName(x.source)===normName(c)).length;
-    if(cnt>0) return cnt;
-    return all.filter(x=>normName(x.group).includes(normName(c))||normName(x.name).includes(normName(c))).length;
-  }
-  return all.filter(x=>matchesCat(x,c)).length;
+  return all.filter(x=>normName(x.source)===normName(c)).length;
 }
 function matchesCat(c,category){
-  const name=normName(c.name); const group=normName(c.group); const catN=normName(category);
+  const catN=normName(category);
   if(catN==='all') return true;
-  const pl=CFG.playlists.find(p=>normName(p.name)===catN);
-  if(pl){
-    if(normName(c.source)===catN) return true;
-    if(group.includes(catN)||name.includes(catN)) return true;
-    return false;
-  }
-  if(catN==='sports') return ['sport','cricket','football'].some(x=>group.includes(x));
-  if(catN==='news') return group.includes('news');
-  if(catN==='movies') return group.includes('movie');
-  if(catN==='kids') return group.includes('kid');
-  if(catN==='music') return group.includes('music');
-  if(catN==='entertainment') return group.includes('entertainment')||group.includes('general');
-  if(catN==='bangladesh') return ['bangla','btv','t sports','somoy','jamuna'].some(x=>name.includes(x));
-  if(catN==='india') return ['star','sony','zee','colors'].some(x=>name.includes(x));
-  return group.includes(catN);
+  return normName(c.source)===catN;
 }
 function renderCategoryHome(){
   const grid=document.getElementById('grid');
@@ -535,19 +525,24 @@ function renderCategoryHome(){
   getCats().forEach(c=>{
     if(normName(c)==='all') return;
     const photo = getCategoryImage(c);
+    const on = isProxyOn(c);
     const box=document.createElement('div');
     box.className='card cat-box';
-    /* Badge ekhon .cat-wrap er vitor - katbe na */
     box.innerHTML=`
       <div class="cat-wrap">
         <div class="cat-photo">
-          ${photo ? `<img src="${photo}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'cat-emoji\\'>${catIcon(c)}</span>'">` : `<span class="cat-emoji">${catIcon(c)}</span>`}
+          <img src="${photo}" loading="lazy" onerror="this.onerror=null;this.src='${DEFAULT_CAT_LOGO}'">
         </div>
         <span class="cat-num">${catCount(c)}</span>
       </div>
       <div class="cat-info"><b>${c}</b><small>View →</small></div>
+      <div style="display:flex;align-items:center;gap:6px;margin-top:8px;justify-content:center">
+        <span class="p-badge" style="background:${on?'#14532d':'#222'};color:${on?'#4ade80':'#aaa'}">${on?'Proxy ON':'Proxy OFF'}</span>
+        <div class="p-switch ${on?'on':''}" data-proxy="${c}"></div>
+      </div>
     `;
     box.onclick=()=>{ cat=c; categoryHomeMode=false; renderGrid(true); };
+    box.querySelector('[data-proxy]')?.addEventListener('click',(e)=> toggleCategoryProxy(c,e));
     grid.appendChild(box);
   });
   document.getElementById('loadMoreWrap').style.display='none';
@@ -567,8 +562,8 @@ function renderGrid(reset=true){
     show.forEach((c,i)=>{
       const card=document.createElement('div');card.className='card';
       const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
-      const img=document.createElement('img');img.loading='lazy';img.src=c.logo||'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
-      img.onerror=function(){this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png';};
+      const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;
+      img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};
       const txt=document.createElement('div');txt.className='c-txt';
       const name=document.createElement('p');name.textContent=c.name;
       const group=document.createElement('small');group.textContent=c.group||'General';
@@ -578,7 +573,7 @@ function renderGrid(reset=true){
       grid.appendChild(card);
     });
     const btn=document.getElementById('loadMoreBtn');
-    if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
+    if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}
     if(feat) feat.style.display='none';
     return;
   }
@@ -603,8 +598,8 @@ function renderGrid(reset=true){
   show.forEach((c,i)=>{
     const card=document.createElement('div');card.className='card';
     const serial=document.createElement('span');serial.className='serial';serial.textContent=String(i+1);
-    const img=document.createElement('img');img.loading='lazy';img.src=c.logo||'https://cdn-icons-png.flaticon.com/512/1179/1179069.png';
-    img.onerror=function(){this.src='https://cdn-icons-png.flaticon.com/512/1179/1179069.png';};
+    const img=document.createElement('img');img.loading='lazy';img.src=c.logo||DEFAULT_CAT_LOGO;
+    img.onerror=function(){this.onerror=null;this.src=DEFAULT_CAT_LOGO;};
     const txt=document.createElement('div');txt.className='c-txt';
     const name=document.createElement('p');name.textContent=c.name;
     const group=document.createElement('small');group.textContent=c.group||'General';
@@ -614,7 +609,7 @@ function renderGrid(reset=true){
     grid.appendChild(card);
   });
   const btn=document.getElementById('loadMoreBtn');
-  if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+')';}else{wrap.style.display='none';}
+  if(currentFiltered.length>visibleCount){wrap.style.display='block';btn.textContent='Load More ('+visibleCount+'/'+currentFiltered.length+') ↓';}else{wrap.style.display='none';}
   if(reset){const sa=document.getElementById('scrollArea');if(sa)sa.scrollTop=0;window.scrollTo({top:0});}
 }
 function loadMore(){visibleCount+=200;renderGrid(false);}
