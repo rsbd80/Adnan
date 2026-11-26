@@ -1,6 +1,6 @@
 {
   "name": "Australia vs England",
-  "matchType": "Cricket | 3d | T20",
+  "matchType": "Cricket | 3rd | T20",
   "status": "upcoming",
   "startTime": "2026-11-27T14:15:00+06:00",
   "endTime": "2026-11-27T16:00:00+06:00",
@@ -8,5 +8,10 @@
   "teamB": "England",
   "teamALogo": "https://flagcdn.com/aus.svg",
   "teamBLogo": "https://flagcdn.com/eng.svg",
-  "streams": []
+  "streams": [
+    {
+      "label": "Server 1",
+      "stream_url": "https://stream-through-spark.lovable.app/api/proxy?u=http://live.ftpbdlive.com:8080/live/FTPBD-LIVETV/FTPBD-2026/10.m3u8"
+    }
+  ]
 }
