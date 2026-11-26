@@ -1,9 +1,8 @@
 /* =====================================================
-   RsLive Go - FINAL v17
-   Category: Circular + Box Shadow
-   Header: No LIVE Pill - Search Always Visible
-   Search: Any Tab -> Any Channel
-   Category: Custom Logo Changeable
+   RsLive Go - FINAL v18
+   Category: Same Border + Shadow as Channel Card
+   Telegram: Pulse Glow Effect Back
+   Header Logo: Premium Play Icon
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -13,12 +12,22 @@ html,body{height:100%;width:100%;background:#000;color:#fff;font-family:Poppins,
 body{display:flex;flex-direction:column;touch-action:pan-y}
 #app{display:flex;flex-direction:column;flex:1;min-height:0;overflow-x:hidden}
 .sticky{flex-shrink:0;z-index:100}
-/* ===== HEADER - PURE BLACK, SEARCH ALWAYS ===== */
+/* ===== HEADER - PURE BLACK ===== */
 header{background:#000;border-bottom:1px solid #ffffff14;padding:14px 14px 13px;position:relative;overflow:hidden}
 header:before{content:"";position:absolute;inset:0;background:radial-gradient(220px 70px at 20% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(220px 70px at 85% 0%,rgba(34,211,238,.14),transparent 70%);pointer-events:none}
 .header-top{display:flex;align-items:center;gap:10px;position:relative;z-index:2;min-height:42px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
-.play-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#8b7cff,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;box-shadow:0 4px 14px rgba(139,124,255,.35)}
+/* Header Play Icon - PREMIUM */
+.play-ico{
+  width:42px;height:42px;min-width:42px;border-radius:13px;
+  background:linear-gradient(135deg,#22d3ee 0%,#8b7cff 48%,#ff5d8f 100%);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 6px 18px rgba(139,124,255,.45), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -2px 6px rgba(0,0,0,.18);
+  position:relative;overflow:hidden;
+}
+.play-ico:before{content:"";position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.35),transparent);border-radius:13px 13px 0 0}
+.play-ico svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));position:relative;z-index:1;margin-left:2px}
 .logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
 .logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
 .logo-text .tag{font-size:7.5px;letter-spacing:3px;color:#9a9ab5;font-weight:700;margin-top:3px}
@@ -66,14 +75,14 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-countdown{display:block;color:#ffc36b;font-size:9px;font-variant-numeric:tabular-nums}
 /* Channel - 2 Column */
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
-.card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px}
+.card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
 .card .serial{flex-shrink:0;font-size:10px;background:rgba(255,255,255,.12);padding:3px 6px;border-radius:99px;color:#aaa;font-weight:800;order:-1;min-width:20px;text-align:center}
 .card img{width:38px;height:38px;min-width:38px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* ===== CATEGORY - CIRCULAR + BOX SHADOW ===== */
+/* ===== CATEGORY - SAME AS CHANNEL CARD ===== */
 .cat-box{
   flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;
   gap:0 !important;padding:14px 6px 12px !important;
@@ -81,22 +90,25 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
   min-height:0 !important;overflow:visible !important;text-align:center;
 }
 .cat-box:active{transform:scale(.96)}
+.cat-wrap{position:relative;width:76px;height:76px;flex-shrink:0}
 .cat-photo{
   width:76px;height:76px;min-width:76px;min-height:76px;
-  border-radius:50% !important;overflow:hidden;position:relative;flex-shrink:0;
-  background:linear-gradient(135deg,#1a1a2e,#2a1a3a);
-  border:2px solid rgba(255,255,255,.14);
-  box-shadow:0 8px 22px rgba(0,0,0,.65), 0 0 0 3px rgba(139,124,255,.12), inset 0 1px 0 rgba(255,255,255,.15);
+  border-radius:50%;overflow:hidden;position:relative;
+  background:#15151f;
+  /* Channel Card er motoi Border + Shadow */
+  border:1px solid #262633;
+  box-shadow:0 5px 14px rgba(0,0,0,.35);
   display:flex;align-items:center;justify-content:center;
 }
 .cat-photo img{width:100%;height:100%;object-fit:cover}
 .cat-photo .cat-emoji{font-size:30px;line-height:1}
+/* Count Badge - Ekhon Gol er Vitor e, Katbe Na */
 .cat-num{
-  position:absolute;bottom:-2px;right:-2px;
-  background:#000;border:1px solid rgba(255,255,255,.25);
-  padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:2;
-  box-shadow:0 4px 10px rgba(0,0,0,.6);
-  white-space:nowrap;
+  position:absolute;bottom:2px;right:0;
+  background:#000;border:1px solid rgba(255,255,255,.35);
+  padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;
+  box-shadow:0 4px 10px rgba(0,0,0,.7);
+  white-space:nowrap;line-height:1.4;
 }
 .cat-info{padding:9px 2px 0;width:100%;text-align:center}
 .cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 8px #000}
@@ -118,8 +130,10 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .bnav.active .b-ico svg{stroke:#c4b5fd}
 .bnav.active .b-txt{color:#fff}
 #status{display:none !important}
-.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 8px 20px rgba(42,171,238,.4)}
-.tele svg{width:23px;height:23px;fill:#fff}
+/* ===== TELEGRAM - PULSE GLOW EFFECT BACK ===== */
+.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999;border:1px solid rgba(255,255,255,.3);box-shadow:0 8px 22px rgba(42,171,238,.55), inset 0 1px 0 rgba(255,255,255,.4);animation:telePulse 2s infinite}
+.tele svg{width:23px;height:23px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+@keyframes telePulse{0%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 0 rgba(42,171,238,.5)}70%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 14px rgba(42,171,238,0)}100%{box-shadow:0 8px 22px rgba(42,171,238,.55), 0 0 0 0 rgba(42,171,238,0)}}
 #installBar{display:none;position:fixed;left:10px;right:10px;bottom:70px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
 #installBar .ib-txt{flex:1;text-align:center}
 #installBar .ib-txt b{font-size:12px;display:block}
@@ -132,7 +146,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #searchWrap{max-width:148px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
 .header-top{gap:8px}
-.cat-photo{width:70px;height:70px;min-width:70px;min-height:70px}
+.cat-wrap,.cat-photo{width:70px;height:70px;min-width:70px;min-height:70px}
 }
 @media(min-width:900px){
 body{display:block;overflow-y:auto}
@@ -153,7 +167,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
-.cat-photo{width:88px;height:88px;min-width:88px;min-height:88px}
+.cat-wrap,.cat-photo{width:88px;height:88px;min-width:88px;min-height:88px}
 #bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -164,7 +178,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 <header>
 <div class="header-top">
 <div class="logo" onclick="switchTab('events')">
-<div class="play-ico">▶</div>
+<div class="play-ico"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></div>
 <div class="logo-text">
 <div class="name">RsLive <i>Go</i></div>
 <div class="tag" id="taglineEl">LIVE TV • BANGLADESH</div>
@@ -230,8 +244,8 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v17 ================= */
-const CONFIG_VERSION = 'nova-v17-category-circular';
+/* ================= CONFIG - v18 ================= */
+const CONFIG_VERSION = 'nova-v18-category-same-shadow';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
 /* CATEGORY LOGO - EKHANE CHANGE KORO */
@@ -523,9 +537,12 @@ function renderCategoryHome(){
     const photo = getCategoryImage(c);
     const box=document.createElement('div');
     box.className='card cat-box';
+    /* Badge ekhon .cat-wrap er vitor - katbe na */
     box.innerHTML=`
-      <div class="cat-photo">
-        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'cat-emoji\\'>${catIcon(c)}</span>'">` : `<span class="cat-emoji">${catIcon(c)}</span>`}
+      <div class="cat-wrap">
+        <div class="cat-photo">
+          ${photo ? `<img src="${photo}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'cat-emoji\\'>${catIcon(c)}</span>'">` : `<span class="cat-emoji">${catIcon(c)}</span>`}
+        </div>
         <span class="cat-num">${catCount(c)}</span>
       </div>
       <div class="cat-info"><b>${c}</b><small>View →</small></div>
