@@ -1,10 +1,9 @@
 /* =====================================================
-   RsLive Go - FINAL v19
-   Category: Same Border + Shadow as Channel Card
+   RsLive Go - FINAL v20
+   Category: Same As Channel Card
+   Proxy: Developer Only - No UI Switch
    Telegram: Pulse Glow Effect Back
    Header Logo: Premium Play Icon
-   + FIX: Logo Default + All Channels + Load More
-   + FIX: Toffee #EXTVLCOPT + Per-Category Proxy True/False
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -74,22 +73,18 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-.cat-box{flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;gap:0 !important;padding:14px 6px 12px !important;background:transparent !important;border:0 !important;box-shadow:none !important;min-height:0 !important;overflow:visible !important;text-align:center}
-.cat-box:active{transform:scale(.96)}
-.cat-wrap{position:relative;width:76px;height:76px;flex-shrink:0}
-.cat-photo{width:76px;height:76px;min-width:76px;min-height:76px;border-radius:50%;overflow:hidden;position:relative;background:#15151f;border:1px solid #262633;box-shadow:0 5px 14px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center}
-.cat-photo img{width:100%;height:100%;object-fit:cover}
-.cat-photo .cat-emoji{font-size:30px;line-height:1}
-.cat-num{position:absolute;bottom:2px;right:0;background:#000;border:1px solid rgba(255,255,255,.35);padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
-.cat-info{padding:9px 2px 0;width:100%;text-align:center}
-.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 8px #000}
+/* ===== CATEGORY - SAME AS CHANNEL CARD ===== */
+.cat-box{flex-direction:row !important;align-items:center !important;justify-content:flex-start !important;gap:8px !important;padding:8px 10px !important;background:#15151f !important;border:1px solid #262633 !important;border-radius:12px !important;box-shadow:0 5px 14px rgba(0,0,0,.35) !important;min-height:56px !important;overflow:hidden !important;text-align:left !important}
+.cat-box:active{transform:scale(.97);border-color:#a78bfa}
+.cat-serial{flex-shrink:0;font-size:10px;background:rgba(255,255,255,.12);padding:3px 6px;border-radius:99px;color:#aaa;font-weight:800;min-width:20px;text-align:center}
+.cat-wrap{position:relative;width:38px;height:38px;flex-shrink:0}
+.cat-photo{width:38px;height:38px;min-width:38px;min-height:38px;border-radius:10px;overflow:hidden;position:relative;background:#fff;border:none;box-shadow:none;display:flex;align-items:center;justify-content:center}
+.cat-photo img{width:100%;height:100%;object-fit:contain;padding:3px}
+.cat-photo .cat-emoji{font-size:20px;line-height:1}
+.cat-num{position:absolute;bottom:-4px;right:-4px;background:#000;border:1px solid rgba(255,255,255,.35);padding:1px 5px;border-radius:99px;font-size:8px;font-weight:800;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.7);white-space:nowrap;line-height:1.4}
+.cat-info{padding:0;flex:1;min-width:0;text-align:left}
+.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:none}
 .cat-info small{color:#22d3ee;font-size:9px}
-/* Per-Category Proxy Switch */
-.p-switch{width:36px;height:20px;background:#333;border-radius:99px;position:relative;cursor:pointer;flex-shrink:0;transition:.2s}
-.p-switch.on{background:#22c55e}
-.p-switch::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:#fff;border-radius:50%;transition:.2s}
-.p-switch.on::after{left:18px}
-.p-badge{font-size:9px;font-weight:800;padding:3px 8px;border-radius:99px;white-space:nowrap}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
 #homeEmpty button{margin-top:12px;padding:10px 18px;border-radius:20px;border:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);color:#fff;font-family:inherit;font-weight:800}
@@ -121,7 +116,6 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #searchWrap{max-width:148px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
 .header-top{gap:8px}
-.cat-wrap,.cat-photo{width:70px;height:70px;min-width:70px;min-height:70px}
 }
 @media(min-width:900px){
 body{display:block;overflow-y:auto}
@@ -142,7 +136,6 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
-.cat-wrap,.cat-photo{width:88px;height:88px;min-width:88px;min-height:88px}
 #bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -219,8 +212,8 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v19 ================= */
-const CONFIG_VERSION = 'nova-v19-final';
+/* ================= CONFIG - v20 ================= */
+const CONFIG_VERSION = 'nova-v20-final';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
 /* CATEGORY LOGO - EKHANE CHANGE KORO - Khali rakhle Default asbe */
@@ -240,32 +233,11 @@ const CATEGORY_IMAGES = {
   Music: '',
 };
 
-/* 👇 Per-Category Proxy True / False */
-let proxyMap = JSON.parse(localStorage.getItem('rslive_proxy_map') || '{}');
+/* Proxy - Developer Only, UI te kono switch nai */
 const PROXY_BASE_FALLBACK = 'https://api.allorigins.win/raw?url=';
-function saveProxyMap(){
-  localStorage.setItem('rslive_proxy_map', JSON.stringify(proxyMap));
-  if(navigator.serviceWorker?.controller) navigator.serviceWorker.controller.postMessage({ type:'SET_PROXY_ALL', map: proxyMap });
-}
 function isProxyOn(catName){
-  if(proxyMap[catName] !== undefined) return !!proxyMap[catName];
   const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
   return !!(pl?.useProxy);
-}
-async function toggleCategoryProxy(catName, e){
-  if(e) e.stopPropagation();
-  const now = !isProxyOn(catName);
-  proxyMap[catName] = now;
-  const pl = CFG.playlists.find(p=>normName(p.name)===normName(catName));
-  if(pl) pl.useProxy = now;
-  saveProxyMap();
-  if(pl){
-    all = all.filter(c=>normName(c.source)!==normName(catName));
-    const list = await loadOne(pl);
-    for(const ch of list){ ch.source = pl.name; if(!all.some(y=>y.url===ch.url)) all.push(ch); }
-  }
-  _catCache = null;
-  renderGrid(true); renderMatches();
 }
 
 let saved=null; try{saved=JSON.parse(localStorage.getItem('rslive_config')||'null');}catch(e){}
@@ -455,7 +427,6 @@ async function loadOne(p){
     }catch(e2){ console.warn('Playlist proxy failed:',p.name,e2); return []; }
   }
 }
-// 👇 Toffee FIX - EXTVLCOPT স্কিপ করবে
 function parse(t){
   const lines=t.split(/\r?\n/);const output=[];let channel=null;
   for(const line of lines){
@@ -474,10 +445,6 @@ function parse(t){
 async function loadAll(){
   loadMatches();
   CFG.playlists=await getPlaylistsFromSW();
-  for(const p of CFG.playlists){
-    if(proxyMap[p.name]===undefined) proxyMap[p.name]=!!p.useProxy;
-  }
-  saveProxyMap();
   for(const p of CFG.playlists){
     const list=await loadOne(p);
     for(const ch of list){ch.source=p.name||'TV';if(!all.some(y=>y.url===ch.url)) all.push(ch);}
@@ -520,29 +487,24 @@ function matchesCat(c,category){
 function renderCategoryHome(){
   const grid=document.getElementById('grid');
   grid.style.display='grid';
-  grid.style.gridTemplateColumns='repeat(3,1fr)';
+  grid.style.gridTemplateColumns='repeat(2,minmax(0,1fr))';
   grid.replaceChildren();
-  getCats().forEach(c=>{
-    if(normName(c)==='all') return;
+  const cats = getCats().filter(c=>normName(c)!=='all');
+  cats.forEach((c, idx)=>{
     const photo = getCategoryImage(c);
-    const on = isProxyOn(c);
     const box=document.createElement('div');
     box.className='card cat-box';
     box.innerHTML=`
+      <span class="cat-serial">${idx+1}</span>
       <div class="cat-wrap">
         <div class="cat-photo">
           <img src="${photo}" loading="lazy" onerror="this.onerror=null;this.src='${DEFAULT_CAT_LOGO}'">
         </div>
         <span class="cat-num">${catCount(c)}</span>
       </div>
-      <div class="cat-info"><b>${c}</b><small>View →</small></div>
-      <div style="display:flex;align-items:center;gap:6px;margin-top:8px;justify-content:center">
-        <span class="p-badge" style="background:${on?'#14532d':'#222'};color:${on?'#4ade80':'#aaa'}">${on?'Proxy ON':'Proxy OFF'}</span>
-        <div class="p-switch ${on?'on':''}" data-proxy="${c}"></div>
-      </div>
+      <div class="cat-info"><b>${c}</b><small>${catCount(c)} Channels • View →</small></div>
     `;
     box.onclick=()=>{ cat=c; categoryHomeMode=false; renderGrid(true); };
-    box.querySelector('[data-proxy]')?.addEventListener('click',(e)=> toggleCategoryProxy(c,e));
     grid.appendChild(box);
   });
   document.getElementById('loadMoreWrap').style.display='none';
