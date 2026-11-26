@@ -1,4 +1,4 @@
-/* RsLive Go - FINAL v23.7 - Name Below Logo + Clean Top + Pretty Badge */
+/* RsLive Go - FINAL v23.6 - Upcoming Difference */
 document.getElementById('app').innerHTML = `
 <style>
 *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none}
@@ -31,34 +31,35 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .matches-head strong{font-family:Poppins,sans-serif;font-size:12px}
 .matches-head span{font-size:9px;color:#8e91a8}
 #matchesGrid{display:grid;grid-template-columns:1fr;gap:8px}
-.match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff1f;border-radius:14px;padding:6px 11px 9px;box-shadow:0 6px 16px rgba(0,0,0,.5);cursor:pointer;position:relative;overflow:hidden}
+.match-card{background:linear-gradient(135deg,#1a1d2e 0%,#10121d 55%,#171321 100%);border:1px solid #ffffff22;border-radius:14px;padding:4px 11px 9px;box-shadow:0 6px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative;overflow:hidden}
+.match-card:before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,238,.5),rgba(167,139,250,.5),transparent)}
+.match-card.live{border-left:3px solid #ff3d5a;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 18px rgba(255,61,90,.12)}
+.match-card.upcoming{border-left:3px solid #f3a43b;box-shadow:0 6px 16px rgba(0,0,0,.5), 0 0 14px rgba(243,164,59,.08)}
 .match-card:active{transform:scale(.98)}
-.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-.sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:none !important;border:none !important;box-shadow:none !important;padding:0;max-width:72%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.sport-badge .sport-ico{font-size:12px;line-height:1;flex-shrink:0}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.sport-badge{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:#fff;background:linear-gradient(90deg,rgba(34,211,238,.22),rgba(139,124,255,.22));padding:3px 9px 3px 7px;border-radius:99px;border:1px solid rgba(34,211,238,.35);box-shadow:0 2px 10px rgba(34,211,238,.18);max-width:78%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sport-badge .sport-ico{font-size:12px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));flex-shrink:0}
 .sport-badge .sport-sep{color:#8e91a8;font-weight:400}
 .sport-badge .sport-type{font-weight:600;color:#c7cadb;font-size:10px;overflow:hidden;text-overflow:ellipsis}
-.match-badge{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:5px 11px 5px 8px;font-size:8.5px;font-weight:900;letter-spacing:.6px;flex-shrink:0;position:relative;overflow:hidden}
-.match-badge:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 6px currentColor;flex-shrink:0}
-.match-badge:after{content:"";position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.35),transparent);pointer-events:none}
-.match-badge.live{background:linear-gradient(135deg,#ff304e,#ff5d8f);color:#fff;border:1px solid rgba(255,255,255,.25);box-shadow:0 4px 14px rgba(255,48,78,.45)}
-.match-badge.upcoming{background:linear-gradient(135deg,#f5a43b,#ffcf7a);color:#1a1000;border:1px solid rgba(255,255,255,.3);box-shadow:0 4px 14px rgba(245,164,59,.35)}
-.match-badge.soon{background:linear-gradient(135deg,#ff1e3c,#ff7a36);color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:0 4px 16px rgba(255,48,78,.6);animation:badgePulse 1.4s infinite}
-.match-badge.today{background:linear-gradient(135deg,#facc15,#fde68a);color:#1a1400;border:1px solid rgba(255,255,255,.3);box-shadow:0 4px 14px rgba(250,204,21,.35)}
-.match-badge.tomorrow{background:linear-gradient(135deg,#06b6d4,#8b7cff);color:#fff;border:1px solid rgba(255,255,255,.3);box-shadow:0 4px 14px rgba(34,211,238,.4)}
+.match-badge{border-radius:20px;padding:3px 9px;font-size:8.5px;font-weight:900;letter-spacing:.5px;flex-shrink:0}
+.match-badge.live{background:linear-gradient(90deg,rgba(255,48,78,.35),rgba(255,93,143,.25));color:#ff8fa0;border:1px solid #ff304e55;box-shadow:0 2px 8px rgba(255,48,78,.25)}
+.match-badge.upcoming{background:linear-gradient(90deg,rgba(245,164,59,.28),rgba(255,200,100,.18));color:#ffd98a;border:1px solid #f5a43b55;box-shadow:0 2px 8px rgba(245,164,59,.2)}
+.match-badge.soon{background:linear-gradient(90deg,#ff304e,#ff7a36);color:#fff;border:1px solid #ff6b4a;box-shadow:0 2px 10px rgba(255,48,78,.5);animation:badgePulse 1.4s infinite}
+.match-badge.today{background:linear-gradient(90deg,rgba(250,204,21,.35),rgba(245,164,59,.2));color:#ffe27a;border:1px solid rgba(250,204,21,.5)}
+.match-badge.tomorrow{background:linear-gradient(90deg,rgba(34,211,238,.3),rgba(139,124,255,.25));color:#a5f3fc;border:1px solid rgba(34,211,238,.5)}
 @keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.match-teams{display:grid;grid-template-columns:1fr 54px 1fr;align-items:start;gap:6px}
-.match-team{min-width:0;display:flex;flex-direction:column;gap:5px}
-.match-team.left{align-items:flex-start;text-align:left}
-.match-team.right{align-items:flex-end;text-align:right}
-.match-team img,.team-fallback{width:42px;height:42px;min-width:42px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex-shrink:0;border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.match-teams{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;gap:6px}
+.match-team{min-width:0;display:flex;align-items:center;gap:9px}
+.match-team.left{justify-content:flex-start;text-align:left}
+.match-team.right{justify-content:flex-end;text-align:right}
+.match-team img,.team-fallback{width:38px;height:38px;min-width:38px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex-shrink:0;border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 10px rgba(0,0,0,.5)}
 .team-fallback{display:flex;align-items:center;justify-content:center;background:#25283a;color:#fff;font-weight:900;font-size:13px;border:1px solid #41445a}
-.match-team b{font-size:12.5px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.match-team b{font-size:12px;line-height:1.25;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .match-team img.svg-logo{background:#fff !important;padding:5px !important}
 .card img[src$=".svg"]{background:#fff !important;padding:3px !important}
-.match-vs{text-align:center;padding-top:10px}
+.match-vs{text-align:center}
 .match-vs .vs-txt{font-family:Poppins,sans-serif;font-size:11px;font-weight:900;color:#fff;display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 8px;border-radius:99px}
-.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding-top:7px;border-top:1px solid #ffffff14}
+.match-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding-top:7px;border-top:1px solid #ffffff14}
 .match-time{font-size:9.5px;color:#c9cce0;line-height:1.4;text-align:left}
 .match-action{border:0;border-radius:20px;padding:6px 11px;font-family:inherit;font-size:9px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
@@ -141,7 +142,7 @@ function getBadgeInfo(m,state){if(state==='live')return {txt:'LIVE',cls:'live'};
 function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime()))return 'Time Not Set';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
 function matchCountdown(m){const t=Date.parse(m.startTime||'');if(!Number.isFinite(t))return'';let sec=Math.max(0,Math.floor((t-Date.now())/1000));const days=Math.floor(sec/86400);sec%=86400;const hours=Math.floor(sec/3600);sec%=3600;const mins=Math.floor(sec/60);sec%=60;return ((days?days+'d ':'')+String(hours).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(sec).padStart(2,'0'));}
 function getSportInfo(m){const txt=String((m.matchType||'')+' '+(m.category||'')+' '+(m.name||'')).toLowerCase();if(txt.includes('football')||txt.includes('soccer'))return {ico:'⚽',label:'Football'};if(txt.includes('tennis'))return {ico:'🎾',label:'Tennis'};if(txt.includes('basketball'))return {ico:'🏀',label:'Basketball'};if(txt.includes('hockey'))return {ico:'🏑',label:'Hockey'};if(txt.includes('volleyball'))return {ico:'🏐',label:'Volleyball'};if(txt.includes('badminton'))return {ico:'🏸',label:'Badminton'};return {ico:'🏏',label:'Cricket'};}
-function teamNode(name,logo,side){const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');const labelName=name||'Team';let logoEl;if(logo){const img=document.createElement('img');img.src=logo;img.alt=labelName;img.loading='lazy';if(String(logo).toLowerCase().split('?')[0].includes('.svg'))img.classList.add('svg-logo');img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();wrap.appendChild(fb);};logoEl=img;}else{logoEl=document.createElement('div');logoEl.className='team-fallback';logoEl.textContent=labelName.trim().slice(0,2).toUpperCase();}const label=document.createElement('b');label.textContent=labelName;wrap.append(logoEl,label);return wrap;}
+function teamNode(name,logo,side){const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');const labelName=name||'Team';let logoEl;if(logo){const img=document.createElement('img');img.src=logo;img.alt=labelName;img.loading='lazy';if(String(logo).toLowerCase().split('?')[0].includes('.svg'))img.classList.add('svg-logo');img.onerror=function(){this.remove();const fb=document.createElement('div');fb.className='team-fallback';fb.textContent=labelName.trim().slice(0,2).toUpperCase();wrap.appendChild(fb);};logoEl=img;}else{logoEl=document.createElement('div');logoEl.className='team-fallback';logoEl.textContent=labelName.trim().slice(0,2).toUpperCase();}const label=document.createElement('b');label.textContent=labelName;if(side==='right'){wrap.append(label,logoEl);}else{wrap.append(logoEl,label);}return wrap;}
 function openMatch(m,idx){if(!m.url)return;try{localStorage.setItem('rslive_sports_match',JSON.stringify({name:m.name,streams:m.streams||[{stream_url:m.url}],savedAt:Date.now()}));}catch(e){}const params=new URLSearchParams({url:m.url,name:m.name,src:'Live Sports',group:m.matchType||m.category||'Sports',serial:String((idx||0)+1),fs:'1'});window.location.href='player.html?'+params.toString();}
 function openCh(u,n,s,g,serial){const params=new URLSearchParams({url:u,name:n,src:s,group:g,serial:String(serial||1),fs:'1'});window.location.href='player.html?'+params.toString();}
 function renderMatches(){const section=document.getElementById('matchesSection');const grid=document.getElementById('matchesGrid');const homeEmpty=document.getElementById('homeEmpty');if(!section||!grid)return;const q=getSearchQ();const visible=allMatches.map(normalizeMatch).filter(Boolean).filter(m=>getMatchState(m)!=='expired').filter(m=>!q||m.name.toLowerCase().includes(q));visible.sort((a,b)=>{const sa=getMatchState(a);const sb=getMatchState(b);if(sa!==sb)return sa==='live'?-1:1;return ((Date.parse(a.startTime||'')||0)-(Date.parse(b.startTime||'')||0));});const showMatches=(currentTab==='events'||!!q);section.style.display=(showMatches&&visible.length)?'block':'none';if(homeEmpty)homeEmpty.style.display=(currentTab==='events'&&!q&&visible.length===0)?'block':'none';const count=document.getElementById('matchesCount');if(count)count.textContent=visible.length?visible.length+' Matches':'';grid.replaceChildren();visible.forEach((m,idx)=>{const state=getMatchState(m);const card=document.createElement('article');card.className='match-card '+state;card.addEventListener('click',()=>{if(state==='live'&&m.url)openMatch(m,idx);});const top=document.createElement('div');top.className='match-top';const sport=getSportInfo(m);let typeTxt=m.matchType||m.category||'LIVE SPORTS';typeTxt=typeTxt.replace(/cricket\s*\|\s*/i,'').replace(/football\s*\|\s*/i,'').replace(/soccer\s*\|\s*/i,'');const sportEl=document.createElement('span');sportEl.className='sport-badge';sportEl.innerHTML=`<span class="sport-ico">${sport.ico}</span>${sport.label} <span class="sport-sep">|</span> <span class="sport-type">${typeTxt}</span>`;const bi=getBadgeInfo(m,state);const badge=document.createElement('span');badge.className='match-badge '+bi.cls;badge.textContent=bi.txt;top.append(sportEl,badge);const teams=document.createElement('div');teams.className='match-teams';const a=teamNode(m.teamA||m.name,m.teamALogo,'left');const vs=document.createElement('div');vs.className='match-vs';vs.innerHTML=`<span class="vs-txt">VS</span>`;const b=teamNode(m.teamB||'',m.teamBLogo,'right');teams.append(a,vs,b);const bottom=document.createElement('div');bottom.className='match-bottom';const time=document.createElement('div');time.className='match-time';time.textContent='Start: '+fmtMatchTime(m.startTime);if(state==='live'){const btn=document.createElement('button');btn.className='match-action live';btn.type='button';btn.textContent='Watch Live';btn.disabled=!m.url;if(!btn.disabled){btn.addEventListener('click',(e)=>{e.stopPropagation();openMatch(m,idx);});}bottom.append(time,btn);}else{const cd=document.createElement('div');cd.className='match-countdown';cd.innerHTML=`<small>STARTS IN</small>${matchCountdown(m)}`;bottom.append(time,cd);}card.append(top,teams,bottom);grid.appendChild(card);});}
