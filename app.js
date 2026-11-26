@@ -1,8 +1,9 @@
 /* =====================================================
-   RsLive Go - FINAL v22 - CLEAN
+   RsLive Go - FINAL v23 - CLEAN
+   Top Left: Sport Icon + Name (Cricket/Football)
+   UPCOMING: Center Above VS
+   Countdown: Small + Light
    Category: 3 Per Row, Box Card
-   Match: VS Time Removed, Countdown Right + Big
-   Proxy: Developer Only - No UI Switch
    ===================================================== */
 
 document.getElementById('app').innerHTML = `
@@ -41,11 +42,15 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-card.live{border-left:3px solid #ff3d5a}
 .match-card.upcoming{border-left:3px solid #f3a43b}
 .match-card:active{transform:scale(.98)}
-.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.sport-badge{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#fff}
+.sport-badge .sport-ico{font-size:13px;line-height:1}
 .match-badge{border-radius:20px;padding:3px 8px;font-size:9px;font-weight:900}
 .match-badge.live{background:#ff304e25;color:#ff6176;border:1px solid #ff304e44}
 .match-badge.upcoming{background:#f5a43b22;color:#ffc36b;border:1px solid #f5a43b44}
 .match-type{font-size:9px;color:#9b9db1;overflow:hidden;text-overflow:ellipsis}
+.match-status-center{text-align:center;margin:2px 0 8px}
+.match-status-center .match-badge{display:inline-block}
 .match-teams{display:grid;grid-template-columns:1fr 62px 1fr;align-items:center;gap:6px}
 .match-team{min-width:0;display:flex;align-items:center;gap:8px}
 .match-team.left{justify-content:flex-start;text-align:left;flex-direction:row}
@@ -62,8 +67,8 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .match-action{border:0;border-radius:20px;padding:7px 12px;font-family:inherit;font-size:10px;font-weight:900;color:#fff;background:linear-gradient(90deg,#e93658,#f07836);cursor:pointer;flex-shrink:0}
 .match-action.upcoming{background:#292c3d;border:1px solid #f5a43b55;color:#ffd08a}
 .match-action:disabled{opacity:.45;cursor:not-allowed}
-.match-countdown{display:block;color:#ffc36b;font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;text-align:right;line-height:1.4;white-space:nowrap}
-.match-countdown small{display:block;font-size:8px;font-weight:700;color:#8e91a8;letter-spacing:1px}
+.match-countdown{display:block;color:#c9a86a;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.4;white-space:nowrap;opacity:.85}
+.match-countdown small{display:block;font-size:8px;font-weight:600;color:#8e91a8;letter-spacing:1px;opacity:.8}
 #grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 12px}
 .card{background:#15151f;border:1px solid #262633;border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;overflow:hidden;min-width:0;min-height:56px;box-shadow:0 5px 14px rgba(0,0,0,.35)}
 .card:active{transform:scale(.97);border-color:#a78bfa}
@@ -210,8 +215,8 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v22 ================= */
-const CONFIG_VERSION = 'nova-v22-clean';
+/* ================= CONFIG - v23 ================= */
+const CONFIG_VERSION = 'nova-v23-clean';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
 /* CATEGORY LOGO - EKHANE CHANGE KORO */
@@ -315,6 +320,16 @@ function getMatchState(m){
 }
 function fmtMatchTime(v){const d=new Date(v);if(!Number.isFinite(d.getTime())) return 'Time Not Set';return d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});}
 function matchCountdown(m){const t=Date.parse(m.startTime||'');if(!Number.isFinite(t))return'';let sec=Math.max(0,Math.floor((t-Date.now())/1000));const days=Math.floor(sec/86400);sec%=86400;const hours=Math.floor(sec/3600);sec%=3600;const mins=Math.floor(sec/60);sec%=60;return ((days?days+'d ':'')+String(hours).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(sec).padStart(2,'0'));}
+function getSportInfo(m){
+  const txt = String((m.matchType||'')+' '+(m.category||'')+' '+(m.name||'')).toLowerCase();
+  if(txt.includes('football')||txt.includes('soccer')) return {ico:'⚽',label:'Football'};
+  if(txt.includes('tennis')) return {ico:'🎾',label:'Tennis'};
+  if(txt.includes('basketball')) return {ico:'🏀',label:'Basketball'};
+  if(txt.includes('hockey')) return {ico:'🏑',label:'Hockey'};
+  if(txt.includes('volleyball')) return {ico:'🏐',label:'Volleyball'};
+  if(txt.includes('badminton')) return {ico:'🏸',label:'Badminton'};
+  return {ico:'🏏',label:'Cricket'};
+}
 function teamNode(name,logo,side){
   const wrap=document.createElement('div');wrap.className='match-team '+(side||'left');
   const labelName=name||'Team';let logoEl;
@@ -356,10 +371,20 @@ function renderMatches(){
     const state=getMatchState(m);
     const card=document.createElement('article');card.className='match-card '+state;
     card.addEventListener('click',()=>{if(state==='live'&&m.url) openMatch(m,idx);});
+    // TOP: Left = Sport Icon + Name, Right = Tournament only
     const top=document.createElement('div');top.className='match-top';
+    const sport=getSportInfo(m);
+    const sportEl=document.createElement('span');sportEl.className='sport-badge';
+    sportEl.innerHTML=`<span class="sport-ico">${sport.ico}</span>${sport.label}`;
+    const type=document.createElement('span');type.className='match-type';
+    let typeTxt = m.matchType||m.category||'LIVE SPORTS';
+    typeTxt = typeTxt.replace(/cricket\s*\|\s*/i,'').replace(/football\s*\|\s*/i,'').replace(/soccer\s*\|\s*/i,'');
+    type.textContent=typeTxt;
+    top.append(sportEl,type);
+    // CENTER: UPCOMING / LIVE above VS
+    const statusCenter=document.createElement('div');statusCenter.className='match-status-center';
     const badge=document.createElement('span');badge.className='match-badge '+state;badge.textContent=state==='live'?'LIVE':'UPCOMING';
-    const type=document.createElement('span');type.className='match-type';type.textContent=m.matchType||m.category||'LIVE SPORTS';
-    top.append(badge,type);
+    statusCenter.appendChild(badge);
     const teams=document.createElement('div');teams.className='match-teams';
     const a=teamNode(m.teamA||m.name,m.teamALogo,'left');
     const vs=document.createElement('div');vs.className='match-vs';
@@ -377,7 +402,7 @@ function renderMatches(){
       cd.innerHTML=`<small>STARTS IN</small>${matchCountdown(m)}`;
       bottom.append(time,cd);
     }
-    card.append(top,teams,bottom);
+    card.append(top,statusCenter,teams,bottom);
     grid.appendChild(card);
   });
 }
