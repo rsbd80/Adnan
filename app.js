@@ -1,5 +1,6 @@
 /* =====================================================
-   RsLive Go - FINAL v16
+   RsLive Go - FINAL v17
+   Category: Circular + Box Shadow
    Header: No LIVE Pill - Search Always Visible
    Search: Any Tab -> Any Channel
    Category: Custom Logo Changeable
@@ -21,7 +22,6 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .logo-text .name{font-family:Poppins,sans-serif;font-size:22px;font-weight:900;line-height:1;letter-spacing:.2px}
 .logo-text .name i{font-style:normal;background:linear-gradient(90deg,#a78bfa,#22d3ee,#ff5d8f,#fb923c,#a78bfa);background-size:300%;background-clip:text;color:transparent;-webkit-background-clip:text}
 .logo-text .tag{font-size:7.5px;letter-spacing:3px;color:#9a9ab5;font-weight:700;margin-top:3px}
-/* Search - Sob Tab e Thakbe */
 #searchWrap{display:flex;position:relative;flex:1;min-width:0;max-width:170px;margin-left:auto}
 #searchWrap .s-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7;z-index:1}
 #search{width:100%;padding:9px 12px 9px 32px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-size:12px;outline:none;user-select:text;-webkit-user-select:text;transition:.2s}
@@ -73,13 +73,33 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .card .c-txt{flex:1;min-width:0}
 .card p{font-size:12px;margin:0;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word;font-weight:600}
 .card small{font-size:9px;color:#22d3ee;display:block;margin-top:2px}
-/* Category - 3 Column, Custom Logo */
-.cat-box{flex-direction:column !important;align-items:stretch !important;gap:0 !important;padding:0 !important;min-height:0 !important;overflow:hidden;position:relative;border:1px solid #ffffff22 !important;background:#111118}
-.cat-photo{width:100%;height:72px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1a2e,#2a1a3a);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.cat-photo img{width:100%;height:100%;object-fit:cover;opacity:.95}
-.cat-photo .cat-num{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);padding:3px 7px;border-radius:99px;font-size:8px;font-weight:800;z-index:2;border:1px solid #ffffff22}
-.cat-info{padding:9px 10px;width:100%}
-.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ===== CATEGORY - CIRCULAR + BOX SHADOW ===== */
+.cat-box{
+  flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;
+  gap:0 !important;padding:14px 6px 12px !important;
+  background:transparent !important;border:0 !important;box-shadow:none !important;
+  min-height:0 !important;overflow:visible !important;text-align:center;
+}
+.cat-box:active{transform:scale(.96)}
+.cat-photo{
+  width:76px;height:76px;min-width:76px;min-height:76px;
+  border-radius:50% !important;overflow:hidden;position:relative;flex-shrink:0;
+  background:linear-gradient(135deg,#1a1a2e,#2a1a3a);
+  border:2px solid rgba(255,255,255,.14);
+  box-shadow:0 8px 22px rgba(0,0,0,.65), 0 0 0 3px rgba(139,124,255,.12), inset 0 1px 0 rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.cat-photo img{width:100%;height:100%;object-fit:cover}
+.cat-photo .cat-emoji{font-size:30px;line-height:1}
+.cat-num{
+  position:absolute;bottom:-2px;right:-2px;
+  background:#000;border:1px solid rgba(255,255,255,.25);
+  padding:2px 6px;border-radius:99px;font-size:8px;font-weight:800;z-index:2;
+  box-shadow:0 4px 10px rgba(0,0,0,.6);
+  white-space:nowrap;
+}
+.cat-info{padding:9px 2px 0;width:100%;text-align:center}
+.cat-info b{font-size:12.5px;display:block;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 8px #000}
 .cat-info small{color:#22d3ee;font-size:9px}
 #homeEmpty{display:none;text-align:center;padding:30px 16px;color:#9a9ab5}
 #homeEmpty b{color:#fff;font-size:14px;display:block;margin-bottom:6px}
@@ -98,7 +118,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 .bnav.active .b-ico svg{stroke:#c4b5fd}
 .bnav.active .b-txt{color:#fff}
 #status{display:none !important}
-.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999}
+.tele{position:fixed;right:14px;bottom:108px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 8px 20px rgba(42,171,238,.4)}
 .tele svg{width:23px;height:23px;fill:#fff}
 #installBar{display:none;position:fixed;left:10px;right:10px;bottom:70px;z-index:998;background:#1a1a2e;border:1px solid #a78bfa77;border-radius:100px;padding:7px;align-items:center;gap:6px}
 #installBar .ib-txt{flex:1;text-align:center}
@@ -112,6 +132,7 @@ header:before{content:"";position:absolute;inset:0;background:radial-gradient(22
 #searchWrap{max-width:148px}
 #search{padding:9px 10px 9px 30px;font-size:12px}
 .header-top{gap:8px}
+.cat-photo{width:70px;height:70px;min-width:70px;min-height:70px}
 }
 @media(min-width:900px){
 body{display:block;overflow-y:auto}
@@ -132,6 +153,7 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 .match-card{padding:12px 14px}
 .match-team img,.team-fallback{width:48px;height:48px;min-width:48px}
 .match-team b{font-size:13px}
+.cat-photo{width:88px;height:88px;min-width:88px;min-height:88px}
 #bottomNav{max-width:480px;left:50%;transform:translateX(-50%);border-radius:16px 16px 0 0;padding:6px 8px}
 }
 @media(min-width:1300px){#grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -208,16 +230,11 @@ header{max-width:1440px;margin:auto;padding:18px 24px}
 </nav>
 `;
 
-/* ================= CONFIG - v16 ================= */
-const CONFIG_VERSION = 'nova-v16-search-everywhere';
+/* ================= CONFIG - v17 ================= */
+const CONFIG_VERSION = 'nova-v17-category-circular';
 const DEFAULT = { siteName:'RsLive Go', tagline:'LIVE TV • BANGLADESH', telegram:'https://t.me/RsLiveGo', searchPh:'Search...', statusText:'Total {count} Channels - RsLive Go', showLive:false, showTele:true, proxyUrl:'', notice:'', showNotice:false, featName:'', featUrl:'', showFeat:false, playlists:[] };
 
-/* =====================================================
-   CATEGORY LOGO - EKHANE CHANGE KORO
-   Example: Tapmad: 'https://i.ibb.co/xxxx/tapmad.jpg',
-   Khali rakhle prothom channel er logo asbe.
-   Key = Category Name (Tapmad, Sports, Toffee...)
-   ===================================================== */
+/* CATEGORY LOGO - EKHANE CHANGE KORO */
 const CATEGORY_IMAGES = {
   Tapmad: '',
   Sports: '',
@@ -257,8 +274,6 @@ let categoryHomeMode=false;
 const MATCH_INDEX_URL='/data/matches/index.json';
 function goHome(){ switchTab('events'); }
 function getSearchQ(){ return (document.getElementById('search')?.value||'').trim().toLowerCase(); }
-
-/* Search sob tab e thakbe - LIVE pill nai, tai updateHeader er dorkar nai */
 function switchTab(tab){
   currentTab=tab;
   categoryHomeMode = (tab==='category');
@@ -461,7 +476,6 @@ function catIcon(c){
   for(const k in icons){ if(normName(k)===n) return icons[k]; }
   return '📺';
 }
-/* Category Logo - Custom > First Channel Logo > Fallback */
 function getCategoryImage(c){
   for(const k in CATEGORY_IMAGES){
     if(normName(k)===normName(c) && CATEGORY_IMAGES[k]) return CATEGORY_IMAGES[k];
@@ -511,8 +525,8 @@ function renderCategoryHome(){
     box.className='card cat-box';
     box.innerHTML=`
       <div class="cat-photo">
-        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.remove()">` : `<span style="font-size:28px">${catIcon(c)}</span>`}
-        <span class="cat-num">${catCount(c)} Channels</span>
+        ${photo ? `<img src="${photo}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'cat-emoji\\'>${catIcon(c)}</span>'">` : `<span class="cat-emoji">${catIcon(c)}</span>`}
+        <span class="cat-num">${catCount(c)}</span>
       </div>
       <div class="cat-info"><b>${c}</b><small>View →</small></div>
     `;
@@ -526,7 +540,6 @@ function renderGrid(reset=true){
   const wrap=document.getElementById('loadMoreWrap');
   const feat=document.getElementById('featured');
   const q=getSearchQ();
-  /* Search thakle - Jekono Tab theke Jekono Channel */
   if(q){
     grid.style.display='grid';
     grid.style.gridTemplateColumns='';
