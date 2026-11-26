@@ -1,8 +1,9 @@
-/* RsLive Go - Secure SW + PWA + Per Playlist Proxy - FINAL v19 */
+/* RsLive Go - Secure SW + PWA + Per Playlist Proxy - FINAL v20 */
 const CACHE_NAME = 'rslive-v6-pwa';
 const CORE_ASSETS = ['/', '/index.html', '/player.html', '/manifest.json'];
 const PROXY_BASE = 'https://stream-through-spark.lovable.app/api/proxy?u=';
 
+/* 👇 Proxy কন্ট্রোল শুধু এখান থেকে - Developer Only */
 let PROXY_MAP = {
   'Tapmad': false,
   'Sports': true,
@@ -23,7 +24,6 @@ const _P = [
   { n: 'India', u: 'aHR0cHM6Ly9pcHR2LW9yZy5naXRodWIuaW8vaXB0di9jb3VudHJpZXMvaW4ubTN1', p: 0 }
 ];
 
-// 👇 Base64 হলে decode করবে, সরাসরি http লিংক হলে ওইটাই নিবে
 function _d(s){
   if(!s) return '';
   if(s.startsWith('http')) return s;
