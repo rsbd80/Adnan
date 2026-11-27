@@ -1,7 +1,7 @@
 
 {
   "name": "New Zealand vs India",
-  "matchType": "Cricket | New Zealand vs India Live Stream | 2nd Test",
+  "matchType": "Cricket | India tour of New Zealand | 2nd Test",
   "status": "live",
   "startTime": "2026-11-27T04:00:00+06:00",
   "endTime": "2026-11-27T21:00:00+06:00",
@@ -12,7 +12,7 @@
   "streams": [
     {
       "label": "Server 1",
-      "stream_url": "https://tvsen5.aynaott.com/TnMn5kZz8/index.m3u8"
+      "stream_url": "http://live.ftpbdlive.com:8080/live/FTPBD-LIVETV/FTPBD-2026/15.m3u8"
     }
   ]
 }
