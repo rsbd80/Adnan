@@ -12,6 +12,12 @@
 <meta name="apple-mobile-web-app-title" content="RsLive Go">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/bJQ17GyN/20261123-224246.png">
+<link rel="icon" href="https://i.postimg.cc/bJQ17GyN/20261123-224246.png">
+<meta name="description" content="RsLive Go - Live TV, Live Cricket, Football, All Channels Free">
+<meta name="author" content="RsLive Go">
+<meta property="og:title" content="RsLive Go - Live TV">
+<meta property="og:description" content="RsLive Go - Live TV">
+<meta property="og:image" content="https://i.postimg.cc/bJQ17GyN/20261123-224246.png">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFG156QL5T"></script>
 <script>
@@ -23,10 +29,144 @@
 <!-- Google Analytics End -->
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
 html,body{height:100%;overflow-x:hidden;width:100%;background:#07070f;color:#fff;font-family:'Hind Siliguri',sans-serif}
 #app{min-height:100vh}
+img{pointer-events:none;-webkit-user-drag:none;user-drag:none}
 </style>
+<script>
+// ============ RsLive Go - HARD SECURITY + KICK OUT ============
+(function(){
+  "use strict";
+  const SITE_NAME = "RsLive Go";
+  const HOME = "https://rslivego.pages.dev";
+
+  // 1. Kick Out Function
+  function kickOut(reason){
+    try{
+      document.documentElement.innerHTML = "";
+      document.body.innerHTML = '<div style="background:#000;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:sans-serif;text-align:center;padding:20px"><h1 style="font-size:22px">RsLive Go</h1><p style="margin-top:10px;color:#aaa;font-size:13px">Security Violation Detected<br>Access Blocked</p></div>';
+    }catch(e){}
+    try{ window.stop(); }catch(e){}
+    try{
+      // Back + Kick
+      window.location.replace("about:blank");
+      setTimeout(()=>{ window.location.href = "https://www.google.com"; }, 300);
+    }catch(e){}
+    // বার বার Kick
+    setTimeout(()=>{ document.body.innerHTML=""; }, 50);
+  }
+  window.__RsLiveGo_Kick = kickOut;
+
+  // 2. Iframe এ আটকানো - অন্য সাইটে Embed করলে Kick
+  try{
+    if(window.top !== window.self){
+      kickOut("iframe");
+    }
+  }catch(e){ kickOut("iframe-block"); }
+
+  // 3. Right Click / Copy / Cut / Paste / Drag / Select / Long Press Block
+  document.addEventListener('contextmenu', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('copy', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('cut', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('paste', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('dragstart', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('selectstart', e => { e.preventDefault(); return false; }, true);
+  document.addEventListener('mousedown', e => { if(e.button === 2) e.preventDefault(); }, true);
+
+  // 4. Keyboard Shortcut Block - F12, Ctrl+U, Ctrl+Shift+I/J/C, Ctrl+S, Ctrl+P, Ctrl+A
+  document.addEventListener('keydown', e => {
+    const k = e.key.toUpperCase();
+    if(e.key === 'F12' ||
+       (e.ctrlKey && ['U','S','P','A','C','X'].includes(k)) ||
+       (e.ctrlKey && e.shiftKey && ['I','J','C','K','M'].includes(k)) ||
+       (e.metaKey && ['U','S','I','J','C'].includes(k))
+    ){
+      e.preventDefault();
+      e.stopPropagation();
+      kickOut("shortcut");
+      return false;
+    }
+    // Print Screen
+    if(e.key === 'PrintScreen'){ e.preventDefault(); kickOut("screenshot"); }
+  }, true);
+
+  // 5. DevTools Detect - Size Difference
+  let devtoolsOpen = false;
+  function checkDevTools(){
+    const wDiff = Math.abs(window.outerWidth - window.innerWidth);
+    const hDiff = Math.abs(window.outerHeight - window.innerHeight);
+    const threshold = 160;
+    if(wDiff > threshold || hDiff > threshold){
+      if(!devtoolsOpen){
+        devtoolsOpen = true;
+        kickOut("devtools-size");
+      }
+    }
+  }
+  setInterval(checkDevTools, 500);
+
+  // 6. DevTools Detect - Console Trick
+  let consoleOpened = false;
+  const element = new Image();
+  Object.defineProperty(element, 'id', {
+    get: function(){
+      if(!consoleOpened){
+        consoleOpened = true;
+        kickOut("devtools-console");
+      }
+    }
+  });
+  setInterval(()=>{ consoleOpened = false; console.log(element); console.clear(); }, 1000);
+
+  // 7. Debugger Trap - DevTools খুললেই আটকাবে
+  setInterval(()=>{
+    const start = performance.now();
+    debugger;
+    const end = performance.now();
+    if(end - start > 100){
+      kickOut("debugger");
+    }
+  }, 1500);
+
+  // 8. Console Clear + Warning
+  setInterval(()=>{ try{ console.clear(); }catch(e){} }, 2000);
+  console.log("%cRsLive Go%c STOP! %cThis is Protected.", "background:#07070f;color:#fff;padding:5px 10px;border-radius:5px 0 0 5px", "background:#ff0000;color:#fff;padding:5px 10px", "background:#fff;color:#000;padding:5px 10px;border-radius:0 5px 5px 0");
+
+  // 9. View Source / Inspect URL Block
+  if(location.protocol === 'view-source:' || location.href.includes('view-source:')){
+    kickOut("view-source");
+  }
+
+  // 10. Title সব সময় RsLive Go থাকবে
+  document.title = "RsLive Go - Live TV";
+  setInterval(()=>{ if(document.title !== "RsLive Go - Live TV") document.title = "RsLive Go - Live TV"; }, 1000);
+
+  // 11. Right Click Long Press Mobile Block
+  document.addEventListener('touchstart', e => {
+    if(e.touches.length > 1) e.preventDefault();
+  }, {passive:false});
+  let lastTouch = 0;
+  document.addEventListener('touchend', e => {
+    const now = Date.now();
+    if(now - lastTouch <= 300) e.preventDefault();
+    lastTouch = now;
+  }, false);
+
+  // 12. Disable Eruda / VConsole জাতীয় Tool
+  try{
+    Object.defineProperty(window, 'eruda', { get: ()=>{ kickOut("eruda"); return undefined; } });
+  }catch(e){}
+
+  // 13. Page Hide হলে App.js Reload Protection
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden){
+      try{ console.clear(); }catch(e){}
+    }
+  });
+
+})();
+</script>
 </head>
 <body>
 <div id="app"></div>
