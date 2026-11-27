@@ -129,13 +129,11 @@ video::-webkit-media-controls{display:none!important}
 #container-cdeccdd75d3e2e6916a42ce9653cfb08{width:100%!important;max-width:100%!important}
 .ad-note{text-align:center;font-size:11px;color:#666;margin:14px 0 22px}
 .ad-note b{color:#a78bfa}
-#blockScreen{display:none;position:fixed;inset:0;background:#07070f;z-index:99999;align-items:center;justify-content:center;text-align:center;padding:30px}
 @media(min-width:900px){.main-layout{display:flex;gap:16px;align-items:flex-start;padding:0 14px;max-width:1400px;margin:0 auto}.player-col{flex:1;min-width:0}#player-wrapper{width:100%;margin:12px 0 0}.suggest{width:330px;flex-shrink:0;margin:12px 0 0;background:#111118;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:12px 0 8px;position:sticky;top:62px;max-height:calc(100vh - 80px);display:flex;flex-direction:column}.suggest-head{padding:0 12px 12px}.suggest-head h3{font-size:13px}.suggest-head a{font-size:12px}.suggest-grid{display:flex;flex-direction:column;overflow-x:hidden;overflow-y:auto;padding:0 10px 10px;scroll-snap-type:none;gap:8px;flex:1}.suggest-grid::-webkit-scrollbar{display:block;width:5px}.suggest-grid::-webkit-scrollbar-thumb{background:#333;border-radius:10px}.sug-card{flex:none;width:100%;height:62px;flex-direction:row;align-items:center;justify-content:flex-start;text-align:left;padding:8px 10px;gap:10px;border-radius:14px}.sug-card:hover{transform:translateX(-3px)}.sug-card img{width:42px;height:42px;min-height:42px;margin:0}.sug-card .sug-txt{flex:1;min-width:0;text-align:left;display:flex;flex-direction:column;justify-content:center}.sug-card p{margin:0;font-size:13px;text-align:left}.sug-card small{margin-top:2px;font-size:10px;text-align:left}.sug-card .sug-play{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,#22d3ee,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff}.sug-skel{flex:none;width:100%;height:62px}.ad-wrap{max-width:1400px;margin-left:auto;margin-right:auto}}
 @media(min-width:1300px){.suggest{width:380px}}
 </style>
 </head>
 <body>
-<div id="blockScreen"><div><div style="font-size:50px">🔒</div><h2 style="margin:12px 0">Security Alert</h2><p style="color:#aaa">DevTools বন্ধ করে আবার ঢুকো<br>RsLive Go Protected</p><button onclick="location.reload()" style="margin-top:16px;padding:10px 20px;border:none;border-radius:10px;background:linear-gradient(90deg,#22d3ee,#a78bfa);font-weight:800">Reload</button></div></div>
 <div class="topbar"><div class="brand" onclick="goHome()"><div class="play-ico">▶</div><div class="brand-text"><div class="pg">RsLive <i>Go</i></div><div class="tag">LIVE TV</div></div></div><div class="divider"></div><div style="min-width:0;flex:1"><div id="chName">RsLive Go</div><div id="chSub">● <b>Now Playing</b> • HD Live</div></div><div class="live-pill"><i></i> LIVE</div></div>
 <div class="main-layout"><div class="player-col"><div id="player-wrapper"><div id="loader"><div class="tuner"><div class="tv-wrap"><div class="tv-glow"></div><svg class="tv-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path class="tv-body" d="M22 12 32 20 42 12"/><clipPath id="screenClip"><rect x="12" y="20" width="40" height="26" rx="4"/></clipPath><g class="screen-bars" clip-path="url(#screenClip)"><rect x="12" y="20" width="8" height="26"/><rect x="20" y="20" width="8" height="26"/><rect x="28" y="20" width="8" height="26"/><rect x="36" y="20" width="8" height="26"/><rect x="44" y="20" width="8" height="26"/></g><rect class="tv-body" x="12" y="20" width="40" height="26" rx="4"/><line class="tv-body" x1="24" y1="46" x2="24" y2="50"/><line class="tv-body" x1="40" y1="46" x2="40" y2="50"/><line class="tv-body" x1="20" y1="50" x2="44" y2="50"/></svg></div><div class="brand-name"><b>RsLive</b> <i>Go</i></div><div class="dots"><span></span><span></span><span></span></div><div class="status-line" id="status-line">LOADING</div></div></div><div id="player"></div><div id="tapPlay"><div class="tp-btn">▶</div><p>চালু করতে ট্যাপ করো</p><small>এই ফোনে ব্রাউজার সাউন্ড ব্লক করছে</small></div><div id="qualityMenu"><div class="q-head"><svg class="sig-ico" viewBox="0 0 24 24"><rect x="2" y="16" width="3.5" height="6" rx="1"/><rect x="7" y="12" width="3.5" height="10" rx="1"/><rect x="12" y="8" width="3.5" height="14" rx="1"/><rect x="17" y="4" width="3.5" height="18" rx="1"/></svg> QUALITY</div><div id="qList"></div></div><div id="controls"><button id="muteBtn" title="Sound"><svg class="ctrl-ico" id="muteIco" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line id="muteLine1" x1="23" y1="9" x2="17" y2="15" style="display:none"/><line id="muteLine2" x1="17" y1="9" x2="23" y2="15" style="display:none"/><path id="muteWave" d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></button><button id="playBtn">▶</button><input type="range" id="seek" value="0" min="0" max="100"><span id="lowBadge">LOW</span><span id="time-label">LIVE</span><button id="settingsBtn" title="Quality"><svg class="sig-ico" viewBox="0 0 24 24"><rect x="2" y="16" width="3.5" height="6" rx="1"/><rect x="7" y="12" width="3.5" height="10" rx="1"/><rect x="12" y="8" width="3.5" height="14" rx="1"/><rect x="17" y="4" width="3.5" height="18" rx="1"/></svg></button><button id="fsBtn">⛶</button></div></div></div><div class="suggest"><div class="suggest-head"><h3><span class="suggest-ico">🔴</span><span id="suggestTitle">তুমি আরো দেখতে পারো</span></h3><a href="index.html"><span class="arrow-ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>সব দেখো</a></div><div class="suggest-grid" id="suggestGrid"><div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div><div class="sug-skel"></div></div></div></div>
 <div class="ad-wrap"><div class="ad-label">ADVERTISEMENT</div><div class="ad-box"><div id="container-cdeccdd75d3e2e6916a42ce9653cfb08"></div></div></div>
@@ -303,7 +301,36 @@ setTimeout(function(){if(!everPlayed&&!triedProxy&&canUseProxy&&!(/\.mpd/i.test(
 }
 </script>
 <script>
-(function(){if(window.top!==window.self){try{window.top.location=window.self.location;}catch(e){document.body.innerHTML='';}}document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});document.addEventListener('copy',function(e){e.preventDefault();return false;});document.addEventListener('cut',function(e){e.preventDefault();return false;});document.addEventListener('dragstart',function(e){e.preventDefault();return false;});document.addEventListener('keydown',function(e){var k=e.key.toUpperCase();if(e.key==='F12'||(e.ctrlKey&&['U','S','P','C','A'].indexOf(k)!==-1)||(e.ctrlKey&&e.shiftKey&&['I','J','C','K'].indexOf(k)!==-1)||(e.metaKey&&['U','S','I'].indexOf(k)!==-1)){e.preventDefault();e.stopPropagation();return false;}},true);console.log('%cRsLive Go Protected','color:#a78bfa;font-size:18px;font-weight:bold');})();
+// RsLive Go - ONLY KICK OUT
+(function(){
+  "use strict";
+  function kickOut(){
+    try{ document.documentElement.innerHTML=""; document.body.innerHTML=""; }catch(e){}
+    try{ window.stop(); }catch(e){}
+    try{ window.location.replace("about:blank"); setTimeout(()=>{ window.location.href="https://www.google.com"; },200); }catch(e){}
+  }
+  try{ if(window.top !== window.self){ kickOut(); } }catch(e){ kickOut(); }
+  document.addEventListener('keydown', function(e){
+    var k = e.key.toUpperCase();
+    if(e.key === 'F12' || (e.ctrlKey && ['U','I'].indexOf(k) !== -1) || (e.ctrlKey && e.shiftKey && ['I','J','C'].indexOf(k) !== -1)){
+      e.preventDefault(); kickOut();
+    }
+  }, true);
+  let kicked = false;
+  setInterval(function(){
+    var wDiff = Math.abs(window.outerWidth - window.innerWidth);
+    var hDiff = Math.abs(window.outerHeight - window.innerHeight);
+    if((wDiff > 160 || hDiff > 160) && !kicked){ kicked = true; kickOut(); }
+  }, 600);
+  let consoleKicked = false;
+  const el = new Image();
+  Object.defineProperty(el, 'id', { get: function(){ if(!consoleKicked){ consoleKicked = true; kickOut(); } } });
+  setInterval(function(){ consoleKicked = false; console.log(el); console.clear(); }, 1200);
+  setInterval(function(){
+    const s = performance.now(); debugger; const e = performance.now();
+    if(e - s > 100) kickOut();
+  }, 1500);
+})();
 </script>
 </body>
 </html>
