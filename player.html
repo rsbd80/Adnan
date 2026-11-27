@@ -216,7 +216,6 @@ if(IS_TOUCH){wrapper.addEventListener('touchend',handleTap,{passive:false});wrap
 wrapper.addEventListener('mousemove',showControls);
 function cleanName(name){return String(name||'').replace(/\(.*?\)/g,'').replace(/\[.*?\]/g,'').replace(/HD|FHD|4K|1080p|720p/gi,'').replace(/\s+/g,' ').trim();}
 function makeProxyUrl(original){if(!original)return original;if(original.indexOf(PROXY)===0)return original;return PROXY+encodeURIComponent(original);}
-// ---- QUALITY SYSTEM: Auto + All Resolutions ----
 let selectedQuality=-1;
 let availableHeights=[];
 try{var sq=parseInt(localStorage.getItem('rslive_quality')||'-1');if(!isNaN(sq))selectedQuality=sq;}catch(e){}
@@ -301,35 +300,21 @@ setTimeout(function(){if(!everPlayed&&!triedProxy&&canUseProxy&&!(/\.mpd/i.test(
 }
 </script>
 <script>
-// RsLive Go - ONLY KICK OUT
+// RsLive Go - SAFE KICK OUT - Mobile এ Kick করবে না
 (function(){
-  "use strict";
   function kickOut(){
-    try{ document.documentElement.innerHTML=""; document.body.innerHTML=""; }catch(e){}
-    try{ window.stop(); }catch(e){}
+    try{ document.body.innerHTML=""; }catch(e){}
     try{ window.location.replace("about:blank"); setTimeout(()=>{ window.location.href="https://www.google.com"; },200); }catch(e){}
   }
-  try{ if(window.top !== window.self){ kickOut(); } }catch(e){ kickOut(); }
+  const isDesktop = window.innerWidth > 768 && !/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
+  if(!isDesktop) return;
+  try{ if(window.top !== window.self) kickOut(); }catch(e){ kickOut(); }
   document.addEventListener('keydown', function(e){
     var k = e.key.toUpperCase();
-    if(e.key === 'F12' || (e.ctrlKey && ['U','I'].indexOf(k) !== -1) || (e.ctrlKey && e.shiftKey && ['I','J','C'].indexOf(k) !== -1)){
+    if(e.key==='F12' || (e.ctrlKey && ['U'].indexOf(k)!==-1) || (e.ctrlKey && e.shiftKey && ['I','J','C'].indexOf(k)!==-1)){
       e.preventDefault(); kickOut();
     }
   }, true);
-  let kicked = false;
-  setInterval(function(){
-    var wDiff = Math.abs(window.outerWidth - window.innerWidth);
-    var hDiff = Math.abs(window.outerHeight - window.innerHeight);
-    if((wDiff > 160 || hDiff > 160) && !kicked){ kicked = true; kickOut(); }
-  }, 600);
-  let consoleKicked = false;
-  const el = new Image();
-  Object.defineProperty(el, 'id', { get: function(){ if(!consoleKicked){ consoleKicked = true; kickOut(); } } });
-  setInterval(function(){ consoleKicked = false; console.log(el); console.clear(); }, 1200);
-  setInterval(function(){
-    const s = performance.now(); debugger; const e = performance.now();
-    if(e - s > 100) kickOut();
-  }, 1500);
 })();
 </script>
 </body>
