@@ -1,13 +1,13 @@
 
 {
-  "name": "Sri Lanka A vs India A",
-  "matchType": "Cricket | Asia Cup | ODI",
+  "name": "New Zealand vs India",
+  "matchType": "Cricket | New Zealand vs India Live Stream | 2nd Test",
   "status": "live",
-  "startTime": "2026-11-26T16:00:00+06:00",
-  "endTime": "2026-11-26T23:00:00+06:00",
-  "teamA": "Sri Lanka A",
-  "teamB": "India A",
-  "teamALogo": "https://flagcdn.com/w320/lk.png",
+  "startTime": "2026-11-27T04:00:00+06:00",
+  "endTime": "2026-11-27T21:00:00+06:00",
+  "teamA": "New Zealand",
+  "teamB": "India",
+  "teamALogo": "https://flagcdn.com/w320/nz.png",
   "teamBLogo": "https://flagcdn.com/w320/in.png",
   "streams": [
     {
